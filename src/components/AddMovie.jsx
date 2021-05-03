@@ -43,17 +43,46 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  handleClick = () => {
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    // onClick({
+    //   title,
+    //   subtitle,
+    //   imagePath,
+    //   storyline,
+    //   rating,
+    //   genre,
+    // });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
         <TextInput title={ title } handleValue={ this.handleValue } />
         <SubtitleInput subtitle={ subtitle } handleSubValue={ this.handleSubValue } />
         <ImageInput imagePath={ imagePath } handleImage={ this.handleImage } />
         <StorylineInput storyline={ storyline } handleStory={ this.handleStory } />
         <RatingInput rating={ rating } handleRating={ this.handleRating } />
         <GenderSelect genre={ genre } handleGenre={ this.handleGenre } />
-        <button type="submit" data-testid="send-button">Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
