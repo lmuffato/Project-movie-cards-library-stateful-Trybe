@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { inputs } from '../libs/data';
+import PropTypes from 'prop-types';
+
+import { inputs, initialStateAddMovie } from '../libs/data';
 import Label from './Label';
 
 class AddMovie extends Component {
@@ -8,6 +10,7 @@ class AddMovie extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -21,6 +24,14 @@ class AddMovie extends Component {
 
   handleChange({ target: { name, value } }) {
     this.setState({ [name]: value });
+  }
+
+  handleClick() {
+    const { props: { onClick } } = this;
+    onClick(this.state);
+    this.setState({
+      ...initialStateAddMovie,
+    });
   }
 
   render() {
@@ -41,9 +52,17 @@ class AddMovie extends Component {
             />
           );
         })}
+
+        <button type="button" data-testid="send-button" onClick={ this.handleClick }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

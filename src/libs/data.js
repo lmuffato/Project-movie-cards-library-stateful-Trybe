@@ -39,6 +39,15 @@ const moviesAddMovie = [
   },
 ];
 
+const initialStateAddMovie = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 const inputs = {
   SearchBar: {
     inputText: {
@@ -152,4 +161,4 @@ const tags = {
   select: 'select',
 };
 
-export { kindOfMovies, inputs, tags, moviesAddMovie };
+export { kindOfMovies, inputs, tags, moviesAddMovie, initialStateAddMovie };
