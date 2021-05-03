@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.clearButton = this.clearButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -19,6 +21,19 @@ class AddMovie extends React.Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  clearButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -129,9 +144,20 @@ class AddMovie extends React.Component {
         {this.createTextArea()}
         {this.createRating()}
         {this.createGenre()}
+        <button
+          data-testid="send-button"
+          onClick={ this.clearButton }
+          type="button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = ({
+  onClick: PropTypes.func,
+}).isRequired;
 
 export default AddMovie;
