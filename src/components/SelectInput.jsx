@@ -2,22 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function SelectInput(props) {
-  const { value, onChange } = props;
+  const {
+    label,
+    value,
+    onChange,
+    options,
+    selectTestID,
+    labelTestID,
+    optionTestID,
+    name,
+  } = props;
 
   return (
-    <label htmlFor="select-input" data-testid="select-input-label">
-      Filtrar por gênero
+    <label htmlFor="select-input" data-testid={ labelTestID }>
+      {label}
 
       <select
-        name="select-input"
+        name={ name }
         value={ value }
         onChange={ onChange }
-        data-testid="select-input"
+        data-testid={ selectTestID }
       >
-        <option value="" data-testid="select-option">Todos</option>
-        <option value="action" data-testid="select-option">Ação</option>
-        <option value="comedy" data-testid="select-option">Comédia</option>
-        <option value="thriller" data-testid="select-option">Suspense</option>
+        {options && options.map((item) => (
+          <option
+            key={ item.value }
+            data-testid={ optionTestID }
+            value={ item.value }
+          >
+            {item.name}
+
+          </option>))}
       </select>
     </label>
   );
@@ -25,7 +39,13 @@ function SelectInput(props) {
 
 SelectInput.propTypes = {
   value: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectTestID: PropTypes.string.isRequired,
+  labelTestID: PropTypes.string.isRequired,
+  optionTestID: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default SelectInput;
