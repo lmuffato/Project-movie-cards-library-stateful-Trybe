@@ -35,7 +35,7 @@ const subtitleMagical = 'Magical subtitle';
 const inputStoryline = 'The boy who lived.';
 
 beforeEach(() => {
-  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={ onClick } />);
+  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={onClick} />);
   form = queryAllByTestId('add-movie-form');
   titleInput = queryByTestId('title-input');
   titleInputLabel = queryByTestId('title-input-label');
@@ -55,7 +55,7 @@ beforeEach(() => {
 
 describe('6 - Crie um componente chamado `<AddMovie />`', () => {
   it('Renderize o componente', () => {
-    render(<AddMovie onClick={ () => jest.fn() } />);
+    render(<AddMovie onClick={() => jest.fn()} />);
   });
 });
 

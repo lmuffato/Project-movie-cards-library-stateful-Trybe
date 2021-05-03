@@ -36,12 +36,12 @@ describe('Verifica o componente <MovieList />', () => {
   ];
 
   it('Renderize o componente', () => {
-    render(<MovieList movies={ movies } />);
+    render(<MovieList movies={movies} />);
   });
 
   it('Renderize um componente `<MovieCard />` para cada filme passado como prop', () => {
     const expectedLength = 3;
-    const { getAllByTestId } = render(<MovieList movies={ movies } />);
+    const { getAllByTestId } = render(<MovieList movies={movies} />);
     const movieCards = getAllByTestId('movie-card');
 
     expect(movieCards).toHaveLength(expectedLength);
