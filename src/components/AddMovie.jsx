@@ -15,8 +15,16 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <h1>aaa</h1>
+      <h1>
+        { subtitle }
+        { title }
+        { imagePath }
+        { storyline }
+        { rating }
+        { genre }
+      </h1>
     );
   }
 }
