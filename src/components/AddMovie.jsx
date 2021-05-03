@@ -7,9 +7,9 @@ class AddMovie extends Component {
     this.state = {
       subtitle: '',
       title: '',
-      // imagePath: '',
-      // storyline: '',
-      // rating: 0,
+      imagePath: '',
+      storyline: '',
+      rating: 0,
       // genre: 'action',
     };
   }
@@ -20,36 +20,52 @@ class AddMovie extends Component {
     });
   }
 
+  makeInput = (type, name, value, testId) => (
+    <input
+      type={ type }
+      name={ name }
+      value={ value }
+      onChange={ this.handleValue }
+      data-testid={ testId }
+      id={ testId }
+    />
+  );
+
   render() {
     // const {
     //   onClick,
     // } = this.props;
 
-    const { title, subtitle } = this.state;
+    const {
+      title, subtitle, imagePath, storyline, rating } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="inputTitle" data-testid="title-input-label">
+        <label htmlFor="title-input" data-testid="title-input-label">
           Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
+          { this.makeInput('text', 'title', title, 'title-input') }
+        </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          { this.makeInput('text', 'subtitle', subtitle, 'subtitle-input') }
+        </label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          { this.makeInput('text', 'imagePath', imagePath, 'image-input') }
+        </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            value={ storyline }
             onChange={ this.handleValue }
-            data-testid="title-input"
-            id="inputTitle"
+            data-testid="storyline-input"
+            id="storyline-input"
           />
         </label>
-        <label htmlFor="inputSubtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.handleValue }
-            data-testid="subtitle-input"
-            id="inputSubtitle"
-          />
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          { this.makeInput('number', 'rating', rating, 'rating-input') }
         </label>
       </form>
     );
