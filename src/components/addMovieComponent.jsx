@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 
 class AddMovieComponent extends Component {
   render() {
-    const { id,
-      value,
+    const { value,
       dataTestidlabel,
       dataTestidInput,
       onChange,
-      text } = this.props;
+      text,
+      name } = this.props;
     return (
-      <label data-testid={ dataTestidlabel } htmlFor={ id }>
+      <label data-testid={ dataTestidlabel } htmlFor="input">
         { text }
         <input
+          name={ name }
           type="textarea"
-          id={ id }
+          id="input"
           value={ value }
           data-testid={ dataTestidInput }
           onChange={ onChange }
@@ -25,8 +26,8 @@ class AddMovieComponent extends Component {
 }
 
 AddMovieComponent.propTypes = {
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
   dataTestidInput: PropTypes.string.isRequired,
   dataTestidlabel: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
