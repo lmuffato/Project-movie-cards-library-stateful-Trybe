@@ -18,6 +18,7 @@ function App() {
       onSelectedGenreChange={console.log}
       />
       <MovieList movies={data} />
+      
     </div>
   );
 }
