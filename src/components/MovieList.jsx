@@ -11,12 +11,12 @@ class MovieList extends React.Component {
       <div>
         <div>
           <SearchBar
-            searchText={"string"}
-            onSearchTextChange={"callback"}
-            bookmarkedOnly={"boolean"}
-            onBookmarkedChange={"callback"}
-            selectedGenre={"string"}
-            onSelectedGenreChange={"uma callback"}
+            searchText="string"
+            onSearchTextChange="callback"
+            bookmarkedOnly="boolean"
+            onBookmarkedChange="callback"
+            selectedGenre="string"
+            onSelectedGenreChange="uma callback"
           />
         </div>
 
