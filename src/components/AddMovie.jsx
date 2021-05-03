@@ -1,5 +1,6 @@
 import React from 'react';
 import Inputs from './InputsText';
+import Select from './Select';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -10,7 +11,7 @@ export default class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -23,7 +24,7 @@ export default class AddMovie extends React.Component {
   };
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     console.log(rating);
 
     return (
@@ -57,6 +58,7 @@ export default class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <Select genre={ genre } handleChange={ this.handleChange } />
       </form>
     );
   }
