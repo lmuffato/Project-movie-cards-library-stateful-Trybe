@@ -14,6 +14,14 @@ class AddMovie extends React.Component {
     super(props);
     this.state = initialState;
     this.handleTitle = this.handleTitle.bind(this);
+    this.createTitleInput = this.createTitleInput.bind(this);
+    this.createSubtitleInput = this.createSubtitleInput.bind(this);
+    this.createImageInput = this.createImageInput.bind(this);
+    this.createStorylineInput = this.createStorylineInput.bind(this);
+    this.createRatingInput = this.createRatingInput.bind(this);
+    this.createGenreInput = this.createGenreInput.bins(this);
+    this.addMovie = this.addMovie.bins(this);
+    this.createButton = this.createButton.bins(this);
   }
 
   handleTitle(event) {
