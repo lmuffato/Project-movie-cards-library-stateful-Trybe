@@ -32,6 +32,7 @@ const inputs = {
       input: {
         'data-testid': 'text-input',
         type: 'text',
+        tag: 'input',
       },
     },
     inputCheckbox: {
@@ -43,6 +44,7 @@ const inputs = {
       input: {
         'data-testid': 'checkbox-input',
         type: 'checkbox',
+        tag: 'input',
       },
     },
   },
@@ -57,6 +59,7 @@ const inputs = {
         'data-testid': 'title-input',
         type: 'text',
         name: 'title',
+        tag: 'input',
       },
     },
     inputSubtitle: {
@@ -69,6 +72,7 @@ const inputs = {
         'data-testid': 'subtitle-input',
         type: 'text',
         name: 'subtitle',
+        tag: 'input',
       },
     },
     inputImage: {
@@ -81,6 +85,7 @@ const inputs = {
         'data-testid': 'image-input',
         type: 'text',
         name: 'imagePath',
+        tag: 'input',
       },
     },
     inputNumber: {
@@ -91,10 +96,42 @@ const inputs = {
       },
       input: {
         'data-testid': 'rating-input',
-        type: 'text',
+        type: 'number',
         name: 'rating',
+        tag: 'input',
+      },
+    },
+    textaArea: {
+      label: {
+        testId: 'storyline-input-label',
+        control: 'storyline-input',
+        text: 'Sinopse',
+      },
+      input: {
+        'data-testid': 'storyline-input',
+        name: 'storyline',
+        tag: 'textarea',
+      },
+    },
+    select: {
+      label: {
+        testId: 'genre-input-label',
+        control: 'genre-input',
+        text: 'Gênero',
+      },
+      input: {
+        'data-testid': 'genre-input',
+        name: 'genre',
+        tag: 'select',
       },
     },
   },
 };
-export { kindOfMovies, inputs };
+
+const tags = {
+  input: 'input',
+  textarea: 'textarea',
+  select: 'select',
+};
+
+export { kindOfMovies, inputs, tags };

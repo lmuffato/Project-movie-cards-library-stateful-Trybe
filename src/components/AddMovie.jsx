@@ -10,12 +10,12 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
   }
 
@@ -26,33 +26,21 @@ class AddMovie extends Component {
   render() {
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.props;
     const { state, handleChange } = this;
-    const { inputTitle, inputSubtitle, inputImage, inputNumber } = inputs.AddMovie;
+    const elementsAddMovie = Object.keys(inputs.AddMovie);
 
     return (
       <form data-testid="add-movie-form">
-        <Label
-          labelInfo={ inputTitle.label }
-          inputMainInfo={ { onChange: handleChange, value: state.title } }
-          inputExtraInfo={ inputTitle.input }
-        />
-
-        <Label
-          labelInfo={ inputSubtitle.label }
-          inputMainInfo={ { onChange: handleChange, value: state.subtitle } }
-          inputExtraInfo={ inputSubtitle.input }
-        />
-
-        <Label
-          labelInfo={ inputImage.label }
-          inputMainInfo={ { onChange: handleChange, value: state.imagePath } }
-          inputExtraInfo={ inputImage.input }
-        />
-
-        {/* <Label
-          labelInfo={ inputNumber.label }
-          inputMainInfo={ { onChange: handleChange, value: state.rating } }
-          inputExtraInfo={ inputImage.input }
-        /> */}
+        {elementsAddMovie.map((element) => {
+          const { label, input } = inputs.AddMovie[element];
+          return (
+            <Label
+              key={ input.name }
+              labelInfo={ label }
+              inputMainInfo={ { onChange: handleChange, value: state[input.name] } }
+              inputExtraInfo={ input }
+            />
+          );
+        })}
       </form>
     );
   }
