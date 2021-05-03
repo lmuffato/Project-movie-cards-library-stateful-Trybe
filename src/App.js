@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import './App.css';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 export default class App extends React.Component {
   constructor() {
@@ -33,6 +34,7 @@ export default class App extends React.Component {
           selectedGenre=""
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
+        <AddMovie />
       </div>
     );
   }
