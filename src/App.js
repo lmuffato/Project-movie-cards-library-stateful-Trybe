@@ -7,13 +7,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar 
-        searchText='string' 
-        onSearchTextChange={'clallBack'} 
-        bookmarkedOnly='bool' 
-        onBookmarkedChange='callback' 
-        selectedGenre='string' 
-        onSelectedGenreChange='callback' />
+      <SearchBar
+        searchText="string"
+        onSearchTextChange="callBack"
+        bookmarkedOnly="bool"
+        onBookmarkedChange="callback"
+        selectedGenre="string"
+        onSelectedGenreChange="callback"
+      />
     </div>
   );
 }
