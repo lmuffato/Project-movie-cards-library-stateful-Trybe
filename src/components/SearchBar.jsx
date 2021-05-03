@@ -26,11 +26,11 @@ export default SearchBar;
 SearchBar.defaultProps = {
   searchText: 'busca',
   onSearchTextChange: () => {},
-  bookmarkedOnly: true,
+  // bookmarkedOnly: true,
 };
 
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
+  // bookmarkedOnly: PropTypes.bool,
 };
