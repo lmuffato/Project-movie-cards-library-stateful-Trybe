@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import MovieCard from './MovieCard';
+import SearchBar from './SearchBar';
 
 class MovieList extends React.Component {
   render() {
@@ -9,6 +9,9 @@ class MovieList extends React.Component {
 
     return (
       <div data-testid="movie-list" className="movie-list">
+        <div>
+          <SearchBar searchText="texto1" />
+        </div>
         { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
       </div>
     );
