@@ -54,13 +54,13 @@ beforeEach(() => {
 });
 
 describe('6 - Crie um componente chamado `<AddMovie />`', () => {
-  it.skip('Renderize o componente', () => {
+  it('Renderize o componente', () => {
     render(<AddMovie onClick={ () => jest.fn() } />);
   });
 });
 
 describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
-  it.skip('Renderize 1, e apenas 1, form', () => {
+  it('Renderize 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
 });
