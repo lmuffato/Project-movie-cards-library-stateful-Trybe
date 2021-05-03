@@ -9,7 +9,10 @@ class SearchBar extends React.Component {
     console.log(searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange);
     return (
-      <h1>Requisito 1</h1>
+      <div id="searchBar">
+        <h1>Busca:</h1>
+        <form data-testid="search-bar-form" />
+      </div>
     );
   }
 }
