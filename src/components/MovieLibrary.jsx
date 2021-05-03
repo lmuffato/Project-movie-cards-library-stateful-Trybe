@@ -22,8 +22,8 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={} />
-        <AddMovie />
+        {/* <MovieList movies={this.props.movies} />
+        <AddMovie /> */}
       </div>
     );
   }
