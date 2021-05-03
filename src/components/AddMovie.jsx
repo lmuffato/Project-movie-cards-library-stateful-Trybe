@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 // import PropTypes from 'prop-types';
 
@@ -9,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
   }
@@ -24,7 +25,7 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form
         data-testid="add-movie-form"
@@ -59,7 +60,6 @@ class AddMovie extends React.Component {
             value={ imagePath }
           />
         </label>
-
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -69,6 +69,17 @@ class AddMovie extends React.Component {
             value={ storyline }
           />
         </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            data-testid="rating-input"
+            onChange={ this.handleChange }
+            value={ rating }
+          />
+        </label>
+
       </form>
     );
   }
