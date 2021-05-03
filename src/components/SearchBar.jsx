@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 function SearchBar({
   searchText,
   onSearchTextChange,
+  bookmarkedOnly,
+  onBookmarkedChange,
 }) {
   return (
     <form data-testid="search-bar-form">
@@ -15,6 +17,17 @@ function SearchBar({
           value={ searchText }
           onChange={ onSearchTextChange }
           data-testid="text-input"
+        />
+      </label>
+
+      <label htmlFor="bookmarked" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
+        <input
+          type="checkbox"
+          name="bookmarked"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+          data-testid="checkbox-input"
         />
       </label>
     </form>
