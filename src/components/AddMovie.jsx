@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Title from './forms/AddMovie/Title';
 import Subtitle from './forms/AddMovie/Subtitle';
 import ImagePath from './forms/AddMovie/ImagePath';
+import Storyline from './forms/AddMovie/Storyline';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -12,11 +13,12 @@ export default class AddMovie extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
+      storyline: '',
     };
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Title
@@ -32,6 +34,11 @@ export default class AddMovie extends Component {
         <ImagePath
           value={ imagePath }
           onChange={ (event) => this.setState({ imagePath: event.target.value }) }
+        />
+
+        <Storyline
+          value={ storyline }
+          onChange={ (event) => this.setState({ storyline: event.target.value }) }
         />
       </form>
     );
