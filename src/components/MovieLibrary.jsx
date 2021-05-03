@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 /**
- * Consultei o repositório da malves0 para resolver esse requisito.
+ * Consultei o repositório da malves0 para resolver o requisito 16.
  * link: https://github.com/tryber/sd-09-project-movie-cards-library-stateful/tree/malves0-movie-cards-library-stateful
  */
 export default class MovieLibrary extends Component {
@@ -28,6 +28,15 @@ export default class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          onSearchTextChange={ (event) => this.setState({
+            searchText: event.target.value,
+          }) }
+          onBookmarkedChange={ (event) => this.setState({
+            bookmarkedOnly: event.target.value,
+          }) }
+          onSelectedGenreChange={ (event) => this.setState({
+            selectedGenre: event.target.value,
+          }) }
         />
         <MovieList movies={ movies } />
         <AddMovie />
