@@ -10,7 +10,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -31,13 +31,37 @@ class AddMovie extends Component {
     />
   );
 
+  // createGenreSelect = (genre) => (
+  //   <select
+  //     name="genre"
+  //     value={ genre }
+  //     onChange={ this.handleValue }
+  //     data-testid="genre-input"
+  //     id="genre-input"
+  //   >
+  //     <option value="action" data-testid="select-option">Ação</option>
+  //     <option value="comedy" data-testid="select-option">Comédia</option>
+  //     <option value="thriller" data-testid="select-option">Suspense</option>
+  //   </select>
+  // );
+
+  makeTextArea = (name) => (
+    <textarea
+      name="storyline"
+      value={ name }
+      onChange={ this.handleValue }
+      data-testid="storyline-input"
+      id="storyline-input"
+    />
+  );
+
   render() {
     // const {
     //   onClick,
     // } = this.props;
 
     const {
-      title, subtitle, imagePath, storyline, rating } = this.state;
+      title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -55,17 +79,25 @@ class AddMovie extends Component {
         </label>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            onChange={ this.handleValue }
-            data-testid="storyline-input"
-            id="storyline-input"
-          />
+          { this.makeTextArea(storyline) }
         </label>
         <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
           { this.makeInput('number', 'rating', rating, 'rating-input') }
+        </label>
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          Gênero
+          <select
+            name="genre"
+            value={ genre }
+            onChange={ this.handleValue }
+            data-testid="genre-input"
+            id="genre-input"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
