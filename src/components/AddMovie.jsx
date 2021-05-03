@@ -25,6 +25,7 @@ class AddMovie extends React.Component {
           Título
           <input
             id="title-input"
+            data-testid="title-input"
             type="text"
             value={ title }
             onChange={ this.handleChange }
