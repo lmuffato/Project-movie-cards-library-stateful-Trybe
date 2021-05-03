@@ -9,7 +9,7 @@ export default class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
   }
@@ -23,8 +23,8 @@ export default class AddMovie extends React.Component {
   };
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
-    console.log(subtitle);
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    console.log(rating);
 
     return (
       <form action="" data-testid="add-movie-form">
@@ -43,6 +43,17 @@ export default class AddMovie extends React.Component {
             cols="30"
             rows="10"
             value={ storyline }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            id="rating-input"
+            data-testid="rating-input"
+            value={ rating }
             onChange={ this.handleChange }
           />
         </label>
