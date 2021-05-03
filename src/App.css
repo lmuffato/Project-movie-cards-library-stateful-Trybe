@@ -1,19 +1,19 @@
 body {
-  background-color: whitesmoke;
+  background-color: #0b090a;
   box-sizing: border-box;
   font-size: 16px;
 }
 
 .movie-card-header {
   align-items: center;
-  background-color: #343a40;
+  background-color: #161a1d;
   display: flex;
   height: 100px;
   justify-content: center;
 }
 
 .page-title {
-  color: #f8f9fa;
+  color: #e5383b;
   font-size: 28px;
   font-weight: 500;
   text-align: center;
@@ -26,14 +26,17 @@ body {
 }
 
 .movie-card {
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 3px;
+  background-color: #161a1d;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  border-radius: 10px;
+  box-shadow: 0 0 rgba(0, 0, 0, 0.125);
   display: flex;
   flex-direction: column;
-  height: 450px;
   margin: 5px;
+  max-height: 450px;
   overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.2s;
   width: 300px;
 }
 
@@ -48,27 +51,60 @@ body {
 }
 
 .movie-card-title {
+  color: #e5383b;
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
+  color: #b1a7a6;
   font-size: 16px;
   font-weight: 500;
-  margin: 0 0 8px;
+  margin-bottom: 0;
 }
 
 .movie-card-storyline {
+  bottom: 50%;
+  color: #e5383b;
+  cursor: default;
   font-size: 14px;
+  font-weight: 700;
+  opacity: 0;
+  padding-right: 20px;
+  position: absolute;
   text-align: justify;
+  transform: translateY(50%);
+  transition: opacity 0.2s;
+}
+
+.movie-card:before {
+  background: #0b090af8;
+  content: '';
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.movie-card:hover .movie-card-storyline {
+  opacity: 1;
+}
+
+.movie-card:hover:before {
+  opacity: 1;
+}
+
+.movie-card:hover {
+  border: 2px solid #e5383b;
+  box-shadow: 0 0 0 5px #ba181b;
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: #0b090a;
   border-radius: 25px;
-  color: white;
+  color: #e5383b;
   font-size: 16px;
   font-weight: 700;
   padding: 3px 9px;
@@ -80,4 +116,47 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+form {
+  color: lightgray;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 35px;
+}
+
+form input, form textarea, form select {
+  background: #161a1d;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: lightgray;
+  margin: 5px 0;
+  outline-color: #e5383b;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.bookmarkedBox {
+  height: 20px;
+  width: 60px;
+}
+
+form label {
+  margin: 20px 0;
+}
+
+.bookmark {
+  align-items: center;
+  display: flex;
+}
+
+form button {
+  background: #660708;
+  border: none;
+  border-radius: 5px;
+  color: lightgray;
+  font-weight: 700;
+  padding: 15px 20px;
 }

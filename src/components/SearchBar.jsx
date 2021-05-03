@@ -22,11 +22,12 @@ function SearchBar({
         />
       </label>
 
-      <label htmlFor="bookmarked" data-testid="checkbox-input-label">
+      <label htmlFor="bookmarked" data-testid="checkbox-input-label" className="bookmark">
         Mostrar somente favoritos
         <input
           type="checkbox"
           name="bookmarked"
+          className="bookmarkedBox"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
           data-testid="checkbox-input"
