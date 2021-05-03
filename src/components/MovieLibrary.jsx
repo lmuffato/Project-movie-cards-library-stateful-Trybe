@@ -43,7 +43,3 @@ class MovieLibrary extends React.Component {
 }
 
 export default MovieLibrary;
-
-// searchText, uma string
-// bookmarkedOnly, um boolean
-// selectedGenre, uma string

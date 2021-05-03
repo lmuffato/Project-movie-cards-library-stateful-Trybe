@@ -3,9 +3,9 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     return (
-      <div>
-        <h1>SearchBar</h1>
-      </div>
+      <form data-testid="search-bar-form">
+        <input type="text" />
+      </form>
     );
   }
 }
