@@ -37,7 +37,7 @@ const selectTestId = 'select-input';
 describe('1 - Crie um componente chamado `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
+  it('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
     searchBar();
   });
 });
@@ -45,7 +45,7 @@ describe('1 - Crie um componente chamado `<SearchBar />`', () => {
 describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
+  it('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
     expect(form).toHaveLength(1);
@@ -55,26 +55,26 @@ describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
 describe('3 - Renderize um input do tipo texto dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Renderize 1, e apenas 1, input de texto dentro do forms', () => {
+  it('Renderize 1, e apenas 1, input de texto dentro do forms', () => {
     const { getAllByTestId } = searchBar();
     const textInput = getAllByTestId(textTestId);
     expect(textInput).toHaveLength(1);
   });
 
-  it.skip('Renderize o input de texto associado à label "Inclui o texto"', () => {
+  it('Renderize o input de texto associado à label "Inclui o texto"', () => {
     const { getAllByTestId } = searchBar();
     const textInputLabel = getAllByTestId('text-input-label');
     expect(textInputLabel).toHaveLength(1);
     expect(textInputLabel[0]).toHaveTextContent('Inclui o texto');
   });
 
-  it.skip('Renderize o input de texto com o valor passado pela prop `searchText`', () => {
+  it('Renderize o input de texto com o valor passado pela prop `searchText`', () => {
     const { getByTestId } = searchBar();
     const textInput = getByTestId(textTestId);
     expect(textInput).toHaveValue(props.searchText);
   });
 
-  it.skip('Passe a props `onSearchTextChange` para o atributo `onChange` do input', () => {
+  it('Passe a props `onSearchTextChange` para o atributo `onChange` do input', () => {
     const expectedTimes = 6;
     const { getByTestId } = searchBar();
     const textInput = getByTestId(textTestId);
