@@ -42,7 +42,7 @@ class AddMovie extends Component {
             id="image-input"
             value={ imagePath }
             data-testid="image-input"
-            onChange={ (event) => this.setState({ subtitle: event.target.value }) }
+            onChange={ (event) => this.setState({ imagePath: event.target.value }) }
           />
         </label>
       </form>
