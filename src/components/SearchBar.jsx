@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
         <form data-testid="search-bar-form">
           <label htmlFor="search-input" data-testid="text-input-label">
             Inclui o texto:
-            <input id="search-input" value="" />
+            <input id="search-input" type="text" value="" />
           </label>
         </form>
       </div>
