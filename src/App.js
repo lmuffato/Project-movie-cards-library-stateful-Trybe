@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar movies={ movies } />
       <MovieList movies={ movies } />
+      <SearchBar />
     </div>
   );
 }
