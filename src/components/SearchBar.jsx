@@ -1,8 +1,14 @@
 import React from 'react';
 
-function SearchBar({ searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange }) {
+function SearchBar({
+  searchText,
+  onSearchTextChange,
+  bookmarkedOnly,
+  onBookmarkedChange,
+  selectedGenre,
+  onSelectedGenreChange }) {
   return (
-    <div />
+    <form data-testid="search-bar-form"></form>
   );
 }
 
