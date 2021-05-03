@@ -15,8 +15,8 @@ export default class AddMovie extends React.Component {
 
   render() {
     return (
-      <form action="">
-        
+      <form action="" data-testid="add-movie-form">
+
       </form>
     );
   }
