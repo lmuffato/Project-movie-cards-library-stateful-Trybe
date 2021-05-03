@@ -5,10 +5,9 @@ import SearchBar from './SearchBar';
 /* import AddMovie from './AddMovie'; */
 
 class MovieLibrary extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
+  /* constructor(props) {
     super(props);
-  }
+  } */
 
   render() {
     return (
