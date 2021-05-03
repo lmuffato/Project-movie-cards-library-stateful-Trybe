@@ -10,19 +10,18 @@ class SearchBar extends React.Component {
     // const { selectedGenre } = this.props;
     // const { onSelectedGenreChange } = this.props;
     return (
-      <div className="seacrh-bar">
-        <form data-testid="search-bar-from">
-          <label htmlFor="srch-input" data-testid="tet-input-label">
-            Inclui o texto:
-            <input
-              id="srch-input"
-              onChange={ onSearchTextChange }
-              value={ searchText }
-              data-testid="text-input"
-            />
-          </label>
-        </form>
-      </div>
+      <form data-testid="search-bar-form">
+        <label htmlFor="srch-input" data-testid="tet-input-label">
+          Inclui o texto:
+          <input
+            id="srch-input"
+            type="text"
+            onChange={ onSearchTextChange }
+            value={ searchText }
+            data-testid="text-input"
+          />
+        </label>
+      </form>
     );
   }
 }
