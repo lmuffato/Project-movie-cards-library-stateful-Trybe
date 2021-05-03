@@ -61,7 +61,7 @@ describe('3 - Renderize um input do tipo texto dentro do formulário em `<Search
     expect(textInput).toHaveLength(1);
   });
 
-  it.skip('Renderize o input de texto associado à label "Inclui o texto"', () => {
+  it('Renderize o input de texto associado à label "Inclui o texto"', () => {
     const { getAllByTestId } = searchBar();
     const textInputLabel = getAllByTestId('text-input-label');
     expect(textInputLabel).toHaveLength(1);

@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 export default class Form extends React.Component {
   render() {
-    const { onSearchTextChange } = this.props;
+    const {
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+    } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         <label
@@ -17,6 +22,18 @@ export default class Form extends React.Component {
             onChange={ onSearchTextChange }
           />
         </label>
+        <label
+          htmlFor="checkbox-input"
+          data-testid="checkbox-input-label"
+        >
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+          />
+        </label>
       </form>
     );
   }
@@ -24,4 +41,6 @@ export default class Form extends React.Component {
 
 Form.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
