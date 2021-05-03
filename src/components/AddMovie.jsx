@@ -1,36 +1,38 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from './AddMovieComponents/TextInput';
+import TextInput2 from './AddMovieComponents/TextInput2';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
       // imagePath: '',
       // storyline: '',
       // rating: 0,
       // genre: 'action',
     };
-    this.changeTitle = this.changeTitle.bind(this);
+    this.handInputs = this.handInputs.bind(this);
   }
 
-  changeTitle(event) {
-    const { value } = event.target;
+  handInputs(event) {
+    const { value, name } = event.target;
     return (
       this.setState({
-        title: value,
+        [name]: value,
       })
     );
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <TextInput changeTitle={ this.changeTitle } value={ title } />
+          <TextInput handInputs={ this.handInputs } value={ title } />
+          <TextInput2 handInputs={ this.handInputs } value={ subtitle } />
         </form>
       </div>
     );

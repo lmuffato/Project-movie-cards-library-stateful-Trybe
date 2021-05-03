@@ -10,6 +10,7 @@ class TextInput extends Component {
         Título
         <input
           id="titleInput"
+          name="title"
           data-testid="title-input"
           onChange={ changeTitle }
           value={ title }
