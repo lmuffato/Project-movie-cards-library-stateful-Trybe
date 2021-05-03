@@ -27,7 +27,7 @@ body {
 
 .movie-card {
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(182, 120, 120, 0.125);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -80,4 +80,8 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.form-filter {
+  background-color: antiquewhite;
 }
