@@ -21,6 +21,24 @@ const kindOfMovies = [
   },
 ];
 
+const moviesAddMovie = [
+  {
+    kindMovieText: 'Ação',
+    kindMovieValue: 'action',
+    id: 1,
+  },
+  {
+    kindMovieText: 'Comédia',
+    kindMovieValue: 'comedy',
+    id: 2,
+  },
+  {
+    kindMovieText: 'Suspense',
+    kindMovieValue: 'thriller',
+    id: 3,
+  },
+];
+
 const inputs = {
   SearchBar: {
     inputText: {
@@ -134,4 +152,4 @@ const tags = {
   select: 'select',
 };
 
-export { kindOfMovies, inputs, tags };
+export { kindOfMovies, inputs, tags, moviesAddMovie };

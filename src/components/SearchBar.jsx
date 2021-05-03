@@ -41,7 +41,11 @@ function SearchBar(props) {
           data-testid="select-input"
         >
           {kindOfMovies.map((kindOfMovie) => (
-            <Option key={ kindOfMovie.id } movie={ kindOfMovie } />
+            <Option
+              key={ kindOfMovie.id }
+              movie={ kindOfMovie }
+              dataId="select-option"
+            />
           ))}
         </select>
       </label>

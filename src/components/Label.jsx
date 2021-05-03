@@ -2,13 +2,30 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { tags } from '../libs/data';
+import { tags, moviesAddMovie } from '../libs/data';
+
+import Option from './Option';
 
 function Label(props) {
   const { labelInfo, inputExtraInfo, inputMainInfo } = props;
   const { testId, control, text } = labelInfo;
   const { tag } = inputExtraInfo;
   const Tag = tags[tag];
+
+  if (tag === 'select') {
+    return (
+      <label data-testid={ testId } htmlFor={ control }>
+        {text}
+
+        <Tag { ...inputMainInfo } { ...inputExtraInfo }>
+          {moviesAddMovie.map((kindOfMovie) => (
+            <Option key={ kindOfMovie.id } movie={ kindOfMovie } dataId='genre-option'/>
+          ))}
+        </Tag>
+
+      </label>
+    );
+  }
 
   return (
     <label data-testid={ testId } htmlFor={ control }>
