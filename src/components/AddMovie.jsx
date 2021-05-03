@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
       // imagePath: '',
       // storyline: '',
@@ -14,7 +14,8 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = ({ target }) => {
+  handleChange = ({ target }) => { // Como a handleCHange foi feita com => function, não é necessário fazer o bind no constructor.
+  // Estrutura montada com base na aula 02 do bloco 12.
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -23,7 +24,7 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form
         data-testid="add-movie-form"
@@ -36,6 +37,16 @@ class AddMovie extends React.Component {
             data-testid="title-input"
             onChange={ this.handleChange }
             value={ title }
+          />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle"
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+            value={ subtitle }
           />
         </label>
       </form>
