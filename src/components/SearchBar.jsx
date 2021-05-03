@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { kindOfMovies, inputs } from '../libs/searchBarData';
+import { kindOfMovies, inputs } from '../libs/data';
 
 import Option from './Option';
 import Label from './Label';
@@ -17,7 +17,7 @@ function SearchBar(props) {
     onSelectedGenreChange,
   } = props;
 
-  const { inputCheckbox, inputText } = inputs;
+  const { inputCheckbox, inputText } = inputs.SearchBar;
 
   return (
     <form data-testid="search-bar-form">

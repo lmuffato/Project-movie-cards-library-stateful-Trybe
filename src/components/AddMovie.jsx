@@ -1,4 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+
+import { inputs } from '../libs/data';
+import Label from './Label';
 
 class AddMovie extends Component {
   constructor() {
@@ -16,24 +19,40 @@ class AddMovie extends Component {
     };
   }
 
-  handleChange({ target }) {
-    this.setState({ title: target.value });
+  handleChange({ target: { name, value } }) {
+    this.setState({ [name]: value });
   }
 
   render() {
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.props;
     const { state, handleChange } = this;
+    const { inputTitle, inputSubtitle, inputImage, inputNumber } = inputs.AddMovie;
 
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">
-          Título
-          <input
-            value={ state.title }
-            data-testid="title-input"
-            onChange={ handleChange }
-          />
-        </label>
+        <Label
+          labelInfo={ inputTitle.label }
+          inputMainInfo={ { onChange: handleChange, value: state.title } }
+          inputExtraInfo={ inputTitle.input }
+        />
+
+        <Label
+          labelInfo={ inputSubtitle.label }
+          inputMainInfo={ { onChange: handleChange, value: state.subtitle } }
+          inputExtraInfo={ inputSubtitle.input }
+        />
+
+        <Label
+          labelInfo={ inputImage.label }
+          inputMainInfo={ { onChange: handleChange, value: state.imagePath } }
+          inputExtraInfo={ inputImage.input }
+        />
+
+        {/* <Label
+          labelInfo={ inputNumber.label }
+          inputMainInfo={ { onChange: handleChange, value: state.rating } }
+          inputExtraInfo={ inputImage.input }
+        /> */}
       </form>
     );
   }
