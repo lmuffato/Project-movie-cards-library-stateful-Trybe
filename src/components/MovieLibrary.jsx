@@ -52,4 +52,3 @@ MovieLibrary.propTypes = {
 };
 
 export default MovieLibrary;
-
