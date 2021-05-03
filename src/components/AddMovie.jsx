@@ -1,24 +1,37 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-// implement AddMovie component here
 class AddMovie extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: '',
-  //     genre: '',
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      // subtitle: '',
+      title: '',
+      // imagePath: '',
+      // storyline: '',
+      // rating: '',
+      // genre: '',
+    };
+  }
+
+  handleValue = (event) => {
+    this.setState({ title: event.target.value });
+  };
+
   render() {
-    // const { subtitle, title, imagePath, storyline, rating, genre } = this.props;
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <input type="text" />
+        <label htmlFor="input-text" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            name="input-text"
+            value={ title }
+            data-testid="title-input"
+            onChange={ this.handleValue }
+          />
+        </label>
       </form>
     );
   }
@@ -26,11 +39,11 @@ class AddMovie extends React.Component {
 
 export default AddMovie;
 
-// AddMovie.propTypes = {
-//   subtitle: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   imagePath: PropTypes.string.isRequired,
-//   storyline: PropTypes.string.isRequired,
-//   rating: PropTypes.number.isRequired,
-//   genre: PropTypes.string.isRequired,
-// };
+AddMovie.propTypes = {
+  // subtitle: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  // imagePath: PropTypes.string.isRequired,
+  // storyline: PropTypes.string.isRequired,
+  // rating: PropTypes.number.isRequired,
+  // genre: PropTypes.string.isRequired,
+};
