@@ -1,19 +1,19 @@
-// import React from 'react';
-// import { render, fireEvent } from '@testing-library/react';
-// import '@testing-library/jest-dom';
-// import event from '@testing-library/user-event';
-// import AddMovie from '../components/AddMovie';
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import event from '@testing-library/user-event';
+import AddMovie from '../components/AddMovie';
 
-// const initialState = {
-//   subtitle: '',
-//   title: '',
-//   imagePath: '',
-//   storyline: '',
-//   rating: 0,
-//   genre: 'action',
-// };
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
-// const onClick = jest.fn();
+const onClick = jest.fn();
 // let form;
 // let titleInput;
 // let titleInputLabel;
@@ -53,11 +53,11 @@
 //   sendButton = queryByTestId('send-button');
 // });
 
-// describe('6 - Crie um componente chamado `<AddMovie />`', () => {
-//   it('Renderize o componente', () => {
-//     render(<AddMovie onClick={ () => jest.fn() } />);
-//   });
-// });
+describe('6 - Crie um componente chamado `<AddMovie />`', () => {
+  it('Renderize o componente', () => {
+    render(<AddMovie onClick={ () => jest.fn() } />);
+  });
+});
 
 // describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
 //   it('Renderize 1, e apenas 1, form', () => {
