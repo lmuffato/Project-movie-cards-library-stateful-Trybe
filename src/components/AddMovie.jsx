@@ -8,14 +8,14 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
   }
 
   handleChange = ({ target }) => { // Como a handleCHange foi feita com => function, não é necessário fazer o bind no constructor.
-  // Estrutura montada com base na aula 02 do bloco 12.
+  // Estrutura montada com base na aula 02 do bloco 12. https://app.betrybe.com/course/front-end/componentes-com-estado-eventos-e-formularios-com-react/formularios-no-react/537fc0f4-1be1-4cd8-8333-9432fa722672/conteudos/7d511de0-fe64-4efc-bf49-29b2d57bbac9/event-handlers-genericos/dde8c3be-8ca4-45c7-a162-02a916d3c50d?use_case=side_bar
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form
         data-testid="add-movie-form"
@@ -57,6 +57,16 @@ class AddMovie extends React.Component {
             data-testid="image-input"
             onChange={ this.handleChange }
             value={ imagePath }
+          />
+        </label>
+
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+            value={ storyline }
           />
         </label>
       </form>
