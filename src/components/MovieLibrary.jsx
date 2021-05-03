@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -13,6 +14,7 @@ class MovieLibrary extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleBook = this.handleBook.bind(this);
     this.handleSelected = this.handleSelected.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleSearch(event) {
@@ -27,17 +29,24 @@ class MovieLibrary extends React.Component {
     console.log(event);
   }
 
+  handleOnClick(event) {
+    console.log(event);
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
-      <SearchBar
-        searchText={ searchText }
-        onSearchTextChange={ this.handleSearch }
-        bookmarkedOnly={ bookmarkedOnly }
-        onBookmarkedChange={ this.handleBook }
-        selectedGenre={ selectedGenre }
-        onSelectedGenreChange={ this.handleSelected }
-      />
+      <div>
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.handleSearch }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleBook }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelected }
+        />
+        <AddMovie onClick={ this.handleOnClick } />
+      </div>
     );
   }
 }
