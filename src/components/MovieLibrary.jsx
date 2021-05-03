@@ -17,7 +17,22 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+    let { movies } = this.state;
+
+    const filterByBookmarked = movies.filter((movie) => movie.bookmarked === true);
+    const filterByGenre = movies.filter((movie) => movie.genre === selectedGenre);
+    const filterBySearchText = movies.filter(
+      (movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText),
+    );
+
+    if (bookmarkedOnly) movies = filterByBookmarked;
+    if (selectedGenre) movies = filterByGenre;
+    if (searchText) movies = filterBySearchText;
+
     return (
       <>
         <SearchBar
