@@ -16,11 +16,11 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar
-        searchText={ 'string' }
+        searchText="string"
         onSearchTextChange={ console.log }
         bookmarkedOnly={ false }
         onBookmarkedChange={ console.log }
-        selectedGenre={ 'string' }
+        selectedGenre="string"
         onSelectedGenreChange={ console.log }
       />
       <MovieList movies={ data } />
