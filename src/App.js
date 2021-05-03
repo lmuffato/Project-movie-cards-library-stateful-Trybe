@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
+import MovieLibrary from './components/MovieLibrary';
 import './App.css';
 
 class App extends React.Component {
@@ -7,6 +8,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
+        <MovieLibrary />
       </div>
     );
   }
