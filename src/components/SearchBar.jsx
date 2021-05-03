@@ -16,6 +16,13 @@ function SearchBar({
         onChange={ onSearchTextChange }
         data-testid="text-input"
       />
+      <label data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+      <input
+        type="checkbox"
+        checked={ bookmarkedOnly }
+        onChange={ onBookmarkedChange }
+        data-testid="checkbox-input"
+      />
     </form>
   );
 }
