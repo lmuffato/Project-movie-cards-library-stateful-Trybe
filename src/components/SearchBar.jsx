@@ -50,8 +50,6 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
-
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
@@ -60,3 +58,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.bool,
   onSelectedGenreChange: PropTypes.func,
 }.isRequired;
+
+export default SearchBar;
