@@ -12,10 +12,12 @@ class SearchBar extends React.Component {
     // } = this.props;
     return (
       <div className="search-bar">
-        <label htmlFor="search-input">
-          Inclui o texto
-          <input id="search-input" />
-        </label>
+        <form data-testid="search-bar-form">
+          <label htmlFor="search-input">
+            Inclui o texto
+            <input id="search-input" />
+          </label>
+        </form>
       </div>
     );
   }
