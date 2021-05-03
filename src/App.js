@@ -10,7 +10,7 @@ function App() {
       <SearchBar
         searchText="string"
         onSearchTextChange="callBack"
-        bookmarkedOnly="bool"
+        bookmarkedOnly
         onBookmarkedChange="callback"
         selectedGenre="string"
         onSelectedGenreChange="callback"
