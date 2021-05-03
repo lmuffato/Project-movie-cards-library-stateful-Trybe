@@ -114,52 +114,52 @@ describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<Sea
   });
 });
 
-// describe('5 - Renderize um select dentro do formulário em `<SearchBar />`', () => {
-//   beforeEach(() => beforeEachUnitTest());
+describe('5 - Renderize um select dentro do formulário em `<SearchBar />`', () => {
+  beforeEach(() => beforeEachUnitTest());
 
-//   it('Renderize um select dentro do form', () => {
-//     const { getAllByTestId } = searchBar();
-//     const selectInput = getAllByTestId(selectTestId);
-//     expect(selectInput).toHaveLength(1);
-//   });
+  it('Renderize um select dentro do form', () => {
+    const { getAllByTestId } = searchBar();
+    const selectInput = getAllByTestId(selectTestId);
+    expect(selectInput).toHaveLength(1);
+  });
 
-//   it('Renderize, associada ao componente, uma label com o texto "Filtrar por gênero"', () => {
-//     const { getAllByTestId } = searchBar();
-//     const selectInputLabel = getAllByTestId('select-input-label');
-//     expect(selectInputLabel).toHaveLength(1);
-//     expect(selectInputLabel[0]).toHaveTextContent('Filtrar por gênero');
-//   });
+  it('Renderize, associada ao componente, uma label com o texto "Filtrar por gênero"', () => {
+    const { getAllByTestId } = searchBar();
+    const selectInputLabel = getAllByTestId('select-input-label');
+    expect(selectInputLabel).toHaveLength(1);
+    expect(selectInputLabel[0]).toHaveTextContent('Filtrar por gênero');
+  });
 
-//   it('Passe a prop `selectedGenre` como valor do select', () => {
-//     const { getByTestId } = searchBar();
-//     const selectInput = getByTestId(selectTestId);
+  it('Passe a prop `selectedGenre` como valor do select', () => {
+    const { getByTestId } = searchBar();
+    const selectInput = getByTestId(selectTestId);
 
-//     expect(selectInput).toHaveValue(props.selectedGenre);
-//   });
+    expect(selectInput).toHaveValue(props.selectedGenre);
+  });
 
-//   it('Passe a prop `onSelectedGenreChange` para o atributo `onChange` do select', () => {
-//     const { getByTestId } = searchBar();
-//     const selectInput = getByTestId(selectTestId);
-//     event.selectOptions(selectInput, 'comedy');
+  it('Passe a prop `onSelectedGenreChange` para o atributo `onChange` do select', () => {
+    const { getByTestId } = searchBar();
+    const selectInput = getByTestId(selectTestId);
+    event.selectOptions(selectInput, 'comedy');
 
-//     expect(props.onSelectedGenreChange).toHaveBeenCalledTimes(1);
-//   });
+    expect(props.onSelectedGenreChange).toHaveBeenCalledTimes(1);
+  });
 
-//   it("Renderize 4 options dentro do select com os textos e valores, respectivamente: Todos e '', Ação e action, Comédia e comedy, Suspense e thriller", () => {
-//     const expectedLength = 4;
-//     const genreOptions = [
-//       { text: 'Todos', value: '' },
-//       { text: 'Ação', value: 'action' },
-//       { text: 'Comédia', value: 'comedy' },
-//       { text: 'Suspense', value: 'thriller' },
-//     ];
-//     const { getAllByTestId } = searchBar();
-//     const selectOptions = getAllByTestId('select-option');
+  it("Renderize 4 options dentro do select com os textos e valores, respectivamente: Todos e '', Ação e action, Comédia e comedy, Suspense e thriller", () => {
+    const expectedLength = 4;
+    const genreOptions = [
+      { text: 'Todos', value: '' },
+      { text: 'Ação', value: 'action' },
+      { text: 'Comédia', value: 'comedy' },
+      { text: 'Suspense', value: 'thriller' },
+    ];
+    const { getAllByTestId } = searchBar();
+    const selectOptions = getAllByTestId('select-option');
 
-//     expect(selectOptions).toHaveLength(expectedLength);
-//     selectOptions.forEach((option, index) => {
-//       expect(option).toHaveTextContent(genreOptions[index].text);
-//       expect(option).toHaveValue(genreOptions[index].value);
-//     });
-//   });
-// });
+    expect(selectOptions).toHaveLength(expectedLength);
+    selectOptions.forEach((option, index) => {
+      expect(option).toHaveTextContent(genreOptions[index].text);
+      expect(option).toHaveValue(genreOptions[index].value);
+    });
+  });
+});

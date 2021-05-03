@@ -8,7 +8,6 @@ class SearchBar extends React.Component {
       searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -34,6 +33,21 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
               data-testid="checkbox-input"
             />
+          </label>
+          <label htmlFor="texto3" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              name="texto3"
+              id="texto3"
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
+              <option data-testid="select-option" value="">Todos</option>
+              <option data-testid="select-option" value="action">Ação</option>
+              <option data-testid="select-option" value="comedy">Comédia</option>
+              <option data-testid="select-option" value="thriller">Suspense</option>
+            </select>
           </label>
         </form>
       </div>
