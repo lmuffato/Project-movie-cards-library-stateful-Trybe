@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Title({ value, onChange }) {
+function ImagePath({ value, onChange }) {
   return (
     <label htmlFor="imagePath" data-testid="image-input-label">
       Imagem
@@ -16,9 +16,9 @@ function Title({ value, onChange }) {
   );
 }
 
-Title.propTypes = {
+ImagePath.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 }.isRequired;
 
-export default Title;
+export default ImagePath;

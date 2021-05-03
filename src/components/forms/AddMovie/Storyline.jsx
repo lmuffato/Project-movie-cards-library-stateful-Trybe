@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Title({ value, onChange }) {
+function Storyline({ value, onChange }) {
   return (
     <label htmlFor="storyline" data-testid="storyline-input-label">
       Sinopse
@@ -16,9 +16,9 @@ function Title({ value, onChange }) {
   );
 }
 
-Title.propTypes = {
+Storyline.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 }.isRequired;
 
-export default Title;
+export default Storyline;
