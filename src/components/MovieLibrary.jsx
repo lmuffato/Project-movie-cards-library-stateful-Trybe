@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -11,13 +12,23 @@ import AddMovie from './AddMovie';
 export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
     const { movies } = this.props;
+
+    this.addMovie = this.addMovie.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
     };
+  }
+
+  // Source: https://github.com/tryber/sd-09-project-movie-cards-library-stateful/tree/malves0-movie-cards-library-stateful
+  addMovie(movie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, movie] });
   }
 
   render() {
@@ -39,7 +50,7 @@ export default class MovieLibrary extends Component {
           }) }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie }/>
       </div>
     );
   }
