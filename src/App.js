@@ -9,7 +9,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar />
+      <SearchBar
+      searchText={'string'}
+      onSearchTextChange={console.log}
+      bookmarkedOnly={true}
+      onBookmarkedChange={console.log}
+      selectedGenre={'string'}
+      onSelectedGenreChange={console.log}
+      />
       <MovieList movies={data} />
     </div>
   );
