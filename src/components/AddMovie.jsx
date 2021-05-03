@@ -63,8 +63,8 @@ class AddMovie extends React.Component {
           } }
         />
       </form>
-);
-}
+    );
+  }
 }
 
 AddMovie.propTypes = {
