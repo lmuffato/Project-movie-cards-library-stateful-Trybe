@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormMovie from './FormMovie';
+import FormMovieFilter from './FormMovieFilter';
 
 export default class SearchBar extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <FormMovie
+      <FormMovieFilter
         searchText={ searchText }
         onSearchTextChange={ onSearchTextChange }
         bookmarkedOnly={ bookmarkedOnly }
