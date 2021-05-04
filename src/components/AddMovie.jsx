@@ -74,6 +74,7 @@ class AddMovie extends Component {
           id="image"
           name="imagePath"
           value={ imagePath }
+          className="movie-card-image"
           onChange={ this.changeHandler }
         />
       </label>
