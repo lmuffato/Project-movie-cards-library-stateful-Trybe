@@ -6,12 +6,14 @@ import ImagePath from './AddMovieImagePath';
 import StoryLine from './AddMovieStoryline';
 import Rating from './AddMovieRating';
 import Genre from './AddMovieGenre';
+import Button from './AddMovieButton';
 
 class AddMovie extends Component {
   constructor() {
     super();
 
-    this.handleTitle = this.handleTitle.bind(this);
+    this.handleInputs = this.handleInputs.bind(this);
+    this.resetStates = this.resetStates.bind(this);
 
     this.state = {
       subtitle: '',
@@ -23,10 +25,17 @@ class AddMovie extends Component {
     };
   }
 
-  handleInputs(event) {
+  handleInputs({ target }) {
+    const { name, value } = target;
+    this.setState = {
+      [name]: value,
+    };
+  }
+
+  resetStates() {
     this.setState = {
       subtitle: '',
-      title: event.target.value,
+      title: target.value,
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -44,6 +53,7 @@ class AddMovie extends Component {
         <StoryLine storyline={ storyline } handleInput={ this.handleInputs } />
         <Rating rating={ rating } handleInput={ this.handleInputs } />
         <Genre genre={ genre } handleInput={ this.handleInputs } />
+        <Button resetStates={ this.resetStates } />
       </form>
     );
   }
