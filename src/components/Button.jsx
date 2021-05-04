@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Button extends React.Component {
-//   onClick = (event) => {
-//     event.preventDefault();
-//     console.log('Olá!');
-//   }
-
   render() {
     const { onClick } = this.props;
     return (

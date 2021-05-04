@@ -5,11 +5,15 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 function App() {
+  function onClick(state) {
+    console.log(state);
+  }
+
   return (
     <div className="App">
       <Header />
       <SearchBar />
-      <AddMovie />
+      <AddMovie onClick={ onClick } />
     </div>
   );
 }
