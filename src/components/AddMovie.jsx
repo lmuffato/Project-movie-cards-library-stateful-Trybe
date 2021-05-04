@@ -1,5 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputTitle from './AddMovie/form/inputs/InputTitle';
+import InputSubtitle from './AddMovie/form/inputs/InputSubtitle';
+import InputImage from './AddMovie/form/inputs/InputImage';
+import InputStoryLine from './AddMovie/form/inputs/InputStoryLine';
+import RatingInput from './AddMovie/form/inputs/RatingInput';
+import InputGenre from './AddMovie/form/inputs/InputGenre';
 
 const initialState = {
   subtitle: '',
@@ -31,84 +37,42 @@ class AddMovie extends React.Component {
     this.setState(initialState);
   }
 
-  // eslint-disable-next-line max-lines-per-function
   render() {
     const { title, subtitle, imagePath,
       storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            id="title"
-            type="text"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.onChange }
-          />
-        </label>
 
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle"
-            type="text"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.onChange }
-          />
-        </label>
+        <InputTitle
+          value={ title }
+          onChange={ this.onChange }
+        />
 
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            id="imagePath"
-            type="text"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.onChange }
-          />
-        </label>
+        <InputSubtitle
+          value={ subtitle }
+          onChange={ this.onChange }
+        />
 
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="storyline"
-            name="sinopse"
-            cols="40"
-            rows="2"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.onChange }
-          />
-        </label>
+        <InputImage
+          value={ imagePath }
+          onChange={ this.onChange }
+        />
 
-        <label htmlFor="number-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            id="rating"
-            type="number"
-            data-testid="rating-input"
-            value={ rating }
-            onChange={ this.onChange }
-          />
-        </label>
+        <InputStoryLine
+          value={ storyline }
+          onChange={ this.onChange }
+        />
 
-        <label htmlFor="select-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            id="genre"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ this.onChange }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <RatingInput
+          value={ rating }
+          onChange={ this.onChange }
+        />
+
+        <InputGenre
+          value={ genre }
+          onChange={ this.onChange }
+        />
 
         <button
           type="button"
