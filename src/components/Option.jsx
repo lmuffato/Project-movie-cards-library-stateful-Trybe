@@ -16,8 +16,8 @@ Option.propTypes = {
   movie: PropTypes.shape({
     kindMovieText: PropTypes.string.isRequired,
     kindMovieValue: PropTypes.string.isRequired,
-    dataId: PropTypes.string.isRequired,
   }).isRequired,
+  dataId: PropTypes.string.isRequired,
 };
 
 export default Option;
