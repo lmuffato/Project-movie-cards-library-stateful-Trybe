@@ -65,26 +65,26 @@ describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
   });
 });
 
-// describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme', () => {
-//   it('Renderize um input de texto para quem usa escrever o titulo do filme', () => {
-//     expect(titleInput).toBeInTheDocument();
-//   });
+describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme', () => {
+  it('Renderize um input de texto para quem usa escrever o titulo do filme', () => {
+    expect(titleInput).toBeInTheDocument();
+  });
 
-//   it('Renderize a label "Título" para o input de titulo', () => {
-//     expect(titleInputLabel).toBeInTheDocument();
-//     expect(titleInputLabel).toHaveTextContent('Título');
-//   });
+  it('Renderize a label "Título" para o input de titulo', () => {
+    expect(titleInputLabel).toBeInTheDocument();
+    expect(titleInputLabel).toHaveTextContent('Título');
+  });
 
-//   it('Defina o estado inicial do titulo como "", ou seja, uma string vazia', () => {
-//     expect(titleInput).toHaveValue(initialState.title);
-//   });
+  it('Defina o estado inicial do titulo como "", ou seja, uma string vazia', () => {
+    expect(titleInput).toHaveValue(initialState.title);
+  });
 
-//   it('Altere o valor do input de título quando algo for digitado nele', () => {
-//     event.type(titleInput, 'my awesome movie title');
+  it('Altere o valor do input de título quando algo for digitado nele', () => {
+    event.type(titleInput, 'my awesome movie title');
 
-//     expect(titleInput).toHaveValue('my awesome movie title');
-//   });
-// });
+    expect(titleInput).toHaveValue('my awesome movie title');
+  });
+});
 
 // describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
 //   it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
