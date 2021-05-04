@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    const initialState = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.state = initialState;
   }
 
   handleChange = (event) => {
@@ -110,7 +111,8 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline,
+      rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -120,6 +122,17 @@ class AddMovie extends React.Component {
           {this.inputStory(storyline)}
           {this.inputRating(rating)}
           {this.inputGenre(genre)}
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ onClick(() => { this.setState(initialState)
+              console.log(this.state);
+            } 
+            )
+          } 
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );

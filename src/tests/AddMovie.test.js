@@ -204,43 +204,43 @@ describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selec
   });
 });
 
-// describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer uso dos dados do novo filme, contidos no estado de `<AddMovie />`', () => {
-//   it('Será validado se o texto do botão é "Adicionar filme"', () => {
-//     expect(sendButton).toHaveTextContent('Adicionar filme');
-//   });
+describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer uso dos dados do novo filme, contidos no estado de `<AddMovie />`', () => {
+  it('Será validado se o texto do botão é "Adicionar filme"', () => {
+    expect(sendButton).toHaveTextContent('Adicionar filme');
+  });
 
-//   it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
-//     event.type(titleInput, movieHarryPotter);
-//     event.type(subtitleInput, subtitleMagical);
-//     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
-//     event.type(storylineInput, inputStoryline);
-//     event.type(ratingInput, '3.5');
+  it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
+    event.type(titleInput, movieHarryPotter);
+    event.type(subtitleInput, subtitleMagical);
+    fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
+    event.type(storylineInput, inputStoryline);
+    event.type(ratingInput, '3.5');
 
-//     event.click(sendButton);
+    event.click(sendButton);
 
-//     expect(onClick).toHaveBeenCalled();
-//   });
+    expect(onClick).toHaveBeenCalled();
+  });
 
-//   it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
-//     const expectedRating = 3.5;
-//     event.type(titleInput, movieHarryPotter);
-//     event.type(subtitleInput, subtitleMagical);
-//     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
-//     event.type(ratingInput, '3.5');
-//     event.selectOptions(genreInput, 'comedy');
+  it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
+    const expectedRating = 3.5;
+    event.type(titleInput, movieHarryPotter);
+    event.type(subtitleInput, subtitleMagical);
+    fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
+    event.type(ratingInput, '3.5');
+    event.selectOptions(genreInput, 'comedy');
 
-//     expect(titleInput).toHaveValue(movieHarryPotter);
-//     expect(subtitleInput).toHaveValue(subtitleMagical);
-//     expect(storylineInput).toHaveValue(inputStoryline);
-//     expect(ratingInput).toHaveValue(expectedRating);
-//     expect(genreInput).toHaveValue('comedy');
+    expect(titleInput).toHaveValue(movieHarryPotter);
+    expect(subtitleInput).toHaveValue(subtitleMagical);
+    expect(storylineInput).toHaveValue(inputStoryline);
+    expect(ratingInput).toHaveValue(expectedRating);
+    expect(genreInput).toHaveValue('comedy');
 
-//     event.click(sendButton);
+    event.click(sendButton);
 
-//     expect(titleInput).toHaveValue('');
-//     expect(subtitleInput).toHaveValue('');
-//     expect(storylineInput).toHaveValue('');
-//     expect(ratingInput).toHaveValue(0);
-//     expect(genreInput).toHaveValue('action');
-//   });
-// });
+    expect(titleInput).toHaveValue('');
+    expect(subtitleInput).toHaveValue('');
+    expect(storylineInput).toHaveValue('');
+    expect(ratingInput).toHaveValue(0);
+    expect(genreInput).toHaveValue('action');
+  });
+});
