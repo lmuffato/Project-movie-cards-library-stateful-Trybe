@@ -8,13 +8,6 @@ import MovieStoryLine from './MovieComponents/MovieStoryline';
 import MovieRating from './MovieComponents/MovieRating';
 import MovieGenre from './MovieComponents/MovieGenre';
 import MovieButtonAdd from './MovieComponents/MovieButtonAdd';
-// const MovieTitle = require('./MovieComponents/MovieTitle');
-// const MovieSubtitle = require('./MovieComponents/MovieSubtitle');
-// const MovieImage = require('./MovieComponents/MovieImage');
-// const MovieStoryLine = require('./MovieComponents/MovieStoryline');
-// const MovieRating = require('./MovieComponents/MovieRating');
-// const MovieGenre = require('./MovieComponents/MovieGenre');
-// const MovieButtonAdd = require('./MovieComponents/MovieButtonAdd');
 
 class AddMovie extends React.Component {
   // constructor() {
@@ -30,8 +23,14 @@ class AddMovie extends React.Component {
   //   };
   // }
 
+  // onSearchTextChange({ target }) {
+  //   console.log(target);
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
+
   render() {
-    // const { onClick } = this.props;
     // const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
 
     return (
