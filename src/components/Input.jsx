@@ -14,16 +14,19 @@ class Input extends Component {
     } = this.props;
 
     return (
-      <label data-testid={ dataTestidLabel } htmlFor={ name }>
-        {text}
-        <input
-          data-testid={ dataTestidInput }
-          value={ value }
-          type={ type }
-          name={ name }
-          onChange={ onChange }
-        />
-      </label>
+      <div>
+        <label className="labels" data-testid={ dataTestidLabel } htmlFor={ name }>
+          {text}
+          <input
+            className="input"
+            data-testid={ dataTestidInput }
+            value={ value }
+            type={ type }
+            name={ name }
+            onChange={ onChange }
+          />
+        </label>
+      </div>
     );
   }
 }

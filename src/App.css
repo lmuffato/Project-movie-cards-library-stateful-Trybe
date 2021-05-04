@@ -81,3 +81,21 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.labels {
+  margin: 1rem;
+  width: 100%;
+}
+
+.input {
+  margin-left: 1rem;
+  width: 81rem;
+}
+
+.buttons {
+  margin: 1rem;
+}
+
+.checkbox {
+  margin-left: 0.5rem;
+}

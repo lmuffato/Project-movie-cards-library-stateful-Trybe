@@ -54,29 +54,34 @@ class AddMovie extends Component {
             dataTestidInput={ object.dataTestidInput }
           />
         ))}
-        <label data-testid="storyline-input-label" htmlFor="storyLine">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            value={ storyLine }
-            name="storyLine"
-            onChange={ this.handleValue }
-          />
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero:
-          <select
-            data-testid="genre-input"
-            value={ genre }
-            name="genre"
-            onChange={ this.handleValue }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-
+        <div>
+          <label className="labels" data-testid="storyline-input-label" htmlFor="storyLine">
+            Sinopse
+            <textarea
+              className="input"
+              data-testid="storyline-input"
+              value={ storyLine }
+              name="storyLine"
+              onChange={ this.handleValue }
+            />
+          </label>
+        </div>
+        <div>
+          <label className="labels" htmlFor="genre" data-testid="genre-input-label">
+            Gênero:
+            <select
+              className="input"
+              data-testid="genre-input"
+              value={ genre }
+              name="genre"
+              onChange={ this.handleValue }
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
+          </label>
+        </div>
         <Button
           dataTestid="send-button"
           text="Adicionar filme"
