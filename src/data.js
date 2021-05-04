@@ -44,6 +44,15 @@ const movies = [
     bookmarked: true,
     genre: 'fantasy',
   },
+  {
+    title: 'Warcraft',
+    subtitle: 'Two worlds, one home',
+    storyline: "Gul'dan, an orc warlock, unites the orc clans into the Horde, and creates a portal to the world of Azeroth by using fel magic to drain the life out of captive draenei.",
+    rating: 4.2,
+    imagePath: 'https://2.bp.blogspot.com/-SRUdqo62G8Q/V0Gruyykc0I/AAAAAAAADyI/MV5_CL1avPQFUsVx7UpDksGxrd_IVmaaACLcB/s1600/Warcraft.jpg',
+    bookmarked: true,
+    genre: 'fantasy',
+  },
 ];
 
 export default movies;

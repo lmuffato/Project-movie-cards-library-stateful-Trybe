@@ -2,6 +2,7 @@ body {
   background-color: rgb(199, 184, 184);
   box-sizing: border-box;
   font-size: 16px;
+  margin: 20px;
 }
 
 .movie-card-header {
@@ -24,6 +25,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   padding: 48px 30px;
+  justify-content: space-around;
 }
 
 .movie-card {
@@ -32,7 +34,7 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 520px;
+  height: 550px;
   margin: 5px;
   overflow: hidden;
   width: 350px;
@@ -92,5 +94,11 @@ input, textarea, select {
 }
 
 textarea {
-  margin-bottom: -10px;
+  margin-bottom: -20px;
+}
+
+button {
+  padding: 15px;
+  background-color: rgb(24, 44, 24);
+  color: white;
 }
