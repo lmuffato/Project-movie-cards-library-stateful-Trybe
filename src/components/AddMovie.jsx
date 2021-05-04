@@ -1,18 +1,18 @@
 import React from 'react';
 import LabelInput from './LabelInput';
 import LabelTextArea from './LabelTextArea';
+import LabelSelect from './LabelSelect';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
-    // this.trocaTitle = this.trocaTitle.bind(this);
     this.state = {
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -51,8 +51,15 @@ class AddMovie extends React.Component {
     }));
   }
 
+  trocaGenre = (event) => {
+    const { value } = event.target;
+    this.setState(() => ({
+      genre: value,
+    }));
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <LabelInput
@@ -62,7 +69,6 @@ class AddMovie extends React.Component {
           text="Título"
           onChange={ this.trocaTitle }
         />
-
         <LabelInput
           id="subtitle-input"
           text="Subtítulo"
@@ -70,7 +76,6 @@ class AddMovie extends React.Component {
           onChange={ this.trocaSubTitle }
           value={ subtitle }
         />
-
         <LabelInput
           id="image-input"
           text="Imagem"
@@ -78,20 +83,24 @@ class AddMovie extends React.Component {
           onChange={ this.trocaImage }
           value={ imagePath }
         />
-
         <LabelTextArea
           id="storyline-input"
           text="Sinopse"
           onChange={ this.trocaStoryline }
           value={ storyline }
         />
-
         <LabelInput
           id="rating-input"
           text="Avaliação"
           type="number"
           onChange={ this.trocaRating }
           value={ rating }
+        />
+        <LabelSelect
+          id="genre-input"
+          text="Gênero"
+          onChange={ this.trocaGenre }
+          value={ genre }
         />
       </form>
     );
