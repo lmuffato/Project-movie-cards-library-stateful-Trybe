@@ -28,17 +28,25 @@ class SearchBar extends Component {
           />
         </label>
 
-        <label
-          htmlFor="bookMarkedOnly"
-          data-testid="checkbox-input-label"
-        >
+        <label htmlFor="bookMarkedOnly" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
             name="bookMarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookMarkedChange }
+            data-testid="checkbox-input"
           />
+        </label>
+
+        <label htmlFor="genre">
+          Filtrar por gênero
+          <select name="genre" value={ selectedGenre } onChange={ onSelectedGenreChange }>
+            <option value="">Todos e "</option>
+            <option value="">Ação e action</option>
+            <option value="">Comédia e comedy</option>
+            <option value="">Suspense e thriller</option>
+          </select>
         </label>
       </form>
     );
