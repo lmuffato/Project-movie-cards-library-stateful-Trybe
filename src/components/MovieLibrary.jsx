@@ -19,7 +19,11 @@ class MovieLibrary extends Component {
     let { state } = this;
     state = { ...state, ...newFilter };
     const { searchText, selectedGenre, bookmarkedOnly } = state;
-    let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)));
+    let filteredMovies = movies.filter((movie) => (
+      movie.storyline.includes(searchText)
+      || movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+    ));
     filteredMovies = filteredMovies.filter(
       (movie) => (movie.genre.includes(selectedGenre)),
     );
