@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 
 class Input extends Component {
   render() {
-    const { text, dataTestidLabel, dataTestidInput, name, onChange, value, type } = this.props;
+    const {
+      text,
+      dataTestidLabel,
+      dataTestidInput,
+      name,
+      onChange,
+      value,
+      type
+    } = this.props;
 
     return (
       <label data-testid={ dataTestidLabel } htmlFor={ name }>
