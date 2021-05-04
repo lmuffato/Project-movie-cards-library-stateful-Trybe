@@ -29,8 +29,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   };
 
-  submitForm = () => {
-    // event.preventDefault();
+  submitForm = (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
