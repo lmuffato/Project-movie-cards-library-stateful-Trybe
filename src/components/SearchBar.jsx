@@ -1,12 +1,16 @@
 import React from 'react';
 
-function SearchBar() {
-  return (
-    <form action="">
-      <input type="text" />
-      <input type="checkbox" />
-    </form>
-  );
+class SearchBar extends React.Component {
+  render() {
+    return (
+      <div>
+        <form action="">
+          <input type="text" />
+          <input type="checkbox" />
+        </form>
+      </div>
+    );
+  }
 }
 
 export default SearchBar;
