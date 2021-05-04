@@ -34,11 +34,11 @@ class MovieLibrary extends Component {
     const { bookmarkedOnly } = this.state;
 
     if (bookmarkedOnly) {
-      this.setState({ bookmarkedOnly: true });
+      this.setState({ bookmarkedOnly: false });
       return;
     }
 
-    this.setState({ bookmarkedOnly: false });
+    this.setState({ bookmarkedOnly: true });
   }
 
   render() {
