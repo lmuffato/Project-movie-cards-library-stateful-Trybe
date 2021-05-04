@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Check extends React.Component {
   render() {
@@ -6,20 +7,27 @@ class Check extends React.Component {
     return (
       <label
         data-testid="checkbox-input-label"
-        htmlFor={nome}
+        htmlFor={ nome }
       >
         { texto }
         <input
           type="checkbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
           data-testid="checkbox-input"
-          id={nome}
-          name={nome}
+          id={ nome }
+          name={ nome }
         />
       </label>
     );
   }
 }
+
+Check.propTypes = {
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  texto: PropTypes.string.isRequired,
+  nome: PropTypes.string.isRequired,
+};
 
 export default Check;
