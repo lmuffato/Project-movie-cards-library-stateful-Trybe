@@ -1,5 +1,10 @@
 /* eslint-disable max-lines-per-function */
 import React from 'react';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+import RatingForm from './RatingForm';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -30,55 +35,11 @@ class AddMovie extends React.Component {
       <form
         data-testid="add-movie-form"
       >
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            data-testid="title-input"
-            onChange={ this.handleChange }
-            value={ title }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-            value={ subtitle }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            data-testid="image-input"
-            onChange={ this.handleChange }
-            value={ imagePath }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-            value={ storyline }
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-            value={ rating }
-          />
-        </label>
+        <Title value={ title } handleChange={ this.handleChange } />
+        <Subtitle value={ subtitle } handleChange={ this.handleChange } />
+        <ImagePath value={ imagePath } handleChange={ this.handleChange } />
+        <Storyline value={ storyline } handleChange={ this.handleChange } />
+        <RatingForm value={ rating } handleChange={ this.handleChange } />
 
       </form>
     );
