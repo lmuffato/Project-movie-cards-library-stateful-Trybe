@@ -46,8 +46,8 @@ body {
   height: 650px;
   margin: 5px;
   overflow: hidden;
-  width: 500px;
   transition: 1s;
+  width: 500px;
 }
 
 .movie-card-image {
