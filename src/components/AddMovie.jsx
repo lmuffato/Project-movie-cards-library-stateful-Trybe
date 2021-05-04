@@ -25,6 +25,7 @@ class AddMovie extends React.Component {
     else this.setState({ [id]: value });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     return (
       <div>
@@ -33,29 +34,36 @@ class AddMovie extends React.Component {
             Título
             <input
               onChange={ this.onChange }
-              type="text" id="title-input"
-              data-testid="title-input" />
+              type="text"
+              id="title-input"
+              data-testid="title-input" 
+            />
           </label>
           <label
             onChange={ this.onChange }
             htmlFor="subtitle-input"
-            data-testid="subtitle-input-label">
+            data-testid="subtitle-input-label"
+          >
             Subtítulo
             <input
               onChange={ this.onChange }
-              type="text" id="subtitle-input"
-              data-testid="subtitle-input" />
+              type="text"
+              id="subtitle-input"
+              data-testid="subtitle-input"
+            />
           </label>
           <label
             onChange={ this.onChange }
             htmlFor="image-input"
-            data-testid="image-input-label">
+            data-testid="image-input-label"
+          >
             Imagem
             <input
               onChange={ this.onChange }
               id="image-input"
               type="text"
-              data-testid="image-input" />
+              data-testid="image-input"
+            />
           </label>
           <label htmlFor="storyline-input" data-testid="storyline-input-label">
             Sinopse
@@ -72,14 +80,17 @@ class AddMovie extends React.Component {
               onChange={ this.onChange }
               type="number"
               id="rating"
-              data-testid="rating-input" />
+              data-testid="rating-input"
+            />
           </label>
           <label htmlFor="genre-input" data-testid="genre-input-label">
             Gênero
             <select
               onChange={ this.onChange }
-              name="genre-input" id="genre-input"
-              data-testid="genre-input">
+              name="genre-input"
+              id="genre-input"
+              data-testid="genre-input"
+            >
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
