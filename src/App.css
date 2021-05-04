@@ -82,7 +82,7 @@ body {
   padding: 12px 20px;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   margin: 10px;

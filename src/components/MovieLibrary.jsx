@@ -24,11 +24,15 @@ class MovieLibrary extends Component {
 
   }
 
+  onClick = () => {
+
+  }
+
   render() {
     return (
       <section>
         <SearchBar />
-        <MovieList movies={movies} />
+        <MovieList movies={ movies } />
         <AddMovie />
       </section>
     );

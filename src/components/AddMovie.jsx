@@ -60,7 +60,7 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         {this.generateInputs().map((n) => (
           // eslint-disable-next-line react/jsx-curly-spacing
-          <label htmlFor={ n.input.name } { ...n.label } key={`label-${n.input.name}`}>
+          <label htmlFor={ n.input.name } { ...n.label } key={ `label-${n.input.name}` }>
             {n.text}
             {
               n.input.type !== 'textarea'

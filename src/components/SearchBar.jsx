@@ -5,8 +5,6 @@ class SearchBar extends Component {
   render() {
     const { searchText, onSearchTextChange, onBookmarkedChange } = this.props;
     const { bookmarkedOnly, selectedGenre, onSelectedGenreChange } = this.props;
-    console.log(searchText, onSearchTextChange, onBookmarkedChange);
-    console.log(bookmarkedOnly, selectedGenre, onSelectedGenreChange);
     const propsInputText = {
       type: 'text',
       'data-testid': 'text-input',
@@ -19,7 +17,7 @@ class SearchBar extends Component {
       checked: bookmarkedOnly,
       onChange: onBookmarkedChange,
     };
-    const propsInputSelect= {
+    const propsInputSelect = {
       'data-testid': 'select-input',
       value: selectedGenre,
       onChange: onSelectedGenreChange,
