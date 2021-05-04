@@ -42,6 +42,21 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filteredMovies = movies;
+    if (bookmarkedOnly) {
+      filteredMovies = movies.filter((movie) => movie.bookmarked === true);
+    }
+    if (selectedGenre !== '') {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText !== '') {
+      filteredMovies = filteredMovies.filter((movie) => (
+        movie.title.includes(searchText)
+         || movie.subtitle.includes(searchText)
+         || movie.storyline.includes(searchText)
+      ));
+    }
+
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -55,7 +70,7 @@ class MovieLibrary extends Component {
         />
         <AddMovie onClick={ this.handleClick } />
         <MovieList
-          movies={ movies }
+          movies={ filteredMovies }
           bookmarked={ bookmarkedOnly }
           genre={ selectedGenre }
           searchText={ searchText }
