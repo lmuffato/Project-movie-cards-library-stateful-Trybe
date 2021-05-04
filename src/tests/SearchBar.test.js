@@ -37,7 +37,7 @@ const selectTestId = 'select-input';
 describe('1 - Crie um componente chamado `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
+  it('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
     searchBar();
   });
 });
