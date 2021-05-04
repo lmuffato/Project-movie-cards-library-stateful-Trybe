@@ -7,9 +7,10 @@ import StorylineInput from './AddMovie/StorylineInput';
 import RatingInput from './AddMovie/RatingInput';
 import GenderSelect from './AddMovie/GenderSelect';
 
-class AddMovie extends React.Component {
+export default class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.state = {
       title: '',
       subtitle: '',
@@ -44,7 +45,7 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
-  addMoveToLibrary = (event) => {
+  addMovieToLibrary = (event) => {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
@@ -61,7 +62,10 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.addMoveToLibrary }>
+      <form
+        data-testid="add-movie-form"
+        onSubmit={ this.addMovieToLibrary }
+      >
         <TextInput title={ title } handleValue={ this.handleValue } />
         <SubtitleInput subtitle={ subtitle } handleSubValue={ this.handleSubValue } />
         <ImageInput imagePath={ imagePath } handleImage={ this.handleImage } />
@@ -78,8 +82,6 @@ class AddMovie extends React.Component {
     );
   }
 }
-
-export default AddMovie;
 
 AddMovie.propTypes = {
   onClick: PropTypes.func,

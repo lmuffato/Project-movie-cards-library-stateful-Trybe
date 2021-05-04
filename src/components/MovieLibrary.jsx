@@ -12,7 +12,7 @@ export default class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: this.props.movies
+      movies: [],
     };
   }
 
@@ -28,9 +28,26 @@ export default class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  addNewMovieToList = (newMovie) => {
+    this.setState((prevArr) => ({ movies: [...prevArr.movies, newMovie] }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    let { movies } = this.props;
+
+    const filterByTitle = movies.filter(
+      (movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText),
+    );
+    const filterByBookMark = movies.filter((movie) => movie.bookmarked === true);
+    const filterByGenre = movies.filter((movie) => movie.genre === selectedGenre);
+
+    if (bookmarkedOnly) movies = filterByBookMark;
+    if (selectedGenre) movies = filterByGenre;
+    if (searchText) movies = filterByTitle;
+
     return (
       <div>
         <SearchBar
@@ -41,9 +58,8 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
-        { bookmarkedOnly ? <MovieList movies={ movies } />
-          : <MovieList movies={ movies } />}
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addNewMovieToList } />
       </div>
     );
   }
@@ -52,3 +68,9 @@ export default class MovieLibrary extends React.Component {
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+// Referências:
+// Para a lógica de filtros do requisito 18 e criação das constantes filterByTitle, byGenre e ByBookmark,
+// tomei como base as soluções apresentadas nos PR's abaixo:
+// --> https://github.com/tryber/sd-09-project-movie-cards-library-stateful/pull/89/files
+// --> https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/57/files
