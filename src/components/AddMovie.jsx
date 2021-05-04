@@ -27,20 +27,20 @@ class AddMovie extends Component {
 
   handleInputs({ target }) {
     const { name, value } = target;
-    this.setState = {
+    this.setState({
       [name]: value,
-    };
+    });
   }
 
   resetStates() {
-    this.setState = {
+    this.setState({
       subtitle: '',
-      title: target.value,
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    };
+    });
   }
 
   render() {

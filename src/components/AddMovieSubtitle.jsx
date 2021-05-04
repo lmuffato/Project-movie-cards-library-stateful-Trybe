@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SubTitle extends Component {
   render() {
-    const { subtitle, handleInputs }= this.props;
+    const { subtitle, handleInputs } = this.props;
 
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
