@@ -32,8 +32,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  resetInputs(e) {
-    e.preventDefault();
+  resetInputs() {
+    // e.preventDefault();
     this.setState({
       title: '',
       subtitle: '',
@@ -46,6 +46,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    // const elemen = this.state;
     const { onClick } = this.props;
 
     return (
@@ -57,9 +58,10 @@ class AddMovie extends React.Component {
         <Rating rating={ rating } handleChange={ this.handleChange } />
         <Genre genre={ genre } handleChange={ this.handleChange } />
         <Button
-          onClick={ (e) => {
-            onClick(e);
-            this.resetInputs(e);
+          onClick={ () => {
+            const element = this.state;
+            onClick(element);
+            this.resetInputs();
           } }
         />
       </form>

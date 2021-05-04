@@ -5,7 +5,7 @@ class Button extends React.Component {
   render() {
     const { onClick } = this.props;
     return (
-      <button type="submit" name="button" data-testid="send-button" onClick={ onClick }>
+      <button type="button" name="button" data-testid="send-button" onClick={ onClick }>
         Adicionar filme
       </button>
     );

@@ -53,7 +53,6 @@ class MovieLibrary extends Component {
   }
 
   addMovieCard(element) {
-    element.preventDefault();
     const { movies } = this.state;
     this.setState({ movies: [...movies, element] });
   }
