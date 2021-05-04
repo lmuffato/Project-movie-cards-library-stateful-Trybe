@@ -87,9 +87,9 @@ class MovieLibrary extends React.Component {
         <SearchBar
           onSearchTextChange={ this.handleSearchText }
           searchText={ searchText }
-          handleOnBookmarked={ this.handleOnBookmarked }
+          onBookmarkedChange={ this.handleOnBookmarked }
           bookmarkedOnly={ bookmarkedOnly }
-          handleSelectedGenre={ this.handleSelectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenre }
           selectedGenre={ selectedGenre }
         />
         <MovieList
