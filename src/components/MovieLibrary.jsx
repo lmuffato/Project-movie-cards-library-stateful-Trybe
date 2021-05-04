@@ -19,6 +19,12 @@ class MovieLibrary extends Component {
     };
   }
 
+  handleOnChange({ target }) {
+    const { id, type, checked } = target;
+    const value = type === 'checkbox' ? checked : target.value;
+    this.setState({ [id]: value });
+  }
+
   handleAddMovie(newMovie) {
     this.setState(({ movies }) => ({
       movies: [...movies, newMovie],
