@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
           <Button
             callback={ (event) => {
               event.preventDefault();
-              onClick();
+              onClick(this.state);
               this.resetState();
             } }
           />

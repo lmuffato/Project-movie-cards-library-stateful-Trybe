@@ -12,8 +12,15 @@ class MovieLibrary extends Component {
     const { movies } = this.props;
 
     this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
       movies,
     };
+  }
+
+  addMovie(movie) {
+    this.setState((prevState) => [...prevState, movie]);
   }
 
   render() {
@@ -23,7 +30,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
