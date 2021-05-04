@@ -1,10 +1,10 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import dataInputs from '../dataInputs';
-import Input from './Input';
-import Select from './Select';
-import Button from './Button';
+import dataInputs from '../dataInputs.js';
+import Input from './Input.jsx';
+import Select from './Select.jsx';
+import Button from './Button.jsx';
 
 class AddMovie extends Component {
   constructor() {
