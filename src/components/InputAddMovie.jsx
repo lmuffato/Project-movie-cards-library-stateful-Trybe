@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class InputAddMovie extends React.Component {
   render() {
     const {
-      id,
       testIdLabel,
       testIdInput,
       label,
@@ -15,7 +14,7 @@ class InputAddMovie extends React.Component {
     return (
       <div>
         <label
-          htmlFor={ id }
+          htmlFor={ testIdInput }
           data-testid={ testIdLabel }
         >
           { label }
@@ -25,7 +24,7 @@ class InputAddMovie extends React.Component {
             data-testid={ testIdInput }
             name={ inputName }
             value={ inputValue }
-            id={ id }
+            id={ testIdInput }
           />
         </label>
       </div>
@@ -34,7 +33,6 @@ class InputAddMovie extends React.Component {
 }
 
 InputAddMovie.propTypes = {
-  id: PropTypes.string.isRequired,
   testIdInput: PropTypes.string.isRequired,
   testIdLabel: PropTypes.string.isRequired,
   handle: PropTypes.func.isRequired,
