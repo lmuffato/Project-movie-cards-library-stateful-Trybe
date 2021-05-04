@@ -14,7 +14,7 @@ class AddMovieComponent extends Component {
         { text }
         <input
           name={ name }
-          type="textarea"
+          type="text"
           id="input"
           value={ value }
           data-testid={ dataTestidInput }

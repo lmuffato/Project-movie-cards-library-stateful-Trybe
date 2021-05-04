@@ -4,6 +4,7 @@ import AddMovieComponent from './addMovieComponent';
 import AddRating from './AddRating';
 import Select from './addSelect';
 import Button from './button';
+import Subtitle from './SubTitle';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,6 +23,13 @@ class AddMovie extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleSubtitle = (event) => {
+    const { value } = event.target;
+    this.setState({
+      subtitle: value,
     });
   }
 
@@ -52,14 +60,7 @@ class AddMovie extends Component {
           onChange={ this.handle }
           text="Título"
         />
-        <AddMovieComponent
-          name="subtitle"
-          value={ subtitle }
-          dataTestidlabel="subtitle-input-label"
-          dataTestidInput="subtitle-input"
-          onChange={ this.handle }
-          text="Subtítulo"
-        />
+        <Subtitle value={ subtitle } onChange={ this.handleSubtitle } />
         <AddMovieComponent
           name="imagePath"
           value={ imagePath }
