@@ -16,6 +16,7 @@ class MovieList extends React.Component {
       if (title.includes(searchText)) return movie;
       if (subtitle.includes(searchText)) return movie;
       if (storyline.includes(searchText)) return movie;
+      return null;
     });
     renderedMovies = renderedMovies.filter((movie) => movie.genre.includes(
       selectedGenre,
