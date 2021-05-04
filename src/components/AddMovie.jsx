@@ -6,7 +6,7 @@ class AddMovie extends React.Component {
     super();
     this.state = {
     //  subtitle: '',
-    //  title: '',
+      title: '',
     //  imagePath: '',
     //  storyline: '',
     //  rating: 0,
@@ -19,9 +19,25 @@ class AddMovie extends React.Component {
     event.prevenDefault();
   }
 
+  atualizaEstado = (event) => {
+    this.setState({ title: event.target.value });
+  }
+
   render() {
+    const { title } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.submeterForms }> </form>
+      <form data-testid="add-movie-form" onSubmit={ this.submeterForms }>
+        <label htmlFor="text-in" data-testid="title-input-label">
+          Título
+          <input
+            id="text-in"
+            value={ title }
+            onChange={ this.atualizaEstado }
+            data-testid="title-input"
+            type="text"
+          />
+        </label>
+      </form>
     );
   }
 }
