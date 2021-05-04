@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import TextInput from './AddMovieComponents/TextInput';
 import TextInput2 from './AddMovieComponents/TextInput2';
 import TextInput3 from './AddMovieComponents/TextInput3';
+import TextArea from './AddMovieComponents/TextArea';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -27,13 +27,14 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           <TextInput handInputs={ this.handInputs } value={ title } />
           <TextInput2 handInputs={ this.handInputs } value={ subtitle } />
           <TextInput3 handInputs={ this.handInputs } value={ imagePath } />
+          <TextArea handInputs={ this.handInputs } value={ storyline } />
         </form>
       </div>
     );
