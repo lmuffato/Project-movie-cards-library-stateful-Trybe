@@ -13,7 +13,7 @@ class MovieLibrary extends Component {
       searchText: '',
       onSearchTextChange: '',
       bookmarkedOnly: '',
-      onBookmakedChange: '',
+      onBookmarkedChange: '',
       selectedGenre: '',
       onSelectedGenreChange: '',
     };
@@ -51,12 +51,6 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.string.isRequired,
-  onBookmakedChange: PropTypes.string.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.string.isRequired,
 };
 
 export default MovieLibrary;
