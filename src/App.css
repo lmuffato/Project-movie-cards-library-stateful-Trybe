@@ -85,6 +85,6 @@ body {
 .form-addMovie {
   display: flex;
   flex-direction: column;
-  padding: 2px;
   margin: 20px;
+  padding: 2px;
 }
