@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import LabelInput from './LabelInput';
 import LabelSelect from './LabelSelect';
 import LabelTextArea from './LabelTextArea';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -53,6 +55,19 @@ class AddMovie extends Component {
     });
   }
 
+  funcButton = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -97,10 +112,14 @@ class AddMovie extends Component {
           text="Avaliação"
           type="number"
         />
-
+        <Button onClick={ this.funcButton } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
