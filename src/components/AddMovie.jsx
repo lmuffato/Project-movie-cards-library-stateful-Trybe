@@ -15,8 +15,7 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <>
-      </>
+      <form action="" />
     );
   }
 }
