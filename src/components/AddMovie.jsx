@@ -1,5 +1,6 @@
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
+import FormGroup from './FormGroup';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -38,45 +39,13 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const { rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="name" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem:
-          <input
-            name="imagePath"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyLine" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyLine"
-            data-testid="storyline-input"
-            value={ storyLine }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <FormGroup
+          state={ this.state }
+          handleChange={ this.handleChange }
+        />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
@@ -112,13 +81,8 @@ class AddMovie extends React.Component {
   }
 }
 
-/* AddMovie.PropTypes = {
-  onClick: {
-    searchText: '',
-    bookmarkedOnly: false,
-    selectedGenre: '',
-    movies: props.movies,
-  }
-} */
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
