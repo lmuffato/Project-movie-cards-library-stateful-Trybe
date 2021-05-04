@@ -65,15 +65,15 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
 
         <SearchBar
-          searchText={this.state.searchText}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          selectedGenre={this.state.selectedGenre}
-          onSearchTextChange={this.onSearchTextChange}
-          onBookmarkedChange={this.onBookmarkedChange}
-          onSelectedGenreChange={this.onSelectedGenreChange} />
+          searchText={ this.state.searchText }
+          bookmarkedOnly={ this.state.bookmarkedOnly }
+          selectedGenre={ this.state.selectedGenre }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange } />
 
-        <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick}/>
+        <MovieList movies={ this.state.movies } />
+        <AddMovie onClick={ this.onClick }/>
       </div>
     );
   }
@@ -81,6 +81,6 @@ class MovieLibrary extends React.Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
-}
+};
 
 export default MovieLibrary;

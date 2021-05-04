@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   handleChange({ target }) {
@@ -38,17 +38,18 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+
     return (
       <div>
         <form data-testid="add-movie-form">
-
           <label data-testid="title-input-label">
             Título
             <input
               type="text"
               name="title"
               data-testid="title-input"
-              value={ this.state.title }
+              value={ title }
               onChange={ this.handleChange } />
           </label>
 
@@ -58,7 +59,7 @@ class AddMovie extends React.Component {
               type="text"
               name="subtitle"
               data-testid="subtitle-input"
-              value={ this.state.subtitle }
+              value={ subtitle }
               onChange={ this.handleChange } />
           </label>
 
@@ -68,7 +69,7 @@ class AddMovie extends React.Component {
               type="text"
               name="imagePath"
               data-testid="image-input"
-              value={ this.state.imagePath }
+              value={ imagePath }
               onChange={ this.handleChange } />
           </label>
 
@@ -77,7 +78,7 @@ class AddMovie extends React.Component {
             <textarea
               name="storyline"
               data-testid="storyline-input"
-              value={ this.state.storyline }
+              value={ storyline }
               onChange={ this.handleChange } />
           </label>
 
@@ -87,7 +88,7 @@ class AddMovie extends React.Component {
               type="number"
               name="rating"
               data-testid="rating-input"
-              value={ this.state.rating }
+              value={ rating }
               onChange={ this.handleChange } />
           </label>
 
@@ -97,7 +98,7 @@ class AddMovie extends React.Component {
               type="number"
               name="genre"
               data-testid="genre-input"
-              value={this.state.genre}
+              value={genre}
               onChange={ this.handleChange }>
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
