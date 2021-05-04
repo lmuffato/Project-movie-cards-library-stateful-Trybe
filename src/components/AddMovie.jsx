@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
           id="title-input"
           type="text"
           text="Título"
-          func={ this.trocaTitle }
+          onChange={ this.trocaTitle }
         />
 
       </form>
