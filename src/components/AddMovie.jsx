@@ -51,13 +51,13 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <div>
-          <Titulo title={ title } onChange={ onChange } />
-          <Subtitulo subtitle={ subtitle } onChange={ onChange } />
-          <Imagem imagePath={ imagePath } onChange={ onChange } />
-          <Avaliacao rating={ rating } onChange={ onChange } />
-          <Genero genre={ genre } onChange={ onChange } />
+          <Titulo value={ title } onChange={ onChange } />
+          <Subtitulo value={ subtitle } onChange={ onChange } />
+          <Imagem value={ imagePath } onChange={ onChange } />
+          <Avaliacao value={ Number(rating) } onChange={ onChange } />
+          <Genero value={ genre } onChange={ onChange } />
         </div>
-        <Sinopse storyline={ storyline } onChange={ onChange } />
+        <Sinopse value={ storyline } onChange={ onChange } />
         <button
           type="button"
           data-testid="send-button"
