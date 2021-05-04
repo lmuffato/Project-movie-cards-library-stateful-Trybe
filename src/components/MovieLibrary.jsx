@@ -22,8 +22,34 @@ class MovieLibrary extends Component {
     this.setState({ [stateName]: value });
   }
 
+  filterMovies(movies, search, bookmarked, genre) {
+    const moviesByGender = movies.filter((movie) => {
+      if (genre.length > 0) return movie.genre === genre;
+      return movie;
+    });
+
+    const moviesBySearchText = moviesByGender.filter((movie) => {
+      if (search.length > 0) {
+        const searchLowerCase = search.toLowerCase();
+        return movie.title.toLowerCase().includes(searchLowerCase)
+            || movie.subtitle.toLowerCase().includes(searchLowerCase)
+            || movie.storyline.toLowerCase().includes(searchLowerCase);
+      }
+      return movie;
+    });
+
+    const moviesBookmarked = moviesBySearchText.filter((movie) => {
+      if (bookmarked === true) return movie.bookmarked;
+      return movie;
+    });
+
+    return moviesBookmarked;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const moviesFiltered = this
+      .filterMovies(movies, searchText, bookmarkedOnly, selectedGenre);
     return (
       <div>
         <SearchBar
@@ -34,7 +60,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ moviesFiltered } />
       </div>
     );
   }
