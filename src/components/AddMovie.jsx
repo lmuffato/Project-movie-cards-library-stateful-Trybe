@@ -1,4 +1,5 @@
 import React from 'react';
+import InputAddMovie from './InputAddMovie';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -6,7 +7,7 @@ class AddMovie extends React.Component {
 
     this.handleTextChange = this.handleTextChange.bind(this);
     this.state = {
-    //   subtitle: '',
+      subtitle: '',
       title: '',
     //   imagePath: '',
     //   storyline: '',
@@ -16,11 +17,13 @@ class AddMovie extends React.Component {
   }
 
   handleTextChange(e) {
-    this.setState({ title: e.target.value });
+    console.log('Mudanca ocorrida');
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -36,9 +39,20 @@ class AddMovie extends React.Component {
                 onChange={ this.handleTextChange }
                 data-testid="title-input"
                 id="title-input"
+                name="title"
               />
             </label>
           </div>
+
+          <InputAddMovie
+            label="Subtítulo"
+            testIdLabel="subtitle-input-label"
+            testIdInput="subtitle-input"
+            id="subtitle-input"
+            inputValue={ subtitle }
+            handle={ this.handleTextChange }
+            inputName="subtitle"
+          />
         </form>
       </div>
     );
