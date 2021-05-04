@@ -94,7 +94,7 @@ body {
 }
 
 .addMovieForm {
-  background-color: #646669;
+  background-color: rgb(52, 58, 64);
   border-radius: 10px;
   color: rgb(231, 231, 231);
   display: flex;
