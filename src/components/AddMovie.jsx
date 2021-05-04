@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextInput from './TextInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -27,36 +28,38 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <TextInput
+          label="Título"
+          name="title"
+          value={ title }
+          data-testid="title-input"
+          onChange={ this.handleChange }
+        />
 
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <TextInput
+          label="Subtítulo"
+          name="subtitle"
+          value={ subtitle }
+          data-testid="subtitle-input"
+          onChange={ this.handleChange }
+        />
+        <TextInput
+          label="Imagem"
+          name="imagePath"
+          value={ imagePath }
+          data-testid="image-input"
+          onChange={ this.handleChange }
+        />
 
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
+        <label htmlFor="storyLine" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyLine"
+            value={ storyLine }
+            cols="30"
+            rows="10"
             onChange={ this.handleChange }
+            data-testid="storyline-input"
           />
         </label>
       </form>
