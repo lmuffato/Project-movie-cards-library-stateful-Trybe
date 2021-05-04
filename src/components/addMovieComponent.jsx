@@ -10,12 +10,12 @@ class AddMovieComponent extends Component {
       text,
       name } = this.props;
     return (
-      <label data-testid={ dataTestidlabel } htmlFor="input">
+      <label data-testid={ dataTestidlabel } htmlFor={ dataTestidlabel }>
         { text }
         <input
           name={ name }
           type="text"
-          id="input"
+          id={ dataTestidInput }
           value={ value }
           data-testid={ dataTestidInput }
           onChange={ onChange }

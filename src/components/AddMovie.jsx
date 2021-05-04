@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AddMovieComponent from './addMovieComponent';
 import AddRating from './AddRating';
 import Select from './addSelect';
-import Button from './button';
 import Subtitle from './SubTitle';
 
 class AddMovie extends Component {
@@ -34,21 +33,23 @@ class AddMovie extends Component {
   }
 
   handleButton = () => {
+    const { onClick } = this.props;
     const keys = Object.keys(this.state);
     keys.forEach((element) => {
       if (element === 'rating') {
         this.setState({
           [element]: 0,
         });
+        onClick(this.state);
       }
       this.setState({
         [element]: '',
       });
+      onClick(this.state);
     });
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -79,7 +80,15 @@ class AddMovie extends Component {
         />
         <AddRating value={ rating } onChange={ this.handle } />
         <Select value={ genre } onChange={ this.handle } />
-        <Button state={ this.state } onClick={ onClick } handle={ this.handleButton } />
+        <button
+          type="button"
+          onClick={ () => {
+            this.handleButton();
+          } }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
