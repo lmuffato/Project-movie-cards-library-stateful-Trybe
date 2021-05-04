@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import AddMovie2 from './AddMovie2';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -55,37 +56,10 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
-          <textarea
-            name="storyline"
-            value = { storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="rating-input-label" htmlFor="rating">
-          Avaliação
-          <input 
-            name="rating"
-            value = { rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero
-          <select
-            name="genre"
-            value = { genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select> 
-        </label>
+        <AddMovie2
+          value={ { storyline, rating, genre } }
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
