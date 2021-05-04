@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -15,10 +15,10 @@ class MovieLibrary extends Component {
       movies,
     };
 
-    this.handleChangeAlgumaCoisa = this.handleChangeAlgumaCoisa.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChangeAlgumaCoisa(stateName, value) {
+  handleChange(stateName, value) {
     this.setState({ [stateName]: value });
   }
 
@@ -28,13 +28,13 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChangeAlgumaCoisa }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChangeAlgumaCoisa }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChangeAlgumaCoisa }
+          onSelectedGenreChange={ this.handleChange }
         />
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        <MovieList movies={ movies } />
       </div>
     );
   }
