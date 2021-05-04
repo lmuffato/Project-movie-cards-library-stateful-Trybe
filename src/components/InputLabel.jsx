@@ -26,7 +26,11 @@ InputLabel.propTypes = {
   handler: PropTypes.func.isRequired,
   description: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
-  value: PropTypes.node.isRequired,
+  value: PropTypes.node,
+};
+
+InputLabel.defaultProps = {
+  value: '',
 };
 
 export default InputLabel;
