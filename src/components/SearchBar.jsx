@@ -1,64 +1,62 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-// implement AddMovie component here
-// implement SearchBar component here
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const todosGeneros = [
-  { genero: 'Todos', valor: '' },
-  { genero: 'Ação', valor: 'action' },
-  { genero: 'Comédia', valor: 'comedy' },
-  { genero: 'Suspense', valor: 'thriller' },
-];
-
-class SearchBar extends React.Component {
-  render() {
-    const {
-      searchText,
-      bookmarkedOnly,
-      selectedGenre,
-      onSearchTextChange,
-      onBookmarkedChange,
-      onSelectedGenreChange } = this.props;
+class SearchBar extends Component {
+  renderizarBookmarked() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
 
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="searchText" data-testid="text-input-label">Inclui o texto</label>
-        <br />
+      <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+        Mostrar somente favoritos
         <input
-          id="searchText"
-          data-testid="text-input"
-          type="text"
-          value={ searchText }
-          onChange={ onSearchTextChange }
-        />
-        <br />
-        <br />
-
-        <label htmlFor="book" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
-        <input
-          data-testid="checkbox-input"
-          id="book"
+          name="bookmarkedOnly"
           type="checkbox"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
+          data-testid="checkbox-input"
         />
-        <br />
-        <br />
+      </label>
+    );
+  }
 
-        <label htmlFor="genero" data-testid="select-input-label">Filtrar por gênero</label>
-        <br />
+  renderizarGenre() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+
+    return (
+      <label data-testid="select-input-label" htmlFor="select-input">
+        Filtrar por gênero
         <select
-          data-testid="select-input"
-          name="genero"
-          id="genero"
+          name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
+          data-testid="select-input"
         >
-          {todosGeneros.map(({ genero, valor }) => (
-            <option data-testid="select-option" key={ genero } value={ valor }>{genero}</option>
-          ))}
+          <option value="" data-testid="select-option">Todos</option>
+          <option value="action" data-testid="select-option">Ação</option>
+          <option value="comedy" data-testid="select-option">Comédia</option>
+          <option value="thriller" data-testid="select-option">Suspense</option>
         </select>
+      </label>
+    );
+  }
+
+  render() {
+    const { searchText, onSearchTextChange } = this.props;
+
+    return (
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="text-input">
+          Inclui o texto
+          <input
+            name="searchText"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
+        </label>
+        { this.renderizarBookmarked() }
+        { this.renderizarGenre() }
       </form>
     );
   }
@@ -66,10 +64,10 @@ class SearchBar extends React.Component {
 
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 

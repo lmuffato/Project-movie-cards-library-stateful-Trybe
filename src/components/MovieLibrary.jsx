@@ -10,12 +10,12 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-    const mov = movies;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: mov,
+      movies,
     };
   }
 
