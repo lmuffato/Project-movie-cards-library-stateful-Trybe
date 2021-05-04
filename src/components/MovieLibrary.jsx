@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { arrayOf, shape, string, number} from 'prop-types';
+import { arrayOf, shape, string, number } from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';

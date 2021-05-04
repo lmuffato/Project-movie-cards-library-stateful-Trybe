@@ -2,7 +2,7 @@ import React from 'react';
 
 import { shape, string, func } from 'prop-types';
 
-import { tags, moviesAddMovie } from '../libs/data';
+import { tags, moviesAddMovie, kindOfMovies } from '../libs/data';
 
 import Option from './Option';
 
@@ -11,6 +11,8 @@ function Label(props) {
   const { testId, control, text } = labelInfo;
   const { tag } = inputExtraInfo;
   const Tag = tags[tag];
+  const dataMovies = testId === 'genre-input-label' ? moviesAddMovie : kindOfMovies;
+  const dataIdOption = testId === 'genre-input-label' ? 'genre-option' : 'select-option';
 
   if (tag === 'select') {
     return (
@@ -18,8 +20,12 @@ function Label(props) {
         {text}
 
         <Tag { ...inputMainInfo } { ...inputExtraInfo }>
-          {moviesAddMovie.map((kindOfMovie) => (
-            <Option key={ kindOfMovie.id } movie={ kindOfMovie } dataId='genre-option'/>
+          {dataMovies.map((kindOfMovie) => (
+            <Option
+              key={ kindOfMovie.id }
+              movie={ kindOfMovie }
+              dataId={ dataIdOption }
+            />
           ))}
         </Tag>
 

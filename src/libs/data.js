@@ -51,6 +51,7 @@ const initialStateAddMovie = {
 const typesSearchBar = {
   text: 'value',
   checkbox: 'checked',
+  select: 'value',
 };
 
 const inputs = {
@@ -69,6 +70,7 @@ const inputs = {
       propsInfo: {
         onChange: 'onSearchTextChange',
         state: 'searchText',
+        type: 'text',
       },
     },
     inputCheckbox: {
@@ -85,6 +87,23 @@ const inputs = {
       propsInfo: {
         onChange: 'onBookmarkedChange',
         state: 'bookmarkedOnly',
+        type: 'checkbox',
+      },
+    },
+    select: {
+      label: {
+        testId: 'select-input-label',
+        control: 'select-input',
+        text: 'Filtrar por gênero',
+      },
+      input: {
+        'data-testid': 'select-input',
+        tag: 'select',
+      },
+      propsInfo: {
+        onChange: 'onSelectedGenreChange',
+        state: 'selectedGenre',
+        type: 'select',
       },
     },
   },
@@ -174,4 +193,10 @@ const tags = {
   select: 'select',
 };
 
-export { kindOfMovies, inputs, tags, moviesAddMovie, initialStateAddMovie, typesSearchBar };
+export {
+  kindOfMovies,
+  inputs,
+  tags,
+  moviesAddMovie,
+  initialStateAddMovie,
+  typesSearchBar };
