@@ -11,7 +11,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      newMovie: {},
+      newMovie: undefined,
     };
   }
 
@@ -61,17 +61,16 @@ class MovieLibrary extends React.Component {
 
   finalList = (list) => {
     const { newMovie } = this.state;
-    if (newMovie.tittle === '') {
-      return list;
+    if (newMovie === undefined) {
+      return [...list];
     }
-    return list.push(newMovie);
+    return [...list, newMovie];
   }
 
   render() {
     const { movies } = this.props;
-    // const movieNewList = this.finalList(movies);
-    // console.log(movieNewList);
-    const filteredByGenre = this.genreFiltered(movies);
+    const movieNewList = this.finalList(movies);
+    const filteredByGenre = this.genreFiltered(movieNewList);
     const filteredByText = this.textFiltered(filteredByGenre);
     const filteredByBookmark = this.bookMarkedFiltered(filteredByText);
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
