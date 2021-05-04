@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Field from './Field';
+import TextAreaField from './TextAreaField';
 
-// subtitle: guarda o subtítulo preenchido no formulário por quem usa a aplicação;
-// title: guarda o título preenchido no formulário por quem usa a aplicação;
-// imagePath: guarda o caminho da imagem preenchido no formulário por quem usa a aplicação;
-// storyline: guarda a sinopse do filme escrita no formulário por quem usa a aplicação;
-// rating: guarda a nota de avaliação dada no formulário por quem usa a aplicação;
-// genre
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -31,49 +27,49 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="true" data-testid="title-input-label">
-            Título
-            <input
-              name="title"
-              type="text"
-              value={ title }
-              data-testid="title-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="true" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              name="subtitle"
-              type="text"
-              value={ subtitle }
-              data-testid="subtitle-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="true" data-testid="image-input-label">
-            Imagem
-            <input
-              name="imagePath"
-              type="text"
-              value={ imagePath }
-              data-testid="image-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label htmlFor="true" data-testid="storyline-input-label">
-            Sinopse
-            <textarea
-              name="storyline"
-              value={ storyline }
-              data-testid="storyline-input"
-              onChange={ this.handleChange }
-            />
-          </label>
+          <Field
+            label="Título"
+            name="title"
+            type="text"
+            value={ title }
+            data="title-input"
+            callback={ this.handleChange }
+          />
+          <Field
+            label="Subtítulo"
+            name="subtitle"
+            type="text"
+            value={ subtitle }
+            data="subtitle-input"
+            callback={ this.handleChange }
+          />
+          <Field
+            label="Imagem"
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            data="image-input"
+            callback={ this.handleChange }
+          />
+          <TextAreaField
+            label="Sinopse"
+            name="storyline"
+            value={ storyline }
+            data="storyline-input"
+            callback={ this.handleChange }
+          />
+          <Field
+            label="Avaliação"
+            name="rating"
+            type="number"
+            value={ rating }
+            data="rating-input"
+            callback={ this.handleChange }
+          />
         </form>
       </div>
     );
