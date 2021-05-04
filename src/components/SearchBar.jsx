@@ -13,9 +13,9 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text-input-label" data-testid="text-input-label">
+        <label htmlFor="text-input" data-testid="text-input-label">
           <input
-            id="text-input-label"
+            id="text-input"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }

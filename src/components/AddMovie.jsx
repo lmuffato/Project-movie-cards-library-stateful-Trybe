@@ -12,58 +12,51 @@ class addMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.changeTitle = this.changeTitle.bind(this);
-    this.changeSubtitle = this.changeSubtitle.bind(this);
-    this.changeImage = this.changeImage.bind(this);
-    this.changeStoryline = this.changeStoryline.bind(this);
-    this.changeRating = this.changeRating.bind(this);
-    this.changeGenre = this.changeGenre.bind(this);
-    this.addMovie = this.addMovie.bind(this);
   }
 
-  changeTitle(event) {
+  changeTitle = (event) => {
     const { target: { value } } = event;
     this.setState({
       title: value,
     });
   }
 
-  changeSubtitle(event) {
+  changeSubtitle = (event) => {
     const { target: { value } } = event;
     this.setState({
       subtitle: value,
     });
   }
 
-  changeImage(event) {
+  changeImage = (event) => {
     const { target: { value } } = event;
     this.setState({
       imagePath: value,
     });
   }
 
-  changeStoryline(event) {
+  changeStoryline = (event) => {
     const { target: { value } } = event;
     this.setState({
       storyline: value,
     });
   }
 
-  changeRating(event) {
+  changeRating = (event) => {
     const { target: { value } } = event;
     this.setState({
       rating: value,
     });
   }
 
-  changeGenre(event) {
+  changeGenre = (event) => {
     const { target: { value } } = event;
     this.setState({
       genre: value,
     });
   }
 
-  addMovie() {
+  addMovie = () => {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
