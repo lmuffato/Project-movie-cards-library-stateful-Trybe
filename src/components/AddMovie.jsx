@@ -113,8 +113,20 @@ class AddMovie extends React.Component {
     );
   }
 
-  render() {
+  addNewMovie = () => {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     return (
       <form data-testid="add-movie-form">
         {this.addtitle()}
@@ -124,9 +136,9 @@ class AddMovie extends React.Component {
         {this.addRating()}
         {this.addGenre()}
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ this.addNewMovie }
         >
           Adicionar filme
         </button>
