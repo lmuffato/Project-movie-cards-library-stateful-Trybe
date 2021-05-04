@@ -24,9 +24,10 @@ class AddMovie extends React.Component {
     this.setState({ [event.target.name]: value });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.setState = ({
+  handleSubmit = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
@@ -37,39 +38,38 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
-        <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
-          <TitleInput title={ title } handleChange={ this.handleChange } />
-          <SubtitleInput subtitle={ subtitle } handleChange={ this.handleChange } />
-          <ImageInput imagePath={ imagePath } handleChange={ this.handleChange } />
-          <StorylineInput storyline={ storyline } handleChange={ this.handleChange } />
-          <RatingInput rating={ rating } handleChange={ this.handleChange } />
-          <label htmlFor="select-genre" data-testid="genre-input-label">
-            Gênero
-            <select
-              value={ genre }
-              onChange={ this.handleChange }
-              data-testid="genre-input"
-              id="select-genre"
-              name="genre"
-            >
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
-            </select>
-          </label>
-          <button
-            type="submit"
-            data-testid="send-button"
-            onClick={ onClick }
+
+      <form data-testid="add-movie-form">
+        <TitleInput title={ title } handleChange={ this.handleChange } />
+        <SubtitleInput subtitle={ subtitle } handleChange={ this.handleChange } />
+        <ImageInput imagePath={ imagePath } handleChange={ this.handleChange } />
+        <StorylineInput storyline={ storyline } handleChange={ this.handleChange } />
+        <RatingInput rating={ rating } handleChange={ this.handleChange } />
+        <label htmlFor="select-genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            value={ genre }
+            onChange={ this.handleChange }
+            data-testid="genre-input"
+            id="select-genre"
+            name="genre"
           >
-            Adicionar filme
-          </button>
-        </form>
-      </div>
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.handleSubmit }
+        >
+          Adicionar filme
+        </button>
+      </form>
+
     );
   }
 }
