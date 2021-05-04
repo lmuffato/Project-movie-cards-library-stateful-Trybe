@@ -13,6 +13,7 @@ class Title extends React.Component {
           data-testid="title-input"
           name="title"
           onChange={ handleChange }
+          className="text-input-addMovie"
         />
       </label>
     );

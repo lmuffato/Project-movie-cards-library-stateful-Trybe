@@ -9,6 +9,7 @@ class Button extends React.Component {
         type="submit"
         data-testid="send-button"
         onClick={ handleMovieState }
+        className="button"
       >
         Adicionar filme
       </button>

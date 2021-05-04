@@ -48,7 +48,8 @@ class AddMovie extends React.Component {
     // https://www.youtube.com/watch?v=5_PdMS9CLLI
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="form-addMovie">
+        <h4>Adicione um novo filme ao Movie Card!</h4>
         <Title title={ title } handleChange={ this.handleChange } />
         <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />

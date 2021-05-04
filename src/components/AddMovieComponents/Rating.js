@@ -13,6 +13,7 @@ class Rating extends React.Component {
           data-testid="rating-input"
           name="rating"
           onChange={ handleChange }
+          className="text-input-addMovie"
         />
       </label>
     );

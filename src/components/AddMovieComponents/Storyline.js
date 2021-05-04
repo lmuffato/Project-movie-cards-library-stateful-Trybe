@@ -13,6 +13,7 @@ class Storyline extends React.Component {
           data-testid="storyline-input"
           name="storyline"
           onChange={ handleChange }
+          className="textarea"
         />
       </label>
     );

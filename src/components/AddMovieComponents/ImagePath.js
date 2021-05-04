@@ -13,6 +13,7 @@ class ImagePath extends React.Component {
           name="imagePath"
           data-testid="image-input"
           onChange={ handleChange }
+          className="text-input-addMovie"
         />
       </label>
     );
