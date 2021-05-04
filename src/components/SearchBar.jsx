@@ -8,7 +8,17 @@ class SearchBar extends React.Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <p>{ searchText }</p>
+
+        <label htmlFor="text-in" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            id="text-in"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            type="text"
+          />
+        </label>
         <p>{ onSearchTextChange }</p>
         <p>{ bookmarkedOnly }</p>
         <p>{ onBookmarkedChange }</p>
