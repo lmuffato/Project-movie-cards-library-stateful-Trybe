@@ -58,6 +58,7 @@ class MovieLibrary extends Component {
           movies={ movies }
           bookmarked={ bookmarkedOnly }
           genre={ selectedGenre }
+          searchText={ searchText }
         />
       </div>
     );
