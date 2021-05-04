@@ -24,6 +24,9 @@ class App extends React.Component {
 
         <label data-testid="image-input-label">Imagem</label>
         <input data-testid="image-input" onChange={ this.state.imagePath } />
+
+        <label data-testid="storyline-input-label">Sinopse</label>
+        <input data-testid="storyline-input" onChange={ this.state.storyline } />
       </form>
     );
   }
