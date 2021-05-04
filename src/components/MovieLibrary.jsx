@@ -50,7 +50,7 @@ export default class MovieLibrary extends Component {
           }) }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.addMovie }/>
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
