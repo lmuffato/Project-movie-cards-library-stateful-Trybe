@@ -18,7 +18,10 @@ class SearchBar extends React.Component {
               value={ searchText }
             />
           </label>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            data-testid="checkbox-input"
+          />
         </form>
       </div>
     );
