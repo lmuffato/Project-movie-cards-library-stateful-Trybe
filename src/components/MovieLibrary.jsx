@@ -7,7 +7,7 @@ class MovieLibrary extends React.Component {
       <div>
         Iniciando o projeto!
       </div>
-    )
+    );
   }
 }
 
