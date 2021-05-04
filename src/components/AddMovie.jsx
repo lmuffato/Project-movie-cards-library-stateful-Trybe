@@ -10,7 +10,6 @@ const initialState = {
 };
 
 class AddMovie extends React.Component {
-
   constructor() {
     super();
 
@@ -36,7 +35,7 @@ class AddMovie extends React.Component {
               onChange={ this.onChange }
               type="text"
               id="title-input"
-              data-testid="title-input" 
+              data-testid="title-input"
             />
           </label>
           <label
