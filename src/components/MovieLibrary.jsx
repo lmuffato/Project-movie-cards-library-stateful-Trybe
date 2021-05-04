@@ -1,7 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
@@ -35,8 +35,23 @@ class MovieLibrary extends Component {
     });
   }
 
-  render() {
+  filterDataMovies = () => {
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
     const { movies } = this.props;
+
+    if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked);
+
+    if (selectedGenre !== '') return movies.filter((movie) => movie.genre.includes(selectedGenre));
+
+    if(searchText !== '') {
+      return movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText))
+    }
+    return movies;
+  }
+
+  render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -48,7 +63,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handelChangeSelect }
         />
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        <MovieList movies={ this.filterDataMovies() } />
       </div>
     );
   }
