@@ -15,17 +15,39 @@ class MovieLibrary extends Component {
     }
   }
 
+  handelChange = (event) => {
+    const { value } = event.target;
+    this.setState({
+      searchText: value,
+    })
+  }
+
+  handelChangeChecked = (event) => {
+    const { checked } = event.target;
+    this.setState({
+      bookmarkedOnly: checked,
+    })
+  }
+
+  handelChangeSelect = (event) => {
+    const { value } = event.target;
+    this.setState({
+      selectedGenre: value,
+    })
+  }
+
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
-          searchText=""
-          onSearchTextChange={ console.log }
-          bookmarkedOnly={ false }
-          onBookmarkedChange={ console.log }
-          selectedGenre=""
-          onSelectedGenreChange={ console.log }
+          searchText={ searchText }
+          onSearchTextChange={ this.handelChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handelChangeChecked }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handelChangeSelect }
         />
        {movies.map((movie) => <MovieCard movie={ movie } />)} 
       </div>
