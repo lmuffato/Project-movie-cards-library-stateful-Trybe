@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -10,10 +10,21 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
 
     this.changeStateValue = this.changeStateValue.bind(this);
+  }
+
+  reset = () => {
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   changeStateValue(e, nameState) {
@@ -54,10 +65,14 @@ class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form action="#" data-testid="add-movie-form">
+      <form
+        action="#"
+        onSubmit={ () => { onClick(this.state); this.reset(); } }
+        data-testid="add-movie-form"
+      >
         {this.createInput('text', 'title', { title }, 'Título')}
         {this.createInput('text', 'subtitle', { subtitle }, 'Subtítulo')}
         {this.createInput('text', 'imagePath', { imagePath }, 'Imagem')}
@@ -67,6 +82,7 @@ class AddMovie extends Component {
           Gênero
           <select
             id="genre"
+            value={ genre }
             onChange={ (e) => this.changeStateValue(e, 'genre') }
             data-testid="genre-input"
           >
@@ -75,13 +91,20 @@ class AddMovie extends Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button
+          type="button"
+          onClick={ () => { onClick(this.state); this.reset(); } }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
