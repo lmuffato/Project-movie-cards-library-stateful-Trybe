@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -31,19 +31,19 @@ class AddMovie extends Component {
     />
   );
 
-  // createGenreSelect = (genre) => (
-  //   <select
-  //     name="genre"
-  //     value={ genre }
-  //     onChange={ this.handleValue }
-  //     data-testid="genre-input"
-  //     id="genre-input"
-  //   >
-  //     <option value="action" data-testid="select-option">Ação</option>
-  //     <option value="comedy" data-testid="select-option">Comédia</option>
-  //     <option value="thriller" data-testid="select-option">Suspense</option>
-  //   </select>
-  // );
+  createGenreSelect = (genre) => (
+    <select
+      name="genre"
+      value={ genre }
+      onChange={ this.handleValue }
+      data-testid="genre-input"
+      id="genre-input"
+    >
+      <option value="action" data-testid="genre-option">Ação</option>
+      <option value="comedy" data-testid="genre-option">Comédia</option>
+      <option value="thriller" data-testid="genre-option">Suspense</option>
+    </select>
+  );
 
   makeTextArea = (name) => (
     <textarea
@@ -55,11 +55,20 @@ class AddMovie extends Component {
     />
   );
 
-  render() {
-    // const {
-    //   onClick,
-    // } = this.props;
+  callbackAddMovie = () => {
+    const { onClick } = this.props;
+    onClick();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
+  render() {
     const {
       title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
@@ -87,29 +96,21 @@ class AddMovie extends Component {
         </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
-          <select
-            name="genre"
-            value={ genre }
-            onChange={ this.handleValue }
-            data-testid="genre-input"
-            id="genre-input"
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
+          { this.createGenreSelect(genre) }
         </label>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.callbackAddMovie }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   searchText: PropTypes.string.isRequired,
-//   onSearchTextChange: PropTypes.string.isRequired,
-//   bookmarkedOnly: PropTypes.bool.isRequired,
-//   onBookmarkedChange: PropTypes.string.isRequired,
-//   selectedGenre: PropTypes.string.isRequired,
-//   onSelectedGenreChange: PropTypes.string.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.string.isRequired,
+};
 export default AddMovie;
