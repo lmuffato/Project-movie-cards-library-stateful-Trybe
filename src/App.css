@@ -15,6 +15,11 @@ body {
   text-align: center;
 }
 
+.search-bar-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .page-title {
   color: #f8f9fa;
   font-size: 28px;

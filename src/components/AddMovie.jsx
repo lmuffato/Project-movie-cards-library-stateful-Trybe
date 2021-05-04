@@ -22,11 +22,13 @@ class AddMovie extends Component {
     };
   }
 
-  AddMovies = ({ target }) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({ [name]: value });
+  AddMovies = (event) => {
+    // event.preventDefault();
+    const { name, checked, value } = event.target;
+    const values = event.target.type === 'checkbox'
+      ? checked
+      : value;
+    this.setState({ [name]: values });
   }
 
   render() {
