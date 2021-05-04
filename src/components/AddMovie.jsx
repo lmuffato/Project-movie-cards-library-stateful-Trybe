@@ -43,7 +43,6 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-
         <InputTitle
           value={ title }
           onChange={ this.onChange }
