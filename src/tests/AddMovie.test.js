@@ -107,25 +107,25 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
   });
 });
 
-// describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
-//   it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
-//     expect(imageInput).toBeInTheDocument();
-//   });
+describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
+  it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
+    expect(imageInput).toBeInTheDocument();
+  });
 
-//   it('Renderize a label "Imagem" para o input de imagem', () => {
-//     expect(imageInputLabel).toBeInTheDocument();
-//     expect(imageInputLabel).toHaveTextContent('Imagem');
-//   });
+  it('Renderize a label "Imagem" para o input de imagem', () => {
+    expect(imageInputLabel).toBeInTheDocument();
+    expect(imageInputLabel).toHaveTextContent('Imagem');
+  });
 
-//   it('Defina o estado inicial do input de imagem como "", ou seja, uma string vazia', () => {
-//     expect(imageInput).toHaveValue(initialState.imagePath);
-//   });
+  it('Defina o estado inicial do input de imagem como "", ou seja, uma string vazia', () => {
+    expect(imageInput).toHaveValue(initialState.imagePath);
+  });
 
-//   it('Altere o valor do input de imagem quando algo é digitado nele', () => {
-//     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
-//     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
-//   });
-// });
+  it('Altere o valor do input de imagem quando algo é digitado nele', () => {
+    event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
+    expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
+  });
+});
 
 // describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` para obter a sinopse do novo filme', () => {
 //   it('Renderize um input de texto para quem usa escrever a sinopse do filme', () => {
