@@ -47,8 +47,40 @@ class AddMovie extends Component {
               />
             </label>
         </div>
+        <div>
+            <label data-testid="storyline-input-label">Sinopse
+              <input
+                data-testid="storyline-input"
+                type="textarea"
+                value={ this.state.storyline }
+                onChange={ this.state.storyline }
+              />
+            </label>
+        </div>
+        <div>
+            <label data-testid="rating-input-label">Avaliação
+              <input
+                data-testid="rating-input"
+                type="text"
+                value={ this.state.rating }
+                onChange={ this.state.rating }
+              />
+            </label>
+        </div>
 
-
+        <div>
+          <label data-testid="genre-input-label">Gênero
+            <select type="genre"
+              data-testid="genre-input"
+              value={ this.state.genre }
+              onChange={ this.state.genre }
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
+          </label>
+        </div>
       </section>
     );
   }
