@@ -50,12 +50,21 @@ function SearchBar({
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.d,
+  searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
 }.isRequired;
+
+SearchBar.defaultProps = {
+  searchTex: '',
+  onSearchTextChange: undefined,
+  bookmarkedOnly: false,
+  onBookmarkedChange: undefined,
+  selectedGenre: '',
+  onSelectedGenreChange: undefined,
+};
 
 export default SearchBar;
