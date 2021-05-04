@@ -25,8 +25,9 @@ class AddMovie extends React.Component {
 
   onChange({ target }) {
     const { id, value } = target;
-    if (id === 'rating') this.setState(({ [id]: Number(value) }));
-    else this.setState({ [id]: value });
+    this.setState({
+      [id]: value,
+    });
   }
 
   addMovie() {
@@ -50,13 +51,13 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <div>
-          <Titulo value={ title } onChange={ onChange } />
-          <Subtitulo value={ subtitle } onChange={ onChange } />
-          <Imagem value={ imagePath } onChange={ onChange } />
-          <Avaliacao value={ rating } onChange={ onChange } />
-          <Genero value={ genre } onChange={ onChange } />
+          <Titulo title={ title } onChange={ onChange } />
+          <Subtitulo subtitle={ subtitle } onChange={ onChange } />
+          <Imagem imagePath={ imagePath } onChange={ onChange } />
+          <Avaliacao rating={ rating } onChange={ onChange } />
+          <Genero genre={ genre } onChange={ onChange } />
         </div>
-        <Sinopse value={ storyline } onChange={ onChange } />
+        <Sinopse storyline={ storyline } onChange={ onChange } />
         <button
           type="button"
           data-testid="send-button"
