@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-    //  subtitle: '',
+      subtitle: '',
       title: '',
     //  imagePath: '',
     //  storyline: '',
@@ -21,19 +21,30 @@ class AddMovie extends React.Component {
 
   atualizaEstado = (event) => {
     this.setState({ title: event.target.value });
+    this.setState({ subtitle: event.target.value });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form data-testid="add-movie-form" onSubmit={ this.submeterForms }>
-        <label htmlFor="text-in" data-testid="title-input-label">
+        <label htmlFor="text-title" data-testid="title-input-label">
           Título
           <input
-            id="text-in"
+            id="text-title"
             value={ title }
             onChange={ this.atualizaEstado }
             data-testid="title-input"
+            type="text"
+          />
+        </label>
+        <label htmlFor="text-subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            id="text-subtitle"
+            value={ subtitle }
+            onChange={ this.atualizaEstado }
+            data-testid="subtitle-input"
             type="text"
           />
         </label>
