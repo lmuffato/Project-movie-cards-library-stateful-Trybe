@@ -19,9 +19,9 @@ class AddMovie extends React.Component {
     this.createImageInput = this.createImageInput.bind(this);
     this.createStorylineInput = this.createStorylineInput.bind(this);
     this.createRatingInput = this.createRatingInput.bind(this);
-    this.createGenreInput = this.createGenreInput.bins(this);
-    this.addMovie = this.addMovie.bins(this);
-    this.createButton = this.createButton.bins(this);
+    this.createGenreInput = this.createGenreInput.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+    this.createButton = this.createButton.bind(this);
   }
 
   handleTitle(event) {
@@ -114,7 +114,7 @@ class AddMovie extends React.Component {
           type="select"
           value={ genre }
           data-testid="genre-input"
-          checked={ bookmarkedOnly }
+          checked={ genre }
           onChange={ this.handleTitle }
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -126,7 +126,7 @@ class AddMovie extends React.Component {
   }
 
   addMovie(onClick) {
-    onClick(set.state);
+    onClick(this.state);
     this.setState(initialState);
   }
 
@@ -148,9 +148,9 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         { this.createTitleInput(title) }
-        { this.createSubitleInput(subtitle) }
+        { this.createSubtitleInput(subtitle) }
         { this.createImageInput(imagePath) }
-        { this.createNumberInput(storyline) }
+        { this.createStorylineInput(storyline) }
         { this.createRatingInput(rating) }
         { this.createGenreInput(genre) }
         { this.createButton(onClick) }
