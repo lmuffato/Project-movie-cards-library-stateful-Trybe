@@ -19,12 +19,13 @@ class TextInput extends Component {
   }
 }
 
-// TextInput.propTypes = {
-//   label: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   value: PropTypes.string.isRequired,
-//   testid: propTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-// };
+TextInput.propTypes = {
+  labelTestId: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  testid: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default TextInput;
