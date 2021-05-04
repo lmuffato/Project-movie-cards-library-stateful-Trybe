@@ -21,6 +21,9 @@ class App extends React.Component {
 
         <label data-testid="subtitle-input-label">Subtítulo</label>
         <input data-testid="subtitle-input" onChange={ this.state.subtitle } />
+
+        <label data-testid="image-input-label">Imagem</label>
+        <input data-testid="image-input" onChange={ this.state.imagePath } />
       </form>
     );
   }
