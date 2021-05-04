@@ -20,7 +20,7 @@ class RatingForm extends React.Component {
 }
 
 RatingForm.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

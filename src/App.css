@@ -37,6 +37,18 @@ body {
   width: 300px;
 }
 
+.movie-card:hover {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  margin: 5px;
+  overflow: hidden;
+  width: 500px;
+  transition: 1s;
+}
 
 .movie-card-image {
   width: 100%;
