@@ -9,6 +9,7 @@ class MovieLibrary extends Component {
     super();
     this.filter = this.filter.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
 
     this.state = {
       searchText: '',
@@ -16,6 +17,12 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+  }
+
+  handleAddMovie(newMovie) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, newMovie],
+    }));
   }
 
   filter() {
