@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Input from './Input';
+import Button from './Button';
 import InputsObject from '../inputsObject';
 
 class AddMovie extends Component {
   constructor() {
     super();
-    this.state = {
+    const initialState = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -13,6 +14,8 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.state = initialState;
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleValue = (event) => {
@@ -20,8 +23,20 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  render() {
+  addMovie() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     const array = [title, subtitle, imagePath, rating, genre];
     return (
@@ -60,6 +75,12 @@ class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+
+        <Button
+          dataTestid="send-button"
+          text="Adicionar filme"
+          onClick={ this.addMovie }
+        />
       </form>
     );
   }
