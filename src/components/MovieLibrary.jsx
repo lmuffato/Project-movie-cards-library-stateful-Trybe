@@ -51,20 +51,6 @@ class MovieLibrary extends Component {
     this.filterText(event.target.value);
   }
 
-  // filterBookmark = () => {
-  //   const { movies } = this.props;
-  //   const { bookmarkedOnly } = this.state;
-  //   if (bookmarkedOnly === true) {
-  //     this.setState({
-  //       movies: movies.filter((movie) => movie.bookmarked === true),
-  //     });
-  //   } else {
-  //     this.setState({
-  //       movies,
-  //     });
-  //   }
-  // }
-
   changeBookmark = () => {
     const { movies } = this.props;
     const { bookmarkedOnly } = this.state;
@@ -101,6 +87,14 @@ class MovieLibrary extends Component {
     this.filterGender(event.target.value);
   }
 
+  addMovie = (obj) => {
+    const { movies } = this.props;
+    movies.push(obj);
+    this.setState({
+      movies,
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -116,14 +110,14 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.changeGender }
         />
         <MovieList movies={ movies } />
-        <AddMovie onCLick="callback" />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(Object).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;

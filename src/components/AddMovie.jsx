@@ -57,7 +57,16 @@ class AddMovie extends Component {
 
   callbackAddMovie = () => {
     const { onClick } = this.props;
-    onClick();
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const bye = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      genre,
+    };
+    onClick(bye);
     this.setState({
       subtitle: '',
       title: '',
@@ -111,7 +120,6 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
-
 export default AddMovie;
