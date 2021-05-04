@@ -163,8 +163,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCard).toHaveLength(expectedLength);
   });
 
-  it('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
-    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
+  it('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
 
     event.click(bookmarkedOnly);
