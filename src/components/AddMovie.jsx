@@ -1,13 +1,20 @@
 // implement AddMovie component here
 import React from 'react';
 // import propTypes from 'prop-types';
-import MovieTitle from './MovieComponents/MovieTitle';
-import MovieSubtitle from './MovieComponents/MovieSubtitle';
-import MovieImage from './MovieComponents/MovieImage';
-import MovieStoryLine from './MovieComponents/MovieStoryline';
-import MovieRating from './MovieComponents/MovieRating';
-import MovieGenre from './MovieComponents/MovieGenre';
-import MovieButtonAdd from './MovieComponents/MovieButtonAdd';
+// import MovieTitle from './MovieComponents/MovieTitle';
+// import MovieSubtitle from './MovieComponents/MovieSubtitle';
+// import MovieImage from './MovieComponents/MovieImage';
+// import MovieStoryLine from './MovieComponents/MovieStoryline';
+// import MovieRating from './MovieComponents/MovieRating';
+// import MovieGenre from './MovieComponents/MovieGenre';
+// import MovieButtonAdd from './MovieComponents/MovieButtonAdd';
+const MovieTitle = require('./MovieComponents/MovieTitle');
+const MovieSubtitle = require('./MovieComponents/MovieSubtitle');
+const MovieImage = require('./MovieComponents/MovieImage');
+const MovieStoryLine = require('./MovieComponents/MovieStoryline');
+const MovieRating = require('./MovieComponents/MovieRating');
+const MovieGenre = require('./MovieComponents/MovieGenre');
+const MovieButtonAdd = require('./MovieComponents/MovieButtonAdd');
 
 class AddMovie extends React.Component {
   // constructor() {
