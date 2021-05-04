@@ -5,7 +5,19 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form data-testid="seach-bar-form">
-        teste
+        <label
+          data-testeid="text-input-label"
+          htmlFor="search-area"
+        >
+          Inclui o texto:
+          <input
+            id="serach-area"
+            type="text"
+            value={ searchText }
+            onChange={ onSeacrhTextChange }
+            data-testid="text-input-label"
+          />
+        </label>
       </form>
     );
   }
