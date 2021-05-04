@@ -9,15 +9,19 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    const { movies } = props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       genre: '',
+      movies,
     };
 
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.toggleBookmark = this.toggleBookmark.bind(this);
     this.handleGenderInput = this.handleGenderInput.bind(this);
+    this.filter = this.filter.bind(this);
   }
 
   handleSearchInput(e) {
@@ -41,9 +45,31 @@ class MovieLibrary extends Component {
     this.setState({ bookmarkedOnly: true });
   }
 
+  // Li o código do Anderson para fazer essa função
+  // https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/75/files
+  filter() {
+    const { movies, searchText, bookmarkedOnly, genre } = this.state;
+    let filteredMovies = movies;
+
+    if (searchText.length > 1) {
+      filteredMovies = filteredMovies.filter((movie) => movie.title.includes(searchText));
+    }
+
+    if (bookmarkedOnly === true) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (genre.length > 1) {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === genre);
+    }
+
+    return filteredMovies;
+  }
+
   render() {
-    const { movies } = this.props;
     const { searchText, genre, bookmarkedOnly } = this.state;
+
+    const movies = this.filter();
 
     return (
       <div>
