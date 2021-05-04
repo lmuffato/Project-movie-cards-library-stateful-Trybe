@@ -13,7 +13,7 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <input type="text" />
+      <form action="" />
     );
   }
 }
