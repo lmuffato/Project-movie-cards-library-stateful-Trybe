@@ -5,7 +5,7 @@ class SendButton extends React.Component {
   render() {
     const { changeValueByClick } = this.props;
     return (
-      <button onClick={ changeValueByClick } data-testid="send-button">
+      <button type="submit" onClick={ changeValueByClick } data-testid="send-button">
         Adicionar filme
       </button>
     );
@@ -13,7 +13,6 @@ class SendButton extends React.Component {
 }
 
 SendButton.propTypes = {
-  title: PropTypes.string.isRequired,
   changeValueByClick: PropTypes.func.isRequired,
 };
 

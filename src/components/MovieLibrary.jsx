@@ -15,15 +15,26 @@ class MovieLibrary extends Component {
   }
 
   render() {
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: arrayOf(shape({
+    title: string.isRequired,
+    subtitle: string.isRequired,
+    storyline: string.isRequired,
+    rating: number.isRequired,
+    imagePath: string.isRequired,
+  })).isRequired,
+};
 
 export default MovieLibrary;
