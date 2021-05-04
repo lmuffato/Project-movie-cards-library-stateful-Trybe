@@ -37,8 +37,8 @@ InputAddMovie.propTypes = {
   testIdLabel: PropTypes.string.isRequired,
   handle: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
-  inputValue: PropTypes.func.isRequired,
-  inputName: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
 };
 
 export default InputAddMovie;

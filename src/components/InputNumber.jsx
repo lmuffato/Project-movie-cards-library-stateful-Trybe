@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TextAreaAddMovie extends React.Component {
+class InputNumber extends React.Component {
   render() {
     const {
       testIdLabel,
       testIdInput,
       label,
-      tAreaValue,
+      inputValue,
       handle,
-      tAreaName,
+      inputName,
     } = this.props;
     return (
       <div>
@@ -18,11 +18,12 @@ class TextAreaAddMovie extends React.Component {
           data-testid={ testIdLabel }
         >
           { label }
-          <textarea
+          <input
+            type="number"
             onChange={ handle }
             data-testid={ testIdInput }
-            name={ tAreaName }
-            value={ tAreaValue }
+            name={ inputName }
+            value={ inputValue }
             id={ testIdInput }
           />
         </label>
@@ -31,13 +32,13 @@ class TextAreaAddMovie extends React.Component {
   }
 }
 
-TextAreaAddMovie.propTypes = {
+InputNumber.propTypes = {
   testIdInput: PropTypes.string.isRequired,
   testIdLabel: PropTypes.string.isRequired,
   handle: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
-  tAreaValue: PropTypes.string.isRequired,
-  tAreaName: PropTypes.string.isRequired,
+  inputValue: PropTypes.number.isRequired,
+  inputName: PropTypes.string.isRequired,
 };
 
-export default TextAreaAddMovie;
+export default InputNumber;
