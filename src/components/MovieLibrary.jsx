@@ -23,11 +23,49 @@ class MovieLibrary extends Component {
     });
   }
 
-  handleBookedMarked = (event) => {
-    const { value } = event.target;
-    this.setState({
-      bookmarkedOnly: value,
+  filterBookMarked = (arr) => {
+    const { bookmarkedOnly } = this.state;
+    if (bookmarkedOnly) {
+      return arr.filter((movie) => movie.bookmarked === true);
+    }
+    return arr;
+  }
+
+  filterGenre = (arr) => {
+    const { selectedGenre } = this.state;
+    if (selectedGenre === '') {
+      return arr;
+    }
+    return arr.filter((movie) => movie.genre === selectedGenre);
+  }
+
+  filterText = (arr) => {
+    const returnArr = [];
+    const { searchText } = this.state;
+    return arr.filter((movie) => {
+      if (movie.title.includes(searchText)) {
+        return movie;
+      }
+      if (movie.subtitle.includes(searchText)) {
+        return movie;
+      }
+      if (movie.storyline.includes(searchText)) {
+        return movie;
+      }
     });
+  }
+
+  handleBookedMarked = () => {
+    const { bookmarkedOnly } = this.state;
+    if (!bookmarkedOnly) {
+      this.setState({
+        bookmarkedOnly: true,
+      });
+    } else {
+      this.setState({
+        bookmarkedOnly: false,
+      });
+    }
   }
 
   handleSelectedGenre = (event) => {
@@ -46,6 +84,9 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const filterBook = this.filterBookMarked(movies);
+    const filteredGenre = this.filterGenre(filterBook);
+    const filteredText = this.filterText(filteredGenre);
     return (
       <div>
         <SearchBar
@@ -57,7 +98,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <AddMovie onClick={ this.handleAddMovie } />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filteredText } />
       </div>
     );
   }
