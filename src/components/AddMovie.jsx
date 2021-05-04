@@ -14,9 +14,10 @@ class AddMovie extends Component {
     };
 
     this.changeStateValue = this.changeStateValue.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
-  reset = () => {
+  resetState() {
     this.setState({
       title: '',
       subtitle: '',
@@ -70,7 +71,7 @@ class AddMovie extends Component {
     return (
       <form
         action="#"
-        onSubmit={ () => { onClick(this.state); this.reset(); } }
+        onSubmit={ () => { onClick(this.state); this.resetState(); } }
         data-testid="add-movie-form"
       >
         {this.createInput('text', 'title', { title }, 'Título')}
@@ -93,7 +94,7 @@ class AddMovie extends Component {
         </label>
         <button
           type="button"
-          onClick={ () => { onClick(this.state); this.reset(); } }
+          onClick={ () => { onClick(this.state); this.resetState(); } }
           data-testid="send-button"
         >
           Adicionar filme
