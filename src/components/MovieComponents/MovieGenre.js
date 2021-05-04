@@ -1,15 +1,17 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 class MovieGenre extends React.Component {
   render() {
+    const { handleChange, value } = this.props;
     return (
-      <label htmlFor="genre-input" data-testid="genre-input-label">
+      <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
-          name="genre-input"
-          // value={ genre }
+          name="genre"
+          value={ value }
           data-testid="genre-input"
-          // onChange={ onClick }
+          onChange={ handleChange }
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -21,3 +23,8 @@ class MovieGenre extends React.Component {
 }
 
 export default MovieGenre;
+
+MovieGenre.propTypes = {
+  handleChange: propTypes.func.isRequired,
+  value: propTypes.string.isRequired,
+};

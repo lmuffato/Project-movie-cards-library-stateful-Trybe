@@ -1,16 +1,18 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 class MovieStoryline extends React.Component {
   render() {
+    const { handleChange, value } = this.props;
     return (
       <label htmlFor="image-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          name="image-input"
+          name="storyLine"
           type="text"
-          // value={ storyLine }
+          value={ value }
           data-testid="storyline-input"
-          // onChange={ onClick }
+          onChange={ handleChange }
         />
       </label>
     );
@@ -18,3 +20,8 @@ class MovieStoryline extends React.Component {
 }
 
 export default MovieStoryline;
+
+MovieStoryline.propTypes = {
+  handleChange: propTypes.func.isRequired,
+  value: propTypes.string.isRequired,
+};

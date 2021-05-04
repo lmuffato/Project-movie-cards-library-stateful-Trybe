@@ -1,16 +1,18 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 class MovieRating extends React.Component {
   render() {
+    const { handleChange, value } = this.props;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
         <textarea
-          name="rating-input"
+          name="rating"
           type="text"
-          // value={ rating }
+          value={ value }
           data-testid="rating-input"
-          // onChange={ onClick }
+          onChange={ handleChange }
         />
       </label>
     );
@@ -18,3 +20,8 @@ class MovieRating extends React.Component {
 }
 
 export default MovieRating;
+
+MovieRating.propTypes = {
+  handleChange: propTypes.func.isRequired,
+  value: propTypes.number.isRequired,
+};

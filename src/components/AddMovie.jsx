@@ -10,37 +10,39 @@ import MovieGenre from './MovieComponents/MovieGenre';
 import MovieButtonAdd from './MovieComponents/MovieButtonAdd';
 
 class AddMovie extends React.Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
+    this.handleChange = this.handleChange.bind(this);
 
-  //   this.state = {
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyLine: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   };
-  // }
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
 
-  // onSearchTextChange({ target }) {
-  //   console.log(target);
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
 
   render() {
-    // const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <MovieTitle />
-        <MovieSubtitle />
-        <MovieImage />
-        <MovieStoryLine />
-        <MovieRating />
-        <MovieGenre />
+        <MovieTitle handleChange={ this.handleChange } value={ title } />
+        <MovieSubtitle handleChange={ this.handleChange } value={ subtitle } />
+        <MovieImage handleChange={ this.handleChange } value={ imagePath } />
+        <MovieStoryLine handleChange={ this.handleChange } value={ storyLine } />
+        <MovieRating handleChange={ this.handleChange } value={ rating } />
+        <MovieGenre handleChange={ this.handleChange } value={ genre } />
         <MovieButtonAdd />
       </form>
     );
