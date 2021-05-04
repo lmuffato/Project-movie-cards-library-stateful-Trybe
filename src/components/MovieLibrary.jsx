@@ -32,7 +32,7 @@ class MovieLibrary extends React.Component {
   }
 
   handleOnClick(event) {
-    console.log(event.target.value);
+    console.log(event.target);
     event.preventDefault();
   }
 
