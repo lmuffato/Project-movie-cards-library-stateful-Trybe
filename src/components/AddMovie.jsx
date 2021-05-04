@@ -18,6 +18,9 @@ class App extends React.Component {
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">Título</label>
         <input data-testid="title-input" onChange={ this.state.title } />
+
+        <label data-testid="subtitle-input-label">Subtítulo</label>
+        <input data-testid="subtitle-input" onChange={ this.state.subtitle } />
       </form>
     );
   }
