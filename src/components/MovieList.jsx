@@ -14,6 +14,8 @@ class MovieList extends React.Component {
     if (genre !== '') {
       filteredMovies = filteredMovies.filter((movie) => movie.genre === genre);
     }
+    // Testando
+
     if (searchText !== '') {
       filteredMovies = filteredMovies.filter((movie) => (
         movie.title.includes(searchText)
