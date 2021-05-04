@@ -2,14 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     name: 'teste',
-  //     value: 'teste2',
-  //   };
-  // }
-
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
@@ -57,25 +49,16 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
-
-SearchBar.defaultProps = {
-  searchText: 'busca',
-  onSearchTextChange: () => {},
-  bookmarkedOnly: true,
-  onBookmarkedChange: () => {},
-  selectedGenre: 'selecionar',
-  onSelectedGenreChange: () => {},
-};
-
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
+
+export default SearchBar;
 
 // Referência - Select:
 // https://www.w3schools.com/tags/att_option_selected.asp

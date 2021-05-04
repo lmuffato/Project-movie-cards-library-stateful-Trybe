@@ -18,8 +18,12 @@ export default class ImageInput extends React.Component {
     );
   }
 }
+ImageInput.defaultProps = {
+  imagePath: 'images/movie_1',
+  handleImage: () => {},
+};
 
 ImageInput.propTypes = {
-  imagePath: PropTypes.string.isRequired,
-  handleImage: PropTypes.func.isRequired,
+  imagePath: PropTypes.string,
+  handleImage: PropTypes.func,
 };

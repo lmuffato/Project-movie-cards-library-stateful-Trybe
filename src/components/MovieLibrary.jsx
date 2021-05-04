@@ -5,15 +5,17 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies: props.movies,
     };
+
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
   handleSearchText = (event) => {
@@ -28,13 +30,15 @@ export default class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  addNewMovieToList = (newMovie) => {
-    this.setState((prevArr) => ({ movies: [...prevArr.movies, newMovie] }));
+  handleAddMovie(newMovie) {
+    const { movies } = this.state;
+    const newState = { movies: [...movies, newMovie] };
+    this.setState((newState));
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    let { movies } = this.props;
+    let { movies } = this.state;
 
     const filterByTitle = movies.filter(
       (movie) => movie.title.includes(searchText)
@@ -49,7 +53,7 @@ export default class MovieLibrary extends React.Component {
     if (searchText) movies = filterByTitle;
 
     return (
-      <div>
+      <>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleSearchText }
@@ -59,8 +63,10 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.addNewMovieToList } />
-      </div>
+        <AddMovie
+          onClick={ this.handleAddMovie }
+        />
+      </>
     );
   }
 }

@@ -19,34 +19,41 @@ export default class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleValue = this.handleValue.bind(this);
+    this.handleSubValue = this.handleSubValue.bind(this);
+    this.handleImage = this.handleImage.bind(this);
+    this.handleStory = this.handleStory.bind(this);
+    this.handleRating = this.handleRating.bind(this);
+    this.handleGenre = this.handleGenre.bind(this);
+    this.addMovieToLibrary = this.addMovieToLibrary.bind(this);
   }
 
-  handleValue = (event) => {
+  handleValue(event) {
     this.setState({ title: event.target.value });
-  };
+  }
 
-  handleSubValue = (event) => {
+  handleSubValue(event) {
     this.setState({ subtitle: event.target.value });
-  };
+  }
 
-  handleImage = (event) => {
+  handleImage(event) {
     this.setState({ imagePath: event.target.value });
-  };
+  }
 
-  handleStory = (event) => {
+  handleStory(event) {
     this.setState({ storyline: event.target.value });
-  };
+  }
 
-  handleRating = (event) => {
+  handleRating(event) {
     this.setState({ rating: event.target.value });
-  };
+  }
 
-  handleGenre = (event) => {
+  handleGenre(event) {
     this.setState({ genre: event.target.value });
   }
 
-  addMovieToLibrary = (event) => {
-    event.preventDefault();
+  addMovieToLibrary() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -64,7 +71,7 @@ export default class AddMovie extends React.Component {
     return (
       <form
         data-testid="add-movie-form"
-        onSubmit={ this.addMovieToLibrary }
+        // onSubmit={ this.addMovieToLibrary }
       >
         <TextInput title={ title } handleValue={ this.handleValue } />
         <SubtitleInput subtitle={ subtitle } handleSubValue={ this.handleSubValue } />
@@ -73,8 +80,9 @@ export default class AddMovie extends React.Component {
         <RatingInput rating={ rating } handleRating={ this.handleRating } />
         <GenderSelect genre={ genre } handleGenre={ this.handleGenre } />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
+          onClick={ this.addMovieToLibrary }
         >
           Adicionar filme
         </button>
@@ -84,8 +92,8 @@ export default class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func,
-}.isRequired;
+  onClick: PropTypes.func.isRequired,
+};
 
 // Referências para a função AddMoviesToLibrary:
 // ---> PR do colega João Nascimento
