@@ -27,3 +27,6 @@ GenderSelect.propTypes = {
   genre: PropTypes.string.isRequired,
   handleGenre: PropTypes.func.isRequired,
 };
+
+// Referência - Select:
+// https://www.w3schools.com/tags/att_option_selected.asp

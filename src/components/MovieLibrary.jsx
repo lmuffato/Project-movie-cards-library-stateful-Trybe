@@ -41,7 +41,8 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
-        <MovieList movies={ movies } />
+        { bookmarkedOnly ? <MovieList movies={ movies } />
+          : <MovieList movies={ movies } />}
         <AddMovie />
       </div>
     );

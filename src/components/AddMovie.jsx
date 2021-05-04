@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextInput from './AddMovie/TextInput';
 import SubtitleInput from './AddMovie/SubtitleInput';
 import ImageInput from './AddMovie/ImageInput';
@@ -43,11 +44,10 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
-  handleSubmit = (event) => {
+  addMoveToLibrary = (event) => {
     event.preventDefault();
-  }
-
-  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -56,20 +56,12 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    // onClick({
-    //   title,
-    //   subtitle,
-    //   imagePath,
-    //   storyline,
-    //   rating,
-    //   genre,
-    // });
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
+      <form data-testid="add-movie-form" onSubmit={ this.addMoveToLibrary }>
         <TextInput title={ title } handleValue={ this.handleValue } />
         <SubtitleInput subtitle={ subtitle } handleSubValue={ this.handleSubValue } />
         <ImageInput imagePath={ imagePath } handleImage={ this.handleImage } />
@@ -79,7 +71,6 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
@@ -91,12 +82,10 @@ class AddMovie extends React.Component {
 export default AddMovie;
 
 AddMovie.propTypes = {
-  // PropTypes.shape(
-  // subtitle: PropTypes.string.isRequired,
-  // title: PropTypes.string.isRequired,
-  // imagePath: PropTypes.string.isRequired,
-  // storyline: PropTypes.string.isRequired,
-  // rating: PropTypes.number.isRequired,
-  // genre: PropTypes.string.isRequired,
-  // )
-};
+  onClick: PropTypes.func,
+}.isRequired;
+
+// Referências para a função AddMoviesToLibrary:
+// ---> PR do colega João Nascimento
+// https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/57/files
+// --> Esta thread no slack: https://trybecourse.slack.com/archives/C01L16B9XC7/p1620082728499900

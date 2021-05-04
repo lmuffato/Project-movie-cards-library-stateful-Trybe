@@ -76,3 +76,6 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
 };
+
+// Referência - Select:
+// https://www.w3schools.com/tags/att_option_selected.asp

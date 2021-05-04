@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TextInput extends React.Component {
+export default class TextInput extends React.Component {
   render() {
     const { title, handleValue } = this.props;
     return (
@@ -9,6 +9,7 @@ class TextInput extends React.Component {
         Título
         <input
           type="text"
+          name={ title }
           id="input-title"
           value={ title }
           data-testid="title-input"
@@ -23,5 +24,3 @@ TextInput.propTypes = {
   title: PropTypes.string.isRequired,
   handleValue: PropTypes.func.isRequired,
 };
-
-export default TextInput;
