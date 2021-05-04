@@ -137,13 +137,19 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form">
-        {this.createTitle()}
-        {this.createSubtitle()}
-        {this.createImage()}
-        {this.createTextArea()}
-        {this.createRating()}
-        {this.createGenre()}
+      <form data-testid="add-movie-form" className="add-bar">
+        <div className="form-group-1">
+          {this.createTitle()}
+          {this.createSubtitle()}
+          {this.createImage()}
+        </div>
+        <div className="form-group-2">
+          {this.createTextArea()}
+          <div>
+            {this.createRating()}
+            {this.createGenre()}
+          </div>
+        </div>
         <button
           data-testid="send-button"
           onClick={ this.clearButton }

@@ -57,7 +57,7 @@ class MovieLibrary extends React.Component {
     const genreFilter = bookmarkedFiltered
       .filter((movie) => movie.genre.includes(selectedGenre));
     return (
-      <div>
+      <div className="container">
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
