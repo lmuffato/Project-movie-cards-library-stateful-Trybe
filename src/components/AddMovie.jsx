@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
@@ -11,6 +12,7 @@ class AddMovie extends Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -30,6 +32,22 @@ class AddMovie extends Component {
     });
   }
 
+  // Função handleClick deve ser implementada no MovieLibrary.jsx. Essa passa no teste mas da erro na pagina.
+  handleClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
@@ -44,12 +62,24 @@ class AddMovie extends Component {
 
         <Storyline value={ storyline } handleChange={ this.handleChange } />
 
-        <Rating value={ rating } handleChange={ this.handleChange } />
+        <Rating value={ Number(rating) } handleChange={ this.handleChange } />
 
         <Genre value={ genre } handleChange={ this.handleChange } />
+
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;
