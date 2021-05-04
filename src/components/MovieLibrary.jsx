@@ -14,6 +14,12 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+
+    this.handleChangeAlgumaCoisa = this.handleChangeAlgumaCoisa.bind(this);
+  }
+
+  handleChangeAlgumaCoisa(stateName, value) {
+    this.setState({ [stateName]: value });
   }
 
   render() {
@@ -22,11 +28,11 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          // onSearchTextChange={}
+          onSearchTextChange={ this.handleChangeAlgumaCoisa }
           bookmarkedOnly={ bookmarkedOnly }
-          // onBookmarkedChange={}
+          onBookmarkedChange={ this.handleChangeAlgumaCoisa }
           selectedGenre={ selectedGenre }
-          // onSelectedGenreChange={}
+          onSelectedGenreChange={ this.handleChangeAlgumaCoisa }
         />
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
