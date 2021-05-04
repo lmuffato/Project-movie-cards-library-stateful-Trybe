@@ -1,5 +1,14 @@
 import React from 'react';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: '',
+};
+
 class AddMovie extends React.Component {
   render() {
     return (
