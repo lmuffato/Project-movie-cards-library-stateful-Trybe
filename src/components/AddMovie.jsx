@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const initialState = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = initialState;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
     this.handleTitle = this.handleTitle.bind(this);
     this.createTitleInput = this.createTitleInput.bind(this);
     this.createSubtitleInput = this.createSubtitleInput.bind(this);
@@ -21,14 +20,13 @@ class AddMovie extends React.Component {
     this.createRatingInput = this.createRatingInput.bind(this);
     this.createGenreInput = this.createGenreInput.bind(this);
     this.addMovie = this.addMovie.bind(this);
-    this.createButton = this.createButton.bind(this);
   }
 
-  handleTitle(event) {
-    const { name, value } = event.target;
-    this.setState = {
+  handleTitle({ target }) {
+    const { name, value } = target;
+    this.setState({
       [name]: value,
-    };
+    });
   }
 
   createTitleInput(title) {
@@ -114,7 +112,6 @@ class AddMovie extends React.Component {
           type="select"
           value={ genre }
           data-testid="genre-input"
-          checked={ genre }
           onChange={ this.handleTitle }
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -125,25 +122,21 @@ class AddMovie extends React.Component {
     );
   }
 
-  addMovie(onClick) {
+  addMovie() {
+    const initialState = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+    const { onClick } = this.props;
     onClick(this.state);
     this.setState(initialState);
   }
 
-  createButton(onClick) {
-    return (
-      <button
-        type="submit"
-        data-testid="send-button"
-        onClick={ this.addMovie(onClick) }
-      >
-        Adicionar filme
-      </button>
-    );
-  }
-
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -153,7 +146,13 @@ class AddMovie extends React.Component {
         { this.createStorylineInput(storyline) }
         { this.createRatingInput(rating) }
         { this.createGenreInput(genre) }
-        { this.createButton(onClick) }
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.addMovie }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

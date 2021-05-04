@@ -80,12 +80,12 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const movies = this.filter();
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const movies = this.filter();
     return (
-      <>
+      <div>
         <SearchBar
-          handleSearchText={ this.handleSearchText }
+          onSearchTextChange={ this.handleSearchText }
           searchText={ searchText }
           handleOnBookmarked={ this.handleOnBookmarked }
           bookmarkedOnly={ bookmarkedOnly }
@@ -99,7 +99,7 @@ class MovieLibrary extends React.Component {
         <AddMovie
           onClick={ this.onClick }
         />
-      </>
+      </div>
     );
   }
 }
