@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
   }
@@ -44,8 +44,15 @@ class AddMovie extends React.Component {
     }));
   }
 
+  trocaRating = (event) => {
+    const { value } = event.target;
+    this.setState(() => ({
+      rating: value,
+    }));
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <LabelInput
@@ -77,6 +84,14 @@ class AddMovie extends React.Component {
           text="Sinopse"
           onChange={ this.trocaStoryline }
           value={ storyline }
+        />
+
+        <LabelInput
+          id="rating-input"
+          text="Avaliação"
+          type="number"
+          onChange={ this.trocaRating }
+          value={ rating }
         />
       </form>
     );
