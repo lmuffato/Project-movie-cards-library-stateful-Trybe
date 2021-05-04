@@ -90,7 +90,23 @@ class AddMovie extends React.Component {
       />
     </label>
   );
-  // inputGenre = (genre) => ();
+
+  inputGenre = (genre) => (
+    <label htmlFor="campo6" data-testid="genre-input-label">
+      Gênero
+      <select
+        name="genre"
+        id="campo6"
+        data-testid="genre-input"
+        value={ genre }
+        onChange={ this.handleChange }
+      >
+        <option data-testid="genre-option" value="action">Ação</option>
+        <option data-testid="genre-option" value="comedy">Comédia</option>
+        <option data-testid="genre-option" value="thriller">Suspense</option>
+      </select>
+    </label>
+  );
 
   render() {
     const { onClick } = this.props;
@@ -103,6 +119,7 @@ class AddMovie extends React.Component {
           {this.inputImage(imagePath)}
           {this.inputStory(storyline)}
           {this.inputRating(rating)}
+          {this.inputGenre(genre)}
         </form>
       </div>
     );

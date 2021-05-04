@@ -170,39 +170,39 @@ describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<
   });
 });
 
-// describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
-//   const options = [
-//     { value: 'action', text: 'Ação' },
-//     { value: 'comedy', text: 'Comédia' },
-//     { value: 'thriller', text: 'Suspense' },
-//   ];
+describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selecionar o gênero do novo filme', () => {
+  const options = [
+    { value: 'action', text: 'Ação' },
+    { value: 'comedy', text: 'Comédia' },
+    { value: 'thriller', text: 'Suspense' },
+  ];
 
-//   it('Renderize um select com 3 opções de genero de filme', () => {
-//     expect(genreInput).toBeInTheDocument();
-//     expect(genreOptions).toHaveLength(options.length);
-//   });
+  it('Renderize um select com 3 opções de genero de filme', () => {
+    expect(genreInput).toBeInTheDocument();
+    expect(genreOptions).toHaveLength(options.length);
+  });
 
-//   it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
-//     expect(genreInputLabel).toBeInTheDocument();
-//     expect(genreInputLabel).toHaveTextContent('Gênero');
-//   });
+  it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
+    expect(genreInputLabel).toBeInTheDocument();
+    expect(genreInputLabel).toHaveTextContent('Gênero');
+  });
 
-//   it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
-//     genreOptions.forEach((option, index) => {
-//       expect(option).toHaveTextContent(options[index].text);
-//       expect(option).toHaveValue(options[index].value);
-//     });
-//   });
+  it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
+    genreOptions.forEach((option, index) => {
+      expect(option).toHaveTextContent(options[index].text);
+      expect(option).toHaveValue(options[index].value);
+    });
+  });
 
-//   it('Será validado se o gênero selecionado inicialmente é o "action"', () => {
-//     expect(genreInput).toHaveValue(initialState.genre);
-//   });
+  it('Será validado se o gênero selecionado inicialmente é o "action"', () => {
+    expect(genreInput).toHaveValue(initialState.genre);
+  });
 
-//   it('Altere o valor do gênero quando um gênero diferente é escolhido no select', () => {
-//     event.selectOptions(genreInput, options[1].value);
-//     expect(genreInput).toHaveValue(genreOptions[1].value);
-//   });
-// });
+  it('Altere o valor do gênero quando um gênero diferente é escolhido no select', () => {
+    event.selectOptions(genreInput, options[1].value);
+    expect(genreInput).toHaveValue(genreOptions[1].value);
+  });
+});
 
 // describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer uso dos dados do novo filme, contidos no estado de `<AddMovie />`', () => {
 //   it('Será validado se o texto do botão é "Adicionar filme"', () => {
