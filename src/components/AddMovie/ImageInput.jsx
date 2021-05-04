@@ -11,6 +11,7 @@ export default class ImageInput extends React.Component {
           type="text"
           id="img"
           data-testid="image-input"
+          className="form-control"
           value={ imagePath }
           onChange={ handleImage }
         />

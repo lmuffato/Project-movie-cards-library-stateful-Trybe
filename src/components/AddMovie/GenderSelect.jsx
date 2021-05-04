@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class GenderSelect extends React.Component {
+export default class GenreSelect extends React.Component {
   render() {
     const { genre, handleGenre } = this.props;
     return (
@@ -23,7 +23,7 @@ export default class GenderSelect extends React.Component {
   }
 }
 
-GenderSelect.propTypes = {
+GenreSelect.propTypes = {
   genre: PropTypes.string.isRequired,
   handleGenre: PropTypes.func.isRequired,
 };

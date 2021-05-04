@@ -5,7 +5,7 @@ import SubtitleInput from './AddMovie/SubtitleInput';
 import ImageInput from './AddMovie/ImageInput';
 import StorylineInput from './AddMovie/StorylineInput';
 import RatingInput from './AddMovie/RatingInput';
-import GenderSelect from './AddMovie/GenderSelect';
+import GenreSelect from './AddMovie/GenderSelect';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -69,16 +69,13 @@ export default class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form
-        data-testid="add-movie-form"
-        // onSubmit={ this.addMovieToLibrary }
-      >
+      <form data-testid="add-movie-form" className="form-addMovie">
         <TextInput title={ title } handleValue={ this.handleValue } />
         <SubtitleInput subtitle={ subtitle } handleSubValue={ this.handleSubValue } />
         <ImageInput imagePath={ imagePath } handleImage={ this.handleImage } />
         <StorylineInput storyline={ storyline } handleStory={ this.handleStory } />
         <RatingInput rating={ rating } handleRating={ this.handleRating } />
-        <GenderSelect genre={ genre } handleGenre={ this.handleGenre } />
+        <GenreSelect genre={ genre } handleGenre={ this.handleGenre } />
         <button
           type="button"
           data-testid="send-button"

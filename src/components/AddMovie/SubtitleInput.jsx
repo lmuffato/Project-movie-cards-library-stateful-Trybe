@@ -12,6 +12,7 @@ export default class SubtitleInput extends React.Component {
           id="input-sub"
           name="subtitle"
           value={ subtitle }
+          className="form-control"
           onChange={ handleSubValue }
           data-testid="subtitle-input"
         />

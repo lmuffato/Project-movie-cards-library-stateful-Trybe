@@ -81,3 +81,10 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.form-addMovie {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  margin: 20px;
+}

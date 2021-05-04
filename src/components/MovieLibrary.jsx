@@ -14,8 +14,6 @@ export default class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-
-    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
   handleSearchText = (event) => {
@@ -30,7 +28,7 @@ export default class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  handleAddMovie(newMovie) {
+  handleAddMovie = (newMovie) => {
     const { movies } = this.state;
     const newState = { movies: [...movies, newMovie] };
     this.setState((newState));
@@ -62,7 +60,9 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ movies }
+        />
         <AddMovie
           onClick={ this.handleAddMovie }
         />
@@ -80,3 +80,5 @@ MovieLibrary.propTypes = {
 // tomei como base as soluções apresentadas nos PR's abaixo:
 // --> https://github.com/tryber/sd-09-project-movie-cards-library-stateful/pull/89/files
 // --> https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/57/files
+// Para a função handleAddMovie, tomei como base a função addToDo do meu projeto To Do List em React:
+// --> https://github.com/anaventura1811/project-frontend-react/blob/todo-list-react-app/src/componentes/ToDoList/Todolist.jsx

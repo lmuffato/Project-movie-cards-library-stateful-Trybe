@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class SearchBar extends React.Component {
+export default class SearchBar extends React.Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
@@ -57,8 +57,6 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
-
-export default SearchBar;
 
 // Referência - Select:
 // https://www.w3schools.com/tags/att_option_selected.asp

@@ -12,6 +12,7 @@ export default class TextInput extends React.Component {
           name={ title }
           id="input-title"
           value={ title }
+          className="form-control"
           data-testid="title-input"
           onChange={ handleValue }
         />
