@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
@@ -9,7 +10,7 @@ class Input extends Component {
       name,
       onChange,
       value,
-      type
+      type,
     } = this.props;
 
     return (
@@ -26,5 +27,15 @@ class Input extends Component {
     );
   }
 }
+
+Input.propTypes = {
+  text: PropTypes.string,
+  dataTestidLabel: PropTypes.string,
+  dataTestidInput: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  type: PropTypes.string,
+}.isRequired;
 
 export default Input;
