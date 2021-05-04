@@ -16,6 +16,24 @@ class MovieLibrary extends Component {
     };
   }
 
+  changeText = (event) => {
+    this.setState({
+      searchText: event.target.value,
+    });
+  }
+
+  changeBookmark = (event) => {
+    this.setState({
+      bookmarkedOnly: event.target.value,
+    });
+  }
+
+  changeGender = (event) => {
+    this.setState({
+      selectedGenre: event.target.value,
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -23,11 +41,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange="callBack"
+          onSearchTextChange={ this.changeText }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange="callback"
+          onBookmarkedChange={ this.changeBookmark }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange="callback"
+          onSelectedGenreChange={ this.changeGender }
         />
         <MovieList movies={ movies } />
         <AddMovie onCLick="callback" />
