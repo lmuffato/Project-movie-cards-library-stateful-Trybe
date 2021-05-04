@@ -5,7 +5,7 @@ import Rating from './Rating';
 class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
-    const { title, subtitle, storyline, rating, imagePath } = movie;
+    const { title, subtitle, storyline, rating, imagePath, genre, bookmarked } = movie;
     return (
       <div className="movie-card" data-testid="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
@@ -13,6 +13,7 @@ class MovieCard extends React.Component {
           <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
           <h5 className="movie-card-subtitle">{subtitle}</h5>
           <p className="movie-card-storyline">{storyline}</p>
+          <p>{`Genre: ${genre}  |  ${`Favorito: ${(bookmarked) ? 'Sim' : 'Não'}`}`}</p>
         </div>
         <Rating rating={ Number(rating) } />
       </div>
@@ -27,6 +28,8 @@ MovieCard.propTypes = {
     storyline: PropTypes.string,
     rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
+    genre: PropTypes.string,
+    bookmarked: PropTypes.bool,
   }).isRequired,
 };
 

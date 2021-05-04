@@ -1,5 +1,5 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(199, 184, 184);
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -10,6 +10,7 @@ body {
   display: flex;
   height: 100px;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .page-title {
@@ -26,15 +27,15 @@ body {
 }
 
 .movie-card {
-  background-color: white;
+  background-color: rgb(173, 166, 166);
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 3px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 520px;
   margin: 5px;
   overflow: hidden;
-  width: 300px;
+  width: 350px;
 }
 
 
@@ -51,10 +52,11 @@ body {
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
+  color: rgb(65, 59, 59);
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
+  color: #1980e7;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
@@ -63,6 +65,7 @@ body {
 .movie-card-storyline {
   font-size: 14px;
   text-align: justify;
+  color: white;
 }
 
 .rating {
@@ -80,4 +83,14 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+input, textarea, select {
+  border-radius: 5px;
+  padding: 2px;
+  margin: 5px;
+}
+
+textarea {
+  margin-bottom: -10px;
 }
