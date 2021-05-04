@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import TextInput from './AddMovieComponents/TextInput';
 import TextInput2 from './AddMovieComponents/TextInput2';
@@ -11,6 +12,7 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.handInputs = this.handInputs.bind(this);
+    this.submitInputs = this.submitInputs.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -28,6 +30,19 @@ class AddMovie extends Component {
     });
   }
 
+  submitInputs() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -39,10 +54,21 @@ class AddMovie extends Component {
           <TextArea handInputs={ this.handInputs } value={ storyline } />
           <NumberInput handInputs={ this.handInputs } value={ rating } />
           <SelectInput handInputs={ this.handInputs } value={ genre } />
+          <button
+            data-testid="send-button"
+            type="submit"
+            onClick={ this.submitInputs }
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
