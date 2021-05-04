@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
     this.handleChange = this.handleChange.bind(this);
     this.bookmarkedChange = this.bookmarkedChange.bind(this);
@@ -31,16 +31,20 @@ class MovieLibrary extends Component {
     });
   }
 
-  movieListUpdate(movie) {
-    const { movies } = this.state;
-    movies.push(movie);
+  movieListUpdate(state) {
+    const { movies } = this.props;
     this.setState({
-      movies,
+      movies: [...movies, state],
     });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies,
+    } = this.state;
     let filteredMovies = movies;
     if (bookmarkedOnly) {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked);
