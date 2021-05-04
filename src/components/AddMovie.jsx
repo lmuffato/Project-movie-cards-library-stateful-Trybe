@@ -22,22 +22,11 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  // handleClick(callBack) {
-  //   // this.setState({
-  //   //   subtitle: '',
-  //   //   title: '',
-  //   //   imagePath: '',
-  //   //   storyline: '',
-  //   //   rating: 0,
-  //   //   genre: 'action',
-  //   // });
-  //   return callBack;
-  // }
-
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onClick(this.state);
-        this.setState({
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -48,7 +37,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
