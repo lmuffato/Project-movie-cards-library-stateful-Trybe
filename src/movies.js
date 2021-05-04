@@ -8,6 +8,7 @@ const movies = [
       plans to steal the sacred crystal.`,
     rating: 4.5,
     imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
+    genre: 'action',
   },
   {
     title: 'Final Fantasy',
@@ -17,6 +18,7 @@ const movies = [
       of a ragtag team of soldiers against an invasion of alien phantoms.`,
     rating: 4.5,
     imagePath: 'images/Final_Fantasy_Spirits_Within.jpg',
+    genre: 'action',
   },
   {
     title: 'Ghost In The Shell',
@@ -26,6 +28,7 @@ const movies = [
       cop and her partner. This film is a revised version of Ghost in the Shell (1995).`,
     rating: 5,
     imagePath: 'images/Ghost_In_The_Shell_2_0.jpg',
+    genre: 'thriller',
   },
   {
     title: 'Appleseed Alpha',
@@ -36,6 +39,7 @@ const movies = [
       search of human's future hope, the legendary city of Olympus.`,
     rating: 3.8,
     imagePath: 'images/Appleseed_Alpha.jpg',
+    genre: 'action',
   },
   {
     title: 'Resident Evil',
@@ -46,6 +50,7 @@ const movies = [
       a deadly virus in New York.`,
     rating: 4.2,
     imagePath: 'images/Resident_Evil_Vendetta.jpg',
+    genre: 'action',
   },
 ];
 

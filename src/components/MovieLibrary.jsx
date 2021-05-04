@@ -16,11 +16,19 @@ class MovieLibrary extends Component {
     };
   }
 
-  onSearchTextChange = () => {};
+  onSearchTextChange = (event) => {
+    const { name, value } = event.target;
+
+    this.setState({
+      [name]: value,
+    });
+  };
 
   onBookmarkedChange = () => {};
 
-  onSelectedGenreChange = () => {};
+  onSelectedGenreChange = () => {
+
+  };
 
   handleSubmit = () => {
 
