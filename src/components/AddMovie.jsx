@@ -8,7 +8,7 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
-      // imagePath: '',
+      imagePath: '',
       // storyline: '',
       // rating: 0,
       // genre: 'action',
@@ -29,8 +29,15 @@ class AddMovie extends React.Component {
     }));
   }
 
+  trocaImage = (event) => {
+    const { value } = event.target;
+    this.setState(() => ({
+      imagePath: value,
+    }));
+  }
+
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
         <LabelInput
@@ -47,7 +54,14 @@ class AddMovie extends React.Component {
           type="text"
           onChange={ this.trocaSubTitle }
           value={ subtitle }
+        />
 
+        <LabelInput
+          id="image-input"
+          text="Imagem"
+          type="text"
+          onChange={ this.trocaImage }
+          value={ imagePath }
         />
       </form>
     );
