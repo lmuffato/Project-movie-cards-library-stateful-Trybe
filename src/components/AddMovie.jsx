@@ -1,5 +1,6 @@
 import React from 'react';
 import LabelInput from './LabelInput';
+import LabelTextArea from './LabelTextArea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -36,8 +37,15 @@ class AddMovie extends React.Component {
     }));
   }
 
+  trocaStoryline = (event) => {
+    const { value } = event.target;
+    this.setState(() => ({
+      storyline: value,
+    }));
+  }
+
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <LabelInput
@@ -62,6 +70,13 @@ class AddMovie extends React.Component {
           type="text"
           onChange={ this.trocaImage }
           value={ imagePath }
+        />
+
+        <LabelTextArea
+          id="storyline-input"
+          text="Sinopse"
+          onChange={ this.trocaStoryline }
+          value={ storyline }
         />
       </form>
     );
