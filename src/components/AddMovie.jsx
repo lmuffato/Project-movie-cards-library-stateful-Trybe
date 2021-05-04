@@ -3,6 +3,8 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import RatingValue from './RatingValue';
+import Storyline from './Storyline';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -34,16 +36,11 @@ class AddMovie extends Component {
       <form action="" data-testid="add-movie-form">
 
         <Title value={ title } handleValue={ handleValue } />
-
         <Subtitle value={ subtitle } handleValue={ handleValue } />
         <ImagePath value={ imagePath } handleValue={ handleValue } />
+        <Storyline value={ storyline } handleValue={ handleValue } />
         <RatingValue value={ rating } handleValue={ handleValue } />
-
-        <h1>
-          {storyline}
-          {rating}
-          {genre}
-        </h1>
+        <SelectGenre value={ genre } handleValue={ handleValue } />
 
       </form>
     );
