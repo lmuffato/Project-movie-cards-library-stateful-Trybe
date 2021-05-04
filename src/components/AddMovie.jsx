@@ -40,8 +40,8 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div value={ onClick }>
-        <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
+      <div>
+        <form onSubmit={ this.handleSubmit } data-testid="add-movie-form">
           <TitleInput title={ title } handleChange={ this.handleChange } />
           <SubtitleInput subtitle={ subtitle } handleChange={ this.handleChange } />
           <ImageInput imagePath={ imagePath } handleChange={ this.handleChange } />
