@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import MovieList from './MovieList';
 
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class MovieLibrary extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
 
     this.state = {
       searchText: '',
@@ -19,6 +21,12 @@ class MovieLibrary extends Component {
       movies,
       allMovies: movies,
     };
+  }
+
+  handleAddMovie(newMovie) {
+    this.setState((oldState) => ({
+      allMovies: [...oldState.allMovies, newMovie],
+    }));
   }
 
   handleChange({ target }, name) {
@@ -63,6 +71,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ (event) => this.handleChange(event, 'selectedGenre') }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }
