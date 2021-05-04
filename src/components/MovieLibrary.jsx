@@ -40,7 +40,6 @@ class MovieLibrary extends Component {
   }
 
   filterText = (arr) => {
-    const returnArr = [];
     const { searchText } = this.state;
     return arr.filter((movie) => {
       if (movie.title.includes(searchText)) {
@@ -52,6 +51,7 @@ class MovieLibrary extends Component {
       if (movie.storyline.includes(searchText)) {
         return movie;
       }
+      return null;
     });
   }
 
