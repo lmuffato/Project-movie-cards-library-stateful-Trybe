@@ -6,7 +6,7 @@ class Subtitle extends Component {
     const { value,
       onChange } = this.props;
     return (
-      <label data-testid="subtitle-input-label" >
+      <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
         Subtítulo
         <input
           type="textarea"
@@ -20,10 +20,8 @@ class Subtitle extends Component {
 }
 
 Subtitle.propTypes = {
-//   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
-//   text: PropTypes.string.isRequired,
 };
 
 export default Subtitle;
