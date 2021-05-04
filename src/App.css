@@ -24,8 +24,8 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
-  padding: 48px 30px;
   justify-content: space-around;
+  padding: 48px 30px;
 }
 
 .movie-card {
@@ -51,10 +51,10 @@ body {
 }
 
 .movie-card-title {
+  color: rgb(65, 59, 59);
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
-  color: rgb(65, 59, 59);
 }
 
 .movie-card-subtitle {
@@ -89,8 +89,8 @@ body {
 
 input, textarea, select {
   border-radius: 5px;
-  padding: 2px;
   margin: 5px;
+  padding: 2px;
 }
 
 textarea {
@@ -98,7 +98,7 @@ textarea {
 }
 
 button {
-  padding: 15px;
   background-color: rgb(24, 44, 24);
   color: white;
+  padding: 15px;
 }
