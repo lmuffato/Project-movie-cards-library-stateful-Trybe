@@ -75,8 +75,9 @@ class MovieLibrary extends React.Component {
     const filteredByBookmark = this.bookMarkedFiltered(filteredByText);
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
-      <div>
+      <div className="movie-library">
         <h2> My awesome movie library </h2>
+        <br />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }

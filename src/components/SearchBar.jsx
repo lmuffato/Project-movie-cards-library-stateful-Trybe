@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
       bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="searchForm">
         <label htmlFor="seachText" data-testid="text-input-label">
           Inclui o texto:
           <input
@@ -21,6 +21,7 @@ class SearchBar extends React.Component {
         <label htmlFor="checkBox" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            className="check-box"
             data-testid="checkbox-input"
             id="checkBox"
             checked={ bookmarkedOnly }
