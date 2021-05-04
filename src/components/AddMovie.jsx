@@ -6,6 +6,7 @@ import SubtitleField from './AddMovie/SubtitleField';
 import ImageField from './AddMovie/ImageField';
 import SinopseField from './AddMovie/SinopseField';
 import RatingField from './AddMovie/RatingField';
+import GenderField from './AddMovie/GenderField';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -40,6 +41,7 @@ class AddMovie extends React.Component {
           <ImageField value={ imagePath } callback={ this.handleChange } />
           <SinopseField value={ storyline } callback={ this.handleChange } />
           <RatingField value={ rating } callback={ this.handleChange } />
+          <GenderField value={ genre } callback={ this.handleChange } />
         </form>
       </div>
     );
