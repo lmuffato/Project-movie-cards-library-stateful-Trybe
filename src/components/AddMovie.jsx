@@ -29,6 +29,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title">
+          Título
           <input
             name="title"
             value={ title }
@@ -51,6 +52,15 @@ class AddMovie extends Component {
             name="imagePath"
             value={ imagePath }
             data-testid="image-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label data-testid="storyline-input-label" htmlFor="storyline">
+          Sinopse
+          <textarea
+            name="storyline"
+            value = { storyline }
+            data-testid="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
