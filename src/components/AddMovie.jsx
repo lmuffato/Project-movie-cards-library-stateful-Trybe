@@ -1,9 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
     this.handleChange = this.handleChange.bind(this);
     this.sendMovie = this.sendMovie.bind(this);
 
@@ -47,8 +48,8 @@ class AddMovie extends React.Component {
               type="text"
               name="title"
               data-testid="title-input"
-              value={this.state.title}
-              onChange={this.handleChange} />
+              value={ this.state.title }
+              onChange={ this.handleChange } />
           </label>
 
           <label data-testid="subtitle-input-label">
@@ -57,8 +58,8 @@ class AddMovie extends React.Component {
               type="text"
               name="subtitle"
               data-testid="subtitle-input"
-              value={this.state.subtitle}
-              onChange={this.handleChange} />
+              value={ this.state.subtitle }
+              onChange={ this.handleChange } />
           </label>
 
           <label data-testid="image-input-label">
@@ -67,8 +68,8 @@ class AddMovie extends React.Component {
               type="text"
               name="imagePath"
               data-testid="image-input"
-              value={this.state.imagePath}
-              onChange={this.handleChange} />
+              value={ this.state.imagePath }
+              onChange={ this.handleChange } />
           </label>
 
           <label data-testid="storyline-input-label">
@@ -76,8 +77,8 @@ class AddMovie extends React.Component {
             <textarea
               name="storyline"
               data-testid="storyline-input"
-              value={this.state.storyline}
-              onChange={this.handleChange} />
+              value={ this.state.storyline }
+              onChange={ this.handleChange } />
           </label>
 
           <label data-testid="rating-input-label">
@@ -86,8 +87,8 @@ class AddMovie extends React.Component {
               type="number"
               name="rating"
               data-testid="rating-input"
-              value={this.state.rating}
-              onChange={this.handleChange} />
+              value={ this.state.rating }
+              onChange={ this.handleChange } />
           </label>
 
           <label data-testid="genre-input-label">
@@ -97,7 +98,7 @@ class AddMovie extends React.Component {
               name="genre"
               data-testid="genre-input"
               value={this.state.genre}
-              onChange={this.handleChange}>
+              onChange={ this.handleChange }>
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -107,14 +108,18 @@ class AddMovie extends React.Component {
           <button
             type="button"
             data-testid="send-button"
-            onClick={this.sendMovie}>
+            onClick={ this.sendMovie }>
             Adicionar filme
           </button>
 
         </form>
-      </div >
+      </div>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
