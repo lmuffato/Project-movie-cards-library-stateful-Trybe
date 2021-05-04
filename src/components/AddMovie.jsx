@@ -17,10 +17,14 @@ class AddMovie extends Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [name]: value,
+      [target.name]: target.value,
+    });
+  }
+
+  checkboxHandle({ target }) {
+    this.setState({
+      [target.name]: target.checked,
     });
   }
 
@@ -136,7 +140,7 @@ class AddMovie extends Component {
           type="checkbox"
           value={ bookmarked }
           name="bookmarked"
-          onChange={ this.handleChange }
+          onChange={ this.checkboxHandle }
           data-testid="bookmarked-input"
         />
       </label>
@@ -148,8 +152,8 @@ class AddMovie extends Component {
     event.preventDefault();
     onClick(this.state);
     this.setState({
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyLine: '',
       rating: 0,

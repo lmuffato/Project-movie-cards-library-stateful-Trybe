@@ -8,27 +8,36 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    const { movies } = this.props;
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.bookMarkedChange = this.bookMarkedChange.bind(this);
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
     this.setState({
-      [name]: value,
+      [target.name]: target.value,
+    });
+  }
+
+  bookMarkedChange({ target }) {
+    this.setState({
+      bookmarkedOnly: target.checked,
     });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies,
+    } = this.state;
     let filteredMovies = movies;
     if (bookmarkedOnly) {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked);
@@ -46,12 +55,11 @@ class MovieLibrary extends Component {
 
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
+          onBookmarkedChange={ this.bookMarkedChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />

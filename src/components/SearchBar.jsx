@@ -20,6 +20,7 @@ class SearchBar extends Component {
             data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
+            name="searchText"
           />
         </label>
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
