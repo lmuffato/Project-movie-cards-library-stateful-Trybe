@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class TextInput extends Component {
   render() {
-    const { label, name, value, testid, onChange } = this.props;
+    const { label, name, value, testid, labelTestId, onChange } = this.props;
     return (
-      <label htmlFor="title">
+      <label htmlFor="title" data-testid={ labelTestId }>
         {label}
         <input
           type="text"
@@ -19,12 +19,12 @@ class TextInput extends Component {
   }
 }
 
-TextInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  testid: propTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+// TextInput.propTypes = {
+//   label: PropTypes.string.isRequired,
+//   name: PropTypes.string.isRequired,
+//   value: PropTypes.string.isRequired,
+//   testid: propTypes.string.isRequired,
+//   onChange: PropTypes.func.isRequired,
+// };
 
 export default TextInput;

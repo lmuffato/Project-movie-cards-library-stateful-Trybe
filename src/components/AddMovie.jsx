@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
 import TextInput from './TextInput';
 
@@ -29,25 +30,28 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <TextInput
+          labelTestId="title-input-label"
           label="Título"
           name="title"
           value={ title }
-          data-testid="title-input"
+          testid="title-input"
           onChange={ this.handleChange }
         />
 
         <TextInput
+          labelTestId="subtitle-input-label"
           label="Subtítulo"
           name="subtitle"
           value={ subtitle }
-          data-testid="subtitle-input"
+          testid="subtitle-input"
           onChange={ this.handleChange }
         />
         <TextInput
+          labelTestId="image-input-label"
           label="Imagem"
           name="imagePath"
           value={ imagePath }
-          data-testid="image-input"
+          testid="image-input"
           onChange={ this.handleChange }
         />
 
@@ -60,6 +64,17 @@ class AddMovie extends Component {
             rows="10"
             onChange={ this.handleChange }
             data-testid="storyline-input"
+          />
+        </label>
+
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            value={ rating }
+            data-testid="rating-input"
+            onChange={ this.handleChange }
           />
         </label>
       </form>
