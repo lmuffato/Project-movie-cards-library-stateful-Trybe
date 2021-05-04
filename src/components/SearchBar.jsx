@@ -1,12 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-// onSelectedGenreChange
 
 class SearchBar extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, onSearchTextChange,
-      onBookmarkedChange } = this.props;
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <section>
         <form data-testid="search-bar-form">
@@ -23,7 +22,6 @@ class SearchBar extends React.Component {
               onChange={ onSearchTextChange }
             />
           </label>
-
           <label
             htmlFor="favorit"
             data-testid="checkbox-input-label"
@@ -37,6 +35,20 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
             />
           </label>
+          <label data-testid="select-input-label" htmlFor="gender">
+            Filtrar por gênero
+            <select
+              data-testid="select-input"
+              id="gender"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
+              <option value="" data-testid="select-option">Todos</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
+              <option value="thriller" data-testid="select-option">Suspense</option>
+            </select>
+          </label>
         </form>
       </section>
     );
@@ -48,6 +60,8 @@ SearchBar.propTypes = {
   bookmarkedOnly: PropTypes.bool.isRequired,
   onSearchTextChange: PropTypes.string.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
