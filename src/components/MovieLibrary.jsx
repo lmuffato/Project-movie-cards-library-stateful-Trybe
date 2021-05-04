@@ -10,6 +10,7 @@ class MovieLibrary extends Component {
     this.filter = this.filtered.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
 
     this.state = {
       searchText: '',
@@ -29,6 +30,12 @@ class MovieLibrary extends Component {
     this.setState(({ movies }) => ({
       movies: [...movies, newMovie],
     }));
+  }
+
+  onSelectedGenreChange({ target }) {
+    this.setState({
+      selectedGenre: target.value,
+    });
   }
 
   filtered() {
