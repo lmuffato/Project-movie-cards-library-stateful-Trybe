@@ -19,10 +19,10 @@ class LabelTextArea extends Component {
 }
 
 LabelTextArea.propTypes = {
-  id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-};
+  id: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  text: PropTypes.string,
+}.isRequired;
 
 export default LabelTextArea;

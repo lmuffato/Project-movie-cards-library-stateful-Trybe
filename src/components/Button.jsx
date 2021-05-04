@@ -17,7 +17,7 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default Button;

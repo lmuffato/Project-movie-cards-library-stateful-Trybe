@@ -20,12 +20,12 @@ class LabelInput extends Component {
 }
 
 LabelInput.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onChange: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-};
+  onChange: PropTypes.func,
+  text: PropTypes.string,
+  type: PropTypes.string,
+}.isRequired;
 LabelInput.defaultProps = {
   value: 0,
 };
