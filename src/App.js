@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <MovieLibrary movies={movies} />
+      <MovieLibrary movies={ movies } />
       <MovieList movies={ data } />
       <AddMovie onClick={ handleClick } />
     </div>
