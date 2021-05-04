@@ -7,6 +7,7 @@ import ImageField from './AddMovie/ImageField';
 import SinopseField from './AddMovie/SinopseField';
 import RatingField from './AddMovie/RatingField';
 import GenderField from './AddMovie/GenderField';
+import Button from './AddMovie/Button';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -21,12 +22,24 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  resetState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -42,6 +55,13 @@ class AddMovie extends React.Component {
           <SinopseField value={ storyline } callback={ this.handleChange } />
           <RatingField value={ rating } callback={ this.handleChange } />
           <GenderField value={ genre } callback={ this.handleChange } />
+          <Button
+            callback={ (event) => {
+              event.preventDefault();
+              onClick();
+              this.resetState();
+            } }
+          />
         </form>
       </div>
     );
