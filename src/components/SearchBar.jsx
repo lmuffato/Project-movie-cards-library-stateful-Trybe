@@ -3,7 +3,7 @@ import React from 'react';
 function SearchBar() {
   return (
     <form action="">
-      <p>Hello Worldp</p>
+      <input type="text" />
     </form>
   );
 }
