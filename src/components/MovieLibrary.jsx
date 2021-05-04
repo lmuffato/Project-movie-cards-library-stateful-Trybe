@@ -22,6 +22,7 @@ class MovieLibrary extends Component {
     this.toggleBookmark = this.toggleBookmark.bind(this);
     this.handleGenderInput = this.handleGenderInput.bind(this);
     this.filter = this.filter.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleSearchInput(e) {
@@ -32,6 +33,15 @@ class MovieLibrary extends Component {
   handleGenderInput(e) {
     const { value } = e.target;
     this.setState({ genre: value });
+  }
+
+  addMovie({ subtitle, title, imagePath, storyline, rating, genre }) {
+    const movie = { title, subtitle, imagePath, storyline, rating, genre };
+    const { movies } = this.state;
+
+    this.setState({
+      movies: movies.concat(movie),
+    });
   }
 
   toggleBookmark() {
@@ -52,7 +62,9 @@ class MovieLibrary extends Component {
     let filteredMovies = movies;
 
     if (searchText.length > 1) {
-      filteredMovies = filteredMovies.filter((movie) => movie.title.includes(searchText));
+      filteredMovies = filteredMovies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
     }
 
     if (bookmarkedOnly === true) {
@@ -83,7 +95,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleGenderInput }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ () => console.log() } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
