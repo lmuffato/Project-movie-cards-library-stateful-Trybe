@@ -24,6 +24,12 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
+  addNewMovie = (newMovie) => {
+    this.setState((oldState) => ({
+      movies: [...oldState.movies, newMovie],
+    }));
+  }
+
   // moviesFiltered = () => {
   //   let { movies } = this.state;
   //   const { searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -64,7 +70,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.changeHandler }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
