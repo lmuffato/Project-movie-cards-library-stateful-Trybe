@@ -20,19 +20,29 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <div className="searchBar">
-        <form data-testid="search-bar-form" />
+        <form data-testid="search-bar-form">
+          <label htmlFor="true" data-testid="text-input-label">
+            Inclui o texto:
+            <input
+              type="text"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+              data-testid="text-input"
+            />
+          </label>
+        </form>
       </div>
     );
   }
 }
 
 SearchBar.propTypes = PropTypes.shape({
-  searchText: PropTypes.string.isRequired,
+  searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-});
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+}).isRequired;
 
 export default SearchBar;
