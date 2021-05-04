@@ -44,6 +44,13 @@ class MovieLibrary extends React.Component {
     return movies.filter((movie) => movie.title.includes(searchText));
   }
 
+  addNewMovie = (newMovie) => {
+    const { movies } = this.props;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const movies = this.filters();
@@ -59,7 +66,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleSelected }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
