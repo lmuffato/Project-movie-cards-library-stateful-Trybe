@@ -1,1 +1,29 @@
-// implement AddMovie component heree
+import React, { Component } from 'react';
+
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+
+class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.currentlyState = this.currentlyState.bind(this);
+  }
+
+  onClick() {
+    return '';
+  }
+
+  render() {
+    return (
+      <div>
+        <h2> My awesome movie library </h2>
+        <SearchBar />
+        <MovieList movies={this.props.movies} />
+        <AddMovie onClick={ this.onClick } />
+      </div>
+    );
+  }
+}
+
+export default MovieLibrary;
