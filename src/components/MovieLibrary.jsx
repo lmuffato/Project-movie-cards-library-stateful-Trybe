@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.bookMarkedChange = this.bookMarkedChange.bind(this);
+    this.moviesAdd = this.moviesAdd.bind(this);
   }
 
   handleChange({ target }) {
@@ -28,6 +29,13 @@ class MovieLibrary extends Component {
   bookMarkedChange({ target }) {
     this.setState({
       bookmarkedOnly: target.checked,
+    });
+  }
+
+  moviesAdd(newMovie) {
+    const { movies } = this.props;
+    this.setState({
+      movies: [...movies, newMovie],
     });
   }
 
@@ -64,7 +72,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ filteredMovies } />
-        <AddMovie />
+        <AddMovie onClick={ this.moviesAdd } />
       </div>
     );
   }
@@ -83,5 +91,7 @@ MovieLibrary.propTypes = {
     }),
   ),
 }.isRequired;
+
+// referencia Giovanni Maldonado
 
 export default MovieLibrary;
