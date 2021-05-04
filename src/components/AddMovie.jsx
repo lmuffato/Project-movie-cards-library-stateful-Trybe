@@ -76,7 +76,20 @@ class AddMovie extends React.Component {
       />
     </label>
   );
-  // inputRating = (rating) => ();
+
+  inputRating = (rating) => (
+    <label htmlFor="campo5" data-testid="rating-input-label">
+      Avaliação
+      <input
+        name="rating"
+        id="campo5"
+        data-testid="rating-input"
+        type="number"
+        value={ rating }
+        onChange={ this.handleChange }
+      />
+    </label>
+  );
   // inputGenre = (genre) => ();
 
   render() {
@@ -89,6 +102,7 @@ class AddMovie extends React.Component {
           {this.inputSubtitle(subtitle)}
           {this.inputImage(imagePath)}
           {this.inputStory(storyline)}
+          {this.inputRating(rating)}
         </form>
       </div>
     );
