@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import PropTypes from 'prop-types';
+import { func } from 'prop-types';
 
 import { inputs, initialStateAddMovie } from '../libs/data';
 import Label from './Label';
@@ -35,7 +35,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyLine, rating, genre } = this.props;
     const { state, handleChange } = this;
     const elementsAddMovie = Object.keys(inputs.AddMovie);
 
@@ -62,7 +61,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: func.isRequired,
 };
 
 export default AddMovie;

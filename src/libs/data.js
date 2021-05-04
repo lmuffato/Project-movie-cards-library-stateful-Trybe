@@ -48,6 +48,11 @@ const initialStateAddMovie = {
   genre: 'action',
 };
 
+const typesSearchBar = {
+  text: 'value',
+  checkbox: 'checked',
+};
+
 const inputs = {
   SearchBar: {
     inputText: {
@@ -61,6 +66,10 @@ const inputs = {
         type: 'text',
         tag: 'input',
       },
+      propsInfo: {
+        onChange: 'onSearchTextChange',
+        state: 'searchText',
+      },
     },
     inputCheckbox: {
       label: {
@@ -72,6 +81,10 @@ const inputs = {
         'data-testid': 'checkbox-input',
         type: 'checkbox',
         tag: 'input',
+      },
+      propsInfo: {
+        onChange: 'onBookmarkedChange',
+        state: 'bookmarkedOnly',
       },
     },
   },
@@ -161,4 +174,4 @@ const tags = {
   select: 'select',
 };
 
-export { kindOfMovies, inputs, tags, moviesAddMovie, initialStateAddMovie };
+export { kindOfMovies, inputs, tags, moviesAddMovie, initialStateAddMovie, typesSearchBar };

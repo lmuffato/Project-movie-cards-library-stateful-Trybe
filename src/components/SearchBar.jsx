@@ -1,37 +1,30 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+import { string, func, bool } from 'prop-types';
 
-import { kindOfMovies, inputs } from '../libs/data';
+import { kindOfMovies, inputs, typesSearchBar } from '../libs/data';
 
 import Option from './Option';
 import Label from './Label';
 
 function SearchBar(props) {
-  const {
-    searchText,
-    onSearchTextChange,
-    bookmarkedOnly,
-    onBookmarkedChange,
-    selectedGenre,
-    onSelectedGenreChange,
-  } = props;
-
-  const { inputCheckbox, inputText } = inputs.SearchBar;
+  const { selectedGenre, onSelectedGenreChange } = props;
+  const elementsSearchBar = Object.keys(inputs.SearchBar);
 
   return (
     <form data-testid="search-bar-form">
-      <Label
-        labelInfo={ inputCheckbox.label }
-        inputMainInfo={ { onChange: onBookmarkedChange, checked: bookmarkedOnly } }
-        inputExtraInfo={ inputCheckbox.input }
-      />
-
-      <Label
-        labelInfo={ inputText.label }
-        inputMainInfo={ { onChange: onSearchTextChange, value: searchText } }
-        inputExtraInfo={ inputText.input }
-      />
+      {elementsSearchBar.map((element) => {
+        const { label, input, propsInfo } = inputs.SearchBar[element];
+        const attribute = { [typesSearchBar[input.type]]: props[propsInfo.state] };
+        return (
+          <Label
+            key={ input.name }
+            labelInfo={ label }
+            inputMainInfo={ { onChange: props[propsInfo.onChange], ...attribute } }
+            inputExtraInfo={ input }
+          />
+        );
+      })}
 
       <label data-testid="select-input-label" htmlFor="select-input">
         Filtrar por gênero
@@ -54,15 +47,27 @@ function SearchBar(props) {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  searchText: string.isRequired,
+  onSearchTextChange: func.isRequired,
+  bookmarkedOnly: bool.isRequired,
+  onBookmarkedChange: func.isRequired,
+  selectedGenre: string.isRequired,
+  onSelectedGenreChange: func.isRequired,
 };
 
 export default SearchBar;
 
 // References
 // https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/label
+
+{/* <Label
+        labelInfo={ inputCheckbox.label }
+        inputMainInfo={ { onChange: onBookmarkedChange, checked: bookmarkedOnly } }
+        inputExtraInfo={ inputCheckbox.input }
+      />
+
+      <Label
+        labelInfo={ inputText.label }
+        inputMainInfo={ { onChange: onSearchTextChange, value: searchText } }
+        inputExtraInfo={ inputText.input }
+      /> */}

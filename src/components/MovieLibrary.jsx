@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { arrayOf, shape, string, number} from 'prop-types';
+
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -76,5 +78,15 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: arrayOf(shape({
+    title: string.isRequired,
+    subtitle: string.isRequired,
+    storyline: string.isRequired,
+    rating: number.isRequired,
+    imagePath: string.isRequired,
+  })).isRequired,
+};
 
 export default MovieLibrary;

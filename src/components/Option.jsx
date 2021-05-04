@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+import { shape, string } from 'prop-types';
 
 function Option({ movie, dataId }) {
   const { kindMovieText, kindMovieValue } = movie;
@@ -13,11 +13,11 @@ function Option({ movie, dataId }) {
 }
 
 Option.propTypes = {
-  movie: PropTypes.shape({
-    kindMovieText: PropTypes.string.isRequired,
-    kindMovieValue: PropTypes.string.isRequired,
+  movie: shape({
+    kindMovieText: string.isRequired,
+    kindMovieValue: string.isRequired,
   }).isRequired,
-  dataId: PropTypes.string.isRequired,
+  dataId: string.isRequired,
 };
 
 export default Option;

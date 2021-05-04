@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+import { shape, string, func } from 'prop-types';
 
 import { tags, moviesAddMovie } from '../libs/data';
 
@@ -36,19 +36,19 @@ function Label(props) {
 }
 
 Label.propTypes = {
-  labelInfo: PropTypes.shape({
-    testId: PropTypes.string.isRequired,
-    control: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+  labelInfo: shape({
+    testId: string.isRequired,
+    control: string.isRequired,
+    text: string.isRequired,
   }).isRequired,
 
-  inputExtraInfo: PropTypes.shape({
-    'data-testid': PropTypes.string.isRequired,
-    tag: PropTypes.string.isRequired,
+  inputExtraInfo: shape({
+    'data-testid': string.isRequired,
+    tag: string.isRequired,
   }).isRequired,
 
-  inputMainInfo: PropTypes.shape({
-    onChange: PropTypes.func.isRequired,
+  inputMainInfo: shape({
+    onChange: func.isRequired,
   }).isRequired,
 };
 
