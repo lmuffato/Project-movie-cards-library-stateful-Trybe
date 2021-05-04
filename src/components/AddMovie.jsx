@@ -1,5 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 
 class AddMovie extends Component {
@@ -7,6 +8,7 @@ class AddMovie extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -22,6 +24,19 @@ class AddMovie extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleButtonClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: '',
     });
   }
 
@@ -91,9 +106,21 @@ class AddMovie extends Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+
+        <button
+          type="button"
+          onClick={ this.handleButtonClick }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
