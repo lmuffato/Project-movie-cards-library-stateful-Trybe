@@ -6,6 +6,16 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+  }
+
   onSearchTextChange = () => {};
 
   onBookmarkedChange = () => {};
@@ -17,16 +27,16 @@ class MovieLibrary extends Component {
   };
 
   render() {
-    const { movies } = this.props;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText=""
+          searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
-          bookmarkedOnly
+          bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
-          selectedGenre=""
+          selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
