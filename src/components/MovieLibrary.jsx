@@ -16,12 +16,12 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-      allMovies: movies,
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookMarkedChange = this.handleBookMarkedChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleTextChange(value) {
@@ -44,7 +44,7 @@ class MovieLibrary extends Component {
 
   addMovie(movie) {
     this.setState((prevState) => ({
-      allMovies: [...prevState.allMovies, movie],
+      movies: [...prevState.movies, movie],
     }));
   }
 
@@ -84,7 +84,13 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default MovieLibrary;

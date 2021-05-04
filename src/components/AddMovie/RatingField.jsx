@@ -18,9 +18,13 @@ Field.propTypes = PropTypes.shape({
   label: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.string || PropTypes.number,
+  value: PropTypes.number,
   data: PropTypes.string,
   callback: PropTypes.func,
 }).isRequired;
+
+Field.defaultProps = {
+  value: 0,
+};
 
 export default Field;

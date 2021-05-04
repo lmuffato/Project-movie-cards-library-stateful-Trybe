@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange(event) {
@@ -32,7 +32,10 @@ class AddMovie extends React.Component {
     });
   }
 
-  resetState() {
+  addMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -44,7 +47,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -56,11 +58,7 @@ class AddMovie extends React.Component {
           <RatingField value={ rating } callback={ this.handleChange } />
           <GenderField value={ genre } callback={ this.handleChange } />
           <Button
-            callback={ (event) => {
-              event.preventDefault();
-              onClick(this.state);
-              this.resetState();
-            } }
+            callback={ this.addMovie }
           />
         </form>
       </div>
