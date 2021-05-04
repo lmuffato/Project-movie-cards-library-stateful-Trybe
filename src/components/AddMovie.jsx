@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -19,22 +20,21 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { value, name } = target;
 
     this.setState({
       [name]: value,
     });
   }
 
-  onClik = (event) => {
-    event.preventDefault();
-    this.setState({ subtitle: '' });
-    this.setState({ title: '' });
-    this.setState({ imagePath: '' });
-    this.setState({ storyline: '' });
-    this.setState({ rating: 0 });
-    this.setState({ genre: 'action' });
+  resetState = () => {
+    this.setState({ subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   makeInput = (id, type, name, value) => (
@@ -50,6 +50,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -86,13 +87,9 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button
-          data-testid="send-button"
-          type="button"
-          onClik={ this.onClik }
-        >
-          Adicionar filme
-        </button>
+        <Button
+          onClick={ () => { this.resetState(); } }
+        />
       </form>
     );
   }
