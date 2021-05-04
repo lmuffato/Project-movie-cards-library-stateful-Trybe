@@ -89,9 +89,13 @@ class MovieLibrary extends Component {
 
   addMovie = (obj) => {
     const { movies } = this.props;
-    movies.push(obj);
+    const arr = [];
+    movies.forEach((movie) => {
+      arr.push(movie);
+    });
+    arr.push(obj);
     this.setState({
-      movies,
+      movies: arr,
     });
   }
 
