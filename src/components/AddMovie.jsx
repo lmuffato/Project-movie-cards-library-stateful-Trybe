@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -32,9 +33,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  // handleClick() {
-
-  // }
+  handleClick() {
+    //
+  }
 
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
@@ -47,7 +48,7 @@ class AddMovie extends React.Component {
         <MovieStoryLine handleChange={ this.handleChange } value={ storyLine } />
         <MovieRating handleChange={ this.handleChange } value={ rating } />
         <MovieGenre handleChange={ this.handleChange } value={ genre } />
-        <MovieButtonAdd />
+        <MovieButtonAdd handleClick={ this.handleClick } />
       </form>
     );
   }
