@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
+import RatingValue from './RatingValue';
 
 class AddMovie extends Component {
   constructor() {
@@ -36,6 +37,7 @@ class AddMovie extends Component {
 
         <Subtitle value={ subtitle } handleValue={ handleValue } />
         <ImagePath value={ imagePath } handleValue={ handleValue } />
+        <RatingValue value={ rating } handleValue={ handleValue } />
 
         <h1>
           {storyline}
