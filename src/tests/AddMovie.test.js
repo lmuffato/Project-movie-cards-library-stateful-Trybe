@@ -86,26 +86,26 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
   });
 });
 
-// describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
-//   it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
-//     expect(subtitleInput).toBeInTheDocument();
-//   });
+describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
+  it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
+    expect(subtitleInput).toBeInTheDocument();
+  });
 
-//   it('Renderize a label "Subtítulo" para o input de subtitulo', () => {
-//     expect(subtitleInputLabel).toBeInTheDocument();
-//     expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
-//   });
+  it('Renderize a label "Subtítulo" para o input de subtitulo', () => {
+    expect(subtitleInputLabel).toBeInTheDocument();
+    expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
+  });
 
-//   it('Defina o  estado inicial do subtitulo como "", ou seja, uma string vazia', () => {
-//     expect(subtitleInput).toHaveValue(initialState.subtitle);
-//   });
+  it('Defina o  estado inicial do subtitulo como "", ou seja, uma string vazia', () => {
+    expect(subtitleInput).toHaveValue(initialState.subtitle);
+  });
 
-//   it('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
-//     event.type(subtitleInput, 'my awesome movie subtitle');
+  it('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
+    event.type(subtitleInput, 'my awesome movie subtitle');
 
-//     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
-//   });
-// });
+    expect(subtitleInput).toHaveValue('my awesome movie subtitle');
+  });
+});
 
 // describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
 //   it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
