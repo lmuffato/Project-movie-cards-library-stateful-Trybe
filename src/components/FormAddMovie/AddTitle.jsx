@@ -12,6 +12,7 @@ class AddTitle extends React.Component {
           value={ value }
           onChange={ callback }
           id="title-input"
+          name="title"
         />
       </label>
     );

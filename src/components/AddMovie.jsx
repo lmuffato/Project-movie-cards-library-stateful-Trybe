@@ -1,12 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddImage from './FormAddMovie/AddImage';
 import AddRating from './FormAddMovie/AddRating';
 import AddStoryline from './FormAddMovie/AddStoryline';
 import AddSubtitle from './FormAddMovie/AddSubtitle';
 import AddTitle from './FormAddMovie/AddTitle';
-
-// import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -22,32 +21,27 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = (event) => {
+  handleChange = ({ target: { value, name } }) => { // estou destruturando o evento, pegando apenas o event.target.value, e event.target.name
+    console.log(this.state);
     this.setState({
-      subtitle: event.target.value,
-      title: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
+      [name]: value, // dessa maneira, caada vez que alterar os inputs o nome da chame vai ser o nome que coloquei em cada input e o valor o valor alterado
     });
   }
 
-  // handleReset = (event) => {
-  //   this.props.onClick(this.state);
-  //   event.preventDefault();
-  //   this.setState({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   });
-  // }
+  handleReset = (event) => {
+    event.preventDefault(); // para impedir de carregar a tela novamente
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -65,6 +59,7 @@ class AddMovie extends React.Component {
             data-testid="genre-input"
             onChange={ this.handleChange }
             id="input-genre"
+            name="genre"
           >
             <option value="action" data-testid="genre-option" selected>Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -72,16 +67,26 @@ class AddMovie extends React.Component {
           </select>
         </label>
 
-        {/* <button type="submit" data-testid="send-button"
-        onClick={ this.handleReset }>Adicionar filme</button> */}
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ (event) => {
+            onClick(this.state); // envio o estado para MovieLibrary antes de resetar o estado
+            this.handleReset(event);
+          } }
+        >
+          Adicionar filme
+        </button>
 
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-
-// }
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequered;
 
 export default AddMovie;
+
+// tive ajuda do murilo tumar 10 A para entender o requisito 14 e também a função handleChange

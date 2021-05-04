@@ -12,6 +12,7 @@ class AddSubtitle extends React.Component {
           value={ value }
           onChange={ callback }
           id="subtitle-input"
+          name="subtitle"
         />
       </label>
     );

@@ -13,6 +13,7 @@ class AddRating extends React.Component {
           onChange={ callback }
           id="rating-input"
           type="number"
+          name="rating"
         />
       </label>
     );

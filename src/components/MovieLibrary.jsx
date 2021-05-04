@@ -10,19 +10,21 @@ class MovieLibrary extends Component {
 //     super(props);
 //   }
 
-  // HandleClick = (data) => {
-  //   console.log(data);
-  // }
+  handleState = (state) => {
+    // state.preventDefault()
+    console.log(state);
+  }
 
   render() {
     const { movies } = this.props;
 
     return (
       <div>
+
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <AddMovie onClick={ this.HandleClick } />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.handleState } />
 
       </div>
     );

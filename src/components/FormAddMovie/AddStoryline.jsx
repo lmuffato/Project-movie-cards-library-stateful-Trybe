@@ -12,6 +12,7 @@ class AddStoryline extends React.Component {
           value={ value }
           onChange={ callback }
           id="storyline-input"
+          name="storyline"
         />
       </label>
     );

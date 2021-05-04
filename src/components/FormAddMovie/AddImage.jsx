@@ -12,6 +12,7 @@ class AddImage extends React.Component {
           value={ value }
           onChange={ callback }
           id="image-input"
+          name="imagePath"
         />
       </label>
     );
