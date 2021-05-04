@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import data from './data';
 
 class SearchBar extends Component {
   render() {
@@ -22,13 +23,9 @@ class SearchBar extends Component {
       value: selectedGenre,
       onChange: onSelectedGenreChange,
     };
-    const dataTestOption = 'select-option';
-    const opts = [
-      { name: 'Todos', value: '', 'data-testid': dataTestOption },
-      { name: 'Ação', value: 'action', 'data-testid': dataTestOption },
-      { name: 'Comédia', value: 'comedy', 'data-testid': dataTestOption },
-      { name: 'Suspense', value: 'thriller', 'data-testid': dataTestOption },
-    ];
+
+    const { genreOpts } = data;
+
     return (
       <form data-testid="search-bar-form" className="SearchBar">
         <label htmlFor="inputSearch" data-testid="text-input-label">
@@ -42,7 +39,7 @@ class SearchBar extends Component {
         <label htmlFor="inputSelect" data-testid="select-input-label">
           Filtrar por gênero
           <select { ...propsInputSelect }>
-            {opts.map((opt, i) => <option { ...opt } key={ i }>{opt.name}</option>)}
+            {genreOpts.map((opt, i) => <option { ...opt } key={ i }>{opt.name}</option>)}
           </select>
         </label>
       </form>

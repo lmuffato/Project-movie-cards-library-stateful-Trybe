@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import data from './data';
 
 class AddMovie extends Component {
   constructor() {
@@ -11,45 +12,65 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      labels: {
-        title: 'Títuto',
-        subtitle: 'Subtítulo',
-        imagePath: 'Imagem',
-        storyline: 'Sinopse',
-        rating: 'Avaliação',
-        genre: 'Gênero',
-        labels: '',
-      },
     };
   }
 
-  handle = ({ target }) => {
-    const { name, value } = target;
+  handle = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+  };
+
+  onButtonAdd = () => {
+    const { state: newMovie, props: { addMovie } } = this;
+    newMovie.bookmarked = false;
+    addMovie(newMovie);
+  };
+
+  generateInputComponent = (n) => {
+    let input = <input { ...n.input } key={ `Input-${n.input.name}` } />;
+    if (n.input.type === 'textarea') {
+      input = <textarea { ...n.input } key={ `Input-${n.input.name}` } />;
+    }
+    if (n.input.type === 'select') {
+      input = (
+        <select { ...n.input } key={ `Input-${n.input.name}` }>
+          {n.options.map((opt, i) => (
+            <option { ...opt } key={ i } onChange={ this.handle }>{opt.name}</option>
+          ))}
+        </select>
+      );
+    }
+    return (
+      <label htmlFor={ n.input.name } { ...n.label } key={ `label-${n.input.name}` }>
+        {n.text}
+        {input}
+      </label>
+    );
   }
 
-  generateInputs = () => {
-    const { labels } = this.state;
+  generateInputsProps = () => {
+    const { labels, typeInput } = data;
     const inputs = Object.keys(this.state).reduce((acc, input) => {
+      const prefix = input !== 'imagePath' ? input : 'image';
       const { [input]: text } = labels;
-      const type = input === 'storyline' ? 'textarea' : 'text';
+      const type = typeInput[input];
       const { [input]: value } = this.state;
-      if (input !== 'labels' && input !== 'genre') {
-        const inputPros = {
-          label: {
-            'data-testid': `${input}-input-label`,
-          },
-          input: {
-            name: input,
-            type,
-            value,
-            onChange: this.handle,
-            'data-testid': `${input}-input`,
-          },
-          text,
-        };
-        acc.push(inputPros);
+      const inputPros = {
+        label: {
+          'data-testid': `${prefix}-input-label`,
+        },
+        input: {
+          name: input,
+          type,
+          value,
+          onChange: this.handle,
+          'data-testid': `${prefix}-input`,
+        },
+        text,
+      };
+      if (input === 'genre') {
+        inputPros.options = data.genreOptionsAdd;
       }
+      acc.push(inputPros);
       return acc;
     }, []);
     return inputs;
@@ -58,24 +79,17 @@ class AddMovie extends Component {
   render() {
     return (
       <form data-testid="add-movie-form">
-        {this.generateInputs().map((n) => (
-          // eslint-disable-next-line react/jsx-curly-spacing
-          <label htmlFor={ n.input.name } { ...n.label } key={ `label-${n.input.name}` }>
-            {n.text}
-            {
-              n.input.type !== 'textarea'
-                ? <input { ...n.input } key={ `Input-${n.input.name}` } />
-                : <textarea { ...n.input } key={ `Input-${n.input.name}` } />
-            }
-          </label>
-        ))}
+        {this.generateInputsProps().map((n) => this.generateInputComponent(n))}
+        <button type="reset" data-testid="send-button" onClick={ this.onButtonAdd }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  addMovie: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

@@ -7,33 +7,65 @@ import movies from '../data';
 class MovieLibrary extends Component {
   constructor() {
     super();
-    this.State = {
-
+    this.state = {
+      movies,
+      searchText: '',
+      selectedGenre: '',
+      bookmarkedOnly: false,
     };
   }
 
-  onSearchTextChange = () => {
-
+  filterMovies = (newFilter) => {
+    let { state } = this;
+    state = { ...state, ...newFilter };
+    const { searchText, selectedGenre, bookmarkedOnly } = state;
+    let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)));
+    filteredMovies = filteredMovies.filter(
+      (movie) => (movie.genre.includes(selectedGenre)),
+    );
+    if (bookmarkedOnly) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked);
+    }
+    this.setState({ movies: filteredMovies });
   };
 
-  onBookmarkedChange = () => {
+  onSearchTextChange = ({ target: { value } }) => {
+    this.setState({ searchText: value });
+    this.filterMovies({ searchText: value });
+  };
 
-  }
+  onBookmarkedChange = ({ target: { checked } }) => {
+    this.setState({ bookmarkedOnly: checked });
+    this.filterMovies({ bookmarkedOnly: checked });
+  };
 
-  onSelectedGenreChange = () => {
+  onSelectedGenreChange = ({ target: { value } }) => {
+    this.setState({ selectedGenre: value });
+    this.filterMovies({ selectedGenre: value });
+  };
 
-  }
-
-  onClick = () => {
-
+  addMovie = (newMovie) => {
+    movies.push(newMovie);
+    this.filterMovies({});
+    console.log(movies);
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies: stateMovies } = this.state;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
+    const propsSearchBar = {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+    };
     return (
       <section>
-        <SearchBar />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <SearchBar { ...propsSearchBar } />
+        <MovieList movies={ stateMovies } />
+        <AddMovie addMovie={ this.addMovie } />
       </section>
     );
   }
