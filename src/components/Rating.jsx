@@ -20,7 +20,7 @@ Rating.propTypes = {
 };
 
 Rating.defaultProps = {
-  rating: 'undefined',
+  rating: 0,
 };
 
 export default Rating;
