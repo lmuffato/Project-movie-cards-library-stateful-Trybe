@@ -18,6 +18,7 @@ export default class FormMovieFilter extends React.Component {
         <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto
           <input
+            id="text-input"
             type="text"
             value={ searchText }
             data-testid="text-input"

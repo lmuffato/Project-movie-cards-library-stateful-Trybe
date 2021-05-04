@@ -13,7 +13,7 @@ export default class Inputs extends React.Component {
             name="title"
             id="title-input"
             data-testid="title-input"
-            value={ title }
+            defaultValue={ title }
             onChange={ handleChange }
           />
         </label>
@@ -24,7 +24,7 @@ export default class Inputs extends React.Component {
             name="subtitle"
             id="subtitle-input"
             data-testid="subtitle-input"
-            value={ subtitle }
+            defaultValue={ subtitle }
             onChange={ handleChange }
           />
         </label>
@@ -35,7 +35,7 @@ export default class Inputs extends React.Component {
             name="imagePath"
             id="image-input"
             data-testid="image-input"
-            value={ imagePath }
+            defaultValue={ imagePath }
             onChange={ handleChange }
           />
         </label>
