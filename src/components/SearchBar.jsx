@@ -29,6 +29,7 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <div className="searchBar">
+        <h2>Filtrar Filmes</h2>
         <form data-testid="search-bar-form">
           <label htmlFor="true" data-testid="text-input-label">
             Inclui o texto:
@@ -47,6 +48,7 @@ class SearchBar extends React.Component {
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
               data-testid="checkbox-input"
+              className="form-check-input"
             />
           </label>
           <label htmlFor="true" data-testid="select-input-label">

@@ -9,6 +9,7 @@ const Field = ({ value, callback }) => (
       value={ value }
       data-testid="genre-input"
       onChange={ callback }
+      className="form-select"
     >
       <option data-testid="genre-option" value="action">Ação</option>
       <option data-testid="genre-option" value="comedy">Comédia</option>

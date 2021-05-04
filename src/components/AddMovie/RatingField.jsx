@@ -10,6 +10,7 @@ const Field = ({ value, callback }) => (
       value={ value }
       data-testid="rating-input"
       onChange={ callback }
+      className="form-control"
     />
   </label>
 );

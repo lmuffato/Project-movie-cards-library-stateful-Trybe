@@ -1,0 +1,35 @@
+.addMovie {
+  align-items: center;
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 40%;
+  padding: 30px;
+  width: 100%;
+}
+
+.addMovie form {
+  max-width: 60%;
+  width: 100%;
+}
+
+.addMovie label {
+  display: block;
+}
+
+.addMovie label input {
+  width: 100%;
+}
+
+.addMovie label input, .addMovie label textarea, .addMovie label select {
+  display: block;
+}
+
+button {
+  height: 40px;
+  margin-top: 20px;
+  width: 100%;
+}

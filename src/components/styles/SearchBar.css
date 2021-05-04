@@ -1,9 +1,21 @@
 .searchBar {
   align-items: center;
-  background-color: red;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 50px auto 0;
-  max-width: 60%;
+  max-width: 80%;
+  min-width: 530px;
   padding: 20px;
+}
+
+.searchBar label {
+  display: block;
+  padding: 15px;
+}
+
+.searchBar label input, .searchBar label select {
+  margin: 0 10px;
 }

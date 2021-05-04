@@ -6,6 +6,7 @@ const Field = ({ callback }) => (
     type="submit"
     data-testid="send-button"
     onClick={ callback }
+    className="btn btn-success"
   >
     Adicionar filme
   </button>

@@ -9,6 +9,8 @@ import RatingField from './AddMovie/RatingField';
 import GenderField from './AddMovie/GenderField';
 import Button from './AddMovie/Button';
 
+import './styles/AddMovie.css';
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +51,8 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
+      <div className="addMovie">
+        <h2>Adicionar Filme</h2>
         <form data-testid="add-movie-form">
           <TitleField value={ title } callback={ this.handleChange } />
           <SubtitleField value={ subtitle } callback={ this.handleChange } />
