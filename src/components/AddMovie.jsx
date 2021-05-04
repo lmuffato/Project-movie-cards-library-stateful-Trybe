@@ -7,20 +7,18 @@ import Imagem from './inputComponents/Imagem';
 import Genero from './inputComponents/Genero';
 import Avaliacao from './inputComponents/Avaliacao';
 
-const initialState = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: '',
-};
-
 class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.state = initialState;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
     this.onChange = this.onChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
   }
@@ -34,49 +32,35 @@ class AddMovie extends React.Component {
   addMovie() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(initialState);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
+    const { onChange, addMovie } = this;
     const { title, subtitle, imagePath,
       storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <Titulo
-          value={ title }
-          onChange={ this.onChange }
-        />
-
-        <Subtitulo
-          value={ subtitle }
-          onChange={ this.onChange }
-        />
-
-        <Imagem
-          value={ imagePath }
-          onChange={ this.onChange }
-        />
-
-        <Sinopse
-          value={ storyline }
-          onChange={ this.onChange }
-        />
-
-        <Avaliacao
-          value={ rating }
-          onChange={ this.onChange }
-        />
-
-        <Genero
-          value={ genre }
-          onChange={ this.onChange }
-        />
-
+        <div>
+          <Titulo value={ title } onChange={ onChange } />
+          <Subtitulo value={ subtitle } onChange={ onChange } />
+          <Imagem value={ imagePath } onChange={ onChange } />
+          <Avaliacao value={ rating } onChange={ onChange } />
+          <Genero value={ genre } onChange={ onChange } />
+        </div>
+        <Sinopse value={ storyline } onChange={ onChange } />
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.addMovie }
+          onClick={ addMovie }
         >
           Adicionar filme
         </button>
