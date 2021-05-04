@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Field = ({ label, name, value, data, callback }) => (
-  <label htmlFor="true" data-testid={ `${data}-label` }>
-    { label }
+const Field = ({ value, callback }) => (
+  <label htmlFor="true" data-testid="storyline-input-label">
+    Sinopse
     <textarea
-      name={ name }
+      name="storyline"
       value={ value }
-      data-testid={ data }
+      data-testid="storyline-input"
       onChange={ callback }
     />
   </label>

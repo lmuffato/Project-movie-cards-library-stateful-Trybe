@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Field = ({ label, name, type, value, data, callback }) => (
-  <label htmlFor="true" data-testid={ `${data}-label` }>
-    { label }
+const Field = ({ value, callback }) => (
+  <label htmlFor="true" data-testid="image-input-label">
+    Imagem
     <input
-      name={ name }
-      type={ type }
+      name="imagePath"
+      type="text"
       value={ value }
-      data-testid={ data }
+      data-testid="image-input"
       onChange={ callback }
     />
   </label>

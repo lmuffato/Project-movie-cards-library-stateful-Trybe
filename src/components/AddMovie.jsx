@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Field from './Field';
-import TextAreaField from './TextAreaField';
+
+import TitleField from './AddMovie/TitleField';
+import SubtitleField from './AddMovie/SubtitleField';
+import ImageField from './AddMovie/ImageField';
+import SinopseField from './AddMovie/SinopseField';
+import RatingField from './AddMovie/RatingField';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -31,45 +35,11 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Field
-            label="Título"
-            name="title"
-            type="text"
-            value={ title }
-            data="title-input"
-            callback={ this.handleChange }
-          />
-          <Field
-            label="Subtítulo"
-            name="subtitle"
-            type="text"
-            value={ subtitle }
-            data="subtitle-input"
-            callback={ this.handleChange }
-          />
-          <Field
-            label="Imagem"
-            name="imagePath"
-            type="text"
-            value={ imagePath }
-            data="image-input"
-            callback={ this.handleChange }
-          />
-          <TextAreaField
-            label="Sinopse"
-            name="storyline"
-            value={ storyline }
-            data="storyline-input"
-            callback={ this.handleChange }
-          />
-          <Field
-            label="Avaliação"
-            name="rating"
-            type="number"
-            value={ rating }
-            data="rating-input"
-            callback={ this.handleChange }
-          />
+          <TitleField value={ title } callback={ this.handleChange } />
+          <SubtitleField value={ subtitle } callback={ this.handleChange } />
+          <ImageField value={ imagePath } callback={ this.handleChange } />
+          <SinopseField value={ storyline } callback={ this.handleChange } />
+          <RatingField value={ rating } callback={ this.handleChange } />
         </form>
       </div>
     );
