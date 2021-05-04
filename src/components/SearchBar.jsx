@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 function SearchBar({
   searchText,
   onSearchTextChange,
-  // bookmarkedOnly,
-  // onBookmarkedChange,
+  bookmarkedOnly,
+  onBookmarkedChange,
   // selectedGenre,
   // onSelectedGenreChange,
 }) {
@@ -20,6 +20,17 @@ function SearchBar({
           onChange={ onSearchTextChange }
         />
       </label>
+
+      <label htmlFor="check" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
+        <input
+          data-testid="checkbox-input"
+          name="check"
+          type="checkbox"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+        />
+      </label>
     </form>
   );
 }
@@ -27,8 +38,8 @@ function SearchBar({
 SearchBar.propTypes = {
   searchText: PropTypes.string.d,
   onSearchTextChange: PropTypes.func,
-  // bookmarkedOnly: PropTypes.bool.isRequired,
-  // onBookmarkedChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
   // selectedGenre: PropTypes.string.isRequired,
   // onSelectedGenreChange: PropTypes.func.isRequired,
 }.isRequired;
