@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class TextInput extends Component {
+class TextInput3 extends Component {
   render() {
     const { handInputs, value } = this.props;
-
     return (
       <div>
-        <label htmlFor="textInput" data-testid="title-input-label">
-          Título
+        <label
+          htmlFor="textInput3"
+          data-testid="image-input-label"
+        >
+          Imagem
           <input
-            id="textInput"
-            name="title"
-            data-testid="title-input"
+            id="textInput3"
+            name="imagePath"
+            type="text"
             onChange={ handInputs }
             value={ value }
+            data-testid="image-input"
           />
         </label>
       </div>
@@ -22,9 +25,9 @@ class TextInput extends Component {
   }
 }
 
-TextInput.propTypes = {
+TextInput3.propTypes = {
   handInputs: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
-export default TextInput;
+export default TextInput3;
