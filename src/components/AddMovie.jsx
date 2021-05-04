@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form action="" data-testid="add-movie-form">
-          teste
+          <input type="text" data-testid="title-input" />
         </form>
       </div>
     );
