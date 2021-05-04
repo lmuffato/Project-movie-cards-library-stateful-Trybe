@@ -25,14 +25,34 @@ class MovieLibrary extends React.Component {
   }
 
   // moviesFiltered = () => {
-  //   const { movies } = this.props;
-  //   const filterMovies = movies.filter((movie) => movie.title.includes(this.searchText));
-  //   this.setState({ movies: filterMovies });
+  //   let { movies } = this.state;
+  //   const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+  //   const filterByBookmarked = movies.filter((movie) => movie.bookmarked === true);
+  //   const filterByGenre = movies.filter((movie) => movie.genre === selectedGenre);
+  //   const filterBytext = movies.filter(
+  //     (movie) => movie.title.includes(searchText)
+  //     || movie.subtitle.includes(searchText)
+  //     || movie.storyLine.includes(searchText),
+  //   );
+  //   if (bookmarkedOnly === true) movies = filterByBookmarked;
+  //   if (selectedGenre) movies = filterByGenre;
+  //   if (searchText) movies = filterBytext;
+  //   this.setState({ movies });
   // }
 
   render() {
-    // let { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let { movies } = this.state;
+    const filterByBookmarked = movies.filter((movie) => movie.bookmarked === true);
+    const filterByGenre = movies.filter((movie) => movie.genre === selectedGenre);
+    const filterBytext = movies.filter(
+      (movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText),
+    );
+    if (bookmarkedOnly === true) movies = filterByBookmarked;
+    if (selectedGenre) movies = filterByGenre;
+    if (searchText) movies = filterBytext;
     return (
       <div>
         <SearchBar
