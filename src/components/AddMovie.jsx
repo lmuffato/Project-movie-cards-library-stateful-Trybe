@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import Title from './Title';
-import Subtitle from './Subtitle';
-import ImagePath from './ImagePath';
-import RatingValue from './RatingValue';
-import Storyline from './Storyline';
-import SelectGenre from './SelectGenre';
+import PropTypes from 'prop-types';
+import Title from './AddMovieComponent/Title';
+import Subtitle from './AddMovieComponent/Subtitle';
+import ImagePath from './AddMovieComponent/ImagePath';
+import RatingValue from './AddMovieComponent/RatingValue';
+import Storyline from './AddMovieComponent/Storyline';
+import SelectGenre from './AddMovieComponent/SelectGenre';
+import AddMovieBtn from './AddMovieComponent/AddMovieBtn';
 
 class AddMovie extends Component {
   constructor() {
     super();
 
     this.handleValue = this.handleValue.bind(this);
+    this.clickBtn = this.clickBtn.bind(this);
 
     this.state = {
       subtitle: '',
@@ -29,9 +32,23 @@ class AddMovie extends Component {
     });
   }
 
+  clickBtn(event) {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    event.preventDefault();
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { handleValue } = this;
+    const { handleValue, clickBtn } = this;
     return (
       <form action="" data-testid="add-movie-form">
 
@@ -41,10 +58,14 @@ class AddMovie extends Component {
         <Storyline value={ storyline } handleValue={ handleValue } />
         <RatingValue value={ rating } handleValue={ handleValue } />
         <SelectGenre value={ genre } handleValue={ handleValue } />
-
+        <AddMovieBtn onClick={ clickBtn } />
       </form>
     );
   }
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
