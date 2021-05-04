@@ -20,15 +20,21 @@ class MovieLibrary extends React.Component {
   }
 
   handleSearch(event) {
-    console.log(event);
+    this.setState({
+      searchText: event.target.value,
+    });
   }
 
   handleBook(event) {
-    console.log(event);
+    this.setState({
+      bookmarkedOnly: event.target.checked,
+    });
   }
 
   handleSelected(event) {
-    console.log(event);
+    this.setState({
+      selectedGenre: event.target.value,
+    });
   }
 
   handleOnClick(event) {
@@ -57,7 +63,7 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.objectOf.isRequired,
+  movies: PropTypes.arrayOf.isRequired,
 };
 
 export default MovieLibrary;
