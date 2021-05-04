@@ -7,6 +7,15 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.handleChangeText = this.handleChangeText.bind(this);
+  }
+
+  handleChangeText(event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -24,6 +33,7 @@ class SearchBar extends React.Component {
           <label htmlFor="true" data-testid="text-input-label">
             Inclui o texto:
             <input
+              name="text"
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
