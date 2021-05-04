@@ -22,7 +22,11 @@ class AddRating extends Component {
 
 AddRating.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
+};
+
+AddRating.defaultProps = {
+  value: 0,
 };
 
 export default AddRating;

@@ -38,14 +38,15 @@ class AddMovie extends Component {
     keys.forEach((element) => {
       if (element === 'rating') {
         this.setState({
-          [element]: 0,
+          rating: 0,
+        });
+        onClick(this.state);
+      } else {
+        this.setState({
+          [element]: '',
         });
         onClick(this.state);
       }
-      this.setState({
-        [element]: '',
-      });
-      onClick(this.state);
     });
   }
 

@@ -97,8 +97,8 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleSelectedGenre }
         />
-        <AddMovie onClick={ this.handleAddMovie } />
         <MovieList movies={ filteredText } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }
