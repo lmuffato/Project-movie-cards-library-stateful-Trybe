@@ -65,9 +65,9 @@ body {
 }
 
 .movie-card-storyline {
+  color: white;
   font-size: 14px;
   text-align: justify;
-  color: white;
 }
 
 .rating {
