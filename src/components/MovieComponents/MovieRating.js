@@ -7,9 +7,9 @@ class MovieRating extends React.Component {
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
-        <textarea
-          name="rating"
+        <input
           type="number"
+          name="rating"
           value={ value }
           data-testid="rating-input"
           onChange={ handleChange }

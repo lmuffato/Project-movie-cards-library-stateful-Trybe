@@ -12,8 +12,6 @@ class MovieLibrary extends Component {
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
 
-    // const { movies } = this.props;
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -27,8 +25,6 @@ class MovieLibrary extends Component {
     this.setState = {
       [name]: value,
     };
-    console.log('Nome: ', name);
-    console.log('Valor do Input ', value);
   }
 
   render() {

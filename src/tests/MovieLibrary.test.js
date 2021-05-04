@@ -42,31 +42,31 @@ const movieCardTestId = 'movie-card';
 const movieCardTitleId = 'movie-card-title';
 
 describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
-  it('Renderize o componente', () => {
+  it.skip('Renderize o componente', () => {
     render(<MovieLibrary movies={ movies } />);
   });
 });
 
 describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
-  it('Defina o estado inicial de `searchText` como uma string vazia', () => {
+  it.skip('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     expect(searchText).toHaveValue('');
   });
 
-  it('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
+  it.skip('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
     expect(bookmarkedOnly).not.toBeChecked();
   });
 
-  it('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
+  it.skip('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
   });
 
-  it('Renderize todos os filmes passados pela prop `movies`', () => {
+  it.skip('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
@@ -113,7 +113,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieList).toHaveLength(1);
   });
 
-  it.skip('Filtre os filmes por título de acordo com o que for digitado na barra de busca', () => {
+  it('Filtre os filmes por título de acordo com o que for digitado na barra de busca', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
 
@@ -126,7 +126,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-  it.skip('Filtre os filmes por subtítulo de acordo com o que for digitado na barra de busca', () => {
+  it('Filtre os filmes por subtítulo de acordo com o que for digitado na barra de busca', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
 
@@ -139,7 +139,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCardTitle).toHaveTextContent(movies[1].title);
   });
 
-  it.skip('Filtre os filmes por sinopse de acordo com o que for digitado na barra de busca', () => {
+  it('Filtre os filmes por sinopse de acordo com o que for digitado na barra de busca', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
 
@@ -152,7 +152,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCardTitle).toHaveTextContent(movies[2].title);
   });
 
-  it.skip('Renderize a lista de filmes sem filtragens se a barra de buscar estiver vazia', () => {
+  it('Renderize a lista de filmes sem filtragens se a barra de buscar estiver vazia', () => {
     const expectedLength = 3;
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
@@ -163,7 +163,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCard).toHaveLength(expectedLength);
   });
 
-  it.skip('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
+  it('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
 
@@ -175,7 +175,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-  it.skip('Filtre os filmes por categoria quando a `checkbox` relacionada for selecionada', () => {
+  it('Filtre os filmes por categoria quando a `checkbox` relacionada for selecionada', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const select = getByTestId(selectTestId);
 
