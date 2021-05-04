@@ -32,6 +32,10 @@ class AddMovie extends React.Component {
     });
   }
 
+  // handleClick() {
+
+  // }
+
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
 
