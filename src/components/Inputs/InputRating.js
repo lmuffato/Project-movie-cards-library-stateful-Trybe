@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputRating extends React.Component {
   render() {
@@ -17,4 +18,9 @@ class InputRating extends React.Component {
     );
   }
 }
+
+InputRating.propTypes = {
+  handleAddMovie: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
+};
 export default InputRating;

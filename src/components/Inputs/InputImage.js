@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputImage extends React.Component {
   render() {
@@ -17,4 +18,9 @@ class InputImage extends React.Component {
     );
   }
 }
+
+InputImage.propTypes = {
+  handleAddMovie: PropTypes.func.isRequired,
+  imagePath: PropTypes.string.isRequired,
+};
 export default InputImage;

@@ -1,6 +1,7 @@
 // implement AddMovie component here
 // import React from 'react';
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -23,33 +24,29 @@ class MovieLibrary extends React.Component {
   }
 
   handleStateAddMovie(param) {
-    return (
-      console.log(param)
-    );
+    this.setState((prevMovies) => ({
+      movies: [...prevMovies.movies, { ...param }] }));
   }
 
   onSearchTextChange({ target }) {
     const { value } = target;
-    this.setState({
-      searchText: value,
+    this.setState({ searchText: value }, () => {
+      this.filterMoviesByText();
     });
-    this.filterMoviesByText();
   }
 
   onBookmarkedChange({ target }) {
     const { checked } = target;
-    this.setState({
-      bookmarkedOnly: checked,
+    this.setState({ bookmarkedOnly: checked }, () => {
+      this.filterMoviesByMark();
     });
-    this.filterMoviesByMark();
   }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
-    this.setState({
-      selectedGenre: value,
+    this.setState({ selectedGenre: value }, () => {
+      this.filterMoviesByGenre();
     });
-    this.filterMoviesByGenre();
   }
 
   filterMoviesByText() {
@@ -94,4 +91,10 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 export default MovieLibrary;
