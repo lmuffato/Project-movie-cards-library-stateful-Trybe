@@ -37,9 +37,16 @@ class AddMovie extends Component {
     });
   }
 
+  eventButtun = (event) => {
+    const { onClick } = this.props;
+    const movie = this.state;
+    onClick(event, movie);
+
+    this.resetStage();
+  }
+
   render() {
     const { storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     const { state } = this;
     return (
       <div>
@@ -76,7 +83,7 @@ class AddMovie extends Component {
             </label>
           </div>
           <Select callback={ this.handleChange } value={ genre } />
-          <Button onClick={ () => { onClick(); this.resetStage(); } } />
+          <Button onClick={ this.eventButtun } />
         </form>
       </div>
     );

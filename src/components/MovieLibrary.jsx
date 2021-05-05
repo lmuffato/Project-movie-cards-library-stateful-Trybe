@@ -1,16 +1,19 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      allMovies: movies,
     };
   }
 
@@ -35,20 +38,30 @@ class MovieLibrary extends Component {
     });
   }
 
+  handleClick = (event, movie) => {
+    event.preventDefault();
+    this.setState((anterior) => ({
+      allMovies: [...anterior.allMovies, movie],
+    }));
+  }
+
   filterDataMovies = () => {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
-    const { movies } = this.props;
+    const { allMovies } = this.state;
 
-    if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked);
+    if (bookmarkedOnly) return allMovies.filter((movie) => movie.bookmarked);
 
-    if (selectedGenre !== '') return movies.filter((movie) => movie.genre.includes(selectedGenre));
-
-    if(searchText !== '') {
-      return movies.filter((movie) => movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText))
+    if (selectedGenre !== '') {
+      return allMovies
+        .filter((movie) => movie.genre.includes(selectedGenre));
     }
-    return movies;
+
+    if (searchText !== '') {
+      return allMovies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    }
+    return allMovies;
   }
 
   render() {
@@ -64,6 +77,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handelChangeSelect }
         />
         <MovieList movies={ this.filterDataMovies() } />
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }
