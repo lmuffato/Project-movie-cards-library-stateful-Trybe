@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AddMovieFields extends React.Component {
   render() {
-    const { storyline, atualizaEstado, rating } = this.props;
+    const { storyline, atualizaEstado, rating, genre } = this.props;
     return (
       <section>
         <label htmlFor="textarea-in" data-testid="storyline-input-label">
@@ -26,6 +26,19 @@ class AddMovieFields extends React.Component {
             type="number"
           />
         </label>
+        <label htmlFor="select-in" data-testid="genre-input-label">
+          Gênero
+          <select
+            id="select-in"
+            data-testid="genre-input"
+            value={ genre }
+            onChange={ atualizaEstado }
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </section>
     );
   }
@@ -35,6 +48,7 @@ AddMovieFields.propTypes = {
   storyline: PropTypes.string.isRequired,
   atualizaEstado: PropTypes.func.isRequired,
   rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default AddMovieFields;
