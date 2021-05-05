@@ -39,7 +39,8 @@ class MovieLibrary extends Component {
   }
 
   func() {
-    console.log('a');
+    const { movies } = this.state;
+    console.log({ movies });
     // this.setState({
     //   movies: addMovie,
     // });
