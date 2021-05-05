@@ -81,7 +81,7 @@ class AddMovie extends Component {
           type="number"
           name="rating"
           value={ rating }
-          data-testid="rating-input"
+          testid="rating-input"
           onChange={ this.handleChange }
         />
         <SelectGenre

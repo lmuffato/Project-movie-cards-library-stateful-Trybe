@@ -13,7 +13,7 @@ class Input extends Component {
       onChange,
     } = this.props;
     return (
-      <label htmlFor="title" data-testid={ labelTestId }>
+      <label htmlFor={ name } data-testid={ labelTestId }>
         {label}
         <input
           type={ type }
