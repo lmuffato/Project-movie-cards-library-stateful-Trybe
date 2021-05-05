@@ -29,12 +29,12 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
 
-        <div>
+        <section className="class-movieList">
           <MovieList movies={ movies } />
+        </section>
+        <div>
+          <AddMovie />
         </div>
-
-        <AddMovie />
-
       </main>
     );
   }
