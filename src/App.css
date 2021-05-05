@@ -1,20 +1,35 @@
-body {
-  background-color: whitesmoke;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap') ;
+
+* {
   box-sizing: border-box;
-  font-size: 16px;
+  font-family: Bebas Neue , cursive;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(86, 77, 77);
+  font-size: 18px;
 }
 
 .movie-card-header {
   align-items: center;
-  background-color: #343a40;
+  background-color: #db0000;
+  color: white;
   display: flex;
+  font-size: 36px;
   height: 100px;
-  justify-content: center;
+  justify-content: flex-start;
+  letter-spacing: -0.5px;
+}
+
+.movie-card-header h1 {
+  margin-left: 10px;
 }
 
 .page-title {
   color: #f8f9fa;
-  font-size: 28px;
+  font-size: 48px;
   font-weight: 500;
   text-align: center;
 }
@@ -26,7 +41,7 @@ body {
 }
 
 .movie-card {
-  background-color: white;
+  background-color: black;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   display: flex;
@@ -36,7 +51,6 @@ body {
   overflow: hidden;
   width: 300px;
 }
-
 
 .movie-card-image {
   width: 100%;
@@ -61,12 +75,14 @@ body {
 }
 
 .movie-card-storyline {
-  font-size: 14px;
+  color: white;
+  font-size: 16px;
+  max-height: 50px;
   text-align: justify;
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: rgb(219, 0, 0);
   border-radius: 25px;
   color: white;
   font-size: 16px;
@@ -75,9 +91,10 @@ body {
 }
 
 .movie-card-rating {
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
   display: flex;
   justify-content: flex-end;
+  margin-top: 5px;
   padding: 12px 20px;
 }

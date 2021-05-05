@@ -23,28 +23,51 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  handleReset() {
+    const { movies } = this.props;
+    this.setState({
+      movies,
+    });
+  }
+
   handleStateAddMovie(param) {
     this.setState((prevMovies) => ({
-      movies: [...prevMovies.movies, { ...param }] }));
+      movies: [...prevMovies.movies, { ...param }],
+    }));
   }
 
   onSearchTextChange({ target }) {
     const { value } = target;
-    this.setState({ searchText: value }, () => {
+    if (value === '') {
+      this.setState({ searchText: value }, () => {
+        this.handleReset();
+      });
+      return;
+    } this.setState({ searchText: value }, () => {
       this.filterMoviesByText();
     });
   }
 
   onBookmarkedChange({ target }) {
     const { checked } = target;
-    this.setState({ bookmarkedOnly: checked }, () => {
+    if (checked === false) {
+      this.setState({ bookmarkedOnly: checked }, () => {
+        this.handleReset();
+      });
+      return;
+    } this.setState({ bookmarkedOnly: checked }, () => {
       this.filterMoviesByMark();
     });
   }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
-    this.setState({ selectedGenre: value }, () => {
+    if (value === '') {
+      this.setState({ selectedGenre: value }, () => {
+        this.handleReset();
+      });
+      return;
+    } this.setState({ selectedGenre: value }, () => {
       this.filterMoviesByGenre();
     });
   }
@@ -62,7 +85,8 @@ class MovieLibrary extends React.Component {
   filterMoviesByMark() {
     const { movies } = this.state;
     this.setState({
-      movies: movies.filter((movie) => movie.bookmarked === true) });
+      movies: movies.filter((movie) => movie.bookmarked === true),
+    });
   }
 
   filterMoviesByGenre() {
