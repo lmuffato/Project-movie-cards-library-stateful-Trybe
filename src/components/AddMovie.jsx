@@ -1,8 +1,9 @@
 import React from 'react';
-import TitleInput from './TitleInput';
-import SubitleInput from './SubtitleInput';
-import ImagePathInput from './ImagePathInput';
-import StorylineInput from './StorylineInput';
+import TitleInput from './AddMovie/TitleInput';
+import SubitleInput from './AddMovie/SubtitleInput';
+import ImagePathInput from './AddMovie/ImagePathInput';
+import StorylineInput from './AddMovie/StorylineInput';
+import RatingInput from './AddMovie/RatingInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -31,6 +32,7 @@ class AddMovie extends React.Component {
     const { subtitle } = this.state;
     const { imagePath } = this.state;
     const { storyline } = this.state;
+    const { rating } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -48,6 +50,10 @@ class AddMovie extends React.Component {
         />
         <StorylineInput
           initialStateValue={ storyline }
+          stateHandler={ this.handleChange }
+        />
+        <RatingInput
+          initialStateValue={ rating }
           stateHandler={ this.handleChange }
         />
       </form>
