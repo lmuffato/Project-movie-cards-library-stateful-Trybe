@@ -6,6 +6,7 @@ import AddRating from './FormAddMovie/AddRating';
 import AddStoryline from './FormAddMovie/AddStoryline';
 import AddSubtitle from './FormAddMovie/AddSubtitle';
 import AddTitle from './FormAddMovie/AddTitle';
+import AddGenre from './FormAddMovie/AddGenre';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -51,28 +52,14 @@ class AddMovie extends React.Component {
         <AddImage value={ imagePath } callback={ this.handleChange } />
         <AddStoryline value={ storyline } callback={ this.handleChange } />
         <AddRating value={ rating } callback={ this.handleChange } />
-
-        <label data-testid="genre-input-label" htmlFor="input-genre">
-          Gênero
-          <select
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-            id="input-genre"
-            name="genre"
-          >
-            <option value="action" data-testid="genre-option" selected>Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <AddGenre value={ genre } callback={ this.handleChange } />
 
         <button
           type="submit"
           data-testid="send-button"
           onClick={ (event) => {
             onClick(this.state); // envio o estado para MovieLibrary antes de resetar o estado
-            this.handleReset(event);
+            this.handleReset(event); // chamo a função que reseta o estado
           } }
         >
           Adicionar filme
@@ -89,4 +76,4 @@ AddMovie.propTypes = {
 
 export default AddMovie;
 
-// tive ajuda do murilo tumar 10 A para entender o requisito 14 e também a função handleChange
+// tive ajuda do Murilo Gonçalves - Turma 10 - Tribo A  e o do instrutor Matheus Yuri Silva Domingos para entender o requisito 14 e também a função handleChange
