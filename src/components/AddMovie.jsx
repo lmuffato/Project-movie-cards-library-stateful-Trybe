@@ -1,6 +1,7 @@
 import React from 'react';
 import TitleInput from './TitleInput';
 import SubitleInput from './SubtitleInput';
+import ImagePathInput from './ImagePathInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class AddMovie extends React.Component {
   render() {
     const { title } = this.state;
     const { subtitle } = this.state;
+    const { imagePath } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -36,6 +38,10 @@ class AddMovie extends React.Component {
         />
         <SubitleInput
           initialStateValue={ subtitle }
+          stateHandler={ this.handleChange }
+        />
+        <ImagePathInput
+          initialStateValue={ imagePath }
           stateHandler={ this.handleChange }
         />
       </form>
