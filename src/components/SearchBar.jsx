@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 export default function SearchBar(props) {
   const {
@@ -6,8 +7,8 @@ export default function SearchBar(props) {
     onSearchTextChange,
     bookmarkedOnly,
     onBookmarkedChange,
-    selectedGenre,
-    onSelectedGenreChange,
+    /* selectedGenre,
+    onSelectedGenreChange, */
   } = props;
 
   return (
@@ -16,8 +17,8 @@ export default function SearchBar(props) {
         Inclui o texto:
         <input
           type="text"
-          value={searchText}
-          onChange={onSearchTextChange}
+          value={ searchText }
+          onChange={ onSearchTextChange }
           data-testid="text-input"
         />
       </label>
@@ -25,11 +26,20 @@ export default function SearchBar(props) {
         Mostrar somente favoritos
         <input
           type="checkbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
           data-testid="checkbox-input"
         />
       </label>
     </form>
   );
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  /* selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func, */
+};
