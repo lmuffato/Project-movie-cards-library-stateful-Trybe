@@ -26,7 +26,9 @@ class MovieLibrary extends React.Component {
 
   onClick(movie) {
     console.log('onClick acionada! Hora de adicionar o filme.');
-    console.log(movie);
+    this.setState((estadoAnterior) => ({
+      movies: [...estadoAnterior.movies, movie],
+    }));
   }
 
   setSearch(value) {
