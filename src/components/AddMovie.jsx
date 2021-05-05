@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import data from './dataComponets';
+import data from './data';
 
 class AddMovie extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   };
 
-  onButtonAdd = () => {
+  onClick = () => {
     const { state, props: { addMovie } } = this;
     const newMovie = { ...state, bookmarked: false };
     addMovie(newMovie);
@@ -82,7 +82,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         {this.generateInputsProps().map((n) => this.generateInputComponent(n))}
-        <button type="reset" data-testid="send-button" onClick={ this.onButtonAdd }>
+        <button type="reset" data-testid="send-button" onClick={ this.onClick }>
           Adicionar filme
         </button>
       </form>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import data from './dataComponets';
+import data from './data';
 
 class SearchBar extends Component {
   render() {
