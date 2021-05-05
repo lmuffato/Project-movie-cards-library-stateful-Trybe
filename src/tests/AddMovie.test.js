@@ -91,16 +91,16 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
     expect(subtitleInput).toBeInTheDocument();
   });
 
-  it.skip('Renderize a label "Subtítulo" para o input de subtitulo', () => {
+  it('Renderize a label "Subtítulo" para o input de subtitulo', () => {
     expect(subtitleInputLabel).toBeInTheDocument();
     expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
   });
 
-  it.skip('Defina o  estado inicial do subtitulo como "", ou seja, uma string vazia', () => {
+  it('Defina o  estado inicial do subtitulo como "", ou seja, uma string vazia', () => {
     expect(subtitleInput).toHaveValue(initialState.subtitle);
   });
 
-  it.skip('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
+  it('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
     event.type(subtitleInput, 'my awesome movie subtitle');
 
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
@@ -108,7 +108,7 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
 });
 
 describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
-  it.skip('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
+  it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
 
