@@ -10,7 +10,7 @@ class Storyline extends Component {
         data-testid="storyline-input-label"
       >
         Sinopse
-        <input
+        <textarea
           type="textarea"
           name="storyline"
           id="storyline"

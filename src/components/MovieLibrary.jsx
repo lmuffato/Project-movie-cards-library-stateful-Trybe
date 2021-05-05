@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 // import SearchBar from './SearchBar';
@@ -13,10 +13,11 @@ class MovieLibrary extends Component {
     // });
   }
 
-  func(addMovie) {
-    this.setState({
-      movies: addMovie,
-    });
+  func() {
+    console.log('a');
+    // this.setState({
+    //   movies: addMovie,
+    // });
   }
 
   // callBack() {
@@ -26,8 +27,7 @@ class MovieLibrary extends Component {
   // }
 
   render() {
-    const { movies } = this.state;
-    const { func } = this;
+    const { movies } = this.props;
     console.log(this.state);
     return (
       <div>
@@ -41,7 +41,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ callBack }
         /> */}
         <MovieList movies={ movies } />
-        <AddMovie onClick={ func } />
+        <AddMovie onClick={ this.func } />
       </div>
     );
   }
@@ -49,6 +49,6 @@ class MovieLibrary extends Component {
 
 export default MovieLibrary;
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

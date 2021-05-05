@@ -14,7 +14,6 @@ class AddMovie extends Component {
 
     this.handleValue = this.handleValue.bind(this);
     this.clickBtn = this.clickBtn.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -33,6 +32,7 @@ class AddMovie extends Component {
   }
 
   clickBtn(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -43,7 +43,6 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    event.preventDefault();
   }
 
   render() {
