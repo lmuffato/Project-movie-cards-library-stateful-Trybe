@@ -4,6 +4,8 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
+// nesse projeto tive auxilio dos colegas Rafael Medeirox e Vinicius Rodrigues, cooperação e troca de ideias
+
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
@@ -15,12 +17,6 @@ class MovieLibrary extends Component {
       movies: props.movies,
     };
   }
-
-  // trocaSearchText = (event) => {
-  //   this.setState({
-  //     searchText: event.target.value,
-  //   });
-  // }
 
   render() {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
