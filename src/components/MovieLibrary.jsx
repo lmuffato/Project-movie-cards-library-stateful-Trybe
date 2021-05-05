@@ -85,9 +85,6 @@ class MovieLibrary extends Component {
         />
         <MovieList
           movies={ this.filterMovies(movieList) }
-          searchText={ searchText }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
         />
         <AddMovie list={ movieList } onClick={ this.onClick } movieList={ movieList } />
       </div>

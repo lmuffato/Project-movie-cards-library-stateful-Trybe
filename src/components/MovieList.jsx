@@ -4,7 +4,7 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { movies } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
@@ -21,15 +21,6 @@ MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-  searchText: PropTypes.string,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
-};
-
-MovieList.defaultProps = {
-  searchText: '',
-  bookmarkedOnly: false,
-  selectedGenre: '',
 };
 
 export default MovieList;
