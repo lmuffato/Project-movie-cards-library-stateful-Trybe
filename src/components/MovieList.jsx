@@ -7,9 +7,6 @@ class MovieList extends React.Component {
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.props;
     let renderedMovies = movies;
-    if (bookmarkedOnly) {
-      renderedMovies = renderedMovies.filter((movie) => movie.bookmarked === true);
-    }
 
     renderedMovies = renderedMovies.filter((movie) => {
       const { title, subtitle, storyline } = movie;
@@ -18,6 +15,9 @@ class MovieList extends React.Component {
       if (storyline.includes(searchText)) return movie;
       return null;
     });
+    if (bookmarkedOnly) {
+      renderedMovies = renderedMovies.filter((movie) => movie.bookmarked === true);
+    }
     renderedMovies = renderedMovies.filter((movie) => movie.genre.includes(
       selectedGenre,
     ));
