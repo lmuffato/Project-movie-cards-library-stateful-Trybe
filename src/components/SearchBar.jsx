@@ -16,10 +16,13 @@ class SearchBar extends Component {
     // console.log(); // TESTE para conferência
     return (
       <form data-testid="search-bar-form">
-        <input
-          value={ searchText }
-          onChange={ onSearchTextChange }
-        />
+        <label htmlFor="text-input-label" data-testid="text-input-labe">
+          Inclui o texto:
+          <input
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
       </form>
     );
   }
