@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 class Rating extends React.Component {
   render() {
     const { rating } = this.props;
+    // console.log(rating);
+    // console.log(typeof rating);
     return (
       <div className="movie-card-rating" data-testid="rating">
         <span className="rating">{rating}</span>
@@ -13,10 +15,7 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  rating: PropTypes.number,
 };
 
 Rating.defaultProps = {
