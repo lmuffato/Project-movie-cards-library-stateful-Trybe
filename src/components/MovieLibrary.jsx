@@ -8,12 +8,14 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
+
+    // const { movies } = this.props;
     this.state = {
       searchText: '',
-      bookmarkedOnly: '',
+      bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      // declarei este state baseado no código da Ana Ventura para que a renderização seja feita dinamicamente via setState
+      movies: props.movies,
     };
   }
 
@@ -31,20 +33,46 @@ class MovieLibrary extends Component {
     const { value } = event.target;
     this.setState({ selectedGenre: value });
   }
+  // esssa função onCLick fiz baseado nas dicas da Ana Ventura e Elisa França e por consultas nas PR do João Nascimento e Ana Ventura
 
-  onClick = (newMovie) => {
-    this.setState((oldState) => ({
-      movies: [...oldState.movies, newMovie],
-    }));
+  handleAddMovie = (newMovie) => {
+    const { movies } = this.state;
+    const newState = { movies: [...movies, newMovie] };
+    this.setState((newState));
+    console.log(newState);
+    console.log(newMovie);
   }
 
   render() {
-    const { movies } = this.props;
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
     } = this.state;
+    // antes eu estava declarando o movies com const mas percebi que era necessário
+    // o let pois a cada click do botão o state movies é alterado
+    let { movies } = this.state;
+    // Este filtro abaixo fiz baseado no código do PR da Ana Ventura e com a seguinte documentação:
+    // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+    // e o vídeo: https://www.youtube.com/watch?v=-HQaDfVPCtg
+    const filterByTitle = movies
+      .filter((movie) => movie.title
+        .includes(searchText)
+      || movie.subtitle
+        .includes(searchText)
+      || movie.storyline
+        .includes(searchText));
+
+    const filterByBookMark = movies
+      .filter((movie) => movie.bookmarked === true);
+
+    const filterByGenre = movies
+      .filter((movie) => movie.genre === selectedGenre);
+
+    if (bookmarkedOnly) movies = filterByBookMark;
+    if (selectedGenre) movies = filterByGenre;
+    if (searchText) movies = filterByTitle;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -57,7 +85,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }

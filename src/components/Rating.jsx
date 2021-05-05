@@ -11,8 +11,10 @@ class Rating extends React.Component {
     );
   }
 }
-
+// Feito baseado na análise do PR do João nascimento e no seguinte site:
+// https://jaketrent.com/post/react-oneof-vs-oneoftype
 Rating.propTypes = { rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) };
+
 Rating.defaultProps = {
   rating: 'undefined',
 };

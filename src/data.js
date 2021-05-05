@@ -5,6 +5,8 @@ const movies = [
     storyline: 'Tony Stark (Robert Downey Jr.) é um industrial bilionário, que também é um brilhante inventor. Ao ser sequestrado ele é obrigado por terroristas a construir uma arma devastadora mas, ao invés disto, constrói uma armadura de alta tecnologia que permite que fuja de seu cativeiro. A partir de então ele passa a usá-la para combater o crime, sob o alter-ego do Homem de Ferro. ',
     rating: 76,
     imagePath: 'https://www.themoviedb.org/t/p/original/s6cQgJSkviamXAXBggT2xmj7JiG.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'O Incrível Hulk (2008)',
@@ -12,6 +14,8 @@ const movies = [
     storyline: 'Vivendo escondido e longe de Betty Ross, a mulher que ama, o cientista Bruce Banner busca um meio de retirar a radiação gama que está em seu sangue. Ao mesmo tempo ele precisa fugir da perseguição do general Ross, seu grande inimigo, e da máquina militar que tenta capturá-lo, na intenção de explorar o poder que faz com que Banner se transforme no Hulk.',
     rating: 62,
     imagePath: 'https://www.themoviedb.org/t/p/original/xfBnQ4mgf1jYZsscJGJjr6ce0Ar.jpg',
+    bookmarked: false,
+    genre: 'action',
   },
   {
     title: 'Homem de Ferro 2 (2010)',
@@ -19,6 +23,8 @@ const movies = [
     storyline: 'Em um mundo ciente da existência do Homem de Ferro, o inventor bilionário Tony Stark sofre pressão de todos os lados para compartilhar sua tecnologia com as forças armadas. Ele resiste para divulgar os segredos de sua inigualável armadura, com medo de que estas informações caiam nas mãos erradas.',
     rating: 68,
     imagePath: 'https://www.themoviedb.org/t/p/original/hCVQPB77eXBGh9abVdrWtKpKgkN.jpg',
+    bookmarked: false,
+    genre: 'action',
   },
   {
     title: 'Thor (2011)',
@@ -26,6 +32,8 @@ const movies = [
     storyline: 'Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça...',
     rating: 68,
     imagePath: 'https://www.themoviedb.org/t/p/original/3XyaYiOHldsNhwnXKDRYOpFc1nB.jpg',
+    bookmarked: false,
+    genre: 'action',
   },
   {
     title: 'Capitão América: O Primeiro Vingador (2011)',
@@ -33,6 +41,8 @@ const movies = [
     storyline: 'Steve Rogers é um jovem que participa de experiências visando a criação do supersoldado americano. Quando os oficiais militares conseguem transformá-lo em uma arma humana, eles percebem que não podem arriscar a vida do jovem nas batalhas de guerra.',
     rating: 70,
     imagePath: 'https://www.themoviedb.org/t/p/original/yFuKvT4Vm3sKHdFY4eG6I4ldAnn.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Os Vingadores: The Avengers (2012)',
@@ -40,6 +50,8 @@ const movies = [
     storyline: 'Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. ',
     rating: 77,
     imagePath: 'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/nNmJRkg8wWnRmzQDe2FwKbPIsJV.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Homem de Ferro 3 (2013)',
@@ -47,6 +59,8 @@ const movies = [
     storyline: 'Depois de um inimigo reduzir o mundo de Tony Stark a destroços, o Homem de Ferro precisa aprender a confiar em seus instintos para proteger aqueles que ama, especialmente sua namorada, e lutar contra seu maior medo: o fracasso.',
     rating: 69,
     imagePath: 'https://www.themoviedb.org/t/p/original/4TSqtluelcWByj8YZdqwzQVjI0O.jpg',
+    bookmarked: false,
+    genre: 'action',
   },
   {
     title: 'Thor: O Mundo Sombrio (2013)',
@@ -54,6 +68,8 @@ const movies = [
     storyline: 'Thor precisa contar com a ajuda de seus companheiros e até de seu traiçoeiro irmão Loki em um plano audacioso para salvar o universo. Entretanto, os caminhos de Thor se cruzam com Jane Foster e, dessa vez, a vida dela está realmente em perigo.',
     rating: 66,
     imagePath: 'https://www.themoviedb.org/t/p/original/5QEOy0QEpad9QsXeMxuGHPXMale.jpg',
+    bookmarked: false,
+    genre: 'action',
   },
   {
     title: 'Capitão América 2: O Soldado Invernal (2014)',
@@ -61,6 +77,8 @@ const movies = [
     storyline: 'Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers, segue tentando se ajustar ao mundo moderno. Porém, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco. Em parceria com a Viúva Negra e Falcão, seu novo aliado, o Capitão América tem que enfrentar um misterioso e inesperado inimigo, o Soldado Invernal.',
     rating: 77,
     imagePath: 'https://www.themoviedb.org/t/p/original/55zqM1Dt1kVFOQf0ddgjhS3SCf7.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Guardiões da Galáxia (2014)',
@@ -68,6 +86,8 @@ const movies = [
     storyline: 'O aventureiro do espaço Peter Quill torna-se presa de caçadores de recompensas depois que rouba a esfera de um vilão traiçoeiro, Ronan. Para escapar do perigo, ele faz uma aliança com um grupo de quatro extraterrestres. Quando Quill descobre que a esfera roubada possui um poder capaz de mudar os rumos do universo, ele e seu grupo deverão proteger o objeto para salvar o futuro da galáxia.',
     rating: 79,
     imagePath: 'https://www.themoviedb.org/t/p/original/oEaSZoAkebncG89u3MF9wXw7H5H.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Vingadores: Era de Ultron (2015)',
@@ -75,6 +95,8 @@ const movies = [
     storyline: 'Ao tentar proteger o planeta de ameaças, Tony Stark constrói um sistema de inteligência artificial que cuidaria da paz mundial. O projeto acaba dando errado e gera o nascimento do Ultron. ',
     rating: 73,
     imagePath: 'https://cinematologia.com.br/cine/wp-content/uploads/2019/04/Capa-3.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Homem-Formiga (2015)',
@@ -82,6 +104,8 @@ const movies = [
     storyline: 'Depois de sair da cadeia, o trambiqueiro Scott Lang (Paul Rudd) está disposto a reconquistar o respeito da ex-mulher, Maggie (Judy Greer) e, principalmente, da filha. Com dificuldades de arrumar um emprego honesto, ele aceita praticar um último golpe. O que ele não sabia era que tudo não passava de um plano do Dr. Pym que, depois de anos observando o hábil ladrão, o escolhe para vestir o traje do Homem-Formiga.".',
     rating: 71,
     imagePath: 'https://www.themoviedb.org/t/p/original/7AyEEZVtFjNMCOEoz88pBqiAI8n.jpg',
+    bookmarked: false,
+    genre: 'action',
   },
   {
     title: 'Capitão América: Guerra Civil (2016)',
@@ -89,6 +113,8 @@ const movies = [
     storyline: 'O ataque de Ultron fez com que os políticos buscassem algum meio de controlar os super-heróis, já que seus atos afetam toda a humanidade. Tal decisão coloca o Capitão América em rota de colisão com Tony Stark, o Homem de Ferro.',
     rating: 74,
     imagePath: 'https://www.themoviedb.org/t/p/original/ilYlW1nJG3jdxSJlsd5pjfVhTLg.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Doutor Estranho (2016)',
@@ -96,6 +122,8 @@ const movies = [
     storyline: 'Dr. Stephen Strange, cuja vida muda para sempre depois de um terrível acidente de carro, que o rouba do uso de suas mãos. Quando a medicina tradicional o falha, ele é forçado a procurar por cura e esperança, em um lugar improvável - um enclave misterioso conhecido como Kamar-Taj. Ele rapidamente descobre que isso não é apenas um centro de cura, mas também a linha de frente de uma batalha contra as forças ocultas invisíveis empenhadas em destruir nossa realidade.',
     rating: 74,
     imagePath: 'https://www.themoviedb.org/t/p/original/eQN31P4IEhyp6NkdccvppJnyuJ4.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Guardiões da Galáxia Vol. 2 (2017)',
@@ -103,6 +131,8 @@ const movies = [
     storyline: 'Os Guardiões precisam lutar para manter sua recém descoberta família unida, enquanto descobrem os mistérios sobre o verdadeiro pai de Peter Quill.',
     rating: 76,
     imagePath: 'https://www.themoviedb.org/t/p/original/aJn9XeesqsrSLKcHfHP4u5985hn.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Homem-Aranha: De Volta ao Lar (2017)',
@@ -110,6 +140,8 @@ const movies = [
     storyline: 'Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.',
     rating: 74,
     imagePath: 'https://www.themoviedb.org/t/p/original/24GSBmRoQlX7tnHvH5BTPq2eMVQ.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Thor: Ragnarok (2017)',
@@ -117,6 +149,8 @@ const movies = [
     storyline: 'Thor está preso do outro lado do universo. Ele precisa correr contra o tempo para voltar a Asgard e parar Ragnarok, a destruição de seu mundo, que está nas mãos da poderosa e implacável vilã Hela.',
     rating: 76,
     imagePath: 'https://www.themoviedb.org/t/p/original/5wNUJs23rT5rTBacNyf5h83AynM.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Pantera Negra (2018)',
@@ -124,6 +158,8 @@ const movies = [
     storyline: 'O príncipe T-Challa retorna a Wakanda para ser coroado rei. Assumindo o manto de Pantera Negra, ele vai à caça de um vilão que roubou um precioso metal de seu país.',
     rating: 74,
     imagePath: 'https://www.themoviedb.org/t/p/original/b6ZJZHUdMEFECvGiDpJjlfUWela.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Vingadores: Guerra Infinita (2018)',
@@ -131,6 +167,8 @@ const movies = [
     storyline: 'Homem de Ferro, Thor, Hulk e os Vingadores se unem para combater seu inimigo mais poderoso, o maligno Thanos.',
     rating: 83,
     imagePath: 'https://www.themoviedb.org/t/p/original/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Homem-Formiga e a Vespa (2018)',
@@ -138,6 +176,8 @@ const movies = [
     storyline: 'Scott Lang lida com as consequências de suas escolhas tanto como super-herói quanto como pai. Enquanto tenta reequilibrar sua vida com suas responsabilidades como o Homem-Formiga, ele é confrontado por Hope van Dyne e Dr. Hank Pym com uma nova missão urgente. Scott deve mais uma vez vestir o uniforme e aprender a lutar ao lado da Vespa, trabalhando em conjunto para descobrir segredos do passado.',
     rating: 70,
     imagePath: 'https://www.themoviedb.org/t/p/original/6P3c80EOm7BodndGBUAJHHsHKrp.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Capitã Marvel (2019)',
@@ -145,6 +185,8 @@ const movies = [
     storyline: 'Capitã Marvel, parte do exército de elite dos Kree, uma raça alienígena, encontra-se no meio de uma batalha entre seu povo e os Skrulls. Ao tentar impedir uma invasão de larga escala na Terra, em 1995, ela tem memórias recorrentes de uma outra vida, como Carol Danvers, agente da Força Aérea norte-americana. Com a ajuda de Nick Fury, Capitã Marvel precisa descobrir os segredos de seu passado e pôr um fim ao conflito intergalático com os Skrulls.',
     rating: 70,
     imagePath: 'https://www.themoviedb.org/t/p/original/qAzYK4YPSWDc7aa4R43LcwRIAyb.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Vingadores: Ultimato (2019)',
@@ -152,6 +194,8 @@ const movies = [
     storyline: 'Após os eventos devastadores de "Vingadores: Guerra Infinita", o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.',
     rating: 83,
     imagePath: 'https://www.themoviedb.org/t/p/original/r0jfRKIIKl34kZCeTxInYu5bVPf.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
   {
     title: 'Homem-Aranha: Longe de Casa (2019)',
@@ -159,6 +203,8 @@ const movies = [
     storyline: 'Peter Parker está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury. Convocado para mais uma missão heroica, ele precisa enfrentar vários vilões que surgem em cidades-símbolo do continente, como Londres, Paris e Veneza, e também a aparição do enigmático Mysterio.',
     rating: 75,
     imagePath: 'https://www.themoviedb.org/t/p/original/5myQbDzw3l8K9yofUXRJ4UTVgam.jpg',
+    bookmarked: true,
+    genre: 'action',
   },
 ];
 

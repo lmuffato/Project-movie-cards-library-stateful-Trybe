@@ -31,8 +31,9 @@ class AddMovie extends Component {
       : value;
     this.setState({ [name]: values });
   }
+  // esssa função onCLick fiz baseado nas dicas da Ana Ventura e Elisa França e por consultas nas PR do João Nascimento e Ana Ventura
 
-  onClick = (event) => {
+  addMovieToLibrary = (event) => {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
@@ -57,7 +58,7 @@ class AddMovie extends Component {
           <Storyline storyline={ storyline } AddMovie={ this.AddMovies } />
           <Rating rating={ rating } AddMovie={ this.AddMovies } />
           <Genre genre={ genre } AddMovie={ this.AddMovies } />
-          <Button onClick={ this.onClick } />
+          <Button onClick={ this.addMovieToLibrary } />
         </form>
       </div>
     );
