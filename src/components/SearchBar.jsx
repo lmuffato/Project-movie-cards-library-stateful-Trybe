@@ -13,14 +13,15 @@ class SearchBar extends Component {
       // onSelectedGenreChange,
     } = this.props;
 
-    // console.log(); // TESTE para conferência
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="iDsearchText" data-testid="text-input-labe">
-          Inclui o texto:
+          Inclui o texto
           <input
             data-testid="text-input"
             id="iDsearchText"
+            type="text"
+            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -33,10 +34,10 @@ class SearchBar extends Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  // bookmarkedOnly: PropTypes.bool,
+  // onBookmarkedChange: PropTypes.func,
+  // selectedGenre: PropTypes.string,
+  // onSelectedGenreChange: PropTypes.func,
 }.isRequired;
 
 export default SearchBar;
