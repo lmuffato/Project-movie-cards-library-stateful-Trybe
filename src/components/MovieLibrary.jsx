@@ -23,9 +23,9 @@ class MovieLibrary extends React.Component {
     let newMovies = movies;
     if (searchText) {
       newMovies = newMovies.filter(
-        (movie) => movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText)
-        || movie.storyline.includes(searchText),
+        (movie) => movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()),
       );
     }
     if (bookmarkedOnly) {
