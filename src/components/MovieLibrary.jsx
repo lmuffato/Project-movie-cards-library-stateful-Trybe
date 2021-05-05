@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
-import movies from '../data';
 
-class MovieLibrary extends Component {
-  constructor() {
-    super();
+class MovieLibrary extends React.Component {
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
     this.state = {
       movies,
       searchText: '',
@@ -19,6 +20,7 @@ class MovieLibrary extends Component {
     let { state } = this;
     state = { ...state, ...newFilter };
     const { searchText, selectedGenre, bookmarkedOnly } = state;
+    const { movies } = this.props;
     let filteredMovies = movies.filter((movie) => (
       movie.storyline.includes(searchText)
       || movie.title.includes(searchText)
@@ -49,9 +51,9 @@ class MovieLibrary extends Component {
   };
 
   addMovie = (newMovie) => {
+    const { movies } = this.props;
     movies.push(newMovie);
     this.filterMovies({});
-    console.log(movies);
   }
 
   render() {
@@ -74,5 +76,11 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;

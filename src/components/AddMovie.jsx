@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import data from './data';
+import data from './dataComponets';
 
 class AddMovie extends Component {
   constructor() {
@@ -13,6 +13,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.initialState = { ...this.state };
   }
 
   handle = ({ target: { name, value } }) => {
@@ -20,9 +21,10 @@ class AddMovie extends Component {
   };
 
   onButtonAdd = () => {
-    const { state: newMovie, props: { addMovie } } = this;
-    newMovie.bookmarked = false;
+    const { state, props: { addMovie } } = this;
+    const newMovie = { ...state, bookmarked: false };
     addMovie(newMovie);
+    this.setState(this.initialState);
   };
 
   generateInputComponent = (n) => {
