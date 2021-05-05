@@ -38,12 +38,11 @@ class MovieLibrary extends Component {
     });
   }
 
-  func() {
+  func(addMovie) {
     const { movies } = this.state;
-    console.log({ movies });
-    // this.setState({
-    //   movies: addMovie,
-    // });
+    this.setState({
+      movies: movies.concat([addMovie]),
+    });
   }
 
   render() {
@@ -57,9 +56,9 @@ class MovieLibrary extends Component {
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
     } if (bookmarkedOnly) {
-      moviesFiltered = movies.filter((movie) => movie.bookmarked);
+      moviesFiltered = moviesFiltered.filter((movie) => movie.bookmarked);
     } if (selectedGenre !== '') {
-      moviesFiltered = movies.filter((movie) => movie.genre === selectedGenre);
+      moviesFiltered = moviesFiltered.filter((movie) => movie.genre === selectedGenre);
     }
 
     return (
