@@ -1,5 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
+import { Divider, Form, Label } from "semantic-ui-react";
 
 export default function SearchBar(props) {
   const {
@@ -12,26 +13,33 @@ export default function SearchBar(props) {
   } = props;
 
   return (
-    <form className="form-container" data-testid="search-bar-form">
-      <label data-testid="text-input-label" htmlFor="searchText">
-        Inclui o texto:
+    <Form className="form-container" data-testid="search-bar-form">
+      <Form.Field>
+        <Label pointing="below" data-testid="text-input-label" htmlFor="text">
+          Inclui o texto:
+        </Label>
         <input
+          id="text"
           type="text"
-          value={ searchText }
-          onChange={ onSearchTextChange }
+          value={searchText}
+          onChange={onSearchTextChange}
           data-testid="text-input"
         />
-      </label>
-      <label data-testid="checkbox-input-label">
-        Mostrar somente favoritos
-        <input
-          type="checkbox"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
-          data-testid="checkbox-input"
-        />
-      </label>
-    </form>
+      </Form.Field>
+      <Divider />
+
+      <Form.Field>
+        <Label pointing="below" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            data-testid="checkbox-input"
+          />
+        </Label>
+      </Form.Field>
+    </Form>
   );
 }
 
