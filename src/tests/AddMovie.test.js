@@ -182,30 +182,30 @@ describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selec
     expect(genreOptions).toHaveLength(options.length);
   });
 
-  it.skip('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
+  it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
 
-  it.skip('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
+  it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
       expect(option).toHaveTextContent(options[index].text);
       expect(option).toHaveValue(options[index].value);
     });
   });
 
-  it.skip('Será validado se o gênero selecionado inicialmente é o "action"', () => {
+  it('Será validado se o gênero selecionado inicialmente é o "action"', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
 
-  it.skip('Altere o valor do gênero quando um gênero diferente é escolhido no select', () => {
+  it('Altere o valor do gênero quando um gênero diferente é escolhido no select', () => {
     event.selectOptions(genreInput, options[1].value);
     expect(genreInput).toHaveValue(genreOptions[1].value);
   });
 });
 
 describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer uso dos dados do novo filme, contidos no estado de `<AddMovie />`', () => {
-  it.skip('Será validado se o texto do botão é "Adicionar filme"', () => {
+  it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
