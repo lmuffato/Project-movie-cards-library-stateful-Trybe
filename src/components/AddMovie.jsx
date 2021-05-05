@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import AddMovieFields from './AddMovieFields';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-    //  storyline: '',
+      storyline: '',
     //  rating: 0,
     //  genre: 'action',
     };
@@ -23,10 +24,11 @@ class AddMovie extends React.Component {
     this.setState({ title: event.target.value });
     this.setState({ subtitle: event.target.value });
     this.setState({ imagePath: event.target.value });
+    this.setState({ storyline: event.target.value });
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form" onSubmit={ this.submeterForms }>
         <label htmlFor="text-title" data-testid="title-input-label">
@@ -59,6 +61,7 @@ class AddMovie extends React.Component {
             type="text"
           />
         </label>
+        <AddMovieFields value={ storyline } onChange={ this.atualizaEstado } />
       </form>
     );
   }
