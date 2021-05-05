@@ -9,8 +9,8 @@ import NumberInput from './AddMovieComponents/NumberInput';
 import SelectInput from './AddMovieComponents/SelectInput';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handInputs = this.handInputs.bind(this);
     this.submitInputs = this.submitInputs.bind(this);
     this.state = {
@@ -46,29 +46,23 @@ class AddMovie extends Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
-        <form data-testid="add-movie-form">
-          <TextInput handInputs={ this.handInputs } value={ title } />
-          <TextInput2 handInputs={ this.handInputs } value={ subtitle } />
-          <TextInput3 handInputs={ this.handInputs } value={ imagePath } />
-          <TextArea handInputs={ this.handInputs } value={ storyline } />
-          <NumberInput handInputs={ this.handInputs } value={ rating } />
-          <SelectInput handInputs={ this.handInputs } value={ genre } />
-          <button
-            data-testid="send-button"
-            type="submit"
-            onClick={ this.submitInputs }
-          >
-            Adicionar filme
-          </button>
-        </form>
-      </div>
+      <form data-testid="add-movie-form">
+        <TextInput handInputs={ this.handInputs } value={ title } />
+        <TextInput2 handInputs={ this.handInputs } value={ subtitle } />
+        <TextInput3 handInputs={ this.handInputs } value={ imagePath } />
+        <TextArea handInputs={ this.handInputs } value={ storyline } />
+        <NumberInput handInputs={ this.handInputs } value={ rating } />
+        <SelectInput handInputs={ this.handInputs } value={ genre } />
+        <button data-testid="send-button" type="button" onClick={ this.submitInputs }>
+          Adicionar filme
+        </button>
+      </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;

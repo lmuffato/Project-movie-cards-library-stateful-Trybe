@@ -13,6 +13,7 @@ class TextInput extends Component {
           Inclui o texto
           <input
             id="textInput"
+            name="searchText"
             type="text"
             onChange={ onSearchTextChange }
             value={ value }

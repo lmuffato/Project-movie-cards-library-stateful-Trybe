@@ -26,8 +26,8 @@ class NumberInput extends Component {
 }
 
 NumberInput.propTypes = {
-  handInputs: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
-};
+  handInputs: PropTypes.func,
+  value: PropTypes.number,
+}.isRequired;
 
 export default NumberInput;

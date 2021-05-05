@@ -45,8 +45,8 @@ class SelectInput extends Component {
 }
 
 SelectInput.propTypes = {
-  handInputs: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
-};
+  handInputs: PropTypes.func,
+  value: PropTypes.number,
+}.isRequired;
 
 export default SelectInput;
