@@ -1,3 +1,4 @@
+// Logicas feitas com a ajuda do Rafael Medeiros Turma:10 Tribo:A, Joao Nascimento Turma:10 Tribo:A //
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
@@ -34,28 +35,40 @@ class MovieLibrary extends Component {
     });
   }
 
-  funcFilteredBookmarked = (movies) => (bookmarkedOnly ? movies
-    .filter((movie) => (movie.bookmarked === true)) : movies)
+  funcFilteredBookmarked = (movies) => {
+    const { bookmarkedOnly } = this.state;
+    return (bookmarkedOnly ? movies
+      .filter((movie) => (movie.bookmarked === true)) : movies);
+  }
 
-  funcFilteredGenre = (movies) => (selectedGenre === '' ? movies
-    : movies.filter((movie) => (movie.genre === selectedGenre))
-  )
+  funcFilteredGenre = (movies) => {
+    const { selectedGenre } = this.state;
+    return (selectedGenre === '' ? movies
+      : movies.filter((movie) => (movie.genre === selectedGenre))
+    );
+  }
 
-  funcFilteredText = (movies) => (
-    searchText === '' ? movies
-      : (movies.filter(({ title, subtitle, storyline }) => (
-        title.includes(searchText)
+  funcFilteredText = (movies) => {
+    const { searchText } = this.state;
+    return movies.filter(({ title, subtitle, storyline }) => title.includes(searchText)
           || subtitle.includes(searchText)
-          || storyline.includes(searchText)))
-      ))
+          || storyline.includes(searchText));
+  }
+
+  addMovie = (newMovie) => {
+    const { movies: arrayOfMovie } = this.state;
+    this.setState({
+      movies: [...arrayOfMovie, newMovie],
+    });
+  }
 
   render() {
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
     let { movies } = this.state;
 
-    if (bookmarkedOnly) movies = this.funcFilteredBookmarked;
-    if (selectedGenre) movies = this.funcFilteredGenre;
-    if (searchText) movies = this.funcFilteredText;
+    if (bookmarkedOnly) movies = this.funcFilteredBookmarked(movies);
+    if (selectedGenre) movies = this.funcFilteredGenre(movies);
+    if (searchText) movies = this.funcFilteredText(movies);
 
     return (
       <div>
@@ -67,9 +80,10 @@ class MovieLibrary extends Component {
           onSearchTextChange={ this.onSearchTextChange }
           searchText={ searchText }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
         <MovieList movies={ movies } />
       </div>
+
     );
   }
 }
