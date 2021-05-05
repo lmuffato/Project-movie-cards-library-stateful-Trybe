@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class TextAreaInput extends React.Component {
   render() {
     const { dataInput } = this.props;
-    const { dataTestidLabel, nameLabel, typeInput, nameInput, dataTestid } = dataInput;
+    const { dataTestidLabel, nameLabel, nameInput, dataTestid } = dataInput;
     const { handleChange, title } = this.props;
 
     return (
@@ -22,7 +22,7 @@ class TextAreaInput extends React.Component {
 }
 
 TextAreaInput.propTypes = {
-  dataInput: PropTypes.object.isRequired,
+  dataInput: PropTypes.objectOf(PropTypes.object).isRequired,
   handleChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };

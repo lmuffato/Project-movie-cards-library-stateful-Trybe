@@ -47,19 +47,36 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-
-          <TextInput dataInput={dataInputs.titleInput} title={title} handleChange={this.handleChange} />
-
-          <TextInput dataInput={dataInputs.subtitleInput} title={subtitle} handleChange={this.handleChange} />
-
-          <TextInput dataInput={dataInputs.imageInput} title={imagePath} handleChange={this.handleChange} />
-
-          <TextAreaInput dataInput={dataInputs.storylineInput} title={storyline} handleChange={this.handleChange} />
-
-          <TextInput dataInput={dataInputs.ratingInput} title={rating} handleChange={this.handleChange} />
-
-          <SelectInput dataInput={dataInputs.genreInput} title={genre} handleChange={this.handleChange} />
-
+          <TextInput
+            dataInput={ dataInputs.titleInput }
+            title={ title }
+            handleChange={ this.handleChange }
+          />
+          <TextInput
+            dataInput={ dataInputs.subtitleInput }
+            title={ subtitle }
+            handleChange={ this.handleChange }
+          />
+          <TextInput
+            dataInput={ dataInputs.imageInput }
+            title={ imagePath }
+            handleChange={ this.handleChange }
+          />
+          <TextAreaInput
+            dataInput={ dataInputs.storylineInput }
+            title={ storyline }
+            handleChange={ this.handleChange }
+          />
+          <TextInput
+            dataInput={ dataInputs.ratingInput }
+            title={ rating }
+            handleChange={ this.handleChange }
+          />
+          <SelectInput
+            dataInput={ dataInputs.genreInput }
+            title={ genre }
+            handleChange={ this.handleChange }
+          />
           <button
             type="button"
             data-testid="send-button"
@@ -67,7 +84,6 @@ class AddMovie extends React.Component {
           >
             Adicionar filme
           </button>
-
         </form>
       </div>
     );

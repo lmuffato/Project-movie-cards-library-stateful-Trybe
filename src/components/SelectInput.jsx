@@ -22,12 +22,12 @@ class SelectInput extends React.Component {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
-    )
+    );
   }
 }
 
 SelectInput.propTypes = {
-  dataInput: PropTypes.object.isRequired,
+  dataInput: PropTypes.objectOf(PropTypes.object).isRequired,
   handleChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };

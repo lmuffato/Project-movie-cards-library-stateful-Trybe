@@ -23,7 +23,7 @@ class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
-  dataInput: PropTypes.object.isRequired,
+  dataInput: PropTypes.objectOf(PropTypes.object).isRequired,
   handleChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };

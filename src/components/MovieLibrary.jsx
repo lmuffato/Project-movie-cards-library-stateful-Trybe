@@ -42,8 +42,8 @@ class MovieLibrary extends React.Component {
       const filtredMovies = movies
         .filter((movie) => movie.bookmarked === true);
       this.setState({ movies: filtredMovies });
-    } else {
-      this.setState({ movies: this.state.movies });
+      /*     } else {
+      this.setState({ movies: this.state.movies }); */
     }
   }
 
