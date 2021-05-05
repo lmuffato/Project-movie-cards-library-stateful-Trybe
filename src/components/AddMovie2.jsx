@@ -4,10 +4,19 @@ import PropTypes from 'prop-types';
 class AddMovie2 extends Component {
   render() {
     const { value, onChange } = this.props;
-    const { storyline, rating, genre } = value;
+    const { storyline, rating, genre, imagePath } = value;
 
     return (
       <>
+        <label data-testid="image-input-label" htmlFor="imagePath">
+          Imagem
+          <input
+            name="imagePath"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ onChange }
+          />
+        </label>
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
           <textarea
@@ -51,6 +60,7 @@ AddMovie2.propTypes = {
     storyline: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     genre: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
   }).isRequired,
 };
 
