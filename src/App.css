@@ -83,10 +83,10 @@ body {
 }
 
 .forms {
-  margin: 2rem;
-  max-width: 40%;
   display: flex;
   flex-direction: column;
+  margin: 2rem;
+  max-width: 40%;
 }
 
 .addNew {
@@ -99,14 +99,14 @@ body {
 }
 
 .searchBar {
+  align-items: center;
+  background-color: gray;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin:0px;
-  background-color: gray;
-  align-items: center;
+  margin: 0;
 }
 
 .checkbox {
-  margin: 0px,5px;
+  margin: 0 , 5px;
 }

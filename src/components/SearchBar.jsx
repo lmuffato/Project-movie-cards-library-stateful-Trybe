@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Check from './checkbox';
-import Select2 from './Select2';
+import Select2 from './SelectII';
 
 class SearchBar extends React.Component {
   render() {
