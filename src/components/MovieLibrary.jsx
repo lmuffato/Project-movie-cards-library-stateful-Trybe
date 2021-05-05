@@ -43,6 +43,11 @@ class MovieLibrary extends Component {
     console.log(newMovie);
   }
 
+  darkMode = () => {
+    const element = document.body;
+    element.classList.toggle('dark-mode');
+  }
+
   render() {
     const {
       searchText,
@@ -57,18 +62,11 @@ class MovieLibrary extends Component {
     // e o vídeo: https://www.youtube.com/watch?v=-HQaDfVPCtg
     const filterByTitle = movies
       .filter((movie) => movie.title
-        .includes(searchText)
-      || movie.subtitle
-        .includes(searchText)
-      || movie.storyline
-        .includes(searchText));
+        .includes(searchText) || movie.subtitle
+        .includes(searchText) || movie.storyline.includes(searchText));
 
-    const filterByBookMark = movies
-      .filter((movie) => movie.bookmarked === true);
-
-    const filterByGenre = movies
-      .filter((movie) => movie.genre === selectedGenre);
-
+    const filterByBookMark = movies.filter((movie) => movie.bookmarked === true);
+    const filterByGenre = movies.filter((movie) => movie.genre === selectedGenre);
     if (bookmarkedOnly) movies = filterByBookMark;
     if (selectedGenre) movies = filterByGenre;
     if (searchText) movies = filterByTitle;
@@ -76,6 +74,16 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
+        <span className="dark-mode-span">Dark Mode</span>
+        <label className="dark-mode-label" htmlFor="dark-mode">
+          <input
+            onClick={ this.darkMode }
+            id="dark-mode"
+            className="dark-mode"
+            type="checkbox"
+          />
+          <div className="ball" />
+        </label>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
