@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 class TitleInput extends React.Component {
   render() {
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
       <label data-testid="title-input-label" htmlFor="add-movie-form">
         Título
         <input
-          value={this.props.initialStateValue}
+          value={ initialStateValue }
           data-testid="title-input"
-          onChange= {this.props.onChange}
+          onChange={ stateHandler }
           id="add-movie-form"
+          name="title"
         />
       </label>
     );

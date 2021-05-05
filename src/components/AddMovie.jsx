@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
   
@@ -28,8 +28,8 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <TitleInput 
-          initialStateValue={this.state.title}
-          onChange={this.handleChange}
+          initialStateValue={ this.state.title }
+          stateHandler={ this.handleChange }
         />
       </form>
     )
