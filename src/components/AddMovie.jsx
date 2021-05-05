@@ -10,7 +10,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
   }
 
@@ -64,8 +64,8 @@ class AddMovie extends Component {
   spamStoryline = (storyline) => (
     <label htmlFor="label4" data-testid="storyline-input-label">
       Sinopse
-      <input
-        type="textarea"
+      <textarea
+        type="text"
         id="label4"
         name="storyline"
         data-testid="storyline-input"
@@ -89,9 +89,50 @@ class AddMovie extends Component {
     </label>
   )
 
+  spamGenre = (genre) => (
+    <label htmlFor="genre" data-testid="genre-input-label">
+      Gênero
+      <select
+        id="genre"
+        name="genre"
+        data-testid="genre-input"
+        value={ genre }
+        onChange={ this.handleChange }
+      >
+        <option value="action" data-testid="genre-option">Ação</option>
+        <option value="comedy" data-testid="genre-option">Comédia</option>
+        <option value="thriller" data-testid="genre-option">Suspense</option>
+      </select>
+    </label>
+  )
+
+  resetState = () => {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  spamButton = (onClick) => (
+    <button
+      type="submit"
+      data-testid="send-button"
+      onClick={ () => {
+        onClick();
+        this.resetState();
+      } }
+    >
+      Adicionar filme
+    </button>
+  )
+
   render() {
-    const { onClick, callback } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         {this.spamTitle(title)}
@@ -99,14 +140,11 @@ class AddMovie extends Component {
         {this.spamImagePath(imagePath)}
         {this.spamStoryline(storyline)}
         {this.spamRating(rating)}
+        {this.spamGenre(genre)}
+        {this.spamButton(onClick)}
       </form>
     );
   }
 }
-
-AddMovie.defaultProps = {
-  onClick: null,
-  callback: null,
-};
 
 export default AddMovie;
