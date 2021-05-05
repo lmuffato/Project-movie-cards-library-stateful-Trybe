@@ -51,7 +51,7 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
-        <form data-testid="add-movie-form">
+        <form className="add-movie-form" data-testid="add-movie-form">
           <Title title={ title } AddMovie={ this.AddMovies } />
           <Subtitle subtitle={ subtitle } AddMovie={ this.AddMovies } />
           <ImagePath imagePath={ imagePath } AddMovie={ this.AddMovies } />

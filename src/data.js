@@ -2,7 +2,7 @@ const movies = [
   {
     title: 'Homem de Ferro (2008)',
     subtitle: 'Heróis não nascem. Eles são construídos.',
-    storyline: 'Tony Stark (Robert Downey Jr.) é um industrial bilionário, que também é um brilhante inventor. Ao ser sequestrado ele é obrigado por terroristas a construir uma arma devastadora mas, ao invés disto, constrói uma armadura de alta tecnologia que permite que fuja de seu cativeiro. A partir de então ele passa a usá-la para combater o crime, sob o alter-ego do Homem de Ferro. ',
+    storyline: 'Tony Stark, ao ser sequestrado é obrigado por terroristas a construir uma arma devastadora mas, ao invés disto, constrói uma armadura de alta tecnologia que permite que fuja de seu cativeiro.',
     rating: 76,
     imagePath: 'https://www.themoviedb.org/t/p/original/s6cQgJSkviamXAXBggT2xmj7JiG.jpg',
     bookmarked: true,
@@ -11,7 +11,7 @@ const movies = [
   {
     title: 'O Incrível Hulk (2008)',
     subtitle: 'Nossa única esperança será algo incrível.',
-    storyline: 'Vivendo escondido e longe de Betty Ross, a mulher que ama, o cientista Bruce Banner busca um meio de retirar a radiação gama que está em seu sangue. Ao mesmo tempo ele precisa fugir da perseguição do general Ross, seu grande inimigo, e da máquina militar que tenta capturá-lo, na intenção de explorar o poder que faz com que Banner se transforme no Hulk.',
+    storyline: 'Vivendo escondido e longe de Betty Ross, a mulher que ama, o cientista Bruce Banner busca um meio de retirar a radiação gama que está em seu sangue.',
     rating: 62,
     imagePath: 'https://www.themoviedb.org/t/p/original/xfBnQ4mgf1jYZsscJGJjr6ce0Ar.jpg',
     bookmarked: false,
@@ -20,7 +20,7 @@ const movies = [
   {
     title: 'Homem de Ferro 2 (2010)',
     subtitle: 'Não é a armadura que faz o herói, mas o homem dentro da armadura.',
-    storyline: 'Em um mundo ciente da existência do Homem de Ferro, o inventor bilionário Tony Stark sofre pressão de todos os lados para compartilhar sua tecnologia com as forças armadas. Ele resiste para divulgar os segredos de sua inigualável armadura, com medo de que estas informações caiam nas mãos erradas.',
+    storyline: 'Em um mundo ciente da existência do Homem de Ferro, o inventor bilionário Tony Stark sofre pressão de todos os lados para compartilhar sua tecnologia com as forças armadas.',
     rating: 68,
     imagePath: 'https://www.themoviedb.org/t/p/original/hCVQPB77eXBGh9abVdrWtKpKgkN.jpg',
     bookmarked: false,
@@ -29,7 +29,7 @@ const movies = [
   {
     title: 'Thor (2011)',
     subtitle: 'A coragem é imortal.',
-    storyline: 'Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça...',
+    storyline: 'Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado.',
     rating: 68,
     imagePath: 'https://www.themoviedb.org/t/p/original/3XyaYiOHldsNhwnXKDRYOpFc1nB.jpg',
     bookmarked: false,
@@ -38,7 +38,7 @@ const movies = [
   {
     title: 'Capitão América: O Primeiro Vingador (2011)',
     subtitle: 'Quando patriotas se tornam heróis!',
-    storyline: 'Steve Rogers é um jovem que participa de experiências visando a criação do supersoldado americano. Quando os oficiais militares conseguem transformá-lo em uma arma humana, eles percebem que não podem arriscar a vida do jovem nas batalhas de guerra.',
+    storyline: 'Quando os oficiais militares conseguem transformá Steve Rogers em uma arma humana, eles percebem que não podem arriscar a vida do jovem nas batalhas de guerra.',
     rating: 70,
     imagePath: 'https://www.themoviedb.org/t/p/original/yFuKvT4Vm3sKHdFY4eG6I4ldAnn.jpg',
     bookmarked: true,
@@ -74,7 +74,7 @@ const movies = [
   {
     title: 'Capitão América 2: O Soldado Invernal (2014)',
     subtitle: 'Em heróis nós confiamos.',
-    storyline: 'Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers, segue tentando se ajustar ao mundo moderno. Porém, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco. Em parceria com a Viúva Negra e Falcão, seu novo aliado, o Capitão América tem que enfrentar um misterioso e inesperado inimigo, o Soldado Invernal.',
+    storyline: 'Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers, segue tentando se ajustar ao mundo moderno. Porém, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco.',
     rating: 77,
     imagePath: 'https://www.themoviedb.org/t/p/original/55zqM1Dt1kVFOQf0ddgjhS3SCf7.jpg',
     bookmarked: true,
@@ -83,7 +83,7 @@ const movies = [
   {
     title: 'Guardiões da Galáxia (2014)',
     subtitle: 'Todos os heróis começam em algum lugar.',
-    storyline: 'O aventureiro do espaço Peter Quill torna-se presa de caçadores de recompensas depois que rouba a esfera de um vilão traiçoeiro, Ronan. Para escapar do perigo, ele faz uma aliança com um grupo de quatro extraterrestres. Quando Quill descobre que a esfera roubada possui um poder capaz de mudar os rumos do universo, ele e seu grupo deverão proteger o objeto para salvar o futuro da galáxia.',
+    storyline: 'O aventureiro do espaço Peter Quill torna-se presa de caçadores de recompensas depois que rouba a esfera de um vilão traiçoeiro, Ronan. Para escapar do perigo, ele faz uma aliança com um grupo de quatro extraterrestres.',
     rating: 79,
     imagePath: 'https://www.themoviedb.org/t/p/original/oEaSZoAkebncG89u3MF9wXw7H5H.jpg',
     bookmarked: true,
@@ -101,7 +101,7 @@ const movies = [
   {
     title: 'Homem-Formiga (2015)',
     subtitle: 'Você nunca viu um herói tão grandioso!',
-    storyline: 'Depois de sair da cadeia, o trambiqueiro Scott Lang (Paul Rudd) está disposto a reconquistar o respeito da ex-mulher, Maggie (Judy Greer) e, principalmente, da filha. Com dificuldades de arrumar um emprego honesto, ele aceita praticar um último golpe. O que ele não sabia era que tudo não passava de um plano do Dr. Pym que, depois de anos observando o hábil ladrão, o escolhe para vestir o traje do Homem-Formiga.".',
+    storyline: 'Depois de sair da cadeia, o trambiqueiro Scott Lang (Paul Rudd) está disposto a reconquistar o respeito da ex-mulher, Maggie (Judy Greer) e, principalmente, da filha. Com dificuldades de arrumar um emprego honesto, ele aceita praticar um último golpe. ',
     rating: 71,
     imagePath: 'https://www.themoviedb.org/t/p/original/7AyEEZVtFjNMCOEoz88pBqiAI8n.jpg',
     bookmarked: false,
@@ -119,7 +119,7 @@ const movies = [
   {
     title: 'Doutor Estranho (2016)',
     subtitle: 'As impossibilidades são infinitas.',
-    storyline: 'Dr. Stephen Strange, cuja vida muda para sempre depois de um terrível acidente de carro, que o rouba do uso de suas mãos. Quando a medicina tradicional o falha, ele é forçado a procurar por cura e esperança, em um lugar improvável - um enclave misterioso conhecido como Kamar-Taj. Ele rapidamente descobre que isso não é apenas um centro de cura, mas também a linha de frente de uma batalha contra as forças ocultas invisíveis empenhadas em destruir nossa realidade.',
+    storyline: 'Dr. Stephen Strange, cuja vida muda para sempre depois de um terrível acidente de carro, que o rouba do uso de suas mãos. Quando a medicina tradicional o falha, ele é forçado a procurar por cura e esperança, em um lugar improvável - um enclave misterioso conhecido como Kamar-Taj. ',
     rating: 74,
     imagePath: 'https://www.themoviedb.org/t/p/original/eQN31P4IEhyp6NkdccvppJnyuJ4.jpg',
     bookmarked: true,
@@ -137,7 +137,7 @@ const movies = [
   {
     title: 'Homem-Aranha: De Volta ao Lar (2017)',
     subtitle: 'O dever de casa pode esperar. A cidade não.',
-    storyline: 'Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre (Michael Keaton) surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.',
+    storyline: 'Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker (Tom Holland) voltar para casa e para a sua vida, já não mais tão normal. ',
     rating: 74,
     imagePath: 'https://www.themoviedb.org/t/p/original/24GSBmRoQlX7tnHvH5BTPq2eMVQ.jpg',
     bookmarked: true,
@@ -173,7 +173,7 @@ const movies = [
   {
     title: 'Homem-Formiga e a Vespa (2018)',
     subtitle: 'Heróis reais. Tamanho não real.',
-    storyline: 'Scott Lang lida com as consequências de suas escolhas tanto como super-herói quanto como pai. Enquanto tenta reequilibrar sua vida com suas responsabilidades como o Homem-Formiga, ele é confrontado por Hope van Dyne e Dr. Hank Pym com uma nova missão urgente. Scott deve mais uma vez vestir o uniforme e aprender a lutar ao lado da Vespa, trabalhando em conjunto para descobrir segredos do passado.',
+    storyline: 'Scott Lang lida com as consequências de suas escolhas tanto como super-herói quanto como pai. ',
     rating: 70,
     imagePath: 'https://www.themoviedb.org/t/p/original/6P3c80EOm7BodndGBUAJHHsHKrp.jpg',
     bookmarked: true,
@@ -182,7 +182,7 @@ const movies = [
   {
     title: 'Capitã Marvel (2019)',
     subtitle: 'Mais alto. Mais longe. Mais rápido.',
-    storyline: 'Capitã Marvel, parte do exército de elite dos Kree, uma raça alienígena, encontra-se no meio de uma batalha entre seu povo e os Skrulls. Ao tentar impedir uma invasão de larga escala na Terra, em 1995, ela tem memórias recorrentes de uma outra vida, como Carol Danvers, agente da Força Aérea norte-americana. Com a ajuda de Nick Fury, Capitã Marvel precisa descobrir os segredos de seu passado e pôr um fim ao conflito intergalático com os Skrulls.',
+    storyline: 'Capitã Marvel, parte do exército de elite dos Kree, uma raça alienígena, encontra-se no meio de uma batalha entre seu povo e os Skrulls. ',
     rating: 70,
     imagePath: 'https://www.themoviedb.org/t/p/original/qAzYK4YPSWDc7aa4R43LcwRIAyb.jpg',
     bookmarked: true,
@@ -191,7 +191,7 @@ const movies = [
   {
     title: 'Vingadores: Ultimato (2019)',
     subtitle: 'O fim de uma era!',
-    storyline: 'Após os eventos devastadores de "Vingadores: Guerra Infinita", o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.',
+    storyline: 'Após os eventos devastadores de "Vingadores: Guerra Infinita", o universo está em ruínas devido aos esforços do Titã Louco, Thanos. ',
     rating: 83,
     imagePath: 'https://www.themoviedb.org/t/p/original/r0jfRKIIKl34kZCeTxInYu5bVPf.jpg',
     bookmarked: true,
@@ -200,7 +200,7 @@ const movies = [
   {
     title: 'Homem-Aranha: Longe de Casa (2019)',
     subtitle: 'Continuar é preciso.',
-    storyline: 'Peter Parker está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury. Convocado para mais uma missão heroica, ele precisa enfrentar vários vilões que surgem em cidades-símbolo do continente, como Londres, Paris e Veneza, e também a aparição do enigmático Mysterio.',
+    storyline: 'Peter Parker está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury. ',
     rating: 75,
     imagePath: 'https://www.themoviedb.org/t/p/original/5myQbDzw3l8K9yofUXRJ4UTVgam.jpg',
     bookmarked: true,

@@ -10,7 +10,8 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <div>
-        <form data-testid="search-bar-form">
+        <form className="search-bar-form" data-testid="search-bar-form">
+          <h4>Faça seu filtro</h4>
           <label htmlFor="text-input" data-testid="text-input-label">
             Inclui o texto:
             <input

@@ -15,9 +15,26 @@ body {
   text-align: center;
 }
 
+h2 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h4 {
+  margin-bottom: 20px;
+}
+
 .search-bar-form {
+  color: white;
   display: flex;
   flex-direction: column;
+  margin: 30px;
+  padding: 20px;
+}
+
+.search-bar-form input, select {
+  align-items: center;
+  margin-left: 10px;
 }
 
 .page-title {
@@ -42,7 +59,7 @@ body {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 650px;
+  height: 550px;
   margin: 5px;
   max-width: 100%;
   overflow: hidden;
@@ -97,4 +114,28 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.add-movie-form input, textarea, select {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  margin-left: 30px;
+}
+
+.add-movie-form label {
+  align-items: center;
+  margin-left: 30px;
+}
+
+button {
+  background-color: rgb(86, 151, 236);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  padding: 10px;
 }
