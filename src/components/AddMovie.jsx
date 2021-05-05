@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import Image from './Imagem';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     };
   }
 
@@ -17,10 +19,11 @@ class AddMovie extends React.Component {
     this.setState({ subtitle: event.target.value });
     this.setState({ imagePath: event.target.value });
     this.setState({ storyline: event.target.value });
+    this.setState({ rating: event.target.value });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="titleInput" data-testid="title-input-label">
@@ -45,17 +48,7 @@ class AddMovie extends React.Component {
             data-testid="subtitle-input"
           />
         </label>
-        <label htmlFor="imageInput" data-testid="image-input-label">
-          Imagem:
-          <input
-            id="imageInput"
-            type="text"
-            name="image"
-            value={ imagePath }
-            onChange={ this.handleText }
-            data-testid="image-input"
-          />
-        </label>
+        <Image handleText={ this.handleText } imagePath={ imagePath } />
         <label htmlFor="storylineInput" data-testid="storyline-input-label">
           Sinopse:
           <textarea
@@ -63,6 +56,16 @@ class AddMovie extends React.Component {
             name="storyline"
             value={ storyline }
             data-testid="storyline-input"
+            onChange={ this.handleText }
+          />
+        </label>
+        <label htmlFor="ratingInput" data-testid="rating-input-label">
+          Avaliação:
+          <input
+            type="number"
+            name="rating"
+            value={ rating }
+            data-testid="rating-input"
             onChange={ this.handleText }
           />
         </label>
