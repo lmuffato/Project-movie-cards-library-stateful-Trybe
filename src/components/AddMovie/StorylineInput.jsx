@@ -12,6 +12,7 @@ export default class StorylineInput extends React.Component {
           value={ storyline }
           data-testid="storyline-input"
           onChange={ handleStory }
+          className="form-control"
         />
       </label>
     );

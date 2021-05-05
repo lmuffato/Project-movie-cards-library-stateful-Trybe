@@ -12,6 +12,7 @@ export default class GenreSelect extends React.Component {
           id="genre-input"
           data-testid="genre-input"
           value={ genre }
+          className="form-select"
           onChange={ handleGenre }
         >
           <option value="action" data-testid="genre-option">Ação</option>

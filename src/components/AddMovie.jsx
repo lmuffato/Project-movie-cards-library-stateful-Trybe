@@ -80,6 +80,7 @@ export default class AddMovie extends React.Component {
           type="button"
           data-testid="send-button"
           onClick={ this.addMovieToLibrary }
+          className="btn btn-primary"
         >
           Adicionar filme
         </button>
@@ -92,7 +93,7 @@ AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-// Referências para a função AddMoviesToLibrary:
+// Referências para a função AddMovieToLibrary:
 // ---> PR do colega João Nascimento
 // https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/57/files
 // --> Esta thread no slack: https://trybecourse.slack.com/archives/C01L16B9XC7/p1620082728499900

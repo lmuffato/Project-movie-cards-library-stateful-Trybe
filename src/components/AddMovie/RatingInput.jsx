@@ -24,6 +24,6 @@ RatingInput.defaultProps = {
 };
 
 RatingInput.propTypes = {
-  rating: PropTypes.number,
+  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   handleRating: PropTypes.func,
 };
