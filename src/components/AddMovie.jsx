@@ -4,6 +4,7 @@ import SubitleInput from './AddMovie/SubtitleInput';
 import ImagePathInput from './AddMovie/ImagePathInput';
 import StorylineInput from './AddMovie/StorylineInput';
 import RatingInput from './AddMovie/RatingInput';
+import GenreInput from './AddMovie/GenreInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -33,6 +34,7 @@ class AddMovie extends React.Component {
     const { imagePath } = this.state;
     const { storyline } = this.state;
     const { rating } = this.state;
+    const { genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -54,6 +56,10 @@ class AddMovie extends React.Component {
         />
         <RatingInput
           initialStateValue={ rating }
+          stateHandler={ this.handleChange }
+        />
+        <GenreInput
+          initialStateValue={ genre }
           stateHandler={ this.handleChange }
         />
       </form>
