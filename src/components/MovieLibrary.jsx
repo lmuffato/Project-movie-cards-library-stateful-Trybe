@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { movies },
+      movies,
     };
   }
 
@@ -46,16 +46,22 @@ class MovieLibrary extends Component {
     // });
   }
 
-  callBack() {
-    let sum = 0;
-    sum += 1;
-    console.log(sum);
-  }
-
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const { onSelectedGenreChange, onSearchTextChange, onBookmarkedChange } = this;
+    // https://www.youtube.com/watch?v=-HQaDfVPCtg Foi através desse video que aprendi a filtrar
+    let moviesFiltered = movies;
+    if (searchText !== '') {
+      moviesFiltered = movies.filter((movie) => movie.title.toLowerCase()
+        .includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+    } if (bookmarkedOnly) {
+      moviesFiltered = movies.filter((movie) => movie.bookmarked);
+    } if (selectedGenre !== '') {
+      moviesFiltered = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -67,7 +73,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ moviesFiltered } />
         <AddMovie onClick={ this.func } />
       </div>
     );
