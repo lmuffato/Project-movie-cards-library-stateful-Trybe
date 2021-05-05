@@ -73,7 +73,6 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
   it('Renderize a label "Título" para o input de titulo', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
-    console.log(titleInputLabel, typeof titleInputLabel, 'OOOOOOOOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLLLLLLHHHHHHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAAAA');
   });
 
   it('Defina o estado inicial do titulo como "", ou seja, uma string vazia', () => {
