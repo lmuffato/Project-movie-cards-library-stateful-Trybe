@@ -19,15 +19,28 @@ class MovieLibrary extends React.Component {
     }
   }
 
-  onSearchTextChange() {
-
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value
+    })
   }
 
-  onBookmarkedChanged() {
-
+  onBookmarkedChanged({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value
+    })
   }
 
-  onSelectedGenreChange() {
+  onSelectedGenreChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+  newMovieCreator() {
 
   }
 
@@ -45,7 +58,7 @@ class MovieLibrary extends React.Component {
         bookmarkedOnly={this.state.bookmarkedOnly}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie newMovieCreator={this.newMovieCreator}/>
         </form>
       </div>
     );
