@@ -4,19 +4,9 @@ import PropTypes from 'prop-types';
 class AddMovie2 extends React.Component {
   render() {
     const { value, onChange } = this.props;
-    const { imagePath, storyline, rating, genre } = value;
+    const { storyline, rating, genre } = value;
     return (
       <>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            name="imagePath"
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ onChange }
-          />
-        </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
