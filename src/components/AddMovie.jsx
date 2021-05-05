@@ -1,6 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import dataInputs from '../dataInputs';
+import TextInput from './TextInput';
+import TextAreaInput from './TextAreaInput';
+import SelectInput from './SelectInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -43,74 +47,18 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="title" data-testid="title-input-label">
-            Título
-            <input
-              type="text"
-              name="title"
-              data-testid="title-input"
-              value={ title }
-              onChange={ this.handleChange }
-            />
-          </label>
 
-          <label htmlFor="subtitle" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              data-testid="subtitle-input"
-              value={ subtitle }
-              onChange={ this.handleChange }
-            />
-          </label>
+          <TextInput dataInput={dataInputs.titleInput} title={title} handleChange={this.handleChange} />
 
-          <label htmlFor="imagePath" data-testid="image-input-label">
-            Imagem
-            <input
-              type="text"
-              name="imagePath"
-              data-testid="image-input"
-              value={ imagePath }
-              onChange={ this.handleChange }
-            />
-          </label>
+          <TextInput dataInput={dataInputs.subtitleInput} title={subtitle} handleChange={this.handleChange} />
 
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
-            <textarea
-              name="storyline"
-              data-testid="storyline-input"
-              value={ storyline }
-              onChange={ this.handleChange }
-            />
-          </label>
+          <TextInput dataInput={dataInputs.imageInput} title={imagePath} handleChange={this.handleChange} />
 
-          <label htmlFor="rating" data-testid="rating-input-label">
-            Avaliação
-            <input
-              type="number"
-              name="rating"
-              data-testid="rating-input"
-              value={ rating }
-              onChange={ this.handleChange }
-            />
-          </label>
+          <TextAreaInput dataInput={dataInputs.storylineInput} title={storyline} handleChange={this.handleChange} />
 
-          <label htmlFor="genre" data-testid="genre-input-label">
-            Gênero
-            <select
-              type="number"
-              name="genre"
-              data-testid="genre-input"
-              value={ genre }
-              onChange={ this.handleChange }
-            >
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
-            </select>
-          </label>
+          <TextInput dataInput={dataInputs.ratingInput} title={rating} handleChange={this.handleChange} />
+
+          <SelectInput dataInput={dataInputs.genreInput} title={genre} handleChange={this.handleChange} />
 
           <button
             type="button"
