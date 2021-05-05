@@ -9,12 +9,33 @@ class MovieLibrary extends Component {
     super(props);
     const { movies } = this.props;
     this.func = this.func.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: { movies },
     };
+  }
+
+  onSearchTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    });
+  }
+
+  onBookmarkedChange(event) {
+    this.setState({
+      bookmarkedOnly: event.target.checked,
+    });
+  }
+
+  onSelectedGenreChange(event) {
+    this.setState({
+      selectedGenre: event.target.value,
+    });
   }
 
   func() {
@@ -33,18 +54,17 @@ class MovieLibrary extends Component {
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { callBack } = this;
-    console.log(this.state);
+    const { onSelectedGenreChange, onSearchTextChange, onBookmarkedChange } = this;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ callBack }
+          onSearchTextChange={ onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ callBack }
+          onBookmarkedChange={ onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ callBack }
+          onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.func } />
