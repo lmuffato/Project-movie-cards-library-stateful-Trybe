@@ -8,6 +8,7 @@ class Input extends React.Component {
       <label
         data-testid={ labelData }
         htmlFor={ nome }
+        className="label"
       >
         {texto}
         <input
@@ -17,6 +18,7 @@ class Input extends React.Component {
           value={ value }
           onChange={ onChange }
           data-testid={ inputData }
+          className="input"
         />
       </label>
     );

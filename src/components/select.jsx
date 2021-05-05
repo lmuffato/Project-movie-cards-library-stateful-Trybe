@@ -6,21 +6,29 @@ class Select extends React.Component {
     const { value, onChange } = this.props;
     return (
       <label
+        className="label"
         data-testid="genre-input-label"
         htmlFor="genders"
       >
         Gênero
-        <select
-          value={ value }
-          id="genders"
-          data-testid="genre-input"
-          onChange={ onChange }
-          name="genre"
-        >
-          <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" data-testid="genre-option">Comédia</option>
-          <option value="thriller" data-testid="genre-option">Suspense</option>
-        </select>
+        <div className="select">
+          <select
+            value={ value }
+            id="genders"
+            data-testid="genre-input"
+            onChange={ onChange }
+            name="genre"
+          >
+            <option
+              value="action"
+              data-testid="genre-option"
+            >
+              Ação
+            </option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </div>
       </label>
     );
   }

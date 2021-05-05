@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
-import genders from './movieTypes';
 import Check from './checkbox';
+import Select2 from './Select2';
 
 class SearchBar extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="form searchBar">
         <Input
           tipo="text"
           texto="Inclui o texto:"
@@ -24,34 +24,16 @@ class SearchBar extends React.Component {
           labelData="text-input-label"
           inputData="text-input"
         />
+        <Select2
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
         <Check
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ onBookmarkedChange }
-          texto="Mostrar somente favoritos"
+          texto="Mostrar somente favoritos "
           nome="bookmarkedOnly"
         />
-        <label
-          data-testid="select-input-label"
-          htmlFor="genero"
-        >
-          Filtrar por gênero
-          <select
-            name="selectedGenre"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            {genders.map((gender, index) => (
-              <option
-                key={ index }
-                data-testid="select-option"
-                value={ gender.valor }
-                name={ gender.valor }
-              >
-                {gender.name}
-              </option>))}
-          </select>
-        </label>
       </form>
     );
   }

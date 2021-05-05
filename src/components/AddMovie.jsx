@@ -45,6 +45,7 @@ class AddMovie extends React.Component {
     return (
       <form
         data-testid="add-movie-form"
+        className="form forms"
       >
         { inputs.map((input, index) => (
           <Input
@@ -69,7 +70,8 @@ class AddMovie extends React.Component {
           onChange={ this.handleTitle }
         />
         <button
-          type="submit"
+          className="button is-dark is-info addNew"
+          type="button"
           data-testid="send-button"
           onClick={ this.onSubmit }
         >

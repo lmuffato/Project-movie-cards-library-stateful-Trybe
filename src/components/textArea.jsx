@@ -6,11 +6,13 @@ class TextArea extends React.Component {
     const { labelText, nome, onChange, value } = this.props;
     return (
       <label
+        className="label"
         data-testid="storyline-input-label"
         htmlFor={ nome }
       >
         { labelText}
         <textarea
+          className="textarea"
           name={ nome }
           data-testid="storyline-input"
           id={ nome }
