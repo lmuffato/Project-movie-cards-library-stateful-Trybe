@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import data from './dataComponents';
+import dataComp from './dataComp';
 
 class AddMovie extends Component {
   constructor() {
@@ -50,7 +50,7 @@ class AddMovie extends Component {
   }
 
   generateInputsProps = () => {
-    const { labels, typeInput } = data;
+    const { labels, typeInput } = dataComp;
     const inputs = Object.keys(this.state).reduce((acc, input) => {
       const prefix = input !== 'imagePath' ? input : 'image';
       const { [input]: text } = labels;
@@ -70,7 +70,7 @@ class AddMovie extends Component {
         text,
       };
       if (input === 'genre') {
-        inputPros.options = data.genreOptionsAdd;
+        inputPros.options = dataComp.genreOptionsAdd;
       }
       acc.push(inputPros);
       return acc;

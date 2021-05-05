@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import data from './dataComponents';
+import dataComp from './dataComp';
 
 class SearchBar extends Component {
   render() {
@@ -24,7 +24,7 @@ class SearchBar extends Component {
       onChange: onSelectedGenreChange,
     };
 
-    const { genreOpts } = data;
+    const { genreOpts } = dataComp;
 
     return (
       <form data-testid="search-bar-form" className="SearchBar">
