@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
             type="text"
             data-testid="text-input"
             onChange={ onSearchTextChange }
+            className="form-control"
           />
         </label>
         <label htmlFor="label-checkbox" data-testid="checkbox-input-label">
@@ -27,6 +28,7 @@ class SearchBar extends React.Component {
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
+            className="form-control"
           />
         </label>
         <label htmlFor="label-select" data-testid="select-input-label">
@@ -36,6 +38,7 @@ class SearchBar extends React.Component {
             onChange={ onSelectedGenreChange }
             value={ selectedGenre }
             data-testid="select-input"
+            className="form-control"
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
