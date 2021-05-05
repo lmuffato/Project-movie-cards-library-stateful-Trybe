@@ -7,12 +7,12 @@ class TextInput3 extends Component {
     return (
       <div>
         <label
-          htmlFor="textInput3"
+          htmlFor="image-input"
           data-testid="image-input-label"
         >
           Imagem
           <input
-            id="textInput3"
+            id="image-input-label"
             name="imagePath"
             type="text"
             onChange={ handInputs }

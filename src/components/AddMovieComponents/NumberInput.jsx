@@ -7,12 +7,12 @@ class NumberInput extends Component {
     return (
       <div>
         <label
-          htmlFor="NumberInput"
+          htmlFor="rating-input"
           data-testid="rating-input-label"
         >
           Avaliação
           <input
-            id="NumberInput"
+            id="rating-input-label"
             name="rating"
             type="number"
             onChange={ handInputs }

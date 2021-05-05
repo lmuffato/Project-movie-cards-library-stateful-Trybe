@@ -15,12 +15,12 @@ class SelectInput extends Component {
     return (
       <div>
         <label
-          htmlFor="SelectInput"
+          htmlFor="genre-input"
           data-testid="genre-input-label"
         >
           Gênero
           <select
-            id="SelectInput"
+            id="genre-input-label"
             name="genre"
             type="string"
             onChange={ handInputs }

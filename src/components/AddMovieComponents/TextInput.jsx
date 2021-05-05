@@ -7,10 +7,10 @@ class TextInput extends Component {
 
     return (
       <div>
-        <label htmlFor="textInput" data-testid="title-input-label">
+        <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
-            id="textInput"
+            id="title-input-label"
             name="title"
             data-testid="title-input"
             onChange={ handInputs }

@@ -7,12 +7,12 @@ class TextInput extends Component {
     return (
       <div>
         <label
-          htmlFor="textInput"
+          htmlFor="text-input"
           data-testid="text-input-label"
         >
           Inclui o texto
           <input
-            id="textInput"
+            id="text-input-label"
             name="searchText"
             type="text"
             onChange={ onSearchTextChange }

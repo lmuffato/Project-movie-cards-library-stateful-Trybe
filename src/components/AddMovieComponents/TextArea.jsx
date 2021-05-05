@@ -7,12 +7,12 @@ class TextArea extends Component {
     return (
       <div>
         <label
-          htmlFor="TextArea"
+          htmlFor="storyline-input"
           data-testid="storyline-input-label"
         >
           Sinopse
           <textarea
-            id="TextArea"
+            id="storyline-input-label"
             name="storyline"
             type="text"
             onChange={ handInputs }

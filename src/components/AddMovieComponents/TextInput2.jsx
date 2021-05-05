@@ -7,12 +7,12 @@ class TextInput2 extends Component {
     return (
       <div>
         <label
-          htmlFor="textInput2"
+          htmlFor="subtitle-input"
           data-testid="subtitle-input-label"
         >
           Subtítulo
           <input
-            id="textInput2"
+            id="subtitle-input-label"
             name="subtitle"
             type="text"
             onChange={ handInputs }
