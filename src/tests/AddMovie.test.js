@@ -70,16 +70,16 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
     expect(titleInput).toBeInTheDocument();
   });
 
-  it.skip('Renderize a label "Título" para o input de titulo', () => {
+  it('Renderize a label "Título" para o input de titulo', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
   });
 
-  it.skip('Defina o estado inicial do titulo como "", ou seja, uma string vazia', () => {
+  it('Defina o estado inicial do titulo como "", ou seja, uma string vazia', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
 
-  it.skip('Altere o valor do input de título quando algo for digitado nele', () => {
+  it('Altere o valor do input de título quando algo for digitado nele', () => {
     event.type(titleInput, 'my awesome movie title');
 
     expect(titleInput).toHaveValue('my awesome movie title');
@@ -87,7 +87,7 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
 });
 
 describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
-  it.skip('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
+  it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
 
