@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-// import SearchBar from './SearchBar';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
     this.func = this.func.bind(this);
-    // this.state({
-    //   movies: this.props.moviesList,
-    // });
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: { movies },
+    };
   }
 
   func() {
@@ -20,26 +24,28 @@ class MovieLibrary extends Component {
     // });
   }
 
-  // callBack() {
-  //   let sum = 0;
-  //   sum += 1;
-  //   console.log(sum);
-  // }
+  callBack() {
+    let sum = 0;
+    sum += 1;
+    console.log(sum);
+  }
 
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { callBack } = this;
     console.log(this.state);
     return (
       <div>
         <h2> My awesome movie library </h2>
-        {/* <SearchBar
-          searchText=""
+        <SearchBar
+          searchText={ searchText }
           onSearchTextChange={ callBack }
-          bookmarkedOnly={ false }
+          bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ callBack }
-          selectedGenre=""
+          selectedGenre={ selectedGenre }
           onSelectedGenreChange={ callBack }
-        /> */}
+        />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.func } />
       </div>
