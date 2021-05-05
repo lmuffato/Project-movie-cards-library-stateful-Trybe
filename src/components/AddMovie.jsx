@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-    //  rating: 0,
+      rating: 0,
     //  genre: 'action',
     };
   }
@@ -25,10 +25,11 @@ class AddMovie extends React.Component {
     this.setState({ subtitle: event.target.value });
     this.setState({ imagePath: event.target.value });
     this.setState({ storyline: event.target.value });
+    this.setState({ rating: event.target.value });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form" onSubmit={ this.submeterForms }>
         <label htmlFor="text-title" data-testid="title-input-label">
@@ -61,7 +62,11 @@ class AddMovie extends React.Component {
             type="text"
           />
         </label>
-        <AddMovieFields value={ storyline } onChange={ this.atualizaEstado } />
+        <AddMovieFields
+          storyline={ storyline }
+          rating={ rating }
+          atualizaEstado={ this.atualizaEstado }
+        />
       </form>
     );
   }
