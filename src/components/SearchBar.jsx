@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import Proptypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -46,5 +47,14 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: Proptypes.string.isRequired,
+  onSearchTextChange: Proptypes.func.isRequired,
+  bookmarkedOnly: Proptypes.bool.isRequired,
+  onBookmarkedChange: Proptypes.func.isRequired,
+  selectedGenre: Proptypes.string.isRequired,
+  onSelectedGenreChange: Proptypes.func.isRequired,
+};
 
 export default SearchBar;
