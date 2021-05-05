@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function SearchBar(props) {
   const {
@@ -11,28 +11,24 @@ export default function SearchBar(props) {
   } = props;
 
   return (
-    <form className='form-container' data-testid='search-bar-form'>
-      <label data-testid='text-input-label'>
+    <form className="form-container" data-testid="search-bar-form">
+      <label data-testid="text-input-label" htmlFor="searchText">
         Inclui o texto:
-
         <input
-          type='text'
+          type="text"
           value={searchText}
           onChange={onSearchTextChange}
-          data-testid='text-input'
+          data-testid="text-input"
         />
-
       </label>
-      <label data-testid='checkbox-input-label'>
+      <label data-testid="checkbox-input-label">
         Mostrar somente favoritos
-
         <input
-          type='checkbox'
+          type="checkbox"
           checked={bookmarkedOnly}
           onChange={onBookmarkedChange}
-          data-testid='checkbox-input'
+          data-testid="checkbox-input"
         />
-
       </label>
     </form>
   );
