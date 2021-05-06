@@ -15,6 +15,7 @@ export default class Inputs extends React.Component {
             data-testid="title-input"
             defaultValue={ title }
             onChange={ handleChange }
+            required
           />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
@@ -26,6 +27,7 @@ export default class Inputs extends React.Component {
             data-testid="subtitle-input"
             defaultValue={ subtitle }
             onChange={ handleChange }
+            required
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
@@ -37,6 +39,7 @@ export default class Inputs extends React.Component {
             data-testid="image-input"
             defaultValue={ imagePath }
             onChange={ handleChange }
+            required
           />
         </label>
       </>

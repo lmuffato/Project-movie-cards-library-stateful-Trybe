@@ -1,4 +1,4 @@
-const movies = [
+const allMovies = [
   {
     title: 'Kingsglaive',
     subtitle: 'Final Fantasy XV',
@@ -9,6 +9,7 @@ const movies = [
     rating: 4.5,
     imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
     genre: 'action',
+    bookmarked: false,
   },
   {
     title: 'Final Fantasy',
@@ -19,6 +20,7 @@ const movies = [
     rating: 4.5,
     imagePath: 'images/Final_Fantasy_Spirits_Within.jpg',
     genre: 'action',
+    bookmarked: false,
   },
   {
     title: 'Ghost In The Shell',
@@ -29,6 +31,7 @@ const movies = [
     rating: 5,
     imagePath: 'images/Ghost_In_The_Shell_2_0.jpg',
     genre: 'thriller',
+    bookmarked: false,
   },
   {
     title: 'Appleseed Alpha',
@@ -40,6 +43,7 @@ const movies = [
     rating: 3.8,
     imagePath: 'images/Appleseed_Alpha.jpg',
     genre: 'action',
+    bookmarked: false,
   },
   {
     title: 'Resident Evil',
@@ -51,7 +55,8 @@ const movies = [
     rating: 4.2,
     imagePath: 'images/Resident_Evil_Vendetta.jpg',
     genre: 'action',
+    bookmarked: false,
   },
 ];
 
-export default movies;
+export default allMovies;

@@ -3,7 +3,30 @@ import PropTypes from 'prop-types';
 import Rating from './Rating';
 
 class MovieCard extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      buttonName: 'Favoritar',
+    };
+  }
+
+  setButtonName = () => {
+    const { movie: bookmarked } = this.props;
+    this.setState({
+      buttonName: bookmarked ? 'Desfavoritar' : 'Favoritar',
+    });
+  };
+
+  bookmark = () => {
+    const { movie } = this.props;
+    const { bookmarked } = movie;
+    movie.bookmarked = !bookmarked;
+
+    this.setButtonName();
+  };
+
   render() {
+    const { buttonName } = this.state;
     const { movie } = this.props;
     const { title, subtitle, storyline, rating, imagePath } = movie;
     return (
@@ -15,6 +38,13 @@ class MovieCard extends React.Component {
           <p className="movie-card-storyline">{storyline}</p>
         </div>
         <Rating rating={ rating } />
+        <button
+          type="button"
+          className="bookmarked"
+          onClick={ this.bookmark }
+        >
+          {buttonName}
+        </button>
       </div>
     );
   }
@@ -27,6 +57,7 @@ MovieCard.propTypes = {
     storyline: PropTypes.string,
     rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
   }).isRequired,
 };
 

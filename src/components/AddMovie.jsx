@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Inputs from './InputsText';
 import Select from './Select';
-import movies from '../movies';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -11,8 +10,8 @@ export default class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      storyline: '',
       rating: 0,
+      storyline: '',
       genre: 'action',
     };
   }
@@ -33,39 +32,30 @@ export default class AddMovie extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { onClick } = this.props;
-    onClick();
 
     const initialState = {
       title: '',
       subtitle: '',
-      imagePath: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
       genre: 'action',
     };
 
+    onClick(this.state);
+
     Array.from(document.querySelector('#add-movie').children)
-      .forEach(({ firstElementChild }) => {
-        const { name } = firstElementChild;
-        firstElementChild.value = initialState[name];
+      .forEach((element) => {
+        const { firstElementChild } = element;
+        const { name } = element.firstElementChild || element;
+        if (firstElementChild) {
+          firstElementChild.value = initialState[name];
+        }
         this.setState({
           [name]: initialState[name],
         });
       });
   }
-
-  newMovie = () => {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-
-    movies.push({
-      title,
-      subtitle,
-      storyline,
-      rating,
-      genre,
-      imagePath,
-    });
-  };
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;

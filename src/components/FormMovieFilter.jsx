@@ -30,9 +30,10 @@ export default class FormMovieFilter extends React.Component {
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            name="bookmarkedOnly"
             type="checkbox"
             defaultChecked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
+            onClick={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
