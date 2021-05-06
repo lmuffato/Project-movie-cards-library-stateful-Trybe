@@ -6,8 +6,7 @@ export default class SearchFavorite extends React.Component {
       <div>
         <label htmlFor="inputcheck">
           Mostrar somente favoritos
-          <input id="inputcheck" type="checkbox">
-          </input>
+          <input id="inputcheck" type="checkbox" />
         </label>
       </div>
     );
