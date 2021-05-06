@@ -47,22 +47,16 @@ class MovieLibrary extends Component {
     });
   };
 
-  handleSubmit = (data) => {
-    const { title, subtitle, imagePath, storyline, rating, genre } = data;
-    const { movies } = this.props;
+  handleSubmit = (newMovie) => {
+    const { title } = newMovie;
 
-    movies.push({
-      title,
-      subtitle,
-      storyline,
-      rating,
-      imagePath,
-      genre,
-    });
-
-    this.setState({
-      currMovies: movies,
-    });
+    if (title === '') {
+      console.log('Please, fill in the title!');
+    } else {
+      this.setState(({ currMovies }) => ({
+        currMovies: [...currMovies, newMovie],
+      }));
+    }
   };
 
   render() {
