@@ -9,7 +9,8 @@ import GenreInput from './AddMovie/GenreInput';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = {
+
+    const initialState = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -17,6 +18,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.state = initialState;
   }
 
   handleChange = ({ target }) => {
@@ -26,6 +29,14 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  sendMovieAndResetState = () => {
+    const { onClick } = this.props;
+    console.log(onClick)
+    console.log('callback invocada')
+    onClick(this.state);
+    this.setState(this.initialState);
   }
 
   render() {
@@ -62,6 +73,12 @@ class AddMovie extends React.Component {
           initialStateValue={ genre }
           stateHandler={ this.handleChange }
         />
+        <button
+          data-testid="send-button" 
+          onClick={this.sendMovieAndResetState}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
