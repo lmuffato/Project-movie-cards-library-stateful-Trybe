@@ -5,6 +5,7 @@ import TextArea from './formTypes/TextArea';
 import Subtitle from './formTypes/Subtitle';
 import Image from './formTypes/Image';
 import Rating from './formTypes/Rating';
+import Select from './formTypes/Select';
 
 class addMovie extends React.Component {
   constructor() {
@@ -124,34 +125,35 @@ class addMovie extends React.Component {
     });
   }
 
-  render() {
+  selectProps = () => {
     const { genre } = this.state;
-    return (
-      <form data-testid="add-movie-form">
-        <Title { ...this.titleProps() } />
-        <Subtitle { ...this.subtitleProps() } />
-        <Image { ...this.imageProps() } />
-        <TextArea { ...this.textAreaProps() } />
-        <Rating { ...this.ratingProps() } />
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          <select
-            id="genre-input"
-            value={ genre }
-            onChange={ this.changeGenre }
-            data-testid="genre-input"
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-          Gênero
-        </label>
-        <button type="button" onClick={ this.addMovie } data-testid="send-button">
-          Adicionar filme
-        </button>
-      </form>
-    );
+    const optionid = 'genre-option';
+    return ({
+      id: 'genre-input',
+      value: genre,
+      onChange: this.changeGenre,
+      options: [
+        { id: optionid, value: 'action', text: 'Ação' },
+        { id: optionid, value: 'comedy', text: 'Comédia' },
+        { id: optionid, value: 'thriller', text: 'Suspense' },
+      ],
+      labelText: 'Gênero',
+    });
   }
+
+  render = () => (
+    <form data-testid="add-movie-form">
+      <Title { ...this.titleProps() } />
+      <Subtitle { ...this.subtitleProps() } />
+      <Image { ...this.imageProps() } />
+      <TextArea { ...this.textAreaProps() } />
+      <Rating { ...this.ratingProps() } />
+      <Select { ...this.selectProps() } />
+      <button type="button" onClick={ this.addMovie } data-testid="send-button">
+        Adicionar filme
+      </button>
+    </form>
+  )
 }
 
 addMovie.propTypes = {
