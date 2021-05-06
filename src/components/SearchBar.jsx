@@ -29,11 +29,16 @@ class SearchBar extends React.Component {
         olá
         <br />
         <form data-testid="search-bar-form">
-          <input
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
+          <label htmlFor="input1" data-testid="text-input-label">
+            Inclui o texto:
+            <br />
+            <input
+              data-testid="text-input"
+              type="text"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
+          </label>
           <br />
           <input
             type="checkbox"
@@ -41,11 +46,14 @@ class SearchBar extends React.Component {
             onChange={ onBookmarkedChange }
           />
           <br />
-          <input
+          {/* <select>
+
+          </select> */}
+          {/* <input
             type="text"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
-          />
+          /> */}
         </form>
       </div>
     );
