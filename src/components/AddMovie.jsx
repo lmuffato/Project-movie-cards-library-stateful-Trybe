@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    const initialState = {
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -19,25 +19,27 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
-    this.state = initialState;
   }
 
   handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
-  sendMovieAndResetState = () => {
+  sendMovieAndResetState = async (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
-    console.log(onClick);
-    console.log('callback invocada');
     onClick(this.state);
-    this.setState(this.initialState);
+    await this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {

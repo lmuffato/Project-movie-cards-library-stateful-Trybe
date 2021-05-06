@@ -6,9 +6,9 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super();
+    super(props);
 
-    const { movies } = props;
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
@@ -24,8 +24,8 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onAddMovieClick = () => {
-    console.log('clicou para adicionar filme');
+  onAddMovieClick = (state) => {
+    console.log(state);
   }
 
   render() {
