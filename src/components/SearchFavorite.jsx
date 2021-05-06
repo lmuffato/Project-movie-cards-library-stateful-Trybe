@@ -4,10 +4,12 @@ export default class SearchFavorite extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor="inputcheck">Mostrar somente favoritos</label>
-        <input id="inputcheck" type="checkbox">
-        </input>
+        <label htmlFor="inputcheck">
+          Mostrar somente favoritos
+          <input id="inputcheck" type="checkbox">
+          </input>
+        </label>
       </div>
-    )
+    );
   }
 }
