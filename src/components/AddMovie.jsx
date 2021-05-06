@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TitleMovieC from './AddMovieComponents.jsx/Title-MovieC';
 import SubtitleMovieC from './AddMovieComponents.jsx/Subtitle-MovieC';
 import ImagePathMovieC from './AddMovieComponents.jsx/ImageP-MovieC';
@@ -26,12 +26,9 @@ class AddMovie extends React.Component {
       [event.target.name]: event.target.value });
   }
 
-  addNewMovie() {
-    // minha função de adicionar o filme a lista
-  }
-
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
 
     return (
       <section>
@@ -64,19 +61,21 @@ class AddMovie extends React.Component {
 
         </form>
 
-        <button type="button" onClick={ this.addNewMovie }> Adicionar filme </button>
+        <button
+          type="button"
+          onClick={ onClick }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
 
       </section>
     );
   }
 }
 
-/* AddMovie.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  imagePath: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-}; */
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default AddMovie;
