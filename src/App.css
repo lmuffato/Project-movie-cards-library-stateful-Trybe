@@ -4,6 +4,31 @@ body {
   font-size: 16px;
 }
 
+h2 {
+  padding: 1em;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 1em 2em;
+  width: 100%;
+}
+
+.addMovie-form {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  width: 92%;
+}
+
+.search-form label span, .addMovie-form label span {
+  margin-right: 1em;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
@@ -22,7 +47,9 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   padding: 48px 30px;
+  text-align: center;
 }
 
 .movie-card {
