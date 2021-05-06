@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddMovie extends React.Component {
+export default class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -43,5 +43,3 @@ class AddMovie extends React.Component {
     );
   }
 }
-
-export default AddMovie;
