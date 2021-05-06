@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Title from './formTypes/Title';
-import TextArea from './formTypes/TextArea';
-import Subtitle from './formTypes/Subtitle';
-import Image from './formTypes/Image';
-import Rating from './formTypes/Rating';
-import Select from './formTypes/Select';
+import Field from './formTypes/Field';
 
 class addMovie extends React.Component {
   constructor() {
@@ -19,7 +14,7 @@ class addMovie extends React.Component {
     this.setState(this.defaultState());
   }
 
-  changeValue = (event) => {
+  updateState = (event) => {
     const { target: { name, value } } = event;
     this.setState(() => ({
       [name]: value,
@@ -27,7 +22,7 @@ class addMovie extends React.Component {
   }
 
   getProp = (objOfProps, propid) => (
-    { ...objOfProps[propid], id: propid, onChange: this.changeValue }
+    { ...objOfProps[propid], id: propid, onChange: this.updateState }
   )
 
   defaultState = () => ({
@@ -47,7 +42,7 @@ class addMovie extends React.Component {
       subtitle: { value: subtitle, labelText: 'Subtítulo' },
       image: { value: imagePath, labelText: 'Imagem' },
       storyline: { value: storyline, labelText: 'Sinopse' },
-      rating: { value: rating, labelText: 'Avaliação' },
+      rating: { type: 'number', value: rating, labelText: 'Avaliação' },
       genre: {
         value: genre,
         labelText: 'Gênero',
@@ -60,12 +55,12 @@ class addMovie extends React.Component {
     };
     return (
       <form data-testid="add-movie-form">
-        <Title { ...this.getProp(propList, 'title') } />
-        <Subtitle { ...this.getProp(propList, 'subtitle') } />
-        <Image { ...this.getProp(propList, 'image') } />
-        <TextArea { ...this.getProp(propList, 'storyline') } />
-        <Rating { ...this.getProp(propList, 'rating') } />
-        <Select { ...this.getProp(propList, 'genre') } />
+        <Field { ...this.getProp(propList, 'title') } />
+        <Field { ...this.getProp(propList, 'subtitle') } />
+        <Field { ...this.getProp(propList, 'image') } />
+        <Field Tag="textarea" { ...this.getProp(propList, 'storyline') } />
+        <Field { ...this.getProp(propList, 'rating') } />
+        <Field Tag="select" { ...this.getProp(propList, 'genre') } />
         <button type="button" onClick={ this.addMovie } data-testid="send-button">
           Adicionar filme
         </button>
