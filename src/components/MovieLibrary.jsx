@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
 
     const fByText = movies.filter((movie) => movie.title.includes(searchText)
     || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
-    const fByBookmarked = movies.filter((movie) => movie.moviemarked === true);
+    const fByBookmarked = movies.filter((movie) => movie.bookmarked === true);
     const fBySelectedGenre = movies.filter((movie) => movie.genre === selectedGenre);
 
     if (searchText) {
