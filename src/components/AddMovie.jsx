@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TitleInput from './AddMovie/TitleInput';
 import SubitleInput from './AddMovie/SubtitleInput';
 import ImagePathInput from './AddMovie/ImagePathInput';
@@ -33,8 +34,8 @@ class AddMovie extends React.Component {
 
   sendMovieAndResetState = () => {
     const { onClick } = this.props;
-    console.log(onClick)
-    console.log('callback invocada')
+    console.log(onClick);
+    console.log('callback invocada');
     onClick(this.state);
     this.setState(this.initialState);
   }
@@ -74,8 +75,9 @@ class AddMovie extends React.Component {
           stateHandler={ this.handleChange }
         />
         <button
-          data-testid="send-button" 
-          onClick={this.sendMovieAndResetState}
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.sendMovieAndResetState }
         >
           Adicionar filme
         </button>
@@ -83,5 +85,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
