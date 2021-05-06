@@ -21,6 +21,7 @@ class MovieLibrary extends React.Component {
   handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(value);
     this.setState({ [name]: value });
   }
 
@@ -28,8 +29,37 @@ class MovieLibrary extends React.Component {
     console.log(state);
   }
 
+  textMatch = (str, substr) => str.toLowerCase().includes(substr.toLowerCase());
+
+  filteredMovies = () => {
+    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
+    let renderedMovieList = movies;
+
+    if (searchText !== '') {
+      renderedMovieList = renderedMovieList.filter((mov) => {
+        let hasMatch = false;
+        const textInputsToCheck = ['title', 'subtitle', 'storyline'];
+        textInputsToCheck.forEach((t) => {
+          if (this.textMatch(mov[t], searchText)) hasMatch = true;
+        });
+
+        return hasMatch;
+      });
+    }
+
+    if (bookmarkedOnly) {
+      renderedMovieList = renderedMovieList.filter((mov) => mov.bookmarked);
+    }
+
+    if (selectedGenre !== '') {
+      renderedMovieList = renderedMovieList.filter((mov) => mov.genre === selectedGenre);
+    }
+
+    return renderedMovieList;
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -40,7 +70,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filteredMovies() } />
         <AddMovie onClick={ this.onAddMovieClick } />
       </div>
     );
