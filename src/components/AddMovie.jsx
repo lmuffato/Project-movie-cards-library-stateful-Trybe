@@ -10,27 +10,13 @@ import Select from './formTypes/Select';
 class addMovie extends React.Component {
   constructor() {
     super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = this.defaultState();
   }
 
   addMovie = () => {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    this.setState(this.defaultState());
   }
 
   changeValue = (event) => {
@@ -43,6 +29,15 @@ class addMovie extends React.Component {
   getProp = (objOfProps, propid) => (
     { ...objOfProps[propid], id: propid, onChange: this.changeValue }
   )
+
+  defaultState = () => ({
+    subtitle: '',
+    title: '',
+    imagePath: '',
+    storyline: '',
+    rating: 0,
+    genre: 'action',
+  })
 
   render = () => {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
