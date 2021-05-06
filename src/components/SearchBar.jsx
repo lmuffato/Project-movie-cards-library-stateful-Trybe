@@ -1,11 +1,11 @@
 import React from 'react';
 
 export default class SearchBar extends React.Component {
-  render () {
+  render() {
     return (
       <form data-testid="search-bar-form">
-        <label>
-          <input />
+        <label htmlFor="input">
+          <input id="input"/>
         </label>
       </form>
     );
