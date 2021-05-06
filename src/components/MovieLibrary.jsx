@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
     super();
 
     this.state = {
-      value: 'oi',
+      searchText: 'oi',
       bookmarkedOnly: false,
       selectedGenre: 'ted',
     };
@@ -35,18 +35,21 @@ class MovieLibrary extends Component {
   };
 
   render() {
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={ this.state.value }
-          // onSearchTextChange={ this.handleChange }
-          bookmarkedOnly={ this.state.bookmarkedOnly }
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.handleChange }
-          selectedGenre={ this.state.selectedGenre }
+          selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={ movies } />
         {/* <AddMovie /> */}
       </div>
     );

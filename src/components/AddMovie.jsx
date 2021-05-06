@@ -9,7 +9,7 @@
 // gênero
 // <AddMovie /> deve receber como prop:
 
-onClick, uma callback
+// onClick, uma callback
 import React from 'react';
 
 class AddMovie extends React.Component {
