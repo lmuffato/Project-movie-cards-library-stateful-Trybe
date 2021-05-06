@@ -60,7 +60,7 @@ class AddMovie extends Component {
         </form>
         <button
           data-testid="send-button"
-          type="submit"
+          type="button"
           onClick={ this.handleClick }
         >
           Adicionar filme
