@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import TitleSubtitle from './addMovieInputs/TitleSubtitle';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -12,7 +13,10 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
     this.addMovie = this.addMovie.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSub = this.handleSub.bind(this);
   }
 
   addMovie() {
@@ -29,24 +33,21 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleChange (event) {
-    this.setState({ title: event.target.value})
-      console.log(event.target.value)
+  handleChange(event) {
+    this.setState({ title: event.target.value });
+    console.log(event.target.value);
+  }
+
+  handleSub(event) {
+    this.setState({ subtitle: event.target.value });
   }
 
   render() {
+    const { title, subtitle, imagepath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="titleInput">
-          Título
-          <input
-            onChange={ this.handleChange }
-            id="titleInput"
-            type="checkbox"
-            value={ this.title }
-            data-testid="title-input"
-          />
-        </label>
+        <TitleSubtitle title={ title } handleChange={ this.handleChange }
+         subtitle={ subtitle } handleSub={ this.handleSub } />
       </form>
     );
   }
