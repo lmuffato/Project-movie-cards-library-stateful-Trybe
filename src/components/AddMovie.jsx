@@ -13,9 +13,31 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyline: '',
+  //     rating: 0,
+  //     genre: 'action',
+  //   };
+  // }
   render() {
     return (
-      <div>olá</div>
+      <div>
+        olá
+        <form data-testid="add-movie-form">
+          {/* <label htmlFor="subtítulo">subtítulo</label>
+          <label htmlFor="título">título</label>
+          <label htmlFor="caminho da imagem">caminho da imagem</label>
+          <label htmlFor="sinopse">sinopse</label>
+          <label htmlFor="avaliação">avaliação</label>
+          <label htmlFor="gênero">gênero</label> */}
+        </form>
+      </div>
     );
   }
 }
