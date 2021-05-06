@@ -1,15 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
+    const { onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <div>
         <br />
@@ -38,7 +33,11 @@ class SearchBar extends React.Component {
           <br />
           <label htmlFor="select" data-testid="select-input-label">
             Filtrar por gênero
-            <select data-testid="select-input" value={ selectedGenre } onChange={ onSelectedGenreChange }>
+            <select
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
               <option data-testid="select-option" value="">Todos</option>
               <option data-testid="select-option" value="action">Ação</option>
               <option data-testid="select-option" value="comedy">Comédia</option>
@@ -50,5 +49,23 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: '',
+  bookmarkedOnly: false,
+  onBookmarkedChange: '',
+  selectedGenre: '',
+  onSelectedGenreChange: '',
+};
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
 
 export default SearchBar;
