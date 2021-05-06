@@ -14,44 +14,41 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
     };
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onClick = this.onClick.bind(this);
   }
 
-  onSearchTextChange(event) {
+  onSearchTextChange = (event) => {
     const { target: { value } } = event;
     this.setState({
       searchText: value,
     });
   }
 
-  onBookmarkedChange(event) {
+  onBookmarkedChange = (event) => {
     const { target: { checked } } = event;
     this.setState({
       bookmarkedOnly: checked,
     });
   }
 
-  onSelectedGenreChange(event) {
+  onSelectedGenreChange = (event) => {
     const { target: { value } } = event;
     this.setState({
       selectedGenre: value,
     });
   }
 
-  onClick(movieData) {
+  onClick = (movieData) => {
     const { movies } = this.state;
     this.setState({
       movies: [...movies, movieData],
     });
   }
 
-  filter(array, { bookmarkedOnly, selectedGenre, searchText }) {
+  /*   filter(array, { bookmarkedOnly, selectedGenre, searchText }) {
     let maybeFiltered = array;
+
     maybeFiltered = bookmarkedOnly
-      ? maybeFiltered.filter(({ bookmarked }) => bookmarked === true) : maybeFiltered;
+      ? maybeFiltered.filter(({ bookmarked }) => bookmarked) : maybeFiltered;
     maybeFiltered = selectedGenre
       ? maybeFiltered.filter(({ genre }) => genre === selectedGenre) : maybeFiltered;
     maybeFiltered = searchText
@@ -61,7 +58,22 @@ class MovieLibrary extends React.Component {
         (acc, cur) => (cur.includes(searchText) ? true : acc),
         false,
       )) : maybeFiltered;
+
     return maybeFiltered;
+  }
+ */
+
+  // Idéia abaixo da Beatriz Barbosa
+  filter(array, { bookmarkedOnly, selectedGenre, searchText }) {
+    return array.filter(({ bookmarked, genre, title, subtitle, storyline }) => {
+      if (bookmarkedOnly && !bookmarked) return false;
+      if (selectedGenre !== '' && genre !== selectedGenre) return false;
+      if (searchText !== '' && !([title, subtitle, storyline].reduce(
+        (acc, cur) => (cur.includes(searchText) ? true : acc),
+        false,
+      ))) return false;
+      return true;
+    });
   }
 
   render() {
@@ -96,7 +108,7 @@ MovieLibrary.propTypes = {
       bookmarked: PropTypes.bool,
       genre: PropTypes.string,
     }),
-  ).isRequired,
-};
+  ),
+}.isRequired;
 
 export default MovieLibrary;

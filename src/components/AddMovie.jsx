@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './formTypes/Title';
+import TextArea from './formTypes/TextArea';
+import Subtitle from './formTypes/Subtitle';
+import Image from './formTypes/Image';
+import Rating from './formTypes/Rating';
 
 class addMovie extends React.Component {
   constructor() {
@@ -16,44 +21,44 @@ class addMovie extends React.Component {
 
   changeTitle = (event) => {
     const { target: { value } } = event;
-    this.setState({
+    this.setState(() => ({
       title: value,
-    });
+    }));
   }
 
   changeSubtitle = (event) => {
     const { target: { value } } = event;
-    this.setState({
+    this.setState(() => ({
       subtitle: value,
-    });
+    }));
   }
 
   changeImage = (event) => {
     const { target: { value } } = event;
-    this.setState({
+    this.setState(() => ({
       imagePath: value,
-    });
+    }));
   }
 
   changeStoryline = (event) => {
     const { target: { value } } = event;
-    this.setState({
+    this.setState(() => ({
       storyline: value,
-    });
+    }));
   }
 
   changeRating = (event) => {
     const { target: { value } } = event;
-    this.setState({
+    this.setState(() => ({
       rating: value,
-    });
+    }));
   }
 
   changeGenre = (event) => {
     const { target: { value } } = event;
-    this.setState({
+    this.setState(() => ({
       genre: value,
-    });
+    }));
   }
 
   addMovie = () => {
@@ -69,59 +74,65 @@ class addMovie extends React.Component {
     });
   }
 
+  titleProps = () => {
+    const { title } = this.state;
+    return ({
+      id: 'title-input',
+      value: title,
+      onChange: this.changeTitle,
+      labelText: 'Título',
+    });
+  }
+
+  subtitleProps = () => {
+    const { subtitle } = this.state;
+    return ({
+      id: 'subtitle-input',
+      value: subtitle,
+      onChange: this.changeSubtitle,
+      labelText: 'Subtítulo',
+    });
+  }
+
+  imageProps = () => {
+    const { imagePath } = this.state;
+    return ({
+      id: 'image-input',
+      value: imagePath,
+      onChange: this.changeImage,
+      labelText: 'Imagem',
+    });
+  }
+
+  textAreaProps = () => {
+    const { storyline } = this.state;
+    return ({
+      id: 'storyline-input',
+      value: storyline,
+      onChange: this.changeStoryline,
+      labelText: 'Sinopse',
+    });
+  }
+
+  ratingProps = () => {
+    const { rating } = this.state;
+    return ({
+      id: 'rating-input',
+      value: rating,
+      onChange: this.changeRating,
+      labelText: 'Avaliação',
+    });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          <input
-            id="title-input"
-            type="text"
-            value={ title }
-            onChange={ this.changeTitle }
-            data-testid="title-input"
-          />
-          Título
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          <input
-            id="subtitle-input"
-            type="text"
-            value={ subtitle }
-            onChange={ this.changeSubtitle }
-            data-testid="subtitle-input"
-          />
-          Subtítulo
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          <input
-            id="image-input"
-            type="text"
-            value={ imagePath }
-            onChange={ this.changeImage }
-            data-testid="image-input"
-          />
-          Imagem
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          <textarea
-            id="storyline-input"
-            value={ storyline }
-            onChange={ this.changeStoryline }
-            data-testid="storyline-input"
-          />
-          Sinopse
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          <input
-            id="rating-input"
-            type="number"
-            value={ rating }
-            onChange={ this.changeRating }
-            data-testid="rating-input"
-          />
-          Avaliação
-        </label>
+        <Title { ...this.titleProps() } />
+        <Subtitle { ...this.subtitleProps() } />
+        <Image { ...this.imageProps() } />
+        <TextArea { ...this.textAreaProps() } />
+        <Rating { ...this.ratingProps() } />
         <label htmlFor="genre-input" data-testid="genre-input-label">
           <select
             id="genre-input"
@@ -144,7 +155,7 @@ class addMovie extends React.Component {
 }
 
 addMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default addMovie;
