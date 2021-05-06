@@ -21,7 +21,7 @@ class MovieLibrary extends React.Component {
     let { state } = this;
     state = { ...state, ...newFilter };
     const { searchText, selectedGenre, bookmarkedOnly } = state;
-    const { movies } = this.props;
+    const { movies } = this.state;
     let filteredMovies = movies.filter((movie) => (
       movie.storyline.includes(searchText)
       || movie.title.includes(searchText)
@@ -51,9 +51,14 @@ class MovieLibrary extends React.Component {
     this.filterMovies({ selectedGenre: value });
   };
 
-  addMovie = (newMovie) => {
-    this.setState({ movies: [...this.state.movies, newMovie] });
-    this.filterMovies({});
+  addMovie = async (newMovie) => {
+    this.setState((previewState) => (
+      {
+        movies: [...previewState.movies, newMovie],
+      }
+    ), async () => {
+      this.filterMovies({});
+    });
   };
 
   render() {
