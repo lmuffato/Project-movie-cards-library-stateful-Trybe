@@ -20,11 +20,19 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   };
 
-  onClick = () => {
-    const { state, props: { addMovie } } = this;
+  sendMovie = () => {
+    const { state, props: { onClick } } = this;
     const newMovie = { ...state, bookmarked: false };
-    addMovie(newMovie);
-    this.setState(this.initialState);
+    onClick(newMovie);
+    console.log(onClick);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   };
 
   generateInputComponent = (n) => {
@@ -82,7 +90,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         {this.generateInputsProps().map((n) => this.generateInputComponent(n))}
-        <button type="reset" data-testid="send-button" onClick={ this.onClick }>
+        <button type="reset" data-testid="send-button" onClick={ this.sendMovie }>
           Adicionar filme
         </button>
       </form>
@@ -91,7 +99,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  addMovie: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

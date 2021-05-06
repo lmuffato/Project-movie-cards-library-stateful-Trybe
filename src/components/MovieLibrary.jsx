@@ -10,6 +10,7 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     this.state = {
       movies,
+      filteredMovies: movies,
       searchText: '',
       selectedGenre: '',
       bookmarkedOnly: false,
@@ -32,7 +33,7 @@ class MovieLibrary extends React.Component {
     if (bookmarkedOnly) {
       filteredMovies = filteredMovies.filter((movie) => movie.bookmarked);
     }
-    this.setState({ movies: filteredMovies });
+    this.setState({ filteredMovies });
   };
 
   onSearchTextChange = ({ target: { value } }) => {
@@ -51,13 +52,12 @@ class MovieLibrary extends React.Component {
   };
 
   addMovie = (newMovie) => {
-    const { movies } = this.props;
-    movies.push(newMovie);
+    this.setState({ movies: [...this.state.movies, newMovie] });
     this.filterMovies({});
-  }
+  };
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies: stateMovies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.state;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
     const propsSearchBar = {
       searchText,
@@ -70,8 +70,8 @@ class MovieLibrary extends React.Component {
     return (
       <section>
         <SearchBar { ...propsSearchBar } />
-        <MovieList movies={ stateMovies } />
-        <AddMovie addMovie={ this.addMovie } />
+        <MovieList movies={ filteredMovies } />
+        <AddMovie onClick={ this.addMovie } />
       </section>
     );
   }
