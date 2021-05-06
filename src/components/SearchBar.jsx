@@ -5,7 +5,7 @@ export default class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="input">
-          <input id="input"/>
+          <input id="input" />
         </label>
       </form>
     );
