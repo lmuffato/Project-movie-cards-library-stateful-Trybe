@@ -24,6 +24,7 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath } = this.state;
+    const { storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label
@@ -66,6 +67,21 @@ class AddMovie extends Component {
             value={ imagePath }
             id="imagem"
             type="text"
+          />
+        </label>
+        <label
+          data-testid="storyline-input-label"
+          htmlFor="sinopse"
+        >
+          Sinopse
+          <textarea
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleValue }
+            id="sinopse"
+            cols="30"
+            rows="10"
           />
         </label>
       </form>
