@@ -1,7 +1,10 @@
 import React from 'react';
-import InputAddMovie from './InputAddMovie';
-import InputNumber from './InputNumber';
-import TextAreaAddMovie from './TextAreaAddMovie';
+import TitleInput from './addMovieComponents/TitleInput';
+import SubtitleInput from './addMovieComponents/SubtitleInput';
+import ImageSrcInput from './addMovieComponents/ImageSrcInput';
+import TextAreaAddMovie from './addMovieComponents/TextAreaAddMovie';
+import InputNumber from './addMovieComponents/InputNumber';
+import GenreSelect from './addMovieComponents/GenreSelect';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -14,7 +17,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-    //   genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -25,50 +28,16 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <InputAddMovie
-            label="Título"
-            testIdLabel="title-input-label"
-            testIdInput="title-input"
-            inputValue={ title }
-            handle={ this.handleTextChange }
-            inputName="title"
-          />
-          <InputAddMovie
-            label="Subtítulo"
-            testIdLabel="subtitle-input-label"
-            testIdInput="subtitle-input"
-            inputValue={ subtitle }
-            handle={ this.handleTextChange }
-            inputName="subtitle"
-          />
-          <InputAddMovie
-            label="Imagem"
-            testIdLabel="image-input-label"
-            testIdInput="image-input"
-            inputValue={ imagePath }
-            handle={ this.handleTextChange }
-            inputName="imagePath"
-          />
-          <TextAreaAddMovie
-            label="Sinopse"
-            testIdLabel="storyline-input-label"
-            testIdInput="storyline-input"
-            inputValue={ storyline }
-            handle={ this.handleTextChange }
-            tAreaName="storyline"
-          />
-          <InputNumber
-            label="Avaliação"
-            testIdLabel="rating-input-label"
-            testIdInput="rating-input"
-            inputValue={ rating }
-            handle={ this.handleTextChange }
-            inputName="rating"
-          />
+          <TitleInput inputValue={ title } handle={ this.handleTextChange } />
+          <SubtitleInput inputValue={ subtitle } handle={ this.handleTextChange } />
+          <ImageSrcInput inputValue={ imagePath } handle={ this.handleTextChange } />
+          <TextAreaAddMovie inputValue={ storyline } handle={ this.handleTextChange } />
+          <InputNumber inputValue={ rating } handle={ this.handleTextChange } />
+          <GenreSelect inputValue={ genre } handle={ this.handleTextChange } />
         </form>
       </div>
     );

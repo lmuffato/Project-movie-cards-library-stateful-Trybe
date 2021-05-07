@@ -1,3 +1,5 @@
+/*
+// Refatorado para resolver problema de falta de linhas
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -42,3 +44,4 @@ InputAddMovie.propTypes = {
 };
 
 export default InputAddMovie;
+*/

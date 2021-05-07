@@ -4,26 +4,22 @@ import PropTypes from 'prop-types';
 class TextAreaAddMovie extends React.Component {
   render() {
     const {
-      testIdLabel,
-      testIdInput,
-      label,
       tAreaValue,
       handle,
-      tAreaName,
     } = this.props;
     return (
       <div>
         <label
-          htmlFor={ testIdInput }
-          data-testid={ testIdLabel }
+          htmlFor="storyline-input"
+          data-testid="storyline-input-label"
         >
-          { label }
+          Sinopse
           <textarea
             onChange={ handle }
-            data-testid={ testIdInput }
-            name={ tAreaName }
+            data-testid="storyline-input"
+            name="storyline"
             value={ tAreaValue }
-            id={ testIdInput }
+            id="storyline-input"
           />
         </label>
       </div>
@@ -32,12 +28,8 @@ class TextAreaAddMovie extends React.Component {
 }
 
 TextAreaAddMovie.propTypes = {
-  testIdInput: PropTypes.string.isRequired,
-  testIdLabel: PropTypes.string.isRequired,
   handle: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
   tAreaValue: PropTypes.string.isRequired,
-  tAreaName: PropTypes.string.isRequired,
 };
 
 export default TextAreaAddMovie;
