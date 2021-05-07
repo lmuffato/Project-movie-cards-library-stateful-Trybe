@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Titulo from './MyComponents/Titulo';
-import Subtitulo from './MyComponents/Subtitulo';
-import Imagem from './MyComponents/Imagem';
-import Sinopse from './MyComponents/Sinopse';
+import Titulo from './Titulo';
+import Subtitulo from './Subtitulo';
+import Imagem from './Imagem';
+import Sinopse from './Sinopse';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
