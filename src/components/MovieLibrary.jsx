@@ -28,10 +28,9 @@ class MovieLibrary extends React.Component {
   onAddMovieClick = async (newMovieData) => {
     const { movies } = this.state;
     console.log(newMovieData);
-    await this.setState({ movies: movies.push(newMovieData) });
-    console.log(movies)
-    console.log(this.state)
-    console.log(typeof this.filteredMovies())
+    movies.push(newMovieData);
+    await this.setState({ movies });
+    console.log(this.state);
   }
 
   textMatch = (str, substr) => str.toLowerCase().includes(substr.toLowerCase());
@@ -63,6 +62,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    console.log('Renderizando MovieLibrary')
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
