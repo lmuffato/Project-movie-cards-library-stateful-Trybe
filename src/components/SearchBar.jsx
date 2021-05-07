@@ -14,8 +14,8 @@ class SearchBar extends Component {
     const {
       searchText,
       onSearchTextChange,
-    //   bookMarkedOnly,
-    //   onBookMarkedChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
     //   selectdGenre,
     //   onSelectedGenreChange,
     } = this.props;
@@ -31,6 +31,16 @@ class SearchBar extends Component {
             data-testid="text-input"
           />
         </label>
+        <label data-testid="checkbox-input-label" htmlFor="check1">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            onChange={ onBookmarkedChange }
+            id="check1"
+            checked={ bookmarkedOnly }
+            data-testid="checkbox-input"
+          />
+        </label>
       </form>
     );
   }
@@ -39,6 +49,8 @@ class SearchBar extends Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
