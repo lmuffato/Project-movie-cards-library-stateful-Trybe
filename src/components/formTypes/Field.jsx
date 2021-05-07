@@ -9,14 +9,15 @@ import PropTypes from 'prop-types';
 class Field extends React.Component {
   render() {
     const { id, value, labelText, onChange, Tag, options, type } = this.props;
-    return React.createElement(
+    const e = React.createElement;
+    return e(
       'label',
       {
         htmlFor: id,
         'data-testid': `${id}-input-label`,
       },
       [
-        React.createElement(
+        e(
           Tag,
           {
             id,
@@ -27,7 +28,7 @@ class Field extends React.Component {
             'data-testid': `${id}-input`,
           },
             options?.map((option) => (
-              React.createElement(
+              e(
                 'option',
                 {
                   key: option.value,
