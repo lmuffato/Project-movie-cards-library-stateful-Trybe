@@ -31,6 +31,12 @@ export default class AddMovie extends React.Component {
         <textarea name="storyline" value={ storyline } data-testid="storyline-input" onChange={this.changeHandler}></textarea>
         <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
         <input type="number" name="rating" data-testid="rating-input" value={ rating } onChange={this.changeHandler}></input>
+        <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
+        <select name="genre" value={ genre } data-testid="genre-input" onChange={ this.changeHandler }>
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
+        </select>
       </form>
     );
   }
