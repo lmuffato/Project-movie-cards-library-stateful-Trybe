@@ -15,13 +15,17 @@ class MovieLibrary extends React.Component {
   //   };
   // }
 
+  addMovie= () => {
+    console.log('adicionei um filme');
+  }
+
   render() {
     const { movies } = this.props;
     return (
       <div>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }

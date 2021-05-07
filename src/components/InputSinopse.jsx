@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class InputSinopse extends React.Component {
   render() {
-    const { onClick, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <div>
         <label
@@ -15,7 +15,7 @@ class InputSinopse extends React.Component {
             id="storyline-input"
             data-testid="storyline-input"
             name="storyline"
-            value={ onClick }
+            value={ value }
             onChange={ handleChange }
           />
         </label>
@@ -24,7 +24,7 @@ class InputSinopse extends React.Component {
   }
 }
 InputSinopse.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 export default InputSinopse;

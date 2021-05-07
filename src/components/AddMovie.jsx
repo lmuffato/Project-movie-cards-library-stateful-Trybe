@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import InputTitle from './InputsTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImagem from './InputImagem';
@@ -35,8 +35,23 @@ class AddMovie extends React.Component {
   // linha 31 o prevent defalt previne a página de recarregar como já do tipo
   // submit do botão.
 
-  handleSubmit = (event) => {
+  handleReset = () => {
+    console.log(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  clicar= (event) => {
     event.preventDefault();
+    this.handleReset();
+    const { onClick } = this.props;
+    onClick();
   }
 
   render() {
@@ -48,42 +63,42 @@ class AddMovie extends React.Component {
         com o mesmo nome da chave que está no state no qual a minha função pega
         dinamicamente e em seguida chamo a dita função que altera o estado. */}
         <InputTitle
-          onClick={ title }
+          value={ title }
           name="title"
           handleChange={ this.handleChange }
         />
         <InputSubtitle
-          onClick={ subtitle }
+          value={ subtitle }
           name="subtitle"
           handleChange={ this.handleChange }
         />
         <InputImagem
-          onClick={ imagePath }
+          value={ imagePath }
           name="imagePath"
           handleChange={ this.handleChange }
         />
         <InputSinopse
-          onClick={ storyline }
+          value={ storyline }
           name="storyline"
           handleChange={ this.handleChange }
         />
         <InputAvaliacao
-          onClick={ rating }
+          value={ rating }
           name="rating"
           handleChange={ this.handleChange }
         />
         <InputGenero
-          onClick={ genre }
+          value={ genre }
           name="genre"
           handleChange={ this.handleChange }
         />
-        <ButtonAddMovie />
+        <ButtonAddMovie onClick={ this.clicar } />
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.string.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;
