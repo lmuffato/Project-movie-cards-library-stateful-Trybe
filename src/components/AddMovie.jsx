@@ -31,9 +31,6 @@ class AddMovie extends React.Component {
   handleChange = ({ target: { value, name } }) => {
     this.setState({ [name]: value });
   }
-  // função que captura o evento do botão para submeter
-  // linha 31 o prevent defalt previne a página de recarregar como já do tipo
-  // submit do botão.
 
   handleReset = () => {
     console.log(this.state);
@@ -58,10 +55,6 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {/* linha 40, chamo a minha prop onClik que eu defini na const
-        e aplico o valor da chave do state correspondente, adiciono o valor name
-        com o mesmo nome da chave que está no state no qual a minha função pega
-        dinamicamente e em seguida chamo a dita função que altera o estado. */}
         <InputTitle
           value={ title }
           name="title"
