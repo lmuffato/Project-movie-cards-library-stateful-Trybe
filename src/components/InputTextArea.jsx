@@ -1,19 +1,18 @@
 import React from 'react';
 
-class InputCheckbox extends React.Component {
+class InputTextArea extends React.Component {
   render() {
-    const { bookmarkedOnly,
-      onBookmarkedChange,
+    const { onSearchTextChange,
+      searchText,
       textLabel,
       datatestid,
       datatestidLabel } = this.props;
     return (
       <label htmlFor="search-input" data-testid={ datatestidLabel }>
         { textLabel }
-        <input
-          type="checkbox"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
+        <textarea
+          value={ searchText }
+          onChange={ onSearchTextChange }
           data-testid={ datatestid }
         />
       </label>
@@ -21,4 +20,4 @@ class InputCheckbox extends React.Component {
   }
 }
 
-export default InputCheckbox;
+export default InputTextArea;
