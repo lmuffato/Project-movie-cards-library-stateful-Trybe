@@ -27,7 +27,7 @@ class InputNumber extends React.Component {
 
 InputNumber.propTypes = {
   handle: PropTypes.func.isRequired,
-  inputValue: PropTypes.string.isRequired,
+  inputValue: PropTypes.number.isRequired,
 };
 
 export default InputNumber;
