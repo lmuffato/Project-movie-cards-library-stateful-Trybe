@@ -5,6 +5,7 @@ class AddMovie extends Component {
   constructor() {
     super();
 
+    this.handleValue = this.handleValue.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -15,9 +16,31 @@ class AddMovie extends Component {
     };
   }
 
+  handleValue({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({ [name]: value });
+  }
+
   render() {
+    const { title } = this.state;
     return (
-      <form data-testid="add-movie-form" />
+      <form data-testid="add-movie-form">
+        <label
+          data-testid="title-input-label"
+          htmlFor="titulo"
+        >
+          Título
+          <input
+            name="title"
+            onChange={ this.handleValue }
+            data-testid="title-input"
+            value={ title }
+            id="titulo"
+            type="text"
+          />
+        </label>
+      </form>
     );
   }
 }
