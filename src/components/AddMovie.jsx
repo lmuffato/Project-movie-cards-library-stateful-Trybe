@@ -14,6 +14,18 @@ export default class AddMovie extends React.Component {
       
   }
 
+  addNewMovie = (ev) => {
+    ev.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   changeHandler = (ev) => {
     this.setState({[ev.target.name]: ev.target.value});
   }
@@ -37,6 +49,7 @@ export default class AddMovie extends React.Component {
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
+        <button type="submit" data-testid="send-button" onClick={ this.addNewMovie }>Adicionar filme</button>
       </form>
     );
   }
