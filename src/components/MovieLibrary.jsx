@@ -1,7 +1,7 @@
 // implement AddMovie component here
 
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -11,7 +11,7 @@ class MovieLibrary extends Component {
     super(props);
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    // this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -28,10 +28,6 @@ class MovieLibrary extends Component {
     };
   }
 
-  onClick(ev) {
-    ev.preventDefault();
-  }
-
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -46,19 +42,19 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: propTypes.shape({
-    title: propTypes.string,
-    subtitle: propTypes.string,
-    storyline: propTypes.string,
-    rating: propTypes.oneOfType([propTypes.string, propTypes.number]),
-    imagePath: propTypes.string,
+  movies: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    imagePath: PropTypes.string,
   }).isRequired,
 };
 
