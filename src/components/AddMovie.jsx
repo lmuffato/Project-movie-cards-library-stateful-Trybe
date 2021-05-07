@@ -44,7 +44,7 @@ class AddMovie extends Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={this.handleSubmit}>
+      <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
@@ -82,7 +82,7 @@ class AddMovie extends Component {
 
         <button
           data-testid="send-button"
-          type="submit"
+          type="button"
           onClick={ this.handleSubmit }
         >
           Adicionar filme
