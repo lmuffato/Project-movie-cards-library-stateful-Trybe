@@ -2,6 +2,8 @@
 
 // onClick, uma callback
 import React from 'react';
+import GeneroMovie from './GeneroMovie';
+import AvaliacaoMovie from './AvaliacaoMovie';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -24,7 +26,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -67,29 +68,8 @@ class AddMovie extends React.Component {
               data-testid="storyline-input"
             />
           </label>
-          <label htmlFor="avaliação" data-testid="rating-input-label">
-            Avaliação
-            <input
-              type="number"
-              name="rating"
-              value={ rating }
-              onChange={ this.handleChange }
-              data-testid="rating-input"
-            />
-          </label>
-          <label htmlFor="gênero" data-testid="genre-input-label">
-            Gênero
-            <select 
-              name="genre"
-              value={ genre }
-              onChange={ this.handleChange }
-              data-testid="genre-input"
-            >
-              <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>
-              <option data-testid="genre-option" value="thriller">Suspense</option>
-            </select>
-          </label>
+          <AvaliacaoMovie avaliacao={ rating } handlechange={ this.handleChange } />
+          <GeneroMovie genre={ genre } handlechange={ this.handleChange } />
         </form>
       </div>
     );

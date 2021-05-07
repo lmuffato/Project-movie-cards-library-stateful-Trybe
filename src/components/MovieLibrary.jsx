@@ -19,16 +19,16 @@ class MovieLibrary extends Component {
     super();
 
     this.state = {
-      searchText: 'oi',
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: 'ted',
+      selectedGenre: '',
     };
   }
 
   handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox'
-      ? target.checkbox : target.value;
+      ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
