@@ -21,7 +21,8 @@ class AddMovie extends React.Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value });
+
+    this.setState({ [name]: name === 'rating' ? Number(value) : value });
   };
 
   render() {
