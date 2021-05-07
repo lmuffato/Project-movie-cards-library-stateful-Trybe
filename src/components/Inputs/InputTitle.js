@@ -8,6 +8,7 @@ class InputTitle extends React.Component {
       <label data-testid="title-input-label" htmlFor="Título">
         Título
         <input
+          className="add-movie-input"
           onChange={ handleAddMovie }
           data-testid="title-input"
           value={ title }

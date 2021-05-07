@@ -98,3 +98,61 @@ body {
   margin-top: 5px;
   padding: 12px 20px;
 }
+
+.search-bar, .add-movie {
+  color: white;
+  margin: 10px;
+}
+
+.search-bar-form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-bar-input {
+  margin-left: 5px;
+}
+
+.add-movie-form {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.add-movie-form label {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.add-movie-input {
+  margin: 10px;
+  width: 300px;
+}
+
+.add-rating {
+  max-width: 50px;
+}
+
+textarea {
+  max-height: 100px;
+  max-width: 300px;
+}
+
+.add-select {
+  max-width: 100px;
+}
+
+.add-movie-button {
+  background-color: black;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.125);
+  color: rgb(219, 0, 0);
+  padding: 5px 10px;
+  width: 100px;
+}
+

@@ -8,6 +8,7 @@ class InputGenre extends React.Component {
       <label data-testid="genre-input-label" htmlFor="Gênero">
         Gênero
         <select
+          className="add-movie-input add-select"
           onChange={ handleAddMovie }
           data-testid="genre-input"
           value={ genre }

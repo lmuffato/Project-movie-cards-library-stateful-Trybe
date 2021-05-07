@@ -49,8 +49,8 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
-        <form data-testid="add-movie-form">
+      <div className="add-movie">
+        <form className="add-movie-form" data-testid="add-movie-form">
           <InputTitle
             handleAddMovie={ this.handleAddMovie }
             title={ title }
@@ -65,6 +65,7 @@ class AddMovie extends React.Component {
           <InputGenre handleAddMovie={ this.handleAddMovie } genre={ genre } />
 
           <button
+            className="add-movie-button"
             data-testid="send-button"
             type="submit"
             onClick={ this.handleSubmit }
