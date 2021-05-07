@@ -119,8 +119,15 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  addMovie = () => {
     const { onClick } = this.props;
+    const { state } = this;
+
+    onClick(state);
+  }
+
+  render() {
+    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline,
       rating, genre } = this.state;
     return (
@@ -133,10 +140,10 @@ class AddMovie extends React.Component {
           {this.inputRating(rating)}
           {this.inputGenre(genre)}
           <button
-            type="submit"
+            type="button"
             data-testid="send-button"
             onClick={ () => {
-              onClick();
+              this.addMovie();
               this.resetCampus();
             } }
           >
