@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -14,8 +15,6 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
     };
-
-    this.handleCheckboxEvent = this.handleCheckboxEvent.bind(this);
   }
 
   handleCheckboxEvent = (event) => {
@@ -26,9 +25,7 @@ class MovieLibrary extends React.Component {
       });
 
       const checkMovies = movies.filter((movie) => movie.bookmarked === true);
-      this.setState({
-        movies: checkMovies,
-      });
+      this.setStateMovie(checkMovies);
     }
   }
 
@@ -42,20 +39,32 @@ class MovieLibrary extends React.Component {
     const searchMovies = movies.filter((movie) => movie.title.includes(searchText)
     || movie.subtitle.includes(searchText)
     || movie.storyline.includes(searchText));
-    this.setState({
-      movies: searchMovies,
-    });
+    this.setStateMovie(searchMovies);
   }
 
   handleSelectGenre = (event) => {
     const { movies } = this.props;
-    console.log(event.target.value);
     this.setState({
       selectedGenre: event.target.value,
     });
     const selectGenre = movies.filter((movie) => movie.genre === event.target.value);
+    this.setStateMovie(selectGenre);
+  }
+
+  handleAddMovie = (state) => {
+    console.log('entrou');
+    const { movies } = this.props;
+    movies.push({ title: state.title,
+      subtitle: state.subtitle,
+      imagePath: state.imagePath,
+      rating: state.rating,
+      genre: state.genre });
+    this.setStateMovie(movies);
+  }
+
+  setStateMovie = (newMovies) => {
     this.setState({
-      movies: selectGenre,
+      movies: newMovies,
     });
   }
 
@@ -75,6 +84,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleSelectGenre }
         />
         <MovieList movies={ newMovies } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
 
     );
