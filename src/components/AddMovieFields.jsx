@@ -13,7 +13,7 @@ class AddMovieFields extends React.Component {
             data-testid="storyline-input"
             onChange={ atualizaEstado }
             value={ storyline }
-            type="textarea"
+            name="storyline"
           />
         </label>
         <label htmlFor="number-in" data-testid="rating-input-label">
@@ -24,6 +24,7 @@ class AddMovieFields extends React.Component {
             value={ rating }
             onChange={ atualizaEstado }
             type="number"
+            name="rating"
           />
         </label>
         <label htmlFor="select-in" data-testid="genre-input-label">
@@ -33,6 +34,7 @@ class AddMovieFields extends React.Component {
             data-testid="genre-input"
             value={ genre }
             onChange={ atualizaEstado }
+            name="genre"
           >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>

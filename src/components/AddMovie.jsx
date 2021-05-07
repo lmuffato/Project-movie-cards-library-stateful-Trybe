@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovieFields from './AddMovieFields';
 
 class AddMovie extends React.Component {
@@ -16,17 +17,21 @@ class AddMovie extends React.Component {
   }
 
   submeterForms = (event) => {
-  //  this.setState({ subtitle: event.target.value });
-    event.prevenDefault();
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   atualizaEstado = (event) => {
-    this.setState({ title: event.target.value });
-    this.setState({ subtitle: event.target.value });
-    this.setState({ imagePath: event.target.value });
-    this.setState({ storyline: event.target.value });
-    this.setState({ rating: event.target.value });
-    this.setState({ genre: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -41,6 +46,7 @@ class AddMovie extends React.Component {
             onChange={ this.atualizaEstado }
             data-testid="title-input"
             type="text"
+            name="title"
           />
         </label>
         <label htmlFor="text-subtitle" data-testid="subtitle-input-label">
@@ -51,6 +57,7 @@ class AddMovie extends React.Component {
             onChange={ this.atualizaEstado }
             data-testid="subtitle-input"
             type="text"
+            name="subtitle"
           />
         </label>
         <label htmlFor="text-image" data-testid="image-input-label">
@@ -61,6 +68,7 @@ class AddMovie extends React.Component {
             onChange={ this.atualizaEstado }
             data-testid="image-input"
             type="text"
+            name="imagePath"
           />
         </label>
         <AddMovieFields
@@ -69,9 +77,14 @@ class AddMovie extends React.Component {
           genre={ genre }
           atualizaEstado={ this.atualizaEstado }
         />
+        <button type="submit" data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
