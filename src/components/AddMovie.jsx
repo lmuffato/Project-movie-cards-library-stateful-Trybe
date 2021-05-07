@@ -67,14 +67,10 @@ class AddMovie extends React.Component {
         <Title title={ title } handleTitle={ this.handleTitle } />
         <SubTitle subtitle={ subtitle } handlesub={ this.handlesub } />
         <Img imagePath={ imagePath } handleimg={ this.handleimg } />
-        <Sinopse storyLine={ storyLine } handleStory={ handleStory } />
+        <Sinopse storyLine={ storyLine } handleStory={ this.handleStory } />
         <Rating rating={ rating } handleRating={ this.handleRating } />
-        <Genre genre={ genre } handleGenre={ handleGenre } />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ this.addMovie }
-        >
+        <Genre genre={ genre } handleGenre={ this.handleGenre } />
+        <button type="button" data-testid="send-button" onClick={ this.addMovie }>
           Adicionar filme
         </button>
       </form>
