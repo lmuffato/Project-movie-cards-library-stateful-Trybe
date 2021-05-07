@@ -1,110 +1,98 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import GenreOption from './AddMovieComponents/GenreOption';
+import Input from './AddMovieComponents/Inputs';
+import TextArea from './AddMovieComponents/TextArea';
 
 class AddMovie extends React.Component {
-  constructor(){
-    super()
-
-    this.changeHandle = this.changeHandle.bind(this)
-
-    this.state={
+  constructor() {
+    super();
+    this.changeHandle = this.changeHandle.bind(this);
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
-   changeHandle({ target }) {
+  changeHandle({ target }) {
     const { name, value } = target;
     this.setState({
-      [name]: value 
-    })
+      [name]: value,
+    });
   }
 
-
-  render(){
-
-
-    
-    return(
-      <div>
-        <label
-        data-testid="title-input-label"
-        >
-        Título
-          <input 
-          data-testid="title-input"
-          type="text"
-          name="title"
-          value={this.state.title}
-          onChange={this.changeHandle}
-          >
-          </input>
-        </label>
-
-        <label>
-        Subtítulo
-          <input 
-          type="text"
-          name="subtitle"
-          data-testid="subtitle-input"
-          value={this.state.subtitle}
-          onChange={this.changeHandle}
-          >
-          </input>
-        </label>
-
-        <label>
-        Imagem
-          <input 
-          type="text"
-          name="imagePath"
-          value={this.state.imagePath}
-          onChange={this.changeHandle}
-          >
-          </input>
-        </label>
-
-        <label>
-        Sinopse
-          <input 
-          type="text"
-          name="storyline"
-          value={this.state.storyline}
-          onChange={this.changeHandle}
-          >
-          </input>
-        </label>
-
-        <label>
-        Avaliação
-          <input 
-          type="number"
-          name="rating"
-          value={this.state.rating}
-          onChange={this.changeHandle}
-          >
-          </input>
-        </label>
-
-        <label>
-        Gênero
-          <select 
-          value={this.state.genre}
-          name="selectedGenre">
-          onChange={this.changeHandle}
-          <option name="selectedGenre" value="">Todos</option>
-          <option name="selectedGenre" value="action">Ação</option>
-          <option name="selectedGenre" value="comedy">Comédia</option>
-          <option name="selectedGenre" value="thriller">Suspense</option>
-          </select>
-        </label>
-
-      </div>
-    )
+  render() {
+    const { newMovieCreator } = this.props;
+    const { genre, rating, storyline, imagePath, subtitle, title } = this.state;
+    const titleInput = {
+      datatestid: 'title-input-label',
+      datatestidinput: 'title-input',
+      name: 'title',
+      info: 'Título',
+    };
+    const subtitleInput = {
+      datatestid: 'subtitle-input-label',
+      datatestidinput: 'subtitle-input',
+      name: 'subtitle',
+      info: 'Subtítulo',
+    };
+    const imageInput = {
+      datatestid: 'image-input-label',
+      datatestidinput: 'image-input',
+      name: 'imagePath',
+      info: 'Imagem',
+    };
+    const ratingInput = {
+      datatestid: 'rating-input-label',
+      datatestidinput: 'rating-input',
+      type: 'number',
+      name: 'rating',
+      info: 'Avaliação',
+    };
+    const storyLine = {
+      datatestid: 'storyline-input-label',
+      datatestidinput: 'storyline-input',
+      name: 'storyline',
+      info: 'Sinopse',
+    };
+    return (
+      <form data-testid="add-movie-form">
+        <Input { ...titleInput } change={ this.changeHandle } value={ title } />
+        <Input { ...subtitleInput } change={ this.changeHandle } value={ subtitle } />
+        <Input { ...imageInput } change={ this.changeHandle } value={ imagePath } />
+        <TextArea { ...storyLine } change={ this.changeHandle } value={ storyline } />
+        <Input { ...ratingInput } change={ this.changeHandle } value={ rating } />
+        <GenreOption change={ this.changeHandle } genre={ genre } />
+        <button type="submit" onClick={ newMovieCreator } data-testid="send-button">
+          Adicionar filme
+        </button>
+      </form>
+    );
   }
 }
+
+AddMovie.defaultProps = {
+  title: PropTypes.string,
+  genre: PropTypes.string,
+  subtitle: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  imagePath: PropTypes.string,
+  newMovieCreator: PropTypes.func,
+};
+
+AddMovie.propTypes = {
+  title: PropTypes.string,
+  genre: PropTypes.string,
+  subtitle: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  imagePath: PropTypes.string,
+  newMovieCreator: PropTypes.func,
+};
 
 export default AddMovie;
