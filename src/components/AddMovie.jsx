@@ -29,6 +29,8 @@ export default class AddMovie extends React.Component {
         <input type="text" name="imagePath" value={ imagePath } data-testid="image-input" onChange={this.changeHandler}/>
         <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
         <textarea name="storyline" value={ storyline } data-testid="storyline-input" onChange={this.changeHandler}></textarea>
+        <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
+        <input type="number" name="rating" data-testid="rating-input" value={ rating } onChange={this.changeHandler}></input>
       </form>
     );
   }
