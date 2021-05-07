@@ -58,7 +58,14 @@ class AddMovie extends React.Component {
   handleXablau = () => {
     const { onClick } = this.props;
     onClick(this.state);
-    console.log('handlexablau');
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
