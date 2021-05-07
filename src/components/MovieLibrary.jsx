@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+// Tive dificuldades para posicionar a lógica do filtro, e encontrei informações no trabalho desenvolvido
+// pela Elisa França: https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/52/files
+
+// Resolução da função de adicionar filmes baseada na resolução de Pollyana, PR-GitHUb: https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/8/files
+// Refatorado o filtro de filmes, para limpar render, adicionado em função, como na resolução da Pollyana.
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -15,13 +20,16 @@ class MovieLibrary extends Component {
       movies,
     };
     this.searchBarHandleChange = this.searchBarHandleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
   }
 
-  /*   onClick({ addNewMovie }) {
-    this.setState((state) => ({
-      movies: [...state.movies, addNewMovie],
-    }));
-  } */
+  onClick(state) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
 
   searchBarHandleChange({ target }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -30,25 +38,32 @@ class MovieLibrary extends Component {
     });
   }
 
-  render() {
-    let { movies } = this.state;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
-    const fByText = movies.filter((movie) => movie.title.includes(searchText)
-    || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
-    const fByBookmarked = movies.filter((movie) => movie.bookmarked === true);
-    const fBySelectedGenre = movies.filter((movie) => movie.genre === selectedGenre);
-
+  filterMovie() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filtredMovies = movies;
     if (searchText) {
-      movies = fByText;
+      filtredMovies = movies.filter((movie) => (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
     }
     if (bookmarkedOnly) {
-      movies = fByBookmarked;
+      filtredMovies = movies.filter((movie) => (
+        movie.bookmarked === true
+      ));
     }
     if (selectedGenre) {
-      movies = fBySelectedGenre;
+      filtredMovies = movies.filter((movie) => (
+        movie.genre === selectedGenre
+      ));
     }
+    return filtredMovies;
+  }
 
+  render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const movies = this.filterMovie();
     return (
       <main>
 
@@ -69,15 +84,17 @@ class MovieLibrary extends Component {
           />
         </section>
         <div>
-          <AddMovie onClick={ this.onClick } />
+          <AddMovie
+            onClick={ this.onClick }
+          />
         </div>
       </main>
     );
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.objects).isRequired,
-};
-
 export default MovieLibrary;
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object),
+}.isRequired;

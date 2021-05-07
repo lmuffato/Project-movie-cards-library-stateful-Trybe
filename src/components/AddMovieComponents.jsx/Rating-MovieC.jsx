@@ -20,9 +20,13 @@ class RatingMovieC extends React.Component {
   }
 }
 
+export default RatingMovieC;
+
 RatingMovieC.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
   handleChange: PropTypes.func.isRequired,
 };
 
-export default RatingMovieC;
+RatingMovieC.defaultProps = {
+  rating: 'undefined',
+};
