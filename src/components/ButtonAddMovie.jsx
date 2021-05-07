@@ -1,12 +1,12 @@
 import React from 'react';
 
-class InputsAddMovie extends React.Component {
+class ButtonAddMovie extends React.Component {
   render() {
     return (
       <button
         type="submit"
         data-testid="send-button"
-        // onClick={ () => this.hendowClick(onClick) }
+        // { ...handleSubmit }
       >
         Adicionar filme
       </button>
@@ -14,4 +14,4 @@ class InputsAddMovie extends React.Component {
   }
 }
 
-export default InputsAddMovie;
+export default ButtonAddMovie;

@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputGenero extends React.Component {
   render() {
+    const { onClick, handleChange } = this.props;
     return (
       <div>
         <label
@@ -12,8 +14,9 @@ class InputGenero extends React.Component {
           <select
             id="genre-input"
             data-testid="genre-input"
-            // value={ genre }
-            // onChange={ genre }
+            name="genre"
+            value={ onClick }
+            onChange={ handleChange }
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -24,5 +27,8 @@ class InputGenero extends React.Component {
     );
   }
 }
-
+InputGenero.propTypes = {
+  onClick: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 export default InputGenero;

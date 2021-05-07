@@ -5,15 +5,15 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       searchText: '',
-//       bookmarkedOnly: false,
-//       selectedGenre: '',
-//       movies: 'movies',
-//     };
-//   }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     searchText: '',
+  //     bookmarkedOnly: false,
+  //     selectedGenre: '',
+  //     movies: 'movies',
+  //   };
+  // }
 
   render() {
     const { movies } = this.props;

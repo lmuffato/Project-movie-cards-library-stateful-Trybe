@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputTitle extends React.Component {
   render() {
+    const { onClick, handleChange } = this.props;
     return (
       <div>
         <label
@@ -12,14 +14,18 @@ class InputTitle extends React.Component {
           <input
             id="preenche-form"
             data-testid="title-input"
+            name="title"
             type="text"
-            // value={ title }
-            // onChange={ title }
+            value={ onClick }
+            onChange={ handleChange }
           />
         </label>
       </div>
     );
   }
 }
-
+InputTitle.propTypes = {
+  onClick: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 export default InputTitle;

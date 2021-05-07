@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class InputsAvaliacao extends React.Component {
+class InputAvaliacao extends React.Component {
   render() {
+    const { onClick, handleChange } = this.props;
     return (
       <div>
         <label
@@ -13,13 +15,17 @@ class InputsAvaliacao extends React.Component {
             id="rating-form"
             data-testid="rating-input"
             type="number"
-            // value={ rating }
-            // onChange={ rating }
+            value={ onClick }
+            onChange={ handleChange }
           />
         </label>
       </div>
     );
   }
 }
+InputAvaliacao.propTypes = {
+  onClick: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
-export default InputsAvaliacao;
+export default InputAvaliacao;
