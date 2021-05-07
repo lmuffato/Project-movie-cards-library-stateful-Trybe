@@ -41,9 +41,10 @@ class addMovie extends React.Component {
       title: { value: title, labelText: 'Título' },
       subtitle: { value: subtitle, labelText: 'Subtítulo' },
       image: { value: imagePath, labelText: 'Imagem' },
-      storyline: { value: storyline, labelText: 'Sinopse' },
+      storyline: { Tag: 'textarea', value: storyline, labelText: 'Sinopse' },
       rating: { type: 'number', value: rating, labelText: 'Avaliação' },
       genre: {
+        Tag: 'select',
         value: genre,
         labelText: 'Gênero',
         options: [
@@ -55,12 +56,14 @@ class addMovie extends React.Component {
     };
     return (
       <form data-testid="add-movie-form">
-        <Field { ...this.getProp(propList, 'title') } />
-        <Field { ...this.getProp(propList, 'subtitle') } />
-        <Field { ...this.getProp(propList, 'image') } />
-        <Field Tag="textarea" { ...this.getProp(propList, 'storyline') } />
-        <Field { ...this.getProp(propList, 'rating') } />
-        <Field Tag="select" { ...this.getProp(propList, 'genre') } />
+        {
+          Object.keys(propList).map((field) => (
+            <Field
+              key={ field }
+              { ...this.getProp(propList, field) }
+            />
+          ))
+        }
         <button type="button" onClick={ this.addMovie } data-testid="send-button">
           Adicionar filme
         </button>

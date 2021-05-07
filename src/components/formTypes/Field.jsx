@@ -27,13 +27,15 @@ class Field extends React.Component {
             'data-testid': `${id}-input`,
           },
             options?.map((option) => (
-              <option
-                key={ option.value }
-                value={ option.value }
-                data-testid={ option.id }
-              >
-                {option.text}
-              </option>
+              React.createElement(
+                'option',
+                {
+                  key: option.value,
+                  value: option.value,
+                  'data-testid': option.id,
+                },
+                option.text,
+              )
             )),
         ),
         labelText,
