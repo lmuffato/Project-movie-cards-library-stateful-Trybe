@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class TextArea extends React.Component {
   render() {
-    const { onSearchTextChange, searchText, } = this.props;
+    const { onSearchTextChange, searchText } = this.props;
     return (
       <label htmlFor="search-sinopse" data-testid="storyline-input-label">
         Sinopse
@@ -17,3 +18,8 @@ export default class TextArea extends React.Component {
     );
   }
 }
+
+TextArea.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};

@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Subtitle extends React.Component {
   render() {
-    const { onSearchTextChange, searchText, } = this.props;
+    const { onSearchTextChange, searchText } = this.props;
     return (
       <label htmlFor="search-subtitle" data-testid="subtitle-input-label">
         Subtítulo
@@ -17,3 +18,8 @@ export default class Subtitle extends React.Component {
     );
   }
 }
+
+Subtitle.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};

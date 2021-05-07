@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Select extends React.Component {
   render() {
@@ -20,3 +21,8 @@ export default class Select extends React.Component {
     );
   }
 }
+
+Select.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};

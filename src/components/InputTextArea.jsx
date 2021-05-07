@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputTextArea extends React.Component {
   render() {
@@ -19,5 +20,13 @@ class InputTextArea extends React.Component {
     );
   }
 }
+
+InputTextArea.propTypes = {
+  textLabel: PropTypes.string.isRequired,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  datatestid: PropTypes.string.isRequired,
+  datatestidLabel: PropTypes.string.isRequired,
+};
 
 export default InputTextArea;

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -21,15 +21,22 @@ class MovieLibrary extends React.Component {
     this.callBackBookMarked = this.callBackBookMarked.bind(this);
     this.callBackSelectGenre = this.callBackSelectGenre.bind(this);
     this.functionAddMovie = this.functionAddMovie.bind(this);
+    this.filterArr = this.filterArr.bind(this);
   }
 
-  filterArr(value) {
-  
+  filterArr(event) {
+    const { movie, searchText } = this.state;
+    const { value } = event.target;
+    this.setState({ searchText: value });
+    if (searchText !== '') {
+      const arr = movie.filter((film) => film.title === searchText);
+      console.log(arr);
+    }
   }
 
   callBackSelectGenre(event) {
     const { value } = event.target;
-    const { movie } = this.state;
+    // const { movie } = this.state;
     const arr = films.filter((film) => film.genre === value);
     if (value === '') return this.setState({ movie: films });
     this.setState({ selectedGenre: value, movie: arr });
@@ -44,7 +51,7 @@ class MovieLibrary extends React.Component {
 
   callBackSearchText(event) {
     const { value } = event.target;
-    const { searchText, movie } = this.state;
+    const { movie } = this.state;
     const arr = movie.filter((film) => film.title === value);
     this.setState({ searchText: value, movie: arr });
   }
@@ -59,7 +66,7 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.callBackSearchText }
+          onSearchTextChange={ this.filterArr }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.callBackBookMarked }
           selectedGenre={ selectedGenre }
@@ -72,8 +79,8 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.array.isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
