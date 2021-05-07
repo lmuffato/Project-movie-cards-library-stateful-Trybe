@@ -26,7 +26,12 @@ class MovieLibrary extends React.Component {
   }
 
   onAddMovieClick = async (newMovieData) => {
+    const { movies } = this.state;
     console.log(newMovieData);
+    await this.setState({ movies: movies.push(newMovieData) });
+    console.log(movies)
+    console.log(this.state)
+    console.log(typeof this.filteredMovies())
   }
 
   textMatch = (str, substr) => str.toLowerCase().includes(substr.toLowerCase());
@@ -38,11 +43,8 @@ class MovieLibrary extends React.Component {
     if (searchText !== '') {
       renderedMovieList = renderedMovieList.filter((mov) => {
         let hasMatch = false;
-        const textInputsToCheck = ['title', 'subtitle', 'storyline'];
-        textInputsToCheck.forEach((t) => {
-          if (this.textMatch(mov[t], searchText)) {
-            hasMatch = true;
-          }
+        ['title', 'subtitle', 'storyline'].forEach((t) => {
+          if (this.textMatch(mov[t], searchText)) hasMatch = true;
         });
 
         return hasMatch;
