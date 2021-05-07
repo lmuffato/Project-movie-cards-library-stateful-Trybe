@@ -81,3 +81,19 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.form-search-bar {
+  align-items: center;
+  background-color: #343a40;
+  display: flexbox;
+  flex-direction: column-reverse;
+  justify-content: center;
+  color: #f8f9fa;
+}
+.input-search-bar {
+  align-items: center;
+  background-color: #09c748;
+  display: flex;
+  justify-content: center;
+  color: #f8f9fa;
+}
