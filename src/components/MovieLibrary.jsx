@@ -26,7 +26,7 @@ class MovieLibrary extends Component {
         <SearchBar SearchText={ input } />
         <MovieList movies={ movies } />
         <p>addTexto</p>
-        <AddMovie onClick={ this.addMovie } />
+        <AddMovie />
       </div>
     );
   }
