@@ -69,7 +69,7 @@ class AddMovie extends React.Component {
               data-testid="storyline-input"
             />
           </label>
-          <AvaliacaoMovie avaliacao={ rating } handlechange={ this.handleChange } />
+          <AvaliacaoMovie rating={ rating } handlechange={ this.handleChange } />
           <GeneroMovie genre={ genre } handlechange={ this.handleChange } />
         </form>
       </div>
