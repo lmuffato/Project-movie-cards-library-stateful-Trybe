@@ -24,7 +24,7 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath } = this.state;
-    const { storyline } = this.state;
+    const { storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label
@@ -82,6 +82,20 @@ class AddMovie extends Component {
             id="sinopse"
             cols="30"
             rows="10"
+          />
+        </label>
+        <label
+          data-testid="rating-input-label"
+          htmlFor="avaliacao"
+        >
+          Avaliação
+          <input
+            name="rating"
+            onChange={ this.handleValue }
+            data-testid="rating-input"
+            value={ rating }
+            id="avaliacao"
+            type="number"
           />
         </label>
       </form>
