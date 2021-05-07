@@ -14,7 +14,7 @@ export default class SearchBar extends React.Component {
           <input id="input" type="text" data-testid="text-input" value={ searchText } onChange={ onSearchTextChange }/>
         </label>
         <SearchFavorite onBookmarkedChange={ onBookmarkedChange } bookmarkedOnly={ bookmarkedOnly } />
-        <SearchGenre />
+        <SearchGenre onSelectedGenreChange={ onSelectedGenreChange } selectedGenre={ selectedGenre }/>
       </form>
     );
   }

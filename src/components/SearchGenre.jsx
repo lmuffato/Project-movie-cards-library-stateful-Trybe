@@ -5,9 +5,9 @@ export default class SearchGenre extends React.Component {
     const { onSelectedGenreChange, selectedGenre } = this.props;
     return (
       <div>
-        <label htmlFor="inputselect" data-testid="select-input-label">
+        <label data-testid="select-input-label">
         Filtrar por gênero
-          <select id="inputselect" data-testid="select-input" value={ selectedGenre } onChange={ onSelectedGenreChange }>
+          <select data-testid="select-input" value={ selectedGenre } onChange={ onSelectedGenreChange }>
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
               <option value="comedy" data-testid="select-option">Comédia</option>
