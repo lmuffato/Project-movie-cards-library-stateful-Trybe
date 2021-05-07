@@ -15,7 +15,7 @@ export default class AddMovie extends React.Component {
   }
 
   changeHandler = (ev) => {
-    this.setState({title: ev.target.value});
+    this.setState({[ev.target.name]: ev.target.value});
   }
   render() {
     const {subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -23,6 +23,8 @@ export default class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input name="title" data-testid="title-input" value={ title } onChange={ this.changeHandler } />
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
+        <input type="text" name="subtitle" data-testid="subtitle-input" value={ subtitle } onChange={this.changeHandler}/>
       </form>
     );
   }
