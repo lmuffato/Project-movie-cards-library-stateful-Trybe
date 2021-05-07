@@ -11,6 +11,7 @@ class MovieLibrary extends Component {
     super(props);
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -27,9 +28,14 @@ class MovieLibrary extends Component {
     };
   }
 
+  onClick(ev) {
+    ev.preventDefault();
+  }
+
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -40,7 +46,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

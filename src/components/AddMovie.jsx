@@ -8,12 +8,13 @@ import MovieStoryLine from './MovieComponents/MovieStoryline';
 import MovieRating from './MovieComponents/MovieRating';
 import MovieGenre from './MovieComponents/MovieGenre';
 import MovieButtonAdd from './MovieComponents/MovieButtonAdd';
+import MovieCard from './MovieCard';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,12 +34,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick() {
-    //
-  }
-
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
@@ -48,7 +46,7 @@ class AddMovie extends React.Component {
         <MovieStoryLine handleChange={ this.handleChange } value={ storyLine } />
         <MovieRating handleChange={ this.handleChange } value={ rating } />
         <MovieGenre handleChange={ this.handleChange } value={ genre } />
-        <MovieButtonAdd handleClick={ this.handleClick } />
+        <MovieButtonAdd onClick={ onCLick() } />
       </form>
     );
   }
