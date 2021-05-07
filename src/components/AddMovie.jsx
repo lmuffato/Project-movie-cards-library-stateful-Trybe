@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import MovieTitle from './MovieComponents/MovieTitle';
 import MovieSubtitle from './MovieComponents/MovieSubtitle';
@@ -13,7 +13,8 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    // this.onClick = this.onClick.bind(this);
+    this.resetState = this.resetState.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,8 +34,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClick(ev) {
-    ev.preventDefault();
+  resetState() {
+    // ev.preventDefault();
     this.setState({
       subtitle: '',
       title: '',
@@ -47,7 +48,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
@@ -61,7 +62,10 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ this.onClick }
+          onClick={ () => {
+            onClick();
+            this.resetState();
+          } }
         >
           Adicionar filme
         </button>
@@ -70,8 +74,8 @@ class AddMovie extends React.Component {
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
