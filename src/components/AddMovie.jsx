@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-    //     genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
   };
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <div>
@@ -77,7 +77,19 @@ class AddMovie extends React.Component {
               data-testid="rating-input"
             />
           </label>
-          {/* <label htmlFor="gênero">gênero</label> */}
+          <label htmlFor="gênero" data-testid="genre-input-label">
+            Gênero
+            <select 
+              name="genre"
+              value={ genre }
+              onChange={ this.handleChange }
+              data-testid="genre-input"
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
+          </label>
         </form>
       </div>
     );
