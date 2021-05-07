@@ -1,15 +1,20 @@
 import React from 'react';
 import SearchFavorite from './SearchFavorite';
+import SearchGenre from './SearchGenre';
 
+// export junto a classe visto no curso da Udemy indicado pelo
+// Lucas Pedroso - https://www.udemy.com/course/react-para-iniciantes-free/
 export default class SearchBar extends React.Component {
   render() {
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="input">
+        <label htmlFor="input" data-testid="text-input-label">
           Inclui o texto
-          <input id="input" type="text" />
+          <input id="input" type="text" data-testid="text-input" value={ searchText } onChange={ onSearchTextChange }/>
         </label>
-        <SearchFavorite />
+        <SearchFavorite onBookmarkedChange={ onBookmarkedChange } bookmarkedOnly={ bookmarkedOnly } />
+        <SearchGenre />
       </form>
     );
   }
