@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      moviesList: movies,
     };
   }
 
@@ -38,8 +38,29 @@ class MovieLibrary extends Component {
     });
   }
 
+  // Requisitos 18 e 19 feitos com ajuda de Maria Luiza Rodrigues - Turma 10 - Tribo A
+  filterFavorites = (arr) => {
+    const { bookmarkedOnly } = this.state;
+    return arr.filter(({ bookmarked }) => bookmarked === bookmarkedOnly);
+  }
+
+  filterGenre = (arr) => {
+    const { selectedGenre } = this.state;
+    return arr.filter(({ genre }) => genre === selectedGenre);
+  }
+
+  filterText = (arr) => {
+    const { searchText } = this.state;
+    return arr.filter(({ title, subtitle, storyline }) => title.includes(searchText)
+      || subtitle.includes(searchText) || storyline.includes(searchText));
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let { moviesList } = this.state;
+    if (bookmarkedOnly) moviesList = this.filterFavorites(moviesList);
+    if (selectedGenre) moviesList = this.filterGenre(moviesList);
+    if (searchText) moviesList = this.filterText(moviesList);
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -51,7 +72,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.genreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ moviesList } />
         <AddMovie />
       </div>
     );
