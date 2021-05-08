@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBarInput from './SearchBarInput';
+import SearchBarSelect from './SearchBarSelect';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      hello: 'world',
-    };
-  }
-
   render() {
     const {
       searchText,
@@ -20,36 +14,49 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
 
+    const theGenreList = [
+      { value: '', text: 'Todos' },
+      { value: 'action', text: 'Ação' },
+      { value: 'comedy', text: 'Comédia' },
+      { value: 'thriller', text: 'Suspense' },
+    ];
+
     return (
       <form
         data-testid="search-bar-form"
         className="form-search-bar"
       >
         <SearchBarInput
-          type={ 'text' }
+          type="text"
           value={ searchText }
           eventHandle={ onSearchTextChange }
-          labelText={"Inclui o texto"}
+          labelText="Inclui o texto"
         />
-        <br></br>
+        <br />
         <SearchBarInput
-          type={ 'checkbox' }
+          type="checkbox"
           value={ bookmarkedOnly }
           eventHandle={ onBookmarkedChange }
-          labelText={"Mostrar somente favoritos"}
+          labelText="Mostrar somente favoritos"
+        />
+        <SearchBarSelect
+          selectValue={ selectedGenre }
+          selectOnChange={ onSelectedGenreChange }
+          genreList={ theGenreList }
+          genreTitle="Filtrar por gênero"
         />
       </form>
-    )
+    );
   }
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 // observe os padrões dos requesitos 2 a 4 e o req 5
