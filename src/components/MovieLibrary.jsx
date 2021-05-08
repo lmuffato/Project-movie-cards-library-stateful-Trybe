@@ -7,12 +7,20 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies,
     };
+  }
+
+  handleSubmit(newMovie) {
+    this.setState((oldState) => ({
+      movies: [...oldState.movies, newMovie],
+    }));
   }
 
   onSearchTextChange = (event) => {
@@ -41,9 +49,9 @@ class MovieLibrary extends React.Component {
     let filteredMovies = movies;
     if (searchText) {
       filteredMovies = movies.filter((movie) => (
-        movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText)
-        || movie.storyline.includes(searchText)
+        movie.title.toLowerCase().includes(searchText)
+        || movie.subtitle.toLowerCase().includes(searchText)
+        || movie.storyline.toLowerCase().includes(searchText)
       ));
     }
     if (bookmarkedOnly) {
@@ -69,7 +77,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie handleSubmit={ this.handleSubmit } />
+        <AddMovie onClick={ this.handleSubmit } />
       </div>
     );
   }

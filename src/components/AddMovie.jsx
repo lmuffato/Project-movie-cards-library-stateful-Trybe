@@ -7,8 +7,9 @@ import StorylineInput from './StorylineInput';
 import RatingInput from './RatingInput';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -19,12 +20,7 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = (event) => {
-    const { value } = event.target;
-    this.setState({ [event.target.name]: value });
-  }
-
-  handleSubmit = () => {
+  handleSubmit() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -35,6 +31,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+  }
+
+  handleChange = (event) => {
+    const { value } = event.target;
+    this.setState({ [event.target.name]: value });
   }
 
   render() {
