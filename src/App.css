@@ -85,16 +85,16 @@ body {
 .form-search-bar {
   align-items: center;
   background-color: #343a40;
+  color: #f8f9fa;
   display: flexbox;
   flex-direction: column-reverse;
   justify-content: center;
-  color: #f8f9fa;
 }
 
 .input-search-bar {
-  color: #f8f9fa;
   align-items: center;
   background-color: #09c748;
+  color: #f8f9fa;
   display: flex;
   justify-content: center;
 }
