@@ -5,6 +5,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import Proptypes from 'prop-types';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -14,19 +15,24 @@ export default class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: 'movies',
-    }
+    };
   }
 
   addMovie = () => {
     console.log('teste');
   }
+
   render() {
     const { onClick } = this.props;
     return (
       <div>
         <SearchBar />
-        <AddMovie onClick={ this.addMovie }/>
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
+}
+
+MovieLibrary.proptypes = {
+  onClick: Proptypes.func,
 }
