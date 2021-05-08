@@ -92,9 +92,9 @@ body {
 }
 
 .input-search-bar {
+  color: #f8f9fa;
   align-items: center;
   background-color: #09c748;
   display: flex;
   justify-content: center;
-  color: #f8f9fa;
 }
