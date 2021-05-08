@@ -18,7 +18,7 @@ class AddMovieSelect extends React.Component {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
-    )
+    );
   }
 }
 
