@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <h2>Começando mesmo que tarde, sigo avançando, estou voltando!!</h2>
     </div>
   );
 }
