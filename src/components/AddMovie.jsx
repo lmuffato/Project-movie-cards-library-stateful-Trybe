@@ -1,5 +1,6 @@
 import React from 'react';
 import AddMovieInput from './AddMovieInput';
+import AddMovieSelect from './AddMovieSelect';
 import AddMovieTextArea from './AddMovieTextArea';
 
 class AddMovie extends React.Component {
@@ -10,20 +11,25 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: '0',
-      genre: '',
+      rating: 0,
+      genre: 'action',
     };
     this.handleTitle = this.handleTitle.bind(this);
     this.handleSubtitle = this.handleSubtitle.bind(this);
     this.handleImagePath = this.handleImagePath.bind(this);
     this.handleStoryline = this.handleStoryline.bind(this);
     this.handleRating = this.handleRating.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  handleSelect(event) {
+    const { value } = event.target;
+    this.setState({ genre: value });
   }
 
   handleRating(event) {
     const { value } = event.target;
     this.setState({ rating: value });
-    console.log(this.state.rating);
   }
 
   handleImagePath(event) {
@@ -49,7 +55,7 @@ class AddMovie extends React.Component {
   render() {
     const {
       title, subtitle, imagePath,
-      storyline, rating,
+      storyline, rating, genre,
     } = this.state;
 
     return (
@@ -77,10 +83,15 @@ class AddMovie extends React.Component {
           method={ this.handleRating }
           whatData="rating"
           text="Avaliação"
+          type="number"
         />
         <AddMovieTextArea
           storyline={ storyline }
           method={ this.handleStoryline }
+        />
+        <AddMovieSelect
+          genre={ genre }
+          method={ this.handleSelect }
         />
       </form>
     );
