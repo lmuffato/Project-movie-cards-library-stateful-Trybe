@@ -66,7 +66,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    console.log('hello world');
   }
 
   render() {
@@ -116,6 +115,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func };
+
+AddMovie.defaultProps = { onClick: undefined };
 
 export default AddMovie;
