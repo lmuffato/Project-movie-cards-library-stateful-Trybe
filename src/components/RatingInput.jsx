@@ -10,6 +10,9 @@ class RatingInput extends React.Component {
           Avaliação
           <input
             type="number"
+            step={ 0.1 }
+            min={ 0 }
+            max={ 5 }
             name="rating"
             data-testid="rating-input"
             id="rating-input"
