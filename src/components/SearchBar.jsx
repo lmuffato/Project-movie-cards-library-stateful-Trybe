@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// SearchBar relalizada com ajuda deste vídeo https://trybecourse.slack.com/archives/C01A9A2N93R/p1611099712344200?thread_ts=1610062707.482400&cid=C01A9A2N93R
+// htmlFor = htmlFor property reflects the value of the for content property. That means that this script-accessible property is used to set and read the value of the content property for , which is the ID of the label's associated control element. Ajuda de Rafael Medeiros
 class SearchBar extends React.Component {
   render() {
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
