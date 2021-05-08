@@ -12,7 +12,7 @@ class Subtitle extends React.Component {
         Subtítulo
         <input
           id="subtitle-input"
-          datatestid="subtitle-input"
+          data-testid="subtitle-input"
           value={ value }
           onChange={ onChange }
         />

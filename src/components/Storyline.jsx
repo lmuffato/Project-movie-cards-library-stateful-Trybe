@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ImagePath extends React.Component {
+class Storyline extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
       <label
-        htmlFor="image-input"
-        data-testid="image-input-label"
+        htmlFor="storyline-input"
+        data-testid="storyline-input-label"
       >
-        Imagem
-        <input
-          id="image-input"
-          type="text"
-          data-testid="image-input"
+        Sinopse
+        <textarea
+          id="storyline-input"
+          data-testid="storyline-input"
           value={ value }
           onChange={ onChange }
         />
@@ -22,14 +21,13 @@ class ImagePath extends React.Component {
   }
 }
 
-ImagePath.defaultProps = {
+Storyline.defaultProps = {
   value: '',
   onChange: '',
 };
 
-ImagePath.propTypes = {
+Storyline.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
-
-export default ImagePath;
+export default Storyline;
