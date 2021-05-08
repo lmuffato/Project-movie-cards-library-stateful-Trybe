@@ -25,10 +25,10 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onAddMovieClick = async (newMovieData) => {
-    const { movies } = this.state;
-    movies.push(newMovieData);
-    await this.setState({ movies });
+  onAddMovieClick = (newMovieData) => {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovieData],
+    }));
   }
 
   textMatch = (str, substr) => str.toLowerCase().includes(substr.toLowerCase());
