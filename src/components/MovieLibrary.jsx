@@ -6,20 +6,25 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+//   constructor(props) {
+//     super(props);
 
-  onClick = (calback) => calback();
+  //   }
+
+  onClick = (newMovie) => {
+    const { movies } = this.props;
+    return movies.push(newMovie);
+  };
 
   render() {
     const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
+        <button type="submit" onClick={ this.loga }>oi</button>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie onclick={ this.onClick } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
@@ -32,6 +37,7 @@ MovieLibrary.propTypes = {
     storyline: PropTypes.string,
     rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
+    push: PropTypes.func,
   }).isRequired,
 };
 
