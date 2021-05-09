@@ -13,6 +13,13 @@ const inputs = [
     name: 'subtitle',
     type: 'text',
   },
+  {
+    label: 'image-input-label',
+    text: 'Imagem',
+    input: 'image-input',
+    name: 'imagePath',
+    type: 'text',
+  },
 ];
 
 export default inputs;
