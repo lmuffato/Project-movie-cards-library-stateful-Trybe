@@ -64,7 +64,8 @@ class MovieLibrary extends Component {
 
   filteredGenre() {
     const { selectedGenre, movies } = this.state;
-    const filteredMovies = movies.filter((value) => value.genre === selectedGenre);
+    const filteredMovies = movies.filter((value) => (selectedGenre === ''
+      ? true : value.genre === selectedGenre));
     this.setState({
       filteredMovies,
     });
