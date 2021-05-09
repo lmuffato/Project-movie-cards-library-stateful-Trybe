@@ -13,7 +13,7 @@ class SearchBar extends Component {
       onSelectedGenreChange } = this.props;
 
     return (
-      <form action="" data-testid="search-bar-form">
+      <form data-testid="search-bar-form">
         <InputGeneric
           name="text"
           type="text"
