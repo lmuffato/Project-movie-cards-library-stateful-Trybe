@@ -46,15 +46,14 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
-  addMovie = (event) => {
-    event.preventDefault();
+  addMovie = () => {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
@@ -71,7 +70,7 @@ class AddMovie extends React.Component {
         <Sinopse storyLine={ storyLine } handleStory={ this.handleStory } />
         <Rating rating={ rating } handleRating={ this.handleRating } />
         <Genre genre={ genre } handleGenre={ this.handleGenre } />
-        <button type="submit" data-testid="send-button" onClick={ this.addMovie }>
+        <button type="button" data-testid="send-button" onClick={ this.addMovie }>
           Adicionar filme
         </button>
       </form>

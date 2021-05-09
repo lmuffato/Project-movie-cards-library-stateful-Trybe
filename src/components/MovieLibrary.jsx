@@ -17,8 +17,22 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  test = () => {
-    console.log('asda');
+  newMovie = (movie) => {
+    const { movies } = this.state;
+    const newState = { movies: [...movies, movie] };
+    this.setState((newState));
+  }
+
+  SearchText = (event) => {
+    this.setState({ searchText: event.target.value });
+  }
+
+  BookMarkChange = (event) => {
+    this.setState({ bookmarkedOnly: event.target.value });
+  }
+
+  SelectedGenre = (event) => {
+    this.setState({ selectedGenre: event.target.value });
   }
 
   render() {
@@ -29,14 +43,14 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          // onSearchTextChange="callback"
+          onSearchTextChange={ this.SearchText }
           bookmarkedOnly={ bookmarkedOnly }
-          // onBookmarkedChange="callback"
+          onBookmarkedChange={ this.BookMarkChange }
           selectedGenre={ selectedGenre }
-          // onSelectedGenreChange="uma callback"
+          onSelectedGenreChange={ this.SelectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.test } />
+        <AddMovie onClick={ this.newMovie } />
       </div>
     );
   }
