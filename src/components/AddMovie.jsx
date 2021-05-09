@@ -88,9 +88,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         {this.titleInputDisplay(title)}
-        ;
         {this.subTitleInputDisplay(subtitle)}
-        ;
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
