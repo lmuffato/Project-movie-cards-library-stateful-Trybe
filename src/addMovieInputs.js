@@ -5,8 +5,13 @@ const inputs = [
     input: 'title-input',
     name: 'title',
     type: 'text',
-    // value: 'title',
-    // onChange: this.getProps().onSearchTextChange,
+  },
+  {
+    label: 'subtitle-input-label',
+    text: 'Subtítulo',
+    input: 'subtitle-input',
+    name: 'subtitle',
+    type: 'text',
   },
 ];
 
