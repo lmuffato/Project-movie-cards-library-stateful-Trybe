@@ -27,6 +27,14 @@ const inputs = [
     input: 'storyline-input',
     name: 'storyline',
   },
+  {
+    CustomTag: 'input',
+    label: 'rating-input-label',
+    text: 'Avaliação',
+    input: 'rating-input',
+    name: 'rating',
+    type: 'number',
+  },
 ];
 
 export default inputs;

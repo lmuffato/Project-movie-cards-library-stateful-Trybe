@@ -15,6 +15,7 @@ class Input extends React.Component {
       onChange,
     } = this.props;
 
+    // https://stackoverflow.com/questions/33471880/dynamic-tag-name-in-jsx-and-react
     return (
       <label htmlFor={ input } data-testid={ label }>
         {text}
@@ -31,6 +32,7 @@ class Input extends React.Component {
   }
 }
 
+// https://reactjs.org/docs/typechecking-with-proptypes.html
 Input.propTypes = {
   CustomTag: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
@@ -38,7 +40,10 @@ Input.propTypes = {
   input: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   checked: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 };
