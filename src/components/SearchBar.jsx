@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from './Input';
 import Select from './Select';
 
 class SearchBar extends React.Component {
-  render() {
+  constructor() {
+    super();
+
+    this.getProps = this.getProps.bind(this);
+    this.getInputs = this.getInputs.bind(this);
+  }
+
+  getProps() {
     const {
       searchText,
       onSearchTextChange,
@@ -13,33 +21,51 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
 
+    return {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    };
+  }
+
+  getInputs() {
+    const inputs = [
+      {
+        label: 'text-input-label',
+        text: 'Inclui o texto:',
+        input: 'text-input',
+        name: '',
+        type: 'text',
+        value: this.getProps().searchText,
+        onChange: this.getProps().onSearchTextChange,
+      },
+      {
+        label: 'checkbox-input-label',
+        text: 'Mostrar somente favoritos',
+        input: 'checkbox-input',
+        name: '',
+        type: 'checkbox',
+        checked: this.getProps().bookmarkedOnly,
+        onChange: this.getProps().onBookmarkedChange,
+      },
+    ];
+
+    return inputs;
+  }
+
+  render() {
+    const inputs = this.getInputs();
+
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            data-testid="text-input"
-            name=""
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            name=""
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
+        {inputs.map((input) => <Input key={ input.input } { ...input } />)}
 
         <Select
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
+          value={ this.getProps().selectedGenre }
+          onChange={ this.getProps().onSelectedGenreChange }
         />
       </form>
     );
