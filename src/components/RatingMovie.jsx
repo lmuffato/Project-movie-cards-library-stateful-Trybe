@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class RatingMovie extends React.Component {
+export default class RatingMovie extends React.Component {
   render() {
     const { item, callback } = this.props;
     return (
@@ -23,5 +23,3 @@ RatingMovie.propTypes = {
   item: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
 };
-
-export default RatingMovie;

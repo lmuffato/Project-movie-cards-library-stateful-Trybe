@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class GenreMovie extends React.Component {
+export default class GenreMovie extends React.Component {
   render() {
     const { item, callback } = this.props;
     return (
@@ -23,8 +23,6 @@ class GenreMovie extends React.Component {
 }
 
 GenreMovie.propTypes = {
-  item: PropTypes.string.isRequired,
-  callback: PropTypes.func.isRequired,
-};
-
-export default GenreMovie;
+  item: PropTypes.string,
+  callback: PropTypes.func,
+}.isRequired;
