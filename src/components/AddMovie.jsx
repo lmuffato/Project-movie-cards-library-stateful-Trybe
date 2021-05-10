@@ -50,28 +50,28 @@ export default class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <Title
-          title={ title }
-          handleChange={ this.handleChange }
+          name={ title }
+          onChange={ this.handleChange }
         />
         <Subtitle
-          subtitle={ subtitle }
-          handleChange={ this.handleChange }
+          name={ subtitle }
+          onChange={ this.handleChange }
         />
         <ImagePath
-          imagePath={ imagePath }
-          handleChange={ this.handleChange }
+          name={ imagePath }
+          onChange={ this.handleChange }
         />
         <Storyline
-          storyline={ storyline }
-          handleChange={ this.handleChange }
+          name={ storyline }
+          onChange={ this.handleChange }
         />
         <Rating
-          rating={ rating }
-          handleChange={ this.handleChange }
+          name={ rating }
+          onChange={ this.handleChange }
         />
         <Genre
-          genre={ genre }
-          handleChange={ this.handleChange }
+          name={ genre }
+          onChange={ this.handleChange }
         />
         <button
           type="submit"
