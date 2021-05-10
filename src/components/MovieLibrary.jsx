@@ -4,11 +4,11 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends React.Component {
+class MovieLibrary extends React.Component { // resuisito 15
   constructor(props) {
     super(props);
-    const { movies } = this.props;
-    this.state = {
+    const { movies } = this.props; // requisito 15
+    this.state = { // requisito 16
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
@@ -17,10 +17,10 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterMovie = this.filterMovie.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
+  // do AddMovie
   onClick(state) {
     const { movies } = this.state;
     this.setState({
@@ -35,6 +35,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // requisito 18
   onBookmarkedChange({ target }) {
     const { checked } = target;
     if (checked) {
@@ -48,6 +49,7 @@ class MovieLibrary extends React.Component {
     }
   }
 
+  // requisito 18
   onSelectedGenreChange({ target }) {
     const { name, value } = target;
     this.setState({
@@ -55,6 +57,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // requisito 18
   filterMovie() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = movies;
@@ -83,8 +86,9 @@ class MovieLibrary extends React.Component {
     const movies = this.filterMovie();
     return (
       <div>
-        <h2> My awesome movie library </h2>
+        <h2> Movie Library </h2>
         <SearchBar
+        // requisito 17
           onSearchTextChange={ this.onSearchTextChange }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
@@ -95,6 +99,7 @@ class MovieLibrary extends React.Component {
         <MovieList
           movies={ movies }
         />
+        {/* requisito 19 */}
         <AddMovie
           onClick={ this.onClick }
         />
