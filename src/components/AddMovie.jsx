@@ -1,4 +1,10 @@
 import React from 'react';
+import TitleMovie from './TitleMovie';
+import SubtitleMovie from './SubtitleMovie';
+import ImgMovie from './ImgMovie';
+import StorylineMovie from './StorylineMovie';
+import GenreMovie from './GenreMovie';
+import RatingMovie from './RatingMovie';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -8,66 +14,31 @@ export default class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-    //   rating: 0,
-    //   genre: 'action',
-    // };
+      rating: 0,
+      genre: 'action',
+
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
-
     this.setState({
       [name]: value,
     });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
-          <label htmlFor="input-title" data-testid="title-input-label">
-            Título
-            <input
-              type="text"
-              name="title"
-              value={ title }
-              onChange={ (this.handleChange) }
-              data-testid="title-input"
-            />
-          </label>
-          <label htmlFor="input-subTitle" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              value={ subtitle }
-              onChange={ (this.handleChange) }
-              data-testid="subtitle-input"
-            />
-          </label>
-          <label htmlFor="input-img" data-testid="image-input-label">
-            Imagem
-            <input
-              type="text"
-              name="imagePath"
-              value={ imagePath }
-              onChange={ (this.handleChange) }
-              data-testid="image-input"
-            />
-          </label>
-          <label htmlFor="storyline-input" data-testid="storyline-input-label">
-            Sinopse
-            <textarea
-              type="text"
-              name="stoyline"
-              value={ storyline }
-              onChange={ (this.handleChange) }
-              data-testid="storyline-input"
-            />
-          </label>
+          <TitleMovie item={ title } callback={ this.handleChange } />
+          <SubtitleMovie item={ subtitle } callback={ this.handleChange } />
+          <ImgMovie item={ imagePath } callback={ this.handleChange } />
+          <StorylineMovie item={ storyline } callback={ this.handleChange } />
+          <RatingMovie item={ rating } callback={ this.handleChange } />
+          <GenreMovie item={ genre } callback={ this.handleChange } />
 
         </form>
       </section>
