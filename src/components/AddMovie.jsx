@@ -1,5 +1,3 @@
-// implement AddMovie component here
-// .
 import React from 'react';
 import PropTypes from 'prop-types';
 // Esse componente renderizará um formulário que permite adicionar na biblioteca
@@ -87,6 +85,15 @@ class AddMovie extends React.Component {
               type="text"
               value={ subtitle }
               onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="Adiciona Imagem" data-testid="image-input-label">
+            Imagem
+            <input
+              id="Adiciona Imagem"
+              data-testid="image-input"
+            //   value={ subtitle }
+            //   onChange={ this.handleChange }
             />
           </label>
         </forms>
