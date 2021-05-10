@@ -25,14 +25,12 @@ class AddMovie extends React.Component {
   }
 
   handleTextChange(e) {
-    console.log('Mudanca ocorrida');
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
 
   handleClick(e) {
     e.preventDefault();
-    console.log('Botao pressionado');
     this.setState({
       subtitle: '',
       title: '',
