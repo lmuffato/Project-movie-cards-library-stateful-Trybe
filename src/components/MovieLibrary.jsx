@@ -6,24 +6,64 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-//   constructor(props) {
-//     super(props);
+  constructor(props) {
+    super(props);
+    const { movies } = props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+  }
 
-  //   }
+  // onSearchTextChange = ({ target: { value } }) => {
+  //   this.setState({ searchText: value });
+  // }
+
+  handleValue = ({ target }) => {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({ [name]: value });
+  }
 
   onClick = (newMovie) => {
-    const { movies } = this.props;
+    const { movies } = this.state;
     return movies.push(newMovie);
   };
 
+  filteresMovies = () => {
+    const { movies, searchText } = this.state;
+    return movies
+      .filter(({ title, subtitle, storyline }) => title
+        .includes(searchText) || subtitle
+        .includes(searchText) || storyline
+        .includes(searchText));
+  };
+
   render() {
-    const { movies } = this.props;
+    // const { movies } = this.state;
+    // const { onBookmarkedChange, onSearchTextChange, onSelectedGenreChange } = this;
+    const { handleValue } = this;
+    const { bookmarkedOnly, searchText, selectedGenre } = this.state;
+    // const filteresMovies = movies
+    //   .filter(({ title, subtitle, storyline }) => title
+    //     .includes(searchText) || subtitle
+    //     .includes(searchText) || storyline
+    //     .includes(searchText));
+    const fil = this.filteresMovies();
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <button type="submit" onClick={ this.loga }>oi</button>
-        <SearchBar />
-        <MovieList movies={ movies } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ handleValue }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ handleValue }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ handleValue }
+        />
+        <MovieList movies={ fil } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
