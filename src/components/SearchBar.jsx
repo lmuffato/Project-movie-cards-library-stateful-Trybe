@@ -61,6 +61,7 @@ class SearchBar extends React.Component {
       {
         label: 'select-input-label',
         select: 'select-input',
+        name: 'filter',
         text: 'Filtrar por gênero',
         value: this.getProps().selectedGenre,
         onChange: this.getProps().onSelectedGenreChange,
