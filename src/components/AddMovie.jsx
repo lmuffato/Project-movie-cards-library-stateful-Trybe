@@ -3,7 +3,7 @@ import React from 'react';
 
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -11,12 +11,15 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
   render() {
     return (
       <div>
-        <form data-testid="add-movie-form"></form>
+        <form data-testid="add-movie-form">
+          <input type="text" />
+          <button onClick={this.props.onClick}></button>
+        </form>
       </div>
     );
   }
