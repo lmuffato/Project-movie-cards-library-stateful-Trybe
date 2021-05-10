@@ -1,16 +1,17 @@
 import React from 'react';
-import Header from './components/Header';
+import HeaderComponent from './components/Header';
 import './App.css';
-import MovieLibrary from './components/MovieLibrary';
+import MovieLibraryComponent from './components/MovieLibrary';
 import movies from './data';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <MovieLibrary movies={ movies } />
-    </div>
-  );
-}
+const create = (tag, props = {}) => (...fns) => React.createElement(
+  tag, props, [...fns].map((fn) => fn()),
+);
+
+const App = () => {
+  const Header = create(HeaderComponent);
+  const MovieLibrary = create(MovieLibraryComponent, { movies });
+  return create('div', { className: 'App' })(Header, MovieLibrary);
+};
 
 export default App;
