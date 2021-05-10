@@ -1,3 +1,6 @@
+// correçao dos problemas decorrentes da reformulação dos elementos
+// do movie feita com ajuda do Rafael, Murilo e Adelino em call feita
+
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
