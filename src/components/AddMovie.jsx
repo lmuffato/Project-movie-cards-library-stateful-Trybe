@@ -8,6 +8,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
+    this.submitHandle = this.submitHandle.bind(this);
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.getStates = this.getStates.bind(this);
 
@@ -50,6 +51,22 @@ class AddMovie extends React.Component {
     };
   }
 
+  submitHandle(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+
+    onClick(this.getStates());
+
+    this.setState({
+      title: '',
+      subtitle: '',
+      storyline: '',
+      imagePath: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     // const { onClick } = this.props;
 
@@ -79,6 +96,14 @@ class AddMovie extends React.Component {
             />
           );
         })}
+
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.submitHandle }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
