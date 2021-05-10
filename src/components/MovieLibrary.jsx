@@ -78,6 +78,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.state;
     const filteredByTextMovies = this.getMoviesBySearchText(movies);
     const filteredMovies = this.getFilteredMovies(filteredByTextMovies);
@@ -88,6 +89,9 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
           onSearchTextChange={ this.onSearchTextChange }
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
         />
         <MovieList movies={ filteredMovies } />
         <AddMovie onClick={ this.onClick } />
