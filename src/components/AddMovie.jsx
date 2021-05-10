@@ -96,6 +96,16 @@ class AddMovie extends React.Component {
             //   onChange={ this.handleChange }
             />
           </label>
+          <label htmlFor="Adiciona Sinopse" data-testid="storyline-input-label">
+            Sinopse
+            <input
+              id="Adiciona Sinopse"
+              data-testid="storyline-input"
+              type="text"
+            //   value={ subtitle }
+            //   onChange={ this.handleChange }
+            />
+          </label>
         </forms>
       </div>
     );
