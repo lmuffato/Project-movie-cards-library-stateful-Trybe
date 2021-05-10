@@ -24,9 +24,8 @@ export default class MovieLibrary extends React.Component {
   }
 
   onSelectedGenreChange = (event) => {
-    this.setState({ selectedGenre: event.target.value} );
+    this.setState({ selectedGenre: event.target.value });
   }
-
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
