@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.clearButton = this.clearButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -18,6 +20,19 @@ class AddMovie extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  clearButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     });
   }
   // Criar função para não consumir tamanho do render
@@ -136,9 +151,19 @@ class AddMovie extends Component {
             {this.genreFunction()}
           </div>
         </div>
+        <button
+          data-testid="send-button"
+          onClick={ this.clearButton }
+          type="button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
+AddMovie.propTypes = ({
+  onClick: PropTypes.func,
+}).isRequired;
 export default AddMovie;
