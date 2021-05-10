@@ -5,6 +5,7 @@ import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
+// Codado via pair programming com Vinicius Rodrigues
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
