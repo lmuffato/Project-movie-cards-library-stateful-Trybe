@@ -2,10 +2,10 @@ import React from 'react';
 // implement AddMovie component here
 
 class AddMovie extends React.Component {
-  render(){
+  render() {
     return (
       <div>oi</div>
-    )
+    );
   }
 }
 
