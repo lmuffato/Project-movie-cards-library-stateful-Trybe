@@ -68,9 +68,19 @@ class MovieLibrary extends React.Component {
     return movies;
   }
 
+  getFilteredMovies(movies) {
+    const { bookmarkedOnly, selectedGenre } = this.state;
+    if (!bookmarkedOnly && !selectedGenre) return movies;
+    if (!bookmarkedOnly && selectedGenre) return this.getMoviesByGenre(movies);
+    if (bookmarkedOnly && !selectedGenre) return this.getBookmarkedMovies(movies);
+
+    return this.getBookmarkedMovies(this.getMoviesByGenre(movies));
+  }
+
   render() {
     const { movies } = this.state;
-    const filteredMovies = this.getMoviesBySearchText(movies);
+    const filteredByTextMovies = this.getMoviesBySearchText(movies);
+    const filteredMovies = this.getFilteredMovies(filteredByTextMovies);
 
     return (
       <div>
