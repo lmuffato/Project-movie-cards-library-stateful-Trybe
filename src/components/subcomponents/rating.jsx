@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+// import Proptypes from 'prop-types';
 
 export default class Rating extends React.Component {
   render() {
@@ -43,7 +43,7 @@ export default class Rating extends React.Component {
   }
 }
 
-Rating.propTypes = {
-  rating: Proptypes.number, 
-  changeHandler: Proptypes.string,
-}
+// Rating.propTypes = {
+//   rating: Proptypes.number,
+//   changeHandler: Proptypes.string,
+// };

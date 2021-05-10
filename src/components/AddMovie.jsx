@@ -2,7 +2,7 @@
 // que explicou a lógica do botão para validar o evento onClick
 
 import React from 'react';
-import Proptypes from 'prop-types';
+// import Proptypes from 'prop-types';
 import Title from './subcomponents/title';
 import Subtitle from './subcomponents/subtitle';
 import Image from './subcomponents/image';
@@ -85,12 +85,12 @@ export default class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = {
-  title: Proptypes.string,
-  subtitle: Proptypes.string,
-  imagePath: Proptypes.string,
-  storyline: Proptypes.string,
-  rating: Proptypes.number,
-  genre: Proptypes.string,
-  onClick: Proptypes.func,
-};
+// AddMovie.propTypes = {
+//   title: Proptypes.string,
+//   subtitle: Proptypes.string,
+//   imagePath: Proptypes.string,
+//   storyline: Proptypes.string,
+//   rating: Proptypes.number,
+//   genre: Proptypes.string,
+//   onClick: Proptypes.func,
+// };

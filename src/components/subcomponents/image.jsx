@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+// import Proptypes from 'prop-types';
 
 export default class Image extends React.Component {
   render() {
@@ -25,7 +25,7 @@ export default class Image extends React.Component {
   }
 }
 
-Image.propTypes = {
-  image: Proptypes.string,
-  changeHandler: Proptypes.string,
-}
+// Image.propTypes = {
+//   image: Proptypes.string,
+//   changeHandler: Proptypes.string,
+// };

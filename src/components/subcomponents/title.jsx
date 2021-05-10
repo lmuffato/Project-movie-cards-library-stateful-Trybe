@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 export default class Title extends React.Component {
   render() {
-    const { title, /*changeHandler*/ } = this.props;
+    const { title /* changeHandler */ } = this.props;
     return (
       <div>
         <label

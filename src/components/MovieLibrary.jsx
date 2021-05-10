@@ -3,9 +3,9 @@
 // para state do pai com chamado de callback
 
 import React from 'react';
+// import Proptypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import Proptypes from 'prop-types';
 
 export default class MovieLibrary extends React.Component {
   // constructor(props) {
@@ -33,6 +33,6 @@ export default class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  onClick: Proptypes.func,
-}
+// MovieLibrary.propTypes = {
+//   onClick: Proptypes.func,
+// };

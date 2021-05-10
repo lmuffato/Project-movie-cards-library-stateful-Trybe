@@ -1,12 +1,12 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+// import Proptypes from 'prop-types';
 
 export default class SearchGenre extends React.Component {
   render() {
     const { onSelectedGenreChange, selectedGenre } = this.props;
     return (
       <div>
-        <label htmlFor="select" data-testid="select-input-label">
+          <label htmlFor="select" data-testid="select-input-label">
         Filtrar por gênero
           <select
             name="select"
@@ -25,7 +25,7 @@ export default class SearchGenre extends React.Component {
   }
 }
 
-SearchGenre.propTypes = {
-  onSelectedGenreChange: Proptypes.string,
-  selectedGenre: Proptypes.string,
-}
+// SearchGenre.propTypes = {
+//   onSelectedGenreChange: Proptypes.string,
+//   selectedGenre: Proptypes.string,
+// };

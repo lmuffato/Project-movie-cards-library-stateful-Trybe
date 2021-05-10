@@ -1,5 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+// import Proptypes from 'prop-types';
 
 export default class Genre extends React.Component {
   render() {
@@ -24,7 +24,7 @@ export default class Genre extends React.Component {
   }
 }
 
-Genre.propTypes = {
-  genre: Proptypes.string,
-  changeHandler: Proptypes.string,
-}
+// Genre.propTypes = {
+//   genre: Proptypes.string,
+//   changeHandler: Proptypes.string,
+// };
