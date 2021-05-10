@@ -15,7 +15,9 @@ class SearchBar extends React.Component {
     const { searchText,
       onSearchTextChange,
       bookmarkedOnly,
-      onBookmarkedChange } = this.props;
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
     return (
       <div>
         <forms data-testid="search-bar-form">
@@ -39,6 +41,21 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
             />
           </label>
+          <label htmlFor="FiltrarPorGenero" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              id="FiltrarPorGenero"
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
+              <option value="" data-testid="select-option">Todos</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
+              <option value="thriller" data-testid="select-option">Suspense</option>
+
+            </select>
+          </label>
         </forms>
       </div>
     );
@@ -50,8 +67,8 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  // selectedGenre: PropTypes.string.isRequired,
-  // onSelectedGenreChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 // Esse componente renderizará uma barra com filtros acima da listagem de cartões.
 // Quais cartões serão mostrados no componente <MovieList /> dependerá dos filtros escolhidos.
