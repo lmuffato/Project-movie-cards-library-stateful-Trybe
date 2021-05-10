@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 export default class Storyline extends React.Component {
   render() {
-    const { storyline, changeHandler } = this.props;
+    const { storyline, /*changeHandler*/ } = this.props;
     return (
       <div>
         <label
@@ -24,7 +24,7 @@ export default class Storyline extends React.Component {
   }
 }
 
-Storyline.proptypes = {
+Storyline.propTypes = {
   storyline: Proptypes.string, 
   changeHandler: Proptypes.string,
 }

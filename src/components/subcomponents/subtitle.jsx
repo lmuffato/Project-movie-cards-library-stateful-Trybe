@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 export default class Subtitle extends React.Component {
   render() {
-    const { subtitle, changeHandler } = this.props;
+    const { subtitle, /*changeHandler*/ } = this.props;
     return (
       <div>
         <label
@@ -25,7 +25,7 @@ export default class Subtitle extends React.Component {
   }
 }
 
-Subtitle.proptypes = {
+Subtitle.propTypes = {
   subtitle: Proptypes.string, 
   changeHandler: Proptypes.string,
 }

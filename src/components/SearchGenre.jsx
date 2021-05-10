@@ -25,7 +25,7 @@ export default class SearchGenre extends React.Component {
   }
 }
 
-SearchGenre.proptypes = {
+SearchGenre.propTypes = {
   onSelectedGenreChange: Proptypes.string,
   selectedGenre: Proptypes.string,
 }

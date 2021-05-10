@@ -21,7 +21,7 @@ export default class SearchFavorite extends React.Component {
   }
 }
 
-SearchFavorite.proptypes = {
+SearchFavorite.propTypes = {
   onBookmarkedChange: Proptypes.string, 
   bookmarkedOnly: Proptypes.string,
 }

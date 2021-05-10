@@ -8,15 +8,15 @@ import AddMovie from './AddMovie';
 import Proptypes from 'prop-types';
 
 export default class MovieLibrary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: 'movies',
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     searchText: '',
+  //     bookmarkedOnly: false,
+  //     selectedGenre: '',
+  //     movies: 'movies',
+  //   };
+  // }
 
   addMovie = () => {
     console.log('teste');
@@ -33,6 +33,6 @@ export default class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.proptypes = {
+MovieLibrary.propTypes = {
   onClick: Proptypes.func,
 }

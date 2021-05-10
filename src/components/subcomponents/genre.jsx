@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 export default class Genre extends React.Component {
   render() {
-    const { genre, changeHandler } = this.props;
+    // const { genre, changeHandler } = this.props;
     return (
       <div>
         <label
@@ -24,7 +24,7 @@ export default class Genre extends React.Component {
   }
 }
 
-Genre.proptypes = {
+Genre.propTypes = {
   genre: Proptypes.string,
   changeHandler: Proptypes.string,
 }

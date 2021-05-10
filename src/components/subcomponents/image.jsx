@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 export default class Image extends React.Component {
   render() {
-    const { image, changeHandler } = this.props;
+    // const { image, changeHandler } = this.props;
     return (
       <div>
         <label
@@ -25,7 +25,7 @@ export default class Image extends React.Component {
   }
 }
 
-Image.proptypes = {
+Image.propTypes = {
   image: Proptypes.string,
   changeHandler: Proptypes.string,
 }

@@ -1,7 +1,7 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import SearchFavorite from './SearchFavorite';
 import SearchGenre from './SearchGenre';
-import Proptypes from 'prop-types';
 
 // export junto a classe visto no curso da Udemy indicado pelo
 // Lucas Pedroso - https://www.udemy.com/course/react-para-iniciantes-free/
@@ -40,7 +40,7 @@ export default class SearchBar extends React.Component {
   }
 }
 
-SearchBar.proptypes = {
+SearchBar.propTypes = {
   searchText: Proptypes.string,
   onSearchTextChange: Proptypes.string,
   bookmarkedOnly: Proptypes.string,
