@@ -1,9 +1,9 @@
 import React from 'react';
-// import Proptypes from 'prop-types';
+import Proptypes from 'prop-types';
 
 export default class Storyline extends React.Component {
   render() {
-    const { storyline /* changeHandler */ } = this.props;
+    const { storyline, changeHandler } = this.props;
     return (
       <div>
         <label
@@ -16,7 +16,7 @@ export default class Storyline extends React.Component {
             name="storyline"
             value={ storyline }
             data-testid="storyline-input"
-            onChange={ this.changeHandler }
+            onChange={ changeHandler }
           />
         </label>
       </div>
@@ -24,7 +24,7 @@ export default class Storyline extends React.Component {
   }
 }
 
-// Storyline.propTypes = {
-//   storyline: Proptypes.string,
-//   changeHandler: Proptypes.string,
-// };
+Storyline.propTypes = {
+  storyline: Proptypes.string.isRequired,
+  changeHandler: Proptypes.string.isRequired,
+};

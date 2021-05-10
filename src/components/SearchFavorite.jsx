@@ -1,5 +1,5 @@
 import React from 'react';
-// import Proptypes from 'prop-types';
+import Proptypes from 'prop-types';
 
 export default class SearchFavorite extends React.Component {
   render() {
@@ -21,7 +21,7 @@ export default class SearchFavorite extends React.Component {
   }
 }
 
-// SearchFavorite.propTypes = {
-//   onBookmarkedChange: Proptypes.string,
-//   bookmarkedOnly: Proptypes.string,
-// };
+SearchFavorite.propTypes = {
+  onBookmarkedChange: Proptypes.string.isRequired,
+  bookmarkedOnly: Proptypes.string.isRequired,
+};

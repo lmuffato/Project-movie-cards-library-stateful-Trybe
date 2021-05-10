@@ -2,37 +2,38 @@
 // que auxiliou no entendimento do envio da props
 // para state do pai com chamado de callback
 
-import React from 'react';
+// import React from 'react';
 // import Proptypes from 'prop-types';
-import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import SearchBar from './SearchBar';
+// import AddMovie from './AddMovie';
 
-export default class MovieLibrary extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     searchText: '',
-  //     bookmarkedOnly: false,
-  //     selectedGenre: '',
-  //     movies: 'movies',
-  //   };
-  // }
+// export default class MovieLibrary extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       searchText: '',
+//       bookmarkedOnly: false,
+//       selectedGenre: '',
+//       movies: 'movies',
+//     };
+//   }
 
-  addMovie = () => {
-    console.log('teste');
-  }
+//   addMovie = () => {
+//     console.log('teste');
+//   }
 
-  render() {
-    const { onClick } = this.props;
-    return (
-      <div>
-        <SearchBar />
-        <AddMovie onClick={ this.addMovie } />
-      </div>
-    );
-  }
-}
+//   render() {
+//     const { onClick } = this.props;
+//     return (
+//       <div>
+//         <SearchBar />
+//         <AddMovie onClick={ this.addMovie } />
+//       </div>
+//     );
+//   }
+// }
 
 // MovieLibrary.propTypes = {
-//   onClick: Proptypes.func,
+//   movies: Proptypes.string.isRequired,
+//   onClick: Proptypes.func.isRequired,
 // };
