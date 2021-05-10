@@ -1,8 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Button from './Button';
+import InputText from './InputText';
+import Select from './Select';
+import TextArea from './TextArea';
 
-class App extends React.Component {
-  constructor({ onClick }) {
-    super(onClick);
+class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -11,25 +17,87 @@ class App extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.changeText = this.changeText.bind(this);
+    this.addMovie = this.saveMovie.bind(this);
+  }
+
+  changeText(event) {
+    this.setState({
+      title: event.target.value,
+      subtitle: event.target.value,
+      imagePath: event.target.value,
+      storyline: event.target.value,
+      rating: event.target.value,
+      genre: event.target.value,
+    });
+  }
+
+  saveMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título</label>
-        <input data-testid="title-input" onChange={ this.state.title } />
-
-        <label data-testid="subtitle-input-label">Subtítulo</label>
-        <input data-testid="subtitle-input" onChange={ this.state.subtitle } />
-
-        <label data-testid="image-input-label">Imagem</label>
-        <input data-testid="image-input" onChange={ this.state.imagePath } />
-
-        <label data-testid="storyline-input-label">Sinopse</label>
-        <input data-testid="storyline-input" onChange={ this.state.storyline } />
+        <InputText
+          id="title-input"
+          type="text"
+          text="Título"
+          value={ title }
+          onChange={ this.changeText }
+        />
+        <InputText
+          id="subtitle-input"
+          type="text"
+          text="Subtítulo"
+          value={ subtitle }
+          onChange={ this.changeText }
+        />
+        <InputText
+          id="image-input"
+          type="text"
+          text="Imagem"
+          value={ imagePath }
+          onChange={ this.changeText }
+        />
+        <TextArea
+          id="storyline-input"
+          text="Sinopse"
+          value={ storyline }
+          onChange={ this.changeText }
+        />
+        <InputText
+          id="rating-input"
+          type="number"
+          text="Avaliação"
+          value={ rating }
+          onChange={ this.changeText }
+        />
+        <Select
+          id="genre-input"
+          text="Gênero"
+          value={ genre }
+          onChange={ this.changeText }
+        />
+        <Button onClick={ this.saveMovie } />
       </form>
     );
   }
 }
 
-export default App;
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
+
+export default AddMovie;
