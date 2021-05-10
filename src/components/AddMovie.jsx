@@ -5,6 +5,7 @@ import InputText from './InputText';
 import Select from './Select';
 import TextArea from './TextArea';
 
+// Codado via pair programming com Vinicius Rodrigues
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -18,19 +19,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.changeText = this.changeText.bind(this);
-    this.addMovie = this.saveMovie.bind(this);
-  }
-
-  changeText(event) {
-    this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
-    });
+    this.saveMovie = this.saveMovie.bind(this);
   }
 
   saveMovie() {
@@ -55,40 +44,40 @@ class AddMovie extends React.Component {
           type="text"
           text="Título"
           value={ title }
-          onChange={ this.changeText }
+          onChange={ (event) => this.setState({ title: event.target.value }) }
         />
         <InputText
           id="subtitle-input"
           type="text"
           text="Subtítulo"
           value={ subtitle }
-          onChange={ this.changeText }
+          onChange={ (event) => this.setState({ subtitle: event.target.value }) }
         />
         <InputText
           id="image-input"
           type="text"
           text="Imagem"
           value={ imagePath }
-          onChange={ this.changeText }
+          onChange={ (event) => this.setState({ imagePath: event.target.value }) }
         />
         <TextArea
           id="storyline-input"
           text="Sinopse"
           value={ storyline }
-          onChange={ this.changeText }
+          onChange={ (event) => this.setState({ storyline: event.target.value }) }
         />
         <InputText
           id="rating-input"
           type="number"
           text="Avaliação"
           value={ rating }
-          onChange={ this.changeText }
+          onChange={ (event) => this.setState({ rating: event.target.value }) }
         />
         <Select
           id="genre-input"
           text="Gênero"
           value={ genre }
-          onChange={ this.changeText }
+          onChange={ (event) => this.setState({ genre: event.target.value }) }
         />
         <Button onClick={ this.saveMovie } />
       </form>
