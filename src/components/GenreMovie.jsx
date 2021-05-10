@@ -8,7 +8,7 @@ export default class GenreMovie extends React.Component {
       <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
-          name="genre-select"
+          name="genre"
           value={ item }
           onChange={ callback }
           data-testid="genre-input"
