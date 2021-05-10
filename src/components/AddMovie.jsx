@@ -36,9 +36,9 @@ export default class AddMovie extends React.Component {
 
   addNewMovie = (ev) => {
     ev.preventDefault();
-    this.resetInputs();
     const { onClick } = this.props;
     onClick();
+    this.resetInputs();
   }
 
   changeHandler = (ev) => {
@@ -51,30 +51,30 @@ export default class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <Title
           name={ title }
-          onChange={ this.handleChange }
+          onChange={ this.changeHandler }
         />
         <Subtitle
           name={ subtitle }
-          onChange={ this.handleChange }
+          onChange={ this.changeHandler }
         />
         <ImagePath
           name={ imagePath }
-          onChange={ this.handleChange }
+          onChange={ this.changeHandler }
         />
         <Storyline
           name={ storyline }
-          onChange={ this.handleChange }
+          onChange={ this.changeHandler }
         />
         <Rating
-          name={ rating }
-          onChange={ this.handleChange }
+          value={ rating }
+          onChange={ this.changeHandler }
         />
         <Genre
           name={ genre }
-          onChange={ this.handleChange }
+          onChange={ this.changeHandler }
         />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.addNewMovie }
         >
