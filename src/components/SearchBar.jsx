@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
         label: 'text-input-label',
         text: 'Inclui o texto:',
         input: 'text-input',
-        name: '',
+        name: 'searchText',
         type: 'text',
         value: this.getProps().searchText,
         onChange: this.getProps().onSearchTextChange,
@@ -47,7 +47,7 @@ class SearchBar extends React.Component {
         label: 'checkbox-input-label',
         text: 'Mostrar somente favoritos',
         input: 'checkbox-input',
-        name: '',
+        name: 'bookmarkedOnly',
         type: 'checkbox',
         checked: this.getProps().bookmarkedOnly,
         onChange: this.getProps().onBookmarkedChange,
@@ -61,7 +61,7 @@ class SearchBar extends React.Component {
       {
         label: 'select-input-label',
         select: 'select-input',
-        name: 'filter',
+        name: 'selectedGenre',
         text: 'Filtrar por gênero',
         value: this.getProps().selectedGenre,
         onChange: this.getProps().onSelectedGenreChange,
@@ -97,9 +97,9 @@ class SearchBar extends React.Component {
 
     return (
       <form data-testid="search-bar-form">
-        {inputs.map((input) => <Input key={ input.input } { ...input } />)}
+        {inputs.map((input) => <Input key={ input.name } { ...input } />)}
 
-        {selects.map((select) => <Select key={ select.text } { ...select } />)}
+        {selects.map((select) => <Select key={ select.name } { ...select } />)}
       </form>
     );
   }
