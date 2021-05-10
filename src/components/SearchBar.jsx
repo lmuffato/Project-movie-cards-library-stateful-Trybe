@@ -12,7 +12,10 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange } = this.props;
     return (
       <div>
         <forms data-testid="search-bar-form">
@@ -26,6 +29,16 @@ class SearchBar extends React.Component {
               onChange={ onSearchTextChange }
             />
           </label>
+          <label htmlFor="Mostrar somente favoritos" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input
+              id="Mostrar somente favoritos"
+              data-testid="checkbox-input"
+              type="checkbox"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+            />
+          </label>
         </forms>
       </div>
     );
@@ -35,8 +48,8 @@ class SearchBar extends React.Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
-  // bookmarkedOnly: PropTypes.bool.isRequired,
-  // onBookmarkedChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
   // selectedGenre: PropTypes.string.isRequired,
   // onSelectedGenreChange: PropTypes.func.isRequired,
 };
