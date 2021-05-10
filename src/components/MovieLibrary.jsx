@@ -29,7 +29,9 @@ class MovieLibrary extends Component {
 
   onClick = (newMovie) => {
     const { movies } = this.state;
-    return movies.push(newMovie);
+    // console.log(newMovie);
+    // return movies.push(newMovie);
+    this.setState({ movies: [...movies, newMovie] });
   };
 
   filteresMovies = () => {

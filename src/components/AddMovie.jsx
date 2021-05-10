@@ -28,7 +28,9 @@ class AddMovie extends Component {
 
   callBack = () => {
     const { onClick } = this.props;
-    onClick(this.state);
+    const newMovie = (this.state);
+    console.log(newMovie);
+    onClick(newMovie);
     this.setState(() => ({
       title: '',
       subtitle: '',
