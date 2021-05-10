@@ -175,7 +175,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-  it.skip('Filtre os filmes por categoria quando a `checkbox` relacionada for selecionada', () => {
+  it('Filtre os filmes por categoria quando a `checkbox` relacionada for selecionada', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const select = getByTestId(selectTestId);
 
