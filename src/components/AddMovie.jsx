@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
 
     this.submitHandle = this.submitHandle.bind(this);
     this.onChangeHandle = this.onChangeHandle.bind(this);
-    this.getStates = this.getStates.bind(this);
+    this.getState = this.getState.bind(this);
 
     this.state = {
       title: '',
@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  getStates() {
+  getState() {
     const {
       title,
       subtitle,
@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { onClick } = this.props;
 
-    onClick(this.getStates());
+    onClick(this.getState());
 
     this.setState({
       title: '',
@@ -74,7 +74,7 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         {inputs.map((input) => {
           // https://stackoverflow.com/questions/35939289/how-to-destructure-into-dynamically-named-variables-in-es6
-          const { [input.name]: value } = this.getStates();
+          const { [input.name]: value } = this.getState();
 
           return (<Input
             key={ input.name }
@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
         })}
 
         {selects.map((select) => {
-          const { [select.name]: value } = this.getStates();
+          const { [select.name]: value } = this.getState();
 
           return (
             <Select
