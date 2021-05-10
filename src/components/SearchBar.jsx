@@ -9,6 +9,7 @@ class SearchBar extends React.Component {
 
     this.getProps = this.getProps.bind(this);
     this.getInputs = this.getInputs.bind(this);
+    this.getSelects = this.getSelects.bind(this);
   }
 
   getProps() {
@@ -32,7 +33,7 @@ class SearchBar extends React.Component {
   }
 
   getInputs() {
-    const inputs = [
+    return [
       {
         label: 'text-input-label',
         text: 'Inclui o texto:',
@@ -52,21 +53,52 @@ class SearchBar extends React.Component {
         onChange: this.getProps().onBookmarkedChange,
       },
     ];
+  }
 
-    return inputs;
+  getSelects() {
+    const optionId = 'select-option';
+    return [
+      {
+        label: 'select-input-label',
+        select: 'select-input',
+        text: 'Filtrar por gênero',
+        value: this.getProps().selectedGenre,
+        onChange: this.getProps().onSelectedGenreChange,
+        options: [
+          {
+            id: optionId,
+            value: '',
+            text: 'Todos',
+          },
+          {
+            id: optionId,
+            value: 'action',
+            text: 'Ação',
+          },
+          {
+            id: optionId,
+            value: 'comedy',
+            text: 'Comédia',
+          },
+          {
+            id: optionId,
+            value: 'thriller',
+            text: 'Suspense',
+          },
+        ],
+      },
+    ];
   }
 
   render() {
     const inputs = this.getInputs();
+    const selects = this.getSelects();
 
     return (
       <form data-testid="search-bar-form">
         {inputs.map((input) => <Input key={ input.input } { ...input } />)}
 
-        <Select
-          value={ this.getProps().selectedGenre }
-          onChange={ this.getProps().onSelectedGenreChange }
-        />
+        {selects.map((select) => <Select key={ select.text } { ...select } />)}
       </form>
     );
   }

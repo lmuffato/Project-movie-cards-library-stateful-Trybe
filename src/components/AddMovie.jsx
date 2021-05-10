@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
-import inputs from '../addMovieInputs';
+import Select from './Select';
+import { inputs, selects } from '../addMovieInputs';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -56,14 +57,27 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         {inputs.map((input) => {
           // https://stackoverflow.com/questions/35939289/how-to-destructure-into-dynamically-named-variables-in-es6
-          const { [input.name]: name } = this.getStates();
+          const { [input.name]: value } = this.getStates();
 
           return (<Input
-            key={ input.input }
+            key={ input.name }
             { ...input }
-            value={ name }
+            value={ value }
             onChange={ this.onChangeHandle }
           />);
+        })}
+
+        {selects.map((select) => {
+          const { [select.name]: value } = this.getStates();
+
+          return (
+            <Select
+              key={ select.text }
+              { ...select }
+              value={ value }
+              onChange={ this.onChangeHandle }
+            />
+          );
         })}
       </form>
     );

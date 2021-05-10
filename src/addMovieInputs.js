@@ -1,20 +1,17 @@
 const inputs = [
   {
-    CustomTag: 'input',
     label: 'title-input-label',
     text: 'Título',
     input: 'title-input',
     name: 'title',
   },
   {
-    CustomTag: 'input',
     label: 'subtitle-input-label',
     text: 'Subtítulo',
     input: 'subtitle-input',
     name: 'subtitle',
   },
   {
-    CustomTag: 'input',
     label: 'image-input-label',
     text: 'Imagem',
     input: 'image-input',
@@ -28,7 +25,6 @@ const inputs = [
     name: 'storyline',
   },
   {
-    CustomTag: 'input',
     label: 'rating-input-label',
     text: 'Avaliação',
     input: 'rating-input',
@@ -37,4 +33,31 @@ const inputs = [
   },
 ];
 
-export default inputs;
+const optionId = 'genre-option';
+const selects = [
+  {
+    label: 'genre-input-label',
+    select: 'genre-input',
+    name: 'genre',
+    text: 'Gênero',
+    options: [
+      {
+        id: optionId,
+        value: 'action',
+        text: 'Ação',
+      },
+      {
+        id: optionId,
+        value: 'comedy',
+        text: 'Comédia',
+      },
+      {
+        id: optionId,
+        value: 'thriller',
+        text: 'Suspense',
+      },
+    ],
+  },
+];
+
+export { inputs, selects };

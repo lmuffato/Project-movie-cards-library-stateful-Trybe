@@ -34,7 +34,7 @@ class Input extends React.Component {
 
 // https://reactjs.org/docs/typechecking-with-proptypes.html
 Input.propTypes = {
-  CustomTag: PropTypes.string.isRequired,
+  CustomTag: PropTypes.string,
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   input: PropTypes.string.isRequired,
@@ -49,6 +49,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  CustomTag: 'input',
   checked: false,
   value: '',
   type: 'text',
