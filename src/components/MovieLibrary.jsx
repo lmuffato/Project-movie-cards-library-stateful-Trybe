@@ -4,7 +4,7 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-// nesse projeto tive auxilio dos colegas Rafael Medeirox e Vinicius Rodrigues, cooperação e troca de ideias
+// nesse projeto tive auxilio dos colegas Rafael Medeiros e Vinicius Rodrigues, cooperação e troca de ideias
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
+    const { searchText, selectedGenre, bookmarkedOnly, onClick } = this.state;
     const { movies } = this.state;
     return (
       <div>
@@ -28,9 +28,16 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           selectedGenre={ selectedGenre }
           bookmarkedOnly={ bookmarkedOnly }
+          onSearchTextChange={ (e) => this.setState({ searchText: e.target.value }) }
+          onBookmarkedChange={
+            (e) => this.setState({ bookmarkedOnly: e.target.value })
+          }
+          onSelectedGenreChange={
+            (e) => this.setState({ selectedGenre: e.target.value })
+          }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
