@@ -11,24 +11,37 @@ class SearchBar extends Component {
       onSelectedGenreChange } = this.props;
 
     return (
-      <form>
-        <label>
-          <input value={ searchText } onChange={ onSearchTextChange } type="text" />
-        </label>
-        <label>
+      <form data-testid="search-bar-form">
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
           <input
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            type="text"
+          />
+        </label>
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            data-testid="checkbox-input"
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
         </label>
-        <label>
-          <select onChange={ onSelectedGenreChange } value={ selectedGenre }>
+        <label htmlFor="select-input" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            data-testid="select-input"
+            onChange={ onSelectedGenreChange }
+            value={ selectedGenre }
+          >
             <optgroup>
-              <option value="">Todos</option>
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="terror">Suspense</option>
+              <option data-testid="select-option" value="">Todos</option>
+              <option data-testid="select-option" value="action">Ação</option>
+              <option data-testid="select-option" value="comedy">Comédia</option>
+              <option data-testid="select-option" value="thriller">Suspense</option>
             </optgroup>
           </select>
         </label>
@@ -37,7 +50,7 @@ class SearchBar extends Component {
   }
 }
 
-searchBar.propTypes = {
+SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,

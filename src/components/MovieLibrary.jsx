@@ -5,8 +5,8 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       input: '',
     };
@@ -23,7 +23,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly
           onBookmarkedChange
         />
-        <MovieList movies={ this.props.movie } />
+        <MovieList />
         <AddMovie />
       </div>
     );
