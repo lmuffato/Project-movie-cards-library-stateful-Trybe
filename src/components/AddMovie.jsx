@@ -21,6 +21,7 @@ class AddMovie extends React.Component {
       title: target.value,
     });
   }
+
   render() {
     const { title } = this.state;
     return (
