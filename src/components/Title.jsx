@@ -26,6 +26,14 @@ class Title extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="Adiciona Sinopse" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            id="Adiciona Sinopse"
+            data-testid="storyline-input"
+            type="text"
+          />
+        </label>
       </div>
     );
   }

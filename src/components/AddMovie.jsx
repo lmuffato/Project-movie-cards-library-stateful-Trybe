@@ -17,9 +17,10 @@ class AddMovie extends React.Component {
     this.addMovie = this.addMovie.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ rating: event.target.value });
     this.setState({ title: event.target.value });
-    console.log(event.target.value);
   }
 
   addMovie() {
@@ -37,6 +38,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { rating } = this.state;
     const { genre } = this.props;
     return (
       <div>
@@ -47,14 +49,6 @@ class AddMovie extends React.Component {
             <input
               id="Adiciona Imagem"
               data-testid="image-input"
-            />
-          </label>
-          <label htmlFor="Adiciona Sinopse" data-testid="storyline-input-label">
-            Sinopse
-            <input
-              id="Adiciona Sinopse"
-              data-testid="storyline-input"
-              type="text"
             />
           </label>
         </forms>
@@ -71,6 +65,24 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <label data-testid="rating-input-label" htmlFor="rating">
+          Avaliação
+          <input
+            name="rating"
+            type="number"
+            value={ rating }
+            data-testid="rating-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <button
+          id="Submit"
+          type="button"
+          data-testid="send-button"
+          onClick={ this.addMovie }
+        >
+          Adicionar filme
+        </button>
       </div>
     );
   }
@@ -79,6 +91,7 @@ class AddMovie extends React.Component {
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
   genre: PropTypes.string.isRequired,
+  // rating: PropTypes.number.isRequired,
 };
 
 export default AddMovie;
