@@ -18,9 +18,31 @@ class MovieLibrary extends Component {
     };
   }
 
+  filtraPreferidos = (param) => {
+    // const { bookmarkedOnly } = this.state;
+    return param.filter(({ bookmarked }) => bookmarked === true);
+  }
+
+  filtrraGenero = (param) => {
+    const { selectedGenre } = this.state;
+    return param.filter(({ genre }) => genre === selectedGenre);
+  }
+
+  filtraText = (param) => {
+    const { searchText } = this.state;
+    return param.filter(({ title, subtitle, storyline }) => (
+      title.includes(searchText)
+      || subtitle.includes(searchText)
+      || storyline.includes(searchText)
+    ));
+  }
+
   render() {
     const { searchText, selectedGenre, bookmarkedOnly, onClick } = this.state;
-    const { movies } = this.state;
+    let { movies } = this.state;
+    if (bookmarkedOnly) movies = this.filtraPreferidos(movies);
+    if (selectedGenre) movies = this.filtrraGenero(movies);
+    if (searchText) movies = this.filtraText(movies);
     return (
       <div>
         <h2> My awesome movie library </h2>
