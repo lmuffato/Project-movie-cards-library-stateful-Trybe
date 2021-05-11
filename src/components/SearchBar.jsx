@@ -62,3 +62,5 @@ SearchBar.propTypes = {
 };
 
 export default SearchBar;
+
+// Durante todo o projeto recebi a colaboração da colega Heloísa Hackenhaar para leitura e compreensão dos requisitos.
