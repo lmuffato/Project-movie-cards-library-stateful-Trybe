@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieImage from './MovieImage';
 import MovieTitle from './MovieTitle';
 import MovieSubtitle from './MovieSubtitle';
@@ -27,9 +28,8 @@ class AddMovie extends React.Component {
   };
 
   reset = () => {
-    console.log('estou ouvindo');
-    // const onClick = this.props;
-    // onClick(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -88,4 +88,7 @@ class AddMovie extends React.Component {
   }
 }
 
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;
