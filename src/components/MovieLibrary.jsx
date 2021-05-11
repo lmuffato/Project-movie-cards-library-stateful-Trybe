@@ -12,17 +12,19 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-    }
+    };
   }
 
   render() {
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange={(event) => this.setState({ searchText: event.target.value })}
-          onBookmarkedChange={(event) => this.setState({ bookmarkedOnly: event.target.checked })}
+          searchText={ searchText }
+          selectedGenre={ selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
         />
         <MovieList movies={ movies } />
         <AddMovie />
