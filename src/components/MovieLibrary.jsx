@@ -23,7 +23,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly
           onBookmarkedChange
         />
-        <MovieList movies={ this.props.movies } />
+        <MovieList movies={ this.props.movie } />
         <AddMovie />
       </div>
     );
