@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -21,11 +21,12 @@ class AddMovie extends React.Component {
       title: target.value,
       subtitle: target.value,
       imagePath: target.value,
+      storyline: target.value,
     });
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -53,6 +54,14 @@ class AddMovie extends React.Component {
               type="text"
               data-testid="image-input"
               value={ imagePath }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="text" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              data-testid="storyline-input"
+              value={ storyline }
               onChange={ this.handleChange }
             />
           </label>
