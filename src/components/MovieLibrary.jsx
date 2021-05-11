@@ -30,8 +30,31 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  movieFilter = () => {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filteredMovies = movies;
+    if (bookmarkedOnly) {
+      filteredMovies = movies.filter((movie) => (
+        movie.bookmarked === true
+      ));
+    }
+    if (selectedGenre) {
+      filteredMovies = movies.filter((movie) => (
+        movie.genre === selectedGenre
+      ));
+    }
+    if (searchText) {
+      filteredMovies = movies.filter((movie) => (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
+    }
+    return filteredMovies;
+  }
+
   render() {
-    const { movies } = this.state;
+    const movies = this.movieFilter();
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
