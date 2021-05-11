@@ -27,8 +27,9 @@ class AddMovie extends React.Component {
   };
 
   reset = () => {
-    const onClick = this.props;
-    onClick(this.state);
+    console.log('estou ouvindo');
+    // const onClick = this.props;
+    // onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -75,6 +76,13 @@ class AddMovie extends React.Component {
             handleChange={ this.handleChange }
           />
         </form>
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ this.reset }
+        >
+          Adicionar filme
+        </button>
       </section>
     );
   }
