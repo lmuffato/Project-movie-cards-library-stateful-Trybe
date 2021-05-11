@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -8,8 +8,10 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      SearchText:'',
+      searchText:'',
       bookmarkedOnly:false,
+      selectedGenre: '',
+      movies: props.movies,
     }
   }
 
@@ -18,15 +20,19 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar 
-        SearchText={ this.state.SearchText } 
-        onSearchTextChange={ (event) => this.setState({ SearchText: event.target.value }) } 
+        searchText={ this.state.searchText } 
+        onSearchTextChange={ (event) => this.setState({ searchText: event.target.value }) } 
         onBookmarkedChange={ (event) => this.setState({ bookmarkedOnly: event.target.checked })}
         />
         <MovieList movies={ this.props.movies } />
-        {/* <AddMovie /> */}
+        <AddMovie />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object),
+}.isRequired;
 
 export default MovieLibrary;
