@@ -1,11 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-class AddMovieResto extends React.Component {
+class AddMovie extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      storyline: '',
+      rating: '0',
+      genre: 'action',
+    };
+    this.hendleChange = this.hendleChange.bind(this);
+  }
+
+  hendleChange({ target }) {
+    const { id, value } = target;
+    this.setState({
+      [id]: value,
+    });
+  }
+
   render() {
-    const { storyline, rating, genre, hendleChange } = this.props;
+    const { storyline, rating, genre } = this.state;
     return (
-      <div>
+      <form>
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -14,7 +31,7 @@ class AddMovieResto extends React.Component {
             cols="40"
             rows="4"
             value={ storyline }
-            onChange={ hendleChange }
+            onChange={ this.hendleChange }
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
@@ -24,7 +41,7 @@ class AddMovieResto extends React.Component {
             id="rating"
             data-testid="rating-input"
             value={ rating }
-            onChange={ hendleChange }
+            onChange={ this.hendleChange }
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
@@ -34,17 +51,14 @@ class AddMovieResto extends React.Component {
             id="genre"
             data-testid="genre-input"
             value={ genre }
-            onChange={ hendleChange }
+            onChange={ this.hendleChange }
           />
         </label>
-      </div>
+      </form>
     );
   }
 }
-AddMovieResto.propTypes = {
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  hendleChange: PropTypes.func.isRequired,
-};
-export default AddMovieResto;
+// AddMovie.propTypes = {
+// title: PropTypes.string.isRequired,
+// };
+export default AddMovie;

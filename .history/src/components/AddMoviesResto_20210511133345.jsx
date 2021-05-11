@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class AddMovieResto extends React.Component {
   render() {
-    const { storyline, rating, genre, hendleChange } = this.props;
+    const { storyline, rating, genre } = this.state;
     return (
       <div>
         <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -14,7 +14,7 @@ class AddMovieResto extends React.Component {
             cols="40"
             rows="4"
             value={ storyline }
-            onChange={ hendleChange }
+            onChange={ this.hendleChange }
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
@@ -24,7 +24,7 @@ class AddMovieResto extends React.Component {
             id="rating"
             data-testid="rating-input"
             value={ rating }
-            onChange={ hendleChange }
+            onChange={ this.hendleChange }
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
@@ -34,17 +34,14 @@ class AddMovieResto extends React.Component {
             id="genre"
             data-testid="genre-input"
             value={ genre }
-            onChange={ hendleChange }
+            onChange={ this.hendleChange }
           />
         </label>
       </div>
     );
   }
 }
-AddMovieResto.propTypes = {
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  hendleChange: PropTypes.func.isRequired,
-};
+// AddMovie.propTypes = {
+// title: PropTypes.string.isRequired,
+// };
 export default AddMovieResto;

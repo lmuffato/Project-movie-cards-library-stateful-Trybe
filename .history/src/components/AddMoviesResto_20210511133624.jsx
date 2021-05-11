@@ -41,10 +41,9 @@ class AddMovieResto extends React.Component {
     );
   }
 }
-AddMovieResto.propTypes = {
+AddMovie.propTypes = {
   storyline: PropTypes.string.isRequired,
   rating: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
-  hendleChange: PropTypes.func.isRequired,
 };
 export default AddMovieResto;
