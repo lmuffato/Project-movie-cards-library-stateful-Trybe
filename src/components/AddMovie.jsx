@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
               value={ imagePath }
               onChange={ this.handleChange }
             />
-          </label>          
+          </label>
         </form>
       </div>
     );
