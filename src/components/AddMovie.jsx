@@ -62,7 +62,7 @@ class AddMovie extends React.Component {
 
   funcBtn = () => {
     const { onClick } = this.props;
-    onClick(this.props);
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',

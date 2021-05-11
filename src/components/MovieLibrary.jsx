@@ -4,7 +4,7 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-// nesse projeto tive auxilio dos colegas Rafael Medeiros e Vinicius Rodrigues, cooperação e troca de ideias
+// nesse projeto tive auxilio dos colegas Rafael Medeiros e Vinicius Rodrigues,Anderson Silva cooperação e troca de ideias
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class MovieLibrary extends Component {
 
   filtraPreferidos = (param) => {
     // const { bookmarkedOnly } = this.state;
-    return param.filter(({ bookmarked }) => bookmarked === true);
+    param.filter(({ bookmarked }) => bookmarked === true);
   }
 
   filtrraGenero = (param) => {
@@ -37,8 +37,15 @@ class MovieLibrary extends Component {
     ));
   }
 
+  onClick = (movie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, movie],
+    });
+  }
+
   render() {
-    const { searchText, selectedGenre, bookmarkedOnly, onClick } = this.state;
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
     let { movies } = this.state;
     if (bookmarkedOnly) movies = this.filtraPreferidos(movies);
     if (selectedGenre) movies = this.filtrraGenero(movies);
@@ -59,7 +66,7 @@ class MovieLibrary extends Component {
           }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ onClick } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
