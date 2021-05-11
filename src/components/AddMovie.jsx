@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TitleInput from './movieComponents/titleInput';
-import SubtitleInput from './movieComponents/subtitleInput';
-import ImagePath from './movieComponents/imagePathInput';
-import StoryLine from './movieComponents/storylineInput';
-import RatingInput from './movieComponents/ratingInput';
-import GenreInput from './movieComponents/genreInput';
+import TitleInput from './movieComponents/TitleInput';
+import SubtitleInput from './movieComponents/SubtitleInput';
+import ImagePath from './movieComponents/ImagePathInput';
+import StoryLine from './movieComponents/StorylineInput';
+import RatingInput from './movieComponents/RatingInput';
+import GenreInput from './movieComponents/GenreInput';
 
 const initialSatate = {
   subtitle: '',
