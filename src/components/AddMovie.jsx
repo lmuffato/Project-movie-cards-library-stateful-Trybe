@@ -1,156 +1,87 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextInput from './AddMovie/TextInput';
+import SubtitleInput from './AddMovie/SubtitleInput';
+import ImageInput from './AddMovie/ImageInput';
+import StorylineInput from './AddMovie/StorylineInput';
+import RatingInput from './AddMovie/RatingInput';
+import GenreSelect from './AddMovie/GenderSelect';
 
-class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+export default class AddMovie extends React.Component {
+  constructor() {
+    super();
+
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
     };
-    this.handleTitle = this.handleTitle.bind(this);
-    this.createTitleInput = this.createTitleInput.bind(this);
-    this.createSubtitleInput = this.createSubtitleInput.bind(this);
-    this.createImageInput = this.createImageInput.bind(this);
-    this.createStorylineInput = this.createStorylineInput.bind(this);
-    this.createRatingInput = this.createRatingInput.bind(this);
-    this.createGenreInput = this.createGenreInput.bind(this);
-    this.addMovie = this.addMovie.bind(this);
+
+    this.handleValue = this.handleValue.bind(this);
+    this.handleSubValue = this.handleSubValue.bind(this);
+    this.handleImage = this.handleImage.bind(this);
+    this.handleStory = this.handleStory.bind(this);
+    this.handleRating = this.handleRating.bind(this);
+    this.handleGenre = this.handleGenre.bind(this);
+    this.addMovieToLibrary = this.addMovieToLibrary.bind(this);
   }
 
-  handleTitle({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+  handleValue(event) {
+    this.setState({ title: event.target.value });
   }
 
-  createTitleInput(title) {
-    return (
-      <label htmlFor="title-input" data-testid="title-input-label">
-        Título
-        <input
-          type="text"
-          name="title"
-          data-testid="title-input"
-          value={ title }
-          onChange={ this.handleTitle }
-        />
-      </label>
-    );
+  handleSubValue(event) {
+    this.setState({ subtitle: event.target.value });
   }
 
-  createSubtitleInput(subtitle) {
-    return (
-      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-        Subtítulo
-        <input
-          type="text"
-          name="subtitle"
-          data-testid="subtitle-input"
-          value={ subtitle }
-          onChange={ this.handleTitle }
-        />
-      </label>
-    );
+  handleImage(event) {
+    this.setState({ imagePath: event.target.value });
   }
 
-  createImageInput(imagePath) {
-    return (
-      <label htmlFor="image-input" data-testid="image-input-label">
-        Imagem
-        <input
-          type="text"
-          name="imagePath"
-          data-testid="image-input"
-          value={ imagePath }
-          onChange={ this.handleTitle }
-        />
-      </label>
-    );
+  handleStory(event) {
+    this.setState({ storyline: event.target.value });
   }
 
-  createStorylineInput(storyline) {
-    return (
-      <label htmlFor="storyline-input" data-testid="storyline-input-label">
-        Sinopse
-        <input
-          name="storyline"
-          type="textarea"
-          value={ storyline }
-          data-testid="storyline-input"
-          onChange={ this.handleTitle }
-        />
-      </label>
-    );
+  handleRating(event) {
+    this.setState({ rating: event.target.value });
   }
 
-  createRatingInput(rating) {
-    return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
-        Avaliação
-        <input
-          name="rating"
-          type="number"
-          value={ rating }
-          data-testid="rating-input"
-          onChange={ this.handleTitle }
-        />
-      </label>
-    );
+  handleGenre(event) {
+    this.setState({ genre: event.target.value });
   }
 
-  createGenreInput(genre) {
-    return (
-      <label data-testid="genre-input-label" htmlFor="genre-input">
-        Gênero
-        <select
-          name="genre"
-          value={ genre }
-          data-testid="genre-input"
-          onChange={ this.handleTitle }
-        >
-          <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" data-testid="genre-option">Comédia</option>
-          <option value="thriller" data-testid="genre-option">Suspense</option>
-        </select>
-      </label>
-    );
-  }
-
-  addMovie() {
-    const initialState = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+  addMovieToLibrary() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(initialState);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        { this.createTitleInput(title) }
-        { this.createSubtitleInput(subtitle) }
-        { this.createImageInput(imagePath) }
-        { this.createStorylineInput(storyline) }
-        { this.createRatingInput(rating) }
-        { this.createGenreInput(genre) }
+      <form data-testid="add-movie-form" className="form-addMovie">
+        <TextInput title={ title } handleValue={ this.handleValue } />
+        <SubtitleInput subtitle={ subtitle } handleSubValue={ this.handleSubValue } />
+        <ImageInput imagePath={ imagePath } handleImage={ this.handleImage } />
+        <StorylineInput storyline={ storyline } handleStory={ this.handleStory } />
+        <RatingInput rating={ rating } handleRating={ this.handleRating } />
+        <GenreSelect genre={ genre } handleGenre={ this.handleGenre } />
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.addMovie }
+          onClick={ this.addMovieToLibrary }
+          className="btn btn-primary"
         >
           Adicionar filme
         </button>
@@ -163,4 +94,8 @@ AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default AddMovie;
+// Referência:
+// Função AddMovieToLibrary: PR João Nascimento
+// https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/57/files
+// Thread no slack:
+// https://trybecourse.slack.com/archives/C01L16B9XC7/p1620082728499900

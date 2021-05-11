@@ -5,102 +5,69 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends React.Component {
+export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
-    const initialStateMovieLib = {
+
+    this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
-    this.state = initialStateMovieLib;
-    this.handleSearchText = this.handleSearchText.bind(this);
-    this.handleOnBookmarked = this.handleOnBookmarked.bind(this);
-    this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.filter = this.filter.bind(this);
   }
 
-  handleSearchText(event) {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+  handleSearchText = (event) => {
+    this.setState({ searchText: event.target.value });
   }
 
-  handleOnBookmarked({ target }) {
-    const { checked } = target;
-    if (checked) {
-      this.setState({
-        bookmarkedOnly: true,
-      });
-    } else {
-      this.setState({
-        bookmarkedOnly: false,
-      });
-    }
+  handleBookMarkChange = (event) => {
+    this.setState({ bookmarkedOnly: event.target.value });
   }
 
-  handleSelectedGenre({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+  handleSelectedGenre = (event) => {
+    this.setState({ selectedGenre: event.target.value });
   }
 
-  onClick(state) {
+  handleAddMovie = (newMovie) => {
     const { movies } = this.state;
-    this.setState({
-      movies: [...movies, state],
-    });
-  }
-
-  filter() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    let searchMovies = movies;
-    if (searchText) {
-      searchMovies = movies.filter((movie) => (
-        movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText)
-        || movie.storyline.includes(searchText)
-      ));
-    }
-    if (bookmarkedOnly) {
-      searchMovies = movies.filter((movie) => (
-        movie.bookmarked === true
-      ));
-    }
-    if (selectedGenre) {
-      searchMovies = movies.filter((movie) => (
-        movie.genre === selectedGenre
-      ));
-    }
-    return searchMovies;
+    const newState = { movies: [...movies, newMovie] };
+    this.setState((newState));
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const movies = this.filter();
+    let { movies } = this.state;
+
+    const filterByTitle = movies.filter(
+      (movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText),
+    );
+    const filterByBookMark = movies.filter((movie) => movie.bookmarked === true);
+    const filterByGenre = movies.filter((movie) => movie.genre === selectedGenre);
+
+    if (bookmarkedOnly) movies = filterByBookMark;
+    if (selectedGenre) movies = filterByGenre;
+    if (searchText) movies = filterByTitle;
+
     return (
-      <div>
+      <>
         <SearchBar
-          onSearchTextChange={ this.handleSearchText }
           searchText={ searchText }
-          onBookmarkedChange={ this.handleOnBookmarked }
+          onSearchTextChange={ this.handleSearchText }
           bookmarkedOnly={ bookmarkedOnly }
-          onSelectedGenreChange={ this.handleSelectedGenre }
+          onBookmarkedChange={ this.handleBookMarkChange }
           selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <MovieList
           movies={ movies }
-
         />
         <AddMovie
-          onClick={ this.onClick }
+          onClick={ this.handleAddMovie }
         />
-      </div>
+      </>
     );
   }
 }
@@ -109,4 +76,9 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default MovieLibrary;
+// Referências:
+// Para a lógica dos filtros do requisito 18:
+// https://github.com/tryber/sd-09-project-movie-cards-library-stateful/pull/89/files
+// https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/57/files
+// Função handleAddMovie:
+// https://github.com/anaventura1811/project-frontend-react/blob/todo-list-react-app/src/componentes/ToDoList/Todolist.jsx
