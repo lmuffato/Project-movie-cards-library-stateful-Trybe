@@ -6,21 +6,20 @@ class AddMovie extends React.Component {
     super();
     this.state = {
       title: '',
-      subtitle: '',
-      imagePath: '',
     };
     this.hendleChange = this.hendleChange.bind(this);
   }
 
   hendleChange({ target }) {
     const { id, value } = target;
+    console.log(this);
     this.setState({
       [id]: value,
     });
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title } = this.state;
     return (
       <form>
         <label htmlFor="title" data-testid="title-input-label">
@@ -30,26 +29,6 @@ class AddMovie extends React.Component {
             id="title"
             data-testid="title-input"
             value={ title }
-            onChange={ this.hendleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            id="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.hendleChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            id="imagePath"
-            data-testid="image-input"
-            value={ imagePath }
             onChange={ this.hendleChange }
           />
         </label>
