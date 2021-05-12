@@ -35,7 +35,10 @@ class SearchBar extends React.Component {
     // const saida = this.props.altura == '1'? 'um' : 'nao é um'
     return (
       <div>
-        Funcionou o SearchBar!!! Eba!!!
+        <form data-testid='search-bar-form'>
+          eu sou um form
+        </form>
+
       </div>
     )
   }
