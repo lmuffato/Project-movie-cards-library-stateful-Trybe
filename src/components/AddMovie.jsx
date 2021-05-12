@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Titulo from './subComponents/Titulo';
+import Subtitulo from './subComponents/Subtitulo';
+import Image from './subComponents/Image';
+import Sinopse from './subComponents/Sinopse';
+import Avaliacao from './subComponents/Avaliacao';
 
 class AddMovie extends Component {
   constructor() {
@@ -9,7 +14,7 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
   }
@@ -22,48 +27,14 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            id="title"
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle"
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            id="imagePath"
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
-            <textarea
-              id="storyline"
-              value={ storyline }
-              data-testid="storyline-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-        </label>
+        <Titulo handleChange={ this.handleChange } value={ title } />
+        <Subtitulo handleChange={ this.handleChange } value={ subtitle } />
+        <Image handleChange={ this.handleChange } value={ imagePath } />
+        <Sinopse handleChange={ this.handleChange } value={ storyline } />
+        <Avaliacao handleChange={ this.handleChange } value={ rating } />
       </form>
     );
   }
