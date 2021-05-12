@@ -20,6 +20,7 @@ class AddMovie extends React.Component {
     };
 
     this.callback = this.callback.bind(this);
+    this.upDateCallback = this.upDateCallback.bind(this);
   }
 
   upDateCallback({ target }) {
@@ -44,7 +45,6 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
-
     return (
       <form data-testid="add-movie-form">
         <Title title={ title } onChange={ this.upDateCallback } />
@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.proptype = {
+AddMovie.propType = {
   onClick: PropTypes.func.isRequired,
 };
 

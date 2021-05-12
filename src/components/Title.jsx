@@ -12,6 +12,7 @@ class Title extends Component {
           data-testid="title-input"
           onChange={ onChange }
           type="text"
+          name="title"
         />
       </label>
     );

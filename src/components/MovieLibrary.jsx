@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -11,12 +12,12 @@ class MovieLibrary extends Component {
       texto: '',
       bookMarked: false,
       selecGenre: '',
-      movies: '',
     };
   }
 
   render() {
-    const { texto, bookMarked, selecGenre, movies } = this.state;
+    const { texto, bookMarked, selecGenre } = this.state;
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -26,7 +27,6 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookMarked }
           onBookmarkedChange={ (event) => typeof event.target.value }
           selectedGenre={ selecGenre }
-
         />
         <MovieList movies={ movies } />
         <AddMovie />
@@ -34,5 +34,11 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
