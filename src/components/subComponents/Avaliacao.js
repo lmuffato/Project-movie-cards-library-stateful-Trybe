@@ -19,5 +19,5 @@ export default function Avaliacao(props) {
 
 Avaliacao.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
