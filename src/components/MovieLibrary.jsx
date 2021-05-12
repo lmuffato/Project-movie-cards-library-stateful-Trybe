@@ -5,25 +5,30 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      input: '',
+      texto: '',
+      bookMarked: false,
+      selecGenre: '',
+      movies: '',
     };
   }
 
   render() {
-    const { input } = this.state;
+    const { texto, bookMarked, selecGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={ input }
+          searchText={ texto }
           onSearchTextChange={ (event) => event.target.value }
-          bookmarkedOnly
-          onBookmarkedChange
+          bookmarkedOnly={ bookMarked }
+          onBookmarkedChange={ (event) => typeof event.target.value }
+          selectedGenre={ selecGenre }
+
         />
-        <MovieList />
+        <MovieList movies={ movies } />
         <AddMovie />
       </div>
     );

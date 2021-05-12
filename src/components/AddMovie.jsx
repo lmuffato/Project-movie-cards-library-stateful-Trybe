@@ -1,4 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Image from './Imagem';
+import Storyline from './Storyline';
+import Rating from './Rating';
+import Genre from './Genre';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -15,6 +22,14 @@ class AddMovie extends React.Component {
     this.callback = this.callback.bind(this);
   }
 
+  upDateCallback({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   callback() {
     this.setState({
       subtitle: '',
@@ -27,20 +42,34 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating,genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
 
     return (
-      <button
-        type="submit"
-        onClick={ () => {
-          onClick(this.state);
-        } }
-      >
-        Adicionar
-      </button>
+      <form data-testid="add-movie-form">
+        <Title title={ title } onChange={ this.upDateCallback } />
+        <Subtitle title={ subtitle } onChange={ this.upDateCallback } />
+        <Image title={ imagePath } onChange={ this.upDateCallback } />
+        <Storyline title={ storyline } onChange={ this.upDateCallback } />
+        <Rating title={ rating } onChange={ this.upDateCallback } />
+        <Genre title={ genre } onChange={ this.upDateCallback } />
+        <button
+          data-testid="send-button"
+          type="submit"
+          onClick={ () => {
+            onClick(this.state);
+            this.upDateCallback();
+          } }
+        >
+          Adicionar filme
+        </button>
+      </form>
     );
   }
 }
+
+AddMovie.proptype = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
