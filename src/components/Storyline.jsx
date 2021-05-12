@@ -19,7 +19,7 @@ class Storyline extends Component {
   }
 }
 
-Storyline.propType = {
+Storyline.propTypes = {
   storyline: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

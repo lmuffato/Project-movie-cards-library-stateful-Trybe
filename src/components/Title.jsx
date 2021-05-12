@@ -19,7 +19,7 @@ class Title extends Component {
   }
 }
 
-Title.propType = {
+Title.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

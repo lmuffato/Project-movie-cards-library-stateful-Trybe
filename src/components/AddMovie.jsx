@@ -18,7 +18,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
     this.callback = this.callback.bind(this);
     this.upDateCallback = this.upDateCallback.bind(this);
   }
@@ -68,7 +67,7 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propType = {
+AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 

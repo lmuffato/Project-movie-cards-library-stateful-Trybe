@@ -24,7 +24,7 @@ class Genre extends Component {
   }
 }
 
-Genre.propType = {
+Genre.propTypes = {
   genre: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

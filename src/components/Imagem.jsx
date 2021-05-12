@@ -19,7 +19,7 @@ class Image extends Component {
   }
 }
 
-Image.propType = {
+Image.propTypes = {
   imagePath: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

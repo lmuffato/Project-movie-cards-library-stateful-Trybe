@@ -8,16 +8,17 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
       texto: '',
       bookMarked: false,
       selecGenre: '',
+      movieList: movies,
     };
   }
 
   render() {
-    const { texto, bookMarked, selecGenre } = this.state;
-    const { movies } = this.props;
+    const { texto, bookMarked, selecGenre, movieList } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -28,7 +29,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ (event) => typeof event.target.value }
           selectedGenre={ selecGenre }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ movieList } />
         <AddMovie />
       </div>
     );
