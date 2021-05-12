@@ -3,7 +3,20 @@ import Header from "./components/Header";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
 
-function App() {
+class App extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      searchText: 'string',
+      onSearchTextChange: 'callback',
+      bookmarkedOnly: false,
+      onBookmarkedChange: 'callback',
+      selectedGenre: 'string',
+      onSelectedGenreChange: 'callback',
+    }
+  }
+
   // const movies = {
   //     searchText: 'string',
   //     onSearchTextChange: 'callback',
@@ -12,8 +25,8 @@ function App() {
   //     selectedGenre: 'string',
   //     onSelectedGenreChange: 'callback',
   // }
-
-  return (
+  render() {
+    return (
     <div className="App">
       <Header />
       <SearchBar
@@ -26,6 +39,8 @@ function App() {
       />
     </div>
   );
+  }  
+  
 }
 
 export default App;
