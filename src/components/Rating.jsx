@@ -5,9 +5,14 @@ class Rating extends React.Component {
   render() {
     const { rating, onChange } = this.props;
     return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
+      <label
+        className="movie-card-rating"
+        htmlFor="rating-input"
+        data-testid="rating-input-label"
+      >
         Avaliação:
         <input
+          className="rating"
           value={ rating }
           data-testid="rating-input"
           onChange={ onChange }
