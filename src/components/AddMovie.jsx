@@ -30,6 +30,7 @@ class AddMovie extends Component {
   }
 
   handleClick = () => {
+    console.log(this);
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
