@@ -21,7 +21,7 @@ import React from 'react';
 
 
 class SearchBar extends React.Component {
-  render(){
+  
     // const props = {
     //   searchText='string',
     //   onSearchTextChange= callback,
@@ -33,10 +33,13 @@ class SearchBar extends React.Component {
 
     // console.log(this.props.altura)
     // const saida = this.props.altura == '1'? 'um' : 'nao é um'
+  render(){
     return (
       <div>
         <form data-testid='search-bar-form'>
-          eu sou um form
+          <label>
+            <input type="checkbox"/>check me!
+          </label>
         </form>
 
       </div>
