@@ -6,8 +6,15 @@ import SearchBar from './components/SearchBar';
 function App() {
   return (
     <div className="App">
-      <Header />     
-      <SearchBar /> 
+      <Header />
+      <SearchBar
+          searchText="string"
+          onSearchTextChange="callback"
+          bookmarkedOnly="false"
+          onBookmarkedChange="callback"
+          selectedGenre="string"
+          onSelectedGenreChange="callback"
+        />
     </div>
   );
 }

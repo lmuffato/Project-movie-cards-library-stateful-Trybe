@@ -9,7 +9,7 @@ describe('Verifica o componente <Rating />', () => {
     render(<Rating />);
   });
 
-  it('Renderize o componente com o valor passado para ele via prop `rating`', () => {
+  it.skip('Renderize o componente com o valor passado para ele via prop `rating`', () => {
     const expectedRating = 3;
     const { getByTestId } = render(<Rating rating={ 3 } />);
     const rating = getByTestId('rating');
