@@ -25,14 +25,7 @@ render() {
     <div>
       <form data-testid="add-movie-form">
         <label htmlFor="Título" data-testid="title-input-label">
-          <input
-            type="text"
-            name="title"
-            id="Título"
-            value={ this.state.title }
-            data-testid="title-input"
-            onChange={ this.handleOnChange }
-          />
+          <input type="text" name="title" id="Título" value={ this.state.title } data-testid="title-input" onChange={ this.handleOnChange } />
         </label>
         <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
           <input
@@ -59,6 +52,13 @@ render() {
         </label>
         <label htmlFor="Avaliação" data-testid="rating-input-label">
           <input type="number" name="imagePath" id="Imagem" value={ this.state.rating } data-testid="rating-input" onChange={ this.handleOnChange } />
+        </label>
+        <label htmlFor="Gênero" data-testid="genre-input-label">
+          <select id="Gênero" value={ this.state.genre } onChange={ this.handleOnChange } data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
       </form>
     </div>
