@@ -54,6 +54,15 @@ render() {
             onChange={ this.handleOnChange }
           />
         </label>
+        <label htmlFor="Sinopse" data-testid="storyline-input-label">
+          <textarea
+            name="storyline"
+            id="Sinopse"
+            value={ this.storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleOnChange }
+          />
+        </label>
       </form>
     </div>
   );
