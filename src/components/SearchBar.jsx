@@ -18,6 +18,7 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
 // // import PropTypes from 'prop-types'
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   // constructor() {
@@ -40,6 +41,14 @@ class SearchBar extends React.Component {
   // const saida = this.props.altura == '1'? 'um' : 'nao é um'
 
   render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -71,18 +80,10 @@ class SearchBar extends React.Component {
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
-              <option data-testid="select-option" value="" selected>
-                Todos
-              </option>
-              <option data-testid="select-option" value="action">
-                Ação
-              </option>
-              <option data-testid="select-option" value="comedy">
-                Comédia
-              </option>
-              <option data-testid="select-option" value="thriller">
-                Suspense
-              </option>
+              <option data-testid="select-option" value="" selected>Todos</option>
+              <option data-testid="select-option" value="action">Ação</option>
+              <option data-testid="select-option" value="comedy">Comédia</option>
+              <option data-testid="select-option" value="thriller">Suspense</option>
             </select>
           </label>
         </form>
@@ -90,5 +91,14 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
