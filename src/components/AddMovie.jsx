@@ -37,10 +37,20 @@ render() {
         <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
           <input
             type="text"
-            name="title"
+            name="subtitle"
             id="subtitle"
             value={ this.subtitle }
             data-testid="subtitle-input"
+            onChange={ this.handleOnChange }
+          />
+        </label>
+        <label htmlFor="Imagem" data-testid="image-input-label">
+          <input
+            type="text"
+            name="imagePath"
+            id="Imagem"
+            value={ this.imagePath }
+            data-testid="image-input"
             onChange={ this.handleOnChange }
           />
         </label>
