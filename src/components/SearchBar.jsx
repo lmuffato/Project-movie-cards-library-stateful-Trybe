@@ -20,7 +20,7 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form" id="searchForm">
+      <form data-testid="search-bar-form">
         <label htmlFor="searchText" data-testid="text-input-label">
           Inclui o texto:
           <input
