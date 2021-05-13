@@ -189,7 +189,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<AddMovie />`', () => {
+  it('Renderize o componente `<AddMovie />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);
