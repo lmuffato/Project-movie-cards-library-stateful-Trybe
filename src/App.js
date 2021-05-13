@@ -8,13 +8,13 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar
-          searchText="string"
-          onSearchTextChange="callback"
-          bookmarkedOnly="false"
-          onBookmarkedChange="callback"
-          selectedGenre="string"
-          onSelectedGenreChange="callback"
-        />
+        searchText="string"
+        onSearchTextChange="callback"
+        bookmarkedOnly="false"
+        onBookmarkedChange="callback"
+        selectedGenre="string"
+        onSelectedGenreChange="callback"
+      />
     </div>
   );
 }
