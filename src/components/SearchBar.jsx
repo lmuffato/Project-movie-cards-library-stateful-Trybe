@@ -19,7 +19,6 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
 
 import React from 'react';
 
-
 class SearchBar extends React.Component {
   // constructor() {
   //   super()
@@ -27,42 +26,68 @@ class SearchBar extends React.Component {
   //     onSearchTextChanged: onSearchTextChanged,
   //   }
   // }
-  
-    // const props = {
-    //   searchText='string',
-    //   onSearchTextChange= callback,
-    //   bookmarkedOnly=boolean,
-    //   onBookmarkedChange=callback,
-    //   selectedGenre='string',
-    //   onSelectedGenreChange=callback,
-    // }
 
-    // console.log(this.props.altura)
-    // const saida = this.props.altura == '1'? 'um' : 'nao é um'
+  // const props = {
+  //   searchText='string',
+  //   onSearchTextChange= callback,
+  //   bookmarkedOnly=boolean,
+  //   onBookmarkedChange=callback,
+  //   selectedGenre='string',
+  //   onSelectedGenreChange=callback,
+  // }
 
-  render(){
+  // console.log(this.props.altura)
+  // const saida = this.props.altura == '1'? 'um' : 'nao é um'
+
+  render() {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label" for="text-search">Inclui o texto 
-            <input data-testid="text-input" type="text" id="text-search" value={ this.props.searchText } onChange={ this.props.onSearchTextChange }/>
-          </label>  
-          <label data-testid="checkbox-input-label" for="checkbox1">Mostrar somente favoritos
-            <input data-testid="checkbox-input" id="checkbox1" type="checkbox" checked={ this.props.bookmarkedOnly } onChange={ this.props.onBookmarkedChange } />
+          <label htmlFor="inputtext" data-testid="text-input-label">
+            Inclui o texto
+            <input
+              id="inputtext"
+              data-testid="text-input"
+              type="text"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
           </label>
-          <label for="selected" data-testid="select-input-label">Filtrar por gênero
-            <select id="selected" data-testid="select-input" value={ this.props.selectedGenre } onChange={ this.props.onSelectedGenreChange } >
-              <option data-testid="select-option" value="" selected >Todos</option>
-              <option data-testid="select-option" value="action" >Ação</option>
-              <option data-testid="select-option" value="comedy" >Comédia</option>
-              <option data-testid="select-option" value="thriller" >Suspense</option>
+          <label htmlFor="checkbox" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input
+              id="checkbox"
+              data-testid="checkbox-input"
+              type="checkbox"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+            />
+          </label>
+          <label htmlFor="select" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              id="select"
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
+              <option data-testid="select-option" value="" selected>
+                Todos
+              </option>
+              <option data-testid="select-option" value="action">
+                Ação
+              </option>
+              <option data-testid="select-option" value="comedy">
+                Comédia
+              </option>
+              <option data-testid="select-option" value="thriller">
+                Suspense
+              </option>
             </select>
           </label>
-                      
         </form>
-
       </div>
-    )
+    );
   }
 }
 
