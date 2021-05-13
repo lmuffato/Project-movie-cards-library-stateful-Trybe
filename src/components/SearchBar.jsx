@@ -50,6 +50,14 @@ class SearchBar extends React.Component {
           <label data-testid="checkbox-input-label" for="checkbox1">Mostrar somente favoritos
             <input data-testid="checkbox-input" id="checkbox1" type="checkbox" checked={ this.props.bookmarkedOnly } onChange={ this.props.onBookmarkedChange } />
           </label>
+          <label for="selected" data-testid="select-input-label">Filtrar por gênero
+            <select id="selected" data-testid="select-input" value={ this.props.selectedGenre } onChange={ this.props.onSelectedGenreChange } >
+              <option data-testid="select-option" value="" selected >Todos</option>
+              <option data-testid="select-option" value="action" >Ação</option>
+              <option data-testid="select-option" value="comedy" >Comédia</option>
+              <option data-testid="select-option" value="thriller" >Suspense</option>
+            </select>
+          </label>
                       
         </form>
 
