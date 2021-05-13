@@ -34,6 +34,16 @@ render() {
             onChange={ this.handleOnChange }
           />
         </label>
+        <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
+          <input
+            type="text"
+            name="title"
+            id="subtitle"
+            value={ this.subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleOnChange }
+          />
+        </label>
       </form>
     </div>
   );
