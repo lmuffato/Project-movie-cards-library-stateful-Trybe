@@ -21,6 +21,12 @@ import React from 'react';
 
 
 class SearchBar extends React.Component {
+  // constructor() {
+  //   super()
+  //   this.state = { searchText: searchText,
+  //     onSearchTextChanged: onSearchTextChanged,
+  //   }
+  // }
   
     // const props = {
     //   searchText='string',
@@ -33,13 +39,25 @@ class SearchBar extends React.Component {
 
     // console.log(this.props.altura)
     // const saida = this.props.altura == '1'? 'um' : 'nao é um'
+
   render(){
     return (
       <div>
-        <form data-testid='search-bar-form'>
-          <label>
-            <input type="checkbox"/>check me!
+        <form data-testid="search-bar-form">
+          <label data-testid="text-input-label" for="text-search">Inclui o texto 
+            <input data-testid="text-input" type="text" id="text-search" value={ this.props.searchText } onChange={ this.props.onSearchTextChange }/>
           </label>
+          {/* <label htmlFor="text-input">
+            inclui o texto
+            <br />
+            <input 
+              id="text-input" 
+              type="text"
+              value={ this.props.searchText }
+              onChange={ this.props.onSearchTextChanged }
+              />
+              check me!
+          </label> */}
         </form>
 
       </div>
