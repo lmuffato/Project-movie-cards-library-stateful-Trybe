@@ -29,7 +29,7 @@ render() {
             type="text"
             name="title"
             id="Título"
-            value={ this.title }
+            value={ this.state.title }
             data-testid="title-input"
             onChange={ this.handleOnChange }
           />
@@ -39,7 +39,7 @@ render() {
             type="text"
             name="subtitle"
             id="subtitle"
-            value={ this.subtitle }
+            value={ this.state.subtitle }
             data-testid="subtitle-input"
             onChange={ this.handleOnChange }
           />
@@ -49,19 +49,16 @@ render() {
             type="text"
             name="imagePath"
             id="Imagem"
-            value={ this.imagePath }
+            value={ this.state.imagePath }
             data-testid="image-input"
             onChange={ this.handleOnChange }
           />
         </label>
         <label htmlFor="Sinopse" data-testid="storyline-input-label">
-          <textarea
-            name="storyline"
-            id="Sinopse"
-            value={ this.storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleOnChange }
-          />
+          <textarea name="storyline" id="Sinopse" value={ this.state.storyline } data-testid="storyline-input" onChange={ this.handleOnChange } />
+        </label>
+        <label htmlFor="Avaliação" data-testid="rating-input-label">
+          <input type="number" name="imagePath" id="Imagem" value={ this.state.rating } data-testid="rating-input" onChange={ this.handleOnChange } />
         </label>
       </form>
     </div>
