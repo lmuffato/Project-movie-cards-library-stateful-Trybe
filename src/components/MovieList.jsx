@@ -6,7 +6,6 @@ import MovieCard from './MovieCard';
 class MovieList extends React.Component {
   render() {
     const { movies } = this.props;
-    console.log(Object.entries(movies).map((e) => e[1]));
     return (
       <div data-testid="movie-list" className="movie-list">
         {

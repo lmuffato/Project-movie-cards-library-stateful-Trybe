@@ -4,7 +4,7 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Imagem';
 import Storyline from './Storyline';
-import Rating from './Rating';
+import RatingInput from './RatingInput';
 import Genre from './Genre';
 
 class AddMovie extends React.Component {
@@ -18,19 +18,15 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
     this.callback = this.callback.bind(this);
     this.upDateCallback = this.upDateCallback.bind(this);
   }
 
-  upDateCallback({ target }) {
-    const { name } = target;
-    const value = (target.type === 'checkbox') ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  callback() {
+  callback(e) {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -41,24 +37,28 @@ class AddMovie extends React.Component {
     });
   }
 
+  upDateCallback({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Title title={ title } onChange={ this.upDateCallback } />
         <Subtitle title={ subtitle } onChange={ this.upDateCallback } />
         <Image title={ imagePath } onChange={ this.upDateCallback } />
         <Storyline title={ storyline } onChange={ this.upDateCallback } />
-        <Rating title={ rating } onChange={ this.upDateCallback } />
+        <RatingInput title={ rating } onChange={ this.upDateCallback } />
         <Genre title={ genre } onChange={ this.upDateCallback } />
         <button
           data-testid="send-button"
           type="submit"
-          onClick={ () => {
-            onClick(this.state);
-            this.upDateCallback();
-          } }
+          onClick={ this.callback }
         >
           Adicionar filme
         </button>
