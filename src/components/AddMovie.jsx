@@ -60,6 +60,7 @@ render() {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button type="submit" data-testid="send-button" on onClick={ onClick }>Adicionar filme</button>
       </form>
     </div>
   );
