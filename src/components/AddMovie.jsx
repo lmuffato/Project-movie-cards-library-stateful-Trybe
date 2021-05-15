@@ -38,6 +38,7 @@ class AddMovie extends React.Component {
     this.setState({
       ...initial,
     });
+    console.log(this.state);
   }
 
   upDateCallback({ target }) {
@@ -53,11 +54,11 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <Title title={ title } onChange={ this.upDateCallback } />
-        <Subtitle title={ subtitle } onChange={ this.upDateCallback } />
-        <Image title={ imagePath } onChange={ this.upDateCallback } />
-        <Storyline title={ storyline } onChange={ this.upDateCallback } />
-        <RatingInput title={ rating } onChange={ this.upDateCallback } />
-        <Genre title={ genre } onChange={ this.upDateCallback } />
+        <Subtitle subtitle={ subtitle } onChange={ this.upDateCallback } />
+        <Image imagePath={ imagePath } onChange={ this.upDateCallback } />
+        <Storyline storyline={ storyline } onChange={ this.upDateCallback } />
+        <RatingInput rating={ rating } onChange={ this.upDateCallback } />
+        <Genre genre={ genre } onChange={ this.upDateCallback } />
         <button
           data-testid="send-button"
           type="submit"

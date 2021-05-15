@@ -25,7 +25,10 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

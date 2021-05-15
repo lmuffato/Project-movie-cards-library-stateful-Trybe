@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class Title extends Component {
   render() {
     const { title, onChange } = this.props;
-    console.log(this.state);
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
         Título:
