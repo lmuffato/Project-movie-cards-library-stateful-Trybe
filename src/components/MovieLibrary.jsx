@@ -20,6 +20,9 @@ class MovieLibrary extends Component {
     this.bookMarkeChanged = this.bookMarkeChanged.bind(this);
     this.selectedGenre = this.selectedGenre.bind(this);
     this.setNewCard = this.setNewCard.bind(this);
+    this.filteringBook = this.filteringBook.bind(this);
+    this.filteringGenre = this.filteringGenre.bind(this);
+    this.filteringText = this.filteringText.bind(this);
   }
 
   textChanged = ({ target }) => {
@@ -41,13 +44,45 @@ class MovieLibrary extends Component {
     });
   }
 
+  filteringText = () => {
+    const { searchText, selectedGenre, bookmarkedOnly, movieList } = this.state;
+    const text = movieList.filter(
+      (e) => e.title.toLowerCase().includes(searchText)
+      || e.title.includes(searchText) || e.subtitle.toLowerCase().includes(searchText)
+      || e.subtitle.includes(searchText) || e.storyline.toLowerCase().includes(searchText)
+      || e.storyline.includes(searchText),
+    );
+    if (bookmarkedOnly) {
+      return this.filteringBook();
+    }
+    if (selectedGenre !== '') {
+      return this.filteringGenre();
+    }
+    if (searchText !== '') {
+      return text;
+    }
+    return movieList;
+  }
+
+  filteringGenre = () => {
+    const { selectedGenre, movieList } = this.state;
+    const genreSelec = movieList.filter((e) => e.genre === selectedGenre);
+    return genreSelec;
+  }
+
+  filteringBook = () => {
+    const { movieList } = this.state;
+    const bookMarked = movieList.filter((e) => e.bookmarked);
+    return bookMarked;
+  }
+
   render() {
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movieList,
     } = this.state;
+    this.filteringText();
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -59,7 +94,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.selectedGenre }
         />
-        <MovieList movies={ movieList } />
+        <MovieList movies={ this.filteringText() } />
         <AddMovie onClick={ this.setNewCard } />
       </div>
     );
