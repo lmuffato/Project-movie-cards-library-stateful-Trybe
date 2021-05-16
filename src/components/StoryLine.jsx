@@ -9,9 +9,9 @@ class StoryLine extends React.Component {
         Sinopse
         <textarea
           name="storyLine"
-          type="textarea"
+          type="text"
           data-testid="storyline-input"
-          defaultValue={ value }
+          value={ value }
           onChange={ handleChange }
         />
       </label>
@@ -19,9 +19,9 @@ class StoryLine extends React.Component {
   }
 }
 
-StoryLine.propTypes = PropTypes.shape({
+StoryLine.propTypes = {
   value: PropTypes.string,
   handleChange: PropTypes.func,
-}).isRequired;
+}.isRequired;
 
 export default StoryLine;

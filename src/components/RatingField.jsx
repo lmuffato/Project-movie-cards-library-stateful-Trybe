@@ -11,7 +11,7 @@ class RatingField extends React.Component {
           name="rating"
           type="number"
           data-testid="rating-input"
-          defaultValue={ value }
+          value={ value }
           onChange={ handleChange }
         />
       </label>
@@ -19,9 +19,9 @@ class RatingField extends React.Component {
   }
 }
 
-RatingField.propTypes = PropTypes.shape({
+RatingField.propTypes = {
   value: PropTypes.string,
   handleChange: PropTypes.func,
-}).isRequired;
+}.isRequired;
 
 export default RatingField;

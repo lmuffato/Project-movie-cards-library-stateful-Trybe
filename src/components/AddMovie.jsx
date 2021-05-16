@@ -1,18 +1,17 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
 import StoryLine from './StoryLine';
 import RatingField from './RatingField';
 import Genre from './Genre';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
-
-    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -24,11 +23,25 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
+    });
+  }
+
+  btnFunction = (event) => {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -45,17 +58,15 @@ class AddMovie extends React.Component {
           <StoryLine value={ storyLine } handleChange={ this.handleChange } />
           <RatingField value={ rating } handleChange={ this.handleChange } />
           <Genre value={ genre } handleChange={ this.handleChange } />
-          <button type="submit" data-testid="send-button">
-            Adicionar filme
-          </button>
+          <Button btnFunction={ this.btnFunction } />
         </form>
       </section>
     );
   }
 }
 
-// AddMovie.prototypes = {
-
-// }
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;
