@@ -8,7 +8,7 @@ export default class Button extends React.Component {
       <div>
         <button
           value="Adicionar filme"
-          type="button"
+          type="submit"
           data-testid="send-button"
           onClick={ functionClick }
         >

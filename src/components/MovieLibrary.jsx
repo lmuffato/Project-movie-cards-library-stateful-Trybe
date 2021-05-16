@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
-import films from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -24,55 +23,50 @@ class MovieLibrary extends React.Component {
     this.filterArr = this.filterArr.bind(this);
   }
 
-  filterArr(event) {
-    const { movie, searchText } = this.state;
-    const { value } = event.target;
-    this.setState({ searchText: value });
-    if (searchText !== '') {
-      const arr = movie.filter((film) => film.title === searchText);
-      console.log(arr);
+  filterArr() {
+    const { movie, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const arrfrilter = movie.filter((film) => (film.title.includes(searchText)
+      || film.subtitle.includes(searchText) || film.storyline.includes(searchText)));
+    if (bookmarkedOnly === true) {
+      return arrfrilter.filter((film) => film.bookmarked)
+        .filter((film) => film.genre.includes(selectedGenre));
     }
+    return arrfrilter.filter((film) => film.genre.includes(selectedGenre));
+  }
+
+  callBackSearchText(event) {
+    this.setState({ searchText: event.target.value });
   }
 
   callBackSelectGenre(event) {
     const { value } = event.target;
-    // const { movie } = this.state;
-    const arr = films.filter((film) => film.genre === value);
-    if (value === '') return this.setState({ movie: films });
-    this.setState({ selectedGenre: value, movie: arr });
+    this.setState({ selectedGenre: value });
   }
 
   callBackBookMarked(event) {
     const { checked } = event.target;
-    const arr = films.filter((film) => film.bookmarked);
-    if (checked !== true) return this.setState({ bookmarkedOnly: false, movie: films });
-    this.setState({ bookmarkedOnly: checked, movie: arr });
+    this.setState({ bookmarkedOnly: checked });
   }
 
-  callBackSearchText(event) {
-    const { value } = event.target;
-    const { movie } = this.state;
-    const arr = movie.filter((film) => film.title === value);
-    this.setState({ searchText: value, movie: arr });
-  }
-
-  functionAddMovie() {
-    // this.setState({})
+  functionAddMovie(object) {
+    const { movies } = this.props;
+    this.setState({ movie: [...movies, object] });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movie } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const filteredFilm = this.filterArr();
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.filterArr }
+          onSearchTextChange={ this.callBackSearchText }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.callBackBookMarked }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.callBackSelectGenre }
         />
-        <MovieList movies={ movie } />
+        <MovieList movies={ filteredFilm } />
         <AddMovie onClick={ this.functionAddMovie } />
       </div>
     );

@@ -51,7 +51,6 @@ export default class AddMovie extends React.Component {
   }
 
   handleChangeRating(event) {
-    // this.setState({ [searchText]: event.target.value });
     const { value } = event.target;
     this.setState({ rating: value });
   }
@@ -61,9 +60,10 @@ export default class AddMovie extends React.Component {
     this.setState({ genre: value });
   }
 
-  handleFunction() {
+  handleFunction(event) {
     const { onClick } = this.props;
     onClick(this.state);
+    event.preventDefault();
     this.setState({
       subtitle: '',
       title: '',
