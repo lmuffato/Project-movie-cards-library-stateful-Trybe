@@ -3,6 +3,13 @@
     "browser": true,
     "es2020": true
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "extends": "trybe-frontend",
   "parser": "babel-eslint",
   "parserOptions": {
