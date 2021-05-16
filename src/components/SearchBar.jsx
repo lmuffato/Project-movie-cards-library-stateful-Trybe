@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
           <label htmlFor="labeIncluiOTexto" data-testid="text-input-label">
             Inclui o texto:
             <input
-              value={ searchText }
+              defaultValue={ searchText }
               name="bookmarkedOnly"
               type="text"
               onChange={ onSearchTextChange }
@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
             <select
               type="select"
               data-testid="select-input"
-              value={ selectedGenre }
+              defaultValue={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
               <option data-testid="select-option" value="">Todos</option>
@@ -51,13 +51,13 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.propTypes = PropTypes.shape({
+SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
-}).isRequired;
+}.isRequired;
 
 export default SearchBar;
