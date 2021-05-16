@@ -3,8 +3,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+  constructor() {
+    super();
+    this.props = {
+      searchText: '',
+      onSearchTextChange: '',
+      bookmarkedOnly: false,
+      onBookmarkedChange: '',
+      selectedGenre: '',
+      onSelectedGenreChange: '',
+    };
+  }
+
+  onChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+  }
+
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
