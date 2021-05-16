@@ -1,9 +1,9 @@
 import React from 'react';
-import InputImage from './InputImage';
-import InputRating from './InputRating';
-import InputStory from './InputStory';
-import InputSubtitle from './InputSubtitle';
-import InputTitle from './InputTitle';
+import InputImage from './components/InputImage';
+import InputRating from './components/InputRating';
+import InputStory from './components/InputStory';
+import InputSubtitle from './components/InputSubtitle';
+import InputTitle from './components/InputTitle';
 
 class AddMovie extends React.Component {
   constructor() {
