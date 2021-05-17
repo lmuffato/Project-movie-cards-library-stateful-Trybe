@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.handlechange = this.handleChange.bind(this);
     this.generateInput = this.generateInput.bind(this);
 
