@@ -18,9 +18,11 @@ class AddMovie extends React.Component {
     this.handleStorylineChange = this.handleStorylineChange.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.makeInput = this.makeInput.bind(this);
   }
 
   handleTitleChange(event) {
+    console.log(event.target);
     this.setState({
       title: event.target.value,
     });
@@ -39,6 +41,7 @@ class AddMovie extends React.Component {
   }
 
   handleStorylineChange(event) {
+    console.log(event);
     this.setState({
       storyline: event.target.value,
     });
@@ -56,44 +59,54 @@ class AddMovie extends React.Component {
     });
   }
 
+  makeInput = (value, type, id, onChange) => (
+    <input
+      value={ value }
+      type={ type }
+      data-testid={ id }
+      id={ id }
+      onChange={ onChange }
+    />
+  );
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
+        <label htmlFor="title-input" data-testid="title-input-label">
           Título
-          <br />
-          <input value={ title } type="text" data-testid="title-input" id="title" onChange={ this.handleTitleChange } />
+          {this.makeInput(title, 'text', 'title-input', this.handleTitleChange)}
         </label>
-        <br />
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
-          <br />
-          <input value={ subtitle } type="text" data-testid="subtitle-input" id="subtitle" onChange={ this.handleSubtitleChange } />
+          {this.makeInput(subtitle, 'text', 'subtitle-input', this.handleSubtitleChange)}
         </label>
-        <br />
-        <label htmlFor="image" data-testid="image-input-label">
+        <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
-          <br />
-          <input value={ imagePath } type="text" data-testid="image-input" id="image" onChange={ this.handleImagePathChange } />
+          {this.makeInput(imagePath, 'text', 'image-input', this.handleImagePathChange)}
         </label>
-        <br />
         <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse
-          <br />
-          <textarea value={ storyline } type="text" data-testid="storyline-input" onChange={ this.handleStorylineChange } />
+          <textarea
+            value={ storyline }
+            type="text"
+            data-testid="storyline-input"
+            onChange={ this.handleStorylineChange }
+          />
         </label>
-        <br />
-        <label htmlFor="rating" data-testid="rating-input-label">
+        <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
-          <br />
-          <input value={ rating } type="number" data-testid="rating-input" id="rating" onChange={ this.handleRatingChange } />
+          {this.makeInput(rating, 'number', 'rating-input', this.handleRatingChange)}
         </label>
-        <br />
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
-          <br />
-          <select value={ genre } type="number" data-testid="genre-input" id="genre" onChange={ this.handleGenreChange }>
+          <select
+            value={ genre }
+            type="number"
+            data-testid="genre-input"
+            id="genre"
+            onChange={ this.handleGenreChange }
+          >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -105,3 +118,11 @@ class AddMovie extends React.Component {
 }
 
 export default AddMovie;
+
+// Referências:
+// https://stackoverflow.com/questions/52638426/eslint-must-use-destructuring-state-assignment
+// https://www.w3schools.com/tags/tag_textarea.asp
+// conteúdo do course
+// Consulta ao repositório:
+// https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/45/commits/1dbc5d274ac124e7346bd6726f00bb46e9005dd0
+// para entender como diminuir a quantidade de linhas dentro do render()
