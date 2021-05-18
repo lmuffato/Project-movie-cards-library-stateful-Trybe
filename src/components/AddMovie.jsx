@@ -21,7 +21,7 @@ export default class AddMovie extends Component {
 
   getTitle(title) {
     return (
-      <label htmlFor="title-input" data-testid="title-input-label">
+      <label htmlFor="title-input-label" data-testid="title-input-label">
         Título
         <input
           type="text"
@@ -36,7 +36,7 @@ export default class AddMovie extends Component {
 
   getSubtitle(subtitle) {
     return (
-      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+      <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">
         Subtítulo
         <input
           type="text"
@@ -51,7 +51,7 @@ export default class AddMovie extends Component {
 
   getImagePath(imagePath) {
     return (
-      <label htmlFor="image-input" data-testid="image-input-label">
+      <label htmlFor="image-input-label" data-testid="image-input-label">
         Imagem
         <input
           type="text"
@@ -71,7 +71,7 @@ export default class AddMovie extends Component {
         { this.getTitle(title) }
         { this.getSubtitle(subtitle) }
         { this.getImagePath(imagePath) }
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        <label htmlFor="storyline-input-label" data-testid="storyline-input-label">
           Sinopse
           <textarea
             type="text"
@@ -86,12 +86,12 @@ export default class AddMovie extends Component {
           <input
             type="number"
             value={ rating }
-            data-testid="rating-input-label"
+            data-testid="rating-input"
             name="rating"
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
+        <label htmlFor="genre-input-label" data-testid="genre-input-label">
           Gênero
           <select
             name="genre"
