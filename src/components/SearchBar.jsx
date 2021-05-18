@@ -34,6 +34,7 @@ class SearchBar extends React.Component {
           />
         </label>
         <label htmlFor="select-gender" data-testid="select-input-label">
+          Filtrar por gênero
           <select
             id="select-gender"
             value={ selectedGenre }
