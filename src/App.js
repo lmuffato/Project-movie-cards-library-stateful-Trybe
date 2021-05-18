@@ -1,12 +1,15 @@
 import React from 'react';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <h2>Começando mesmo que tarde, sigo avançando, estou voltando!!</h2>
+      <SearchBar />
+      <AddMovie />
     </div>
   );
 }

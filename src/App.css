@@ -81,3 +81,40 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.searchBar-form {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#textbar {
+  width: 300px;
+}
+
+.add-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-movie div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-movie input {
+  width: 300px;
+  margin: 10px;
+}
+
+.add-movie #alert {
+  text-align: center;
+  color: yellow;
+  text-shadow: 1px 1px black;
+  padding: 5px;
+  border-radius: 10rem;
+}
