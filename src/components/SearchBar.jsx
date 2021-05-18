@@ -10,34 +10,42 @@ function SearchBar({
   onSelectedGenreChange,
 }) {
   return (
-    <form className="searchBar-form">
-      <input
-        type="text"
-        className="textbar"
-        placeholder="Pesquise filmes, séries, animes"
-        value={ searchText }
-        onChange={ onSearchTextChange }
-      />
-      <label htmlFor="bookmark">
+    <form className="searchBar-form" data-testid="search-bar-form">
+      <label htmlFor="textBar" data-testid="text-input-label">
+        Inclui o texto:
         <input
+          type="text"
+          name="textBar"
+          className="textbar"
+          data-testid="text-input"
+          placeholder="Pesquise filmes, séries, animes"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+        />
+      </label>
+      <label htmlFor="bookmark" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
+        <input
+          data-testid="checkbox-input"
           type="checkbox"
           className="check-box"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
         />
-        Mostrar somente
       </label>
-      <label htmlFor="genre">
+      <label htmlFor="genre" data-testid="select-input-label">
+        Filtrar por gênero
         <select
           name="genre"
           id="genre"
+          data-testid="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
         >
-          <option value="">Todos</option>
-          <option value="action">Ação</option>
-          <option value="Comédia">Comedy</option>
-          <option value="thriller">Suspense</option>
+          <option data-testid="select-option" value="">Todos</option>
+          <option data-testid="select-option" value="action">Ação</option>
+          <option data-testid="select-option" value="comedy">Comédia</option>
+          <option data-testid="select-option" value="thriller">Suspense</option>
         </select>
       </label>
     </form>
