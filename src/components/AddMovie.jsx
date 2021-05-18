@@ -82,6 +82,7 @@ export default class AddMovie extends Component {
           />
         </label>
         <label htmlFor="rating-input-label" data-testid="rating-input-label">
+          Avaliação
           <input
             type="number"
             value={ rating }
