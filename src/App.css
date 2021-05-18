@@ -83,38 +83,39 @@ body {
 }
 
 .searchBar-form {
-  padding: 20px 0;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 20px 0;
+
 }
 
-#textbar {
+.textbar {
   width: 300px;
 }
 
 .add-movie {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 .add-movie div {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .add-movie input {
-  width: 300px;
   margin: 10px;
+  width: 300px;
 }
 
-.add-movie #alert {
-  text-align: center;
-  color: yellow;
-  text-shadow: 1px 1px black;
-  padding: 5px;
+.add-movie .alert {
   border-radius: 10rem;
+  color: yellow;
+  padding: 5px;
+  text-align: center;
+  text-shadow: 1px 1px black;
 }

@@ -13,7 +13,7 @@ function SearchBar({
     <form className="searchBar-form">
       <input
         type="text"
-        id="textbar"
+        className="textbar"
         placeholder="Pesquise filmes, séries, animes"
         value={ searchText }
         onChange={ onSearchTextChange }

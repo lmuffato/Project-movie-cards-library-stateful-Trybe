@@ -107,7 +107,7 @@ class AddMovie extends Component {
         <button type="submit" data-testid="send-button" onClick={ this.SubmitNewCard }>
           Adicionar filme
         </button>
-        <p id="alert" style={ { backgroundColor: alertStyle } }>{ alert }</p>
+        <p className="alert" style={ { backgroundColor: alertStyle } }>{ alert }</p>
       </form>
     );
   }
