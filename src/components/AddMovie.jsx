@@ -7,6 +7,7 @@ class AddMovie extends React.Component {
 
     this.handlechange = this.handleChange.bind(this);
     this.generateInput = this.generateInput.bind(this);
+    this.resetState = this.resetState.bind(this);
 
     this.state = {
       subtitle: '',
@@ -18,22 +19,20 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({
-      [name]: value,
-    });
-  }
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+  };
 
   generateInput(name, text, type, value) {
     return (
-      <label htmlFor={ name } data-testid={ `${name}-input-label` }>
+      <label
+        htmlFor={ name }
+        data-testid={ `${name === 'imagePath' ? 'image' : name}-input-label` }
+      >
         {text}
         <input
           type={ type }
-          data-testid={ `${name}-input` }
+          data-testid={ `${name === 'imagePath' ? 'image' : name}-input` }
           name={ name }
           value={ value }
           onChange={ this.handleChange }
@@ -42,10 +41,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  addMovieButton() {
-    const { onClick } = this.props;
-    onClick(this.state);
-
+  resetState() {
     this.setState({
       subtitle: '',
       title: '',
@@ -54,6 +50,14 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+  }
+
+  addMovieButton(event) {
+    const { onClick } = this.props;
+    const movie = this.state;
+    onClick(event, movie);
+
+    this.resetState();
   }
 
   render() {
