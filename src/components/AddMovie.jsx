@@ -20,6 +20,17 @@ handleOnChange = ({ target }) => {
   this.setState({ [name]: value });
 }
 
+initialState = () => {
+  this.setState({
+    subtitle: '',
+    title: '',
+    imagePath: '',
+    storyline: '',
+    rating: 0,
+    genre: 'action',
+  });
+}
+
 render() {
   const { onClick } = this.props;
   const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -55,7 +66,10 @@ render() {
       <button
         type="submit"
         data-testid="send-button"
-        onClick={ onClick }
+        onClick={ () => {
+          onClick();
+          this.initialState();
+        } }
       >
         Adicionar filme
       </button>
