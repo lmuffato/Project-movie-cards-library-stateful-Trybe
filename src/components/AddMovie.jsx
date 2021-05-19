@@ -1,6 +1,6 @@
 import React from 'react';
-import RatingForm from './RatingForm';
-import GenreForm from './GenreForm';
+import RatingForm from './RatingForm.jsx';
+import GenreForm from './GenreForm.jsx';
 
 class AddMovie extends React.Component {
   constructor(props) {
