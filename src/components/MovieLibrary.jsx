@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+// import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -35,8 +36,8 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     return (
       <div>
-        {movies.map((value) => (
-          <MovieCard key={ value.title } movie={ value } />))}
+        {/* {movies.map((value) => (
+          <MovieCard key={ value.title } movie={ value } />))} */}
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
@@ -44,6 +45,12 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
+        />
+        <MovieList
+          movies={ movies }
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
         />
         <AddMovie onClick={ this.handleOnClick } />
       </div>
