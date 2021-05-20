@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import MovieCard from './MovieCard';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
@@ -28,6 +27,7 @@ class MovieLibrary extends React.Component {
   }
 
   handleOnClick = (event) => {
+    // event.preventDefault();
     console.log(event);
   }
 
@@ -36,8 +36,6 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     return (
       <div>
-        {/* {movies.map((value) => (
-          <MovieCard key={ value.title } movie={ value } />))} */}
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
@@ -52,7 +50,7 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <AddMovie onClick={ this.handleOnClick } />
+        <AddMovie onClick={ this.handleOnClick } movies={ movies } />
       </div>
     );
   }

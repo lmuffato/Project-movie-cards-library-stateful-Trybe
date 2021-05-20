@@ -6,25 +6,29 @@ import MovieCard from './MovieCard';
 class MovieList extends React.Component {
   searchMovies = () => {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.props;
-    let moviesFilter = movies;
 
-    if (bookmarkedOnly === true) {
-      moviesFilter = movies.filter((movie) => movie.bookmarked === true);
-    }
-    if (selectedGenre !== '') {
-      moviesFilter = movies.filter((movie) => movie.genre === selectedGenre);
-    }
-    if (searchText.length > 0) {
-      moviesFilter = movies.filter((movie) => movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
-    }
-    return moviesFilter.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    return movies.filter((movie) => {
+      if (searchText.toLowerCase()) {
+        return movie.title.toLowerCase().includes(searchText)
+        || movie.subtitle.toLowerCase().includes(searchText)
+        || movie.storyline.toLowerCase().includes(searchText);
+      }
+      if (bookmarkedOnly) {
+        return movie.bookmarked;
+      }
+      if (selectedGenre) {
+        return movie.genre === selectedGenre;
+      }
+      return movies;
+    });
+    // map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
   }
 
   render() {
     return (
       <div data-testid="movie-list" className="movie-list">
-        {this.searchMovies()}
+        {this.searchMovies()
+          .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
   }
