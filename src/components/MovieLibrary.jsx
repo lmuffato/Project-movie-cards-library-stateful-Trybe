@@ -8,7 +8,6 @@ import SearchBar from './SearchBar';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -16,16 +15,15 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  handleSubmit(movie) {
+  handleSubmit(state) {
+    console.log('entrou');
     const { movies } = this.props;
     movies.push({
-      subtitle: movie.subtitle,
-      title: movie.title,
-      imagePath: movie.imagePath,
-      storyline: movie.storyline,
-      rating: movie.rating,
-      genre: movie.genre,
-    });
+      title: state.title,
+      subtitle: state.subtitle,
+      imagePath: state.imagePath,
+      rating: state.rating,
+      genre: state.genre });
   }
 
   handelChange = (event) => {
@@ -84,7 +82,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handelSelect }
         />
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie onClick={ () => this.handleSubmit() } />
+        <AddMovie onClick={ this.handleSubmit } />
       </div>
     );
   }
@@ -92,12 +90,12 @@ class MovieLibrary extends React.Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-//   searchText: PropTypes.string.isRequired,
-//   onSearchTextChange: PropTypes.string.isRequired,
-//   bookmarkedOnly: PropTypes.bool.isRequired,
-//   onBookmarkedChange: PropTypes.bool.isRequired,
-//   selectedGenre: PropTypes.string.isRequired,
-//   onSelectedGenreChange: PropTypes.string.isRequired,
+  // searchText: PropTypes.string.isRequired,
+  // onSearchTextChange: PropTypes.string.isRequired,
+  // bookmarkedOnly: PropTypes.bool.isRequired,
+  // onBookmarkedChange: PropTypes.bool.isRequired,
+  // selectedGenre: PropTypes.string.isRequired,
+  // onSelectedGenreChange: PropTypes.string.isRequired,
 };
 
 export default MovieLibrary;
