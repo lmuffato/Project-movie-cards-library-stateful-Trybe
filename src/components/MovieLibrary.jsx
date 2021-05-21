@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
@@ -6,26 +7,13 @@ class MovieLibrary extends Component {
   //   super(props);
   // }
 
-  // handleMovieButton = (event) => {
-  //   console.log(event);
-  //   console.log(this.state);
-  //   this.setState({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   });
-  // }
-
   render() {
     return (
       <div>
         <h2>My awesome movie library</h2>
-        {/* <SearchBar />
-        // <MovieList movies={this.props.movies} /> */}
-        {/* // <AddMovie handleMovieButton={ this.handleMovieButton } /> */}
+        <SearchBar />
+        {/* <MovieList movies={this.props.movies} /> */}
+        <AddMovie handleMovieButton={ this.handleMovieButton } />
       </div>
     );
   }
