@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { func } from 'prop-types';
 import AddMovie2 from './AddMovie2';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -15,6 +17,19 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleChange({ target }) {
@@ -61,11 +76,19 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <AddMovie2 value={ { genre, rating, storyline } } funct={ this.handleChange } />
+        <AddMovie2
+          value={ { genre, rating, storyline } }
+          handleChange={ this.handleChange }
+          handleClick={ this.handleClick }
+        />
 
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: func,
+}.isRequired;
 
 export default AddMovie;

@@ -10,6 +10,7 @@ class SearchBar extends Component {
         <label data-testid="text-input-label" htmlFor="text-name">
           Inclui o texto:
           <input
+            name="searchText"
             id="text-name"
             type="text"
             value={ searchText }
@@ -20,6 +21,7 @@ class SearchBar extends Component {
         <label data-testid="checkbox-input-label" htmlFor="check-name">
           Mostrar somente favoritos
           <input
+            name="bookmarkedOnly"
             data-testid="checkbox-input"
             id="check-name"
             type="checkbox"
@@ -30,6 +32,7 @@ class SearchBar extends Component {
         <label data-testid="select-input-label" htmlFor="select-name">
           Filtrar por gênero
           <select
+            name="selectedGenre"
             data-testid="select-input"
             id="select-name"
             value={ selectedGenre }
