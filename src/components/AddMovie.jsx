@@ -8,6 +8,7 @@ class AddMovie extends React.Component {
     this.handlechange = this.handleChange.bind(this);
     this.generateInput = this.generateInput.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.addMovieButton = this.addMovieButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -52,10 +53,10 @@ class AddMovie extends React.Component {
     });
   }
 
-  addMovieButton(event) {
+  addMovieButton() {
     const { onClick } = this.props;
     const movie = this.state;
-    onClick(event, movie);
+    onClick(movie);
 
     this.resetState();
   }
