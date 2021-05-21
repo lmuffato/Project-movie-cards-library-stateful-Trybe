@@ -21,7 +21,6 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    console.log(name);
     if (name === 'image') {
       this.setState({
         imagePath: target.value,
@@ -34,7 +33,6 @@ class AddMovie extends React.Component {
   }
 
   handleStorylineChange(event) {
-    console.log(event);
     this.setState({
       storyline: event.target.value,
     });
@@ -70,6 +68,17 @@ class AddMovie extends React.Component {
     />
   );
 
+  makeTextArea = (name, value, type, onChange) => (
+    <textarea
+      name={ name }
+      value={ value }
+      type={ type }
+      data-testid={ `${name}-input` }
+      id={ `${name}-input` }
+      onChange={ onChange }
+    />
+  );
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -88,14 +97,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            type="text"
-            data-testid="storyline-input"
-            id="storyline-input"
-            onChange={ this.handleChange }
-          />
+          {this.makeTextArea('storyline', storyline, 'text', this.handleStorylineChange)}
         </label>
         <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
@@ -116,7 +118,13 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button type="submit" data-testid="send-button" onClick={ this.handleSubmit }>Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleSubmit }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
