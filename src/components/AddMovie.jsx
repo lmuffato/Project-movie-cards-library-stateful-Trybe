@@ -19,13 +19,13 @@ class AddMovie extends React.Component {
 handleOnChange = ({ target }) => {
   const { name, value } = target;
   this.setState({ [name]: value });
+  console.log(this.state);
 }
 
-// addMovie = (event) => {
-//   event.preventDefault();
+// addMovie = () => {
 //   const { movies } = this.props;
-//   const moviesAll = [...movies, this.state];
-//   moviesAll.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+//   movies.push(this.state);
+//   // moviesAll.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
 // }
 
 initialState = () => {

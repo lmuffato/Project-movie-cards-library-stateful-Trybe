@@ -8,10 +8,10 @@ class MovieList extends React.Component {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.props;
 
     return movies.filter((movie) => {
-      if (searchText.toLowerCase()) {
-        return movie.title.toLowerCase().includes(searchText)
-        || movie.subtitle.toLowerCase().includes(searchText)
-        || movie.storyline.toLowerCase().includes(searchText);
+      if (searchText) {
+        return movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText);
       }
       if (bookmarkedOnly) {
         return movie.bookmarked;
@@ -21,7 +21,6 @@ class MovieList extends React.Component {
       }
       return movies;
     });
-    // map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
   }
 
   render() {
