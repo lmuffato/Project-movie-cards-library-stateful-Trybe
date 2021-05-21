@@ -21,9 +21,16 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    this.setState({
-      [name]: target.value,
-    });
+    console.log(name);
+    if (name === 'image') {
+      this.setState({
+        imagePath: target.value,
+      });
+    } else {
+      this.setState({
+        [name]: target.value,
+      });
+    }
   }
 
   handleStorylineChange(event) {
@@ -77,7 +84,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
-          {this.makeInput('imagePath', imagePath, 'text', this.handleChange)}
+          {this.makeInput('image', imagePath, 'text', this.handleChange)}
         </label>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
