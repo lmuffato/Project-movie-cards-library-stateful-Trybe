@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class InputTitle extends React.Component {
   constructor() {
@@ -33,8 +33,9 @@ class InputTitle extends React.Component {
   }
 }
 
-// InputTitle.propTypes = {
-//   onchange: PropTypes.func.isRequired,
-// };
+InputTitle.propTypes = {
+  onChangeAM: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default InputTitle;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputStory extends React.Component {
   constructor() {
@@ -31,5 +32,10 @@ class InputStory extends React.Component {
     );
   }
 }
+
+InputStory.propTypes = {
+  onChangeAM: PropTypes.func.isRequired,
+  storyline: PropTypes.string.isRequired,
+};
 
 export default InputStory;
