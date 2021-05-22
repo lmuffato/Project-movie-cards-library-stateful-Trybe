@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddMovieExtends from './AddMovieExtends';
-// import MovieCard from './MovieCard';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -21,12 +20,6 @@ handleOnChange = ({ target }) => {
   this.setState({ [name]: value });
   console.log(this.state);
 }
-
-// addMovie = () => {
-//   const { movies } = this.props;
-//   movies.push(this.state);
-//   // moviesAll.map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-// }
 
 initialState = () => {
   this.setState({
@@ -75,8 +68,7 @@ render() {
         type="submit"
         data-testid="send-button"
         onClick={ () => {
-          onClick();
-          // this.addMovie();
+          onClick(this.state);
           this.initialState();
         } }
       >
@@ -91,5 +83,4 @@ export default AddMovie;
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-  // movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
