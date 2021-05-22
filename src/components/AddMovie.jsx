@@ -12,45 +12,29 @@ class AddMovie extends React.Component {
     super();
 
     this.state = {
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
   }
 
-  handleTitle = (event) => {
-    this.setState({ title: event.target.value });
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({ [name]: value });
   }
 
-  handlesub = (event) => {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  handleimg = (event) => {
-    this.setState({ imagePath: event.target.value });
-  }
-
-  handleStory = (event) => {
-    this.setState({ storyLine: event.target.value });
-  }
-
-  handleRating = (event) => {
-    this.setState({ rating: event.target.value });
-  }
-
-  handleGenre = (event) => {
-    this.setState({ genre: event.target.value });
-  }
-
-  addMovie = () => {
+  sendMovieAndResetState = async (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({
-      title: '',
+    await this.setState({
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -59,17 +43,44 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
+    const { title } = this.state;
+    const { subtitle } = this.state;
+    const { imagePath } = this.state;
+    const { storyline } = this.state;
+    const { rating } = this.state;
+    const { genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <Title title={ title } handleTitle={ this.handleTitle } />
-        <SubTitle subtitle={ subtitle } handlesub={ this.handlesub } />
-        <Img imagePath={ imagePath } handleimg={ this.handleimg } />
-        <Sinopse storyLine={ storyLine } handleStory={ this.handleStory } />
-        <Rating rating={ rating } handleRating={ this.handleRating } />
-        <Genre genre={ genre } handleGenre={ this.handleGenre } />
-        <button type="button" data-testid="send-button" onClick={ this.addMovie }>
+        <TitleInput
+          initialStateValue={ title }
+          stateHandler={ this.handleChange }
+        />
+        <SubitleInput
+          initialStateValue={ subtitle }
+          stateHandler={ this.handleChange }
+        />
+        <ImagePathInput
+          initialStateValue={ imagePath }
+          stateHandler={ this.handleChange }
+        />
+        <StorylineInput
+          initialStateValue={ storyline }
+          stateHandler={ this.handleChange }
+        />
+        <RatingInput
+          initialStateValue={ rating }
+          stateHandler={ this.handleChange }
+        />
+        <GenreInput
+          initialStateValue={ genre }
+          stateHandler={ this.handleChange }
+        />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.sendMovieAndResetState }
+        >
           Adicionar filme
         </button>
       </form>
