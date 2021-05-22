@@ -7,12 +7,28 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleSearchText = this.handleSearchText.bind(this);
+    this.handleBookMarkChange = this.handleBookMarkChange.bind(this);
+    this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
+  }
+
+  handleSearchText = (event) => {
+    this.setState({ searchText: event.target.value });
+  }
+
+  handleBookMarkChange = (event) => {
+    this.setState({ bookmarkedOnly: event.target.value });
+  }
+
+  handleSelectedGenre = (event) => {
+    this.setState({ selectedGenre: event.target.value });
   }
 
   render() {
@@ -22,8 +38,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ this.handleSearchText }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleBookMarkChange }
           selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <MovieList
           movies={ movies }
