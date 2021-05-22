@@ -52,27 +52,27 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <TitleInput
+        <Title
           initialStateValue={ title }
           stateHandler={ this.handleChange }
         />
-        <SubitleInput
+        <SubTitle
           initialStateValue={ subtitle }
           stateHandler={ this.handleChange }
         />
-        <ImagePathInput
+        <Img
           initialStateValue={ imagePath }
           stateHandler={ this.handleChange }
         />
-        <StorylineInput
+        <Sinopse
           initialStateValue={ storyline }
           stateHandler={ this.handleChange }
         />
-        <RatingInput
+        <Rating
           initialStateValue={ rating }
           stateHandler={ this.handleChange }
         />
-        <GenreInput
+        <Genre
           initialStateValue={ genre }
           stateHandler={ this.handleChange }
         />
