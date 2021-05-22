@@ -5,12 +5,13 @@ import InputRating from './InputRating';
 import InputStory from './InputStory';
 import InputSubtitle from './InputSubtitle';
 import InputTitle from './InputTitle';
-import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeSelect = this.handleChangeSelect.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -21,21 +22,22 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({ target }) {
+  handleChange(value, name) {
     this.setState({
-      title: target.value,
-      subtitle: target.value,
-      imagePath: target.value,
-      storyline: target.value,
-      rating: target.value,
+      [name]: value,
+    });
+  }
+
+  handleChangeSelect({ target }) {
+    this.setState({
       genre: target.value,
     });
   }
 
-  handleClick = () => {
+  onClick() {
+    console.log('entrou');
     const { onClick } = this.props;
     onClick(this.state);
-    console.log('entrou');
     this.setState({
       subtitle: '',
       title: '',
@@ -58,27 +60,35 @@ class AddMovie extends React.Component {
       rating,
       genre,
     } = this.state;
+    // const { title, subtitle } = this.props;
+
     return (
       <div>
         <form data-testid="add-movie-form">
-          <InputTitle value={ title } onChange={ this.handleChange } />
-          <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
-          <InputImage value={ imagePath } onChange={ this.handleChange } />
-          <InputStory value={ storyline } onChange={ this.handleChange } />
-          <InputRating value={ rating } onChange={ this.handleChange } />
+          <InputTitle onChangeAM={ this.handleChange } title={ title } />
+          <InputSubtitle onChangeAM={ this.handleChange } subtitle={ subtitle } />
+          <InputImage onChangeAM={ this.handleChange } imagePath={ imagePath } />
+          <InputStory onChangeAM={ this.handleChange } storyline={ storyline } />
+          <InputRating onChangeAM={ this.handleChange } rating={ rating } />
           <label htmlFor="genre-input" data-testid="genre-input-label">
             Gênero
             <select
               data-testid="genre-input"
               value={ genre }
-              onChange={ this.handleChange }
+              onChange={ this.handleChangeSelect }
             >
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <Button onClick={ this.handleClick } />
+          <button
+            type="reset"
+            data-testid="send-button"
+            onClick={ this.onClick }
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );

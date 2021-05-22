@@ -5,24 +5,22 @@ class InputStory extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      storyline: '',
-    };
   }
 
   handleChange({ target }) {
-    this.setState({
-      storyline: target.value,
-    });
+    const { value, name } = target;
+    const { onChangeAM } = this.props;
+    onChangeAM(value, name);
   }
 
   render() {
-    const { storyline } = this.state;
+    const { storyline } = this.props;
     return (
       <div>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <input
+            name="storyline"
             type="text"
             data-testid="storyline-input"
             value={ storyline }

@@ -5,24 +5,22 @@ class InputRating extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      rating: 0,
-    };
   }
 
   handleChange({ target }) {
-    this.setState({
-      rating: target.value,
-    });
+    const { value, name } = target;
+    const { onChangeAM } = this.props;
+    onChangeAM(value, name);
   }
 
   render() {
-    const { rating } = this.state;
+    const { rating } = this.props;
     return (
       <div>
         <label htmlFor="number" data-testid="rating-input-label">
           Avaliação
           <input
+            name="rating"
             data-testid="rating-input"
             type="number"
             value={ rating }

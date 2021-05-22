@@ -5,24 +5,22 @@ class InputSubtitle extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      subtitle: '',
-    };
   }
 
   handleChange({ target }) {
-    this.setState({
-      subtitle: target.value,
-    });
+    const { value, name } = target;
+    const { onChangeAM } = this.props;
+    onChangeAM(value, name);
   }
 
   render() {
-    const { subtitle } = this.state;
+    const { subtitle } = this.props;
     return (
       <div>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            name="subtitle"
             type="text"
             data-testid="subtitle-input"
             value={ subtitle }

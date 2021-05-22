@@ -8,6 +8,7 @@ import SearchBar from './SearchBar';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -18,12 +19,14 @@ class MovieLibrary extends React.Component {
   handleSubmit(state) {
     console.log('entrou');
     const { movies } = this.props;
+    console.log(movies);
     movies.push({
       title: state.title,
       subtitle: state.subtitle,
       imagePath: state.imagePath,
       rating: state.rating,
-      genre: state.genre });
+      genre: state.genre,
+    });
   }
 
   handelChange = (event) => {

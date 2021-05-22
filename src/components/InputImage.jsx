@@ -5,24 +5,22 @@ class InputImage extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      imagePath: '',
-    };
   }
 
   handleChange({ target }) {
-    this.setState({
-      imagePath: target.value,
-    });
+    const { value, name } = target;
+    const { onChangeAM } = this.props;
+    onChangeAM(value, name);
   }
 
   render() {
-    const { imagePath } = this.state;
+    const { imagePath } = this.props;
     return (
       <div>
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
+            name="imagePath"
             data-testid="image-input"
             type="text"
             value={ imagePath }
