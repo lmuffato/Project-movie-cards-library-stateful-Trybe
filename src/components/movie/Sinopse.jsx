@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 class Sinopse extends React.Component {
   render() {
-    const { storyLine, handleStory } = this.props;
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
-      <label data-testid="storyline-input-label" htmlFor="storyline-input">
+      <label data-testid="storyline-input-label" htmlFor="storyline-input-label">
         Sinopse
-        <input
-          type="textarea"
-          value={ storyLine }
+        <textarea
+          value={ initialStateValue }
           data-testid="storyline-input"
-          onChange={ handleStory }
+          onChange={ stateHandler }
+          name="storyline"
+          id="storyline-input-label"
         />
       </label>
     );
@@ -19,8 +21,8 @@ class Sinopse extends React.Component {
 }
 
 Sinopse.propTypes = {
-  storyLine: PropTypes.string.isRequired,
-  handleStory: PropTypes.func.isRequired,
+  initialStateValue: PropTypes.string.isRequired,
+  stateHandler: PropTypes.func.isRequired,
 };
 
 export default Sinopse;

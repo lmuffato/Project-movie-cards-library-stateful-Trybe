@@ -1,21 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Rating extends React.Component {
+class RatingInput extends React.Component {
   render() {
-    const { rating } = this.props;
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
-      <div className="movie-card-rating" data-testid="rating">
-        <span className="rating">{rating}</span>
-      </div>
+      <label data-testid="rating-input-label" htmlFor="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          value={ initialStateValue }
+          data-testid="rating-input"
+          onChange={ stateHandler }
+          id="rating-input-label"
+          name="rating"
+        />
+      </label>
     );
   }
 }
 
-Rating.propTypes = { rating: PropTypes.number };
-
-Rating.defaultProps = {
-  rating: 'undefined',
+RatingInput.propTypes = {
+  initialStateValue: PropTypes.number.isRequired,
+  stateHandler: PropTypes.func.isRequired,
 };
 
 export default Rating;
