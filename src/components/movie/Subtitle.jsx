@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 class SubTitle extends React.Component {
   render() {
-    const { subtitle, handlesub } = this.props;
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
-      <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
+      <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
         Subtítulo
         <input
-          type="text"
-          value={ subtitle }
+          value={ initialStateValue }
           data-testid="subtitle-input"
-          onChange={ handlesub }
+          onChange={ stateHandler }
+          name="subtitle"
+          id="subtitle-input-label"
         />
       </label>
     );
@@ -19,8 +21,8 @@ class SubTitle extends React.Component {
 }
 
 SubTitle.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  handlesub: PropTypes.func.isRequired,
+  initialStateValue: PropTypes.string.isRequired,
+  stateHandler: PropTypes.func.isRequired,
 };
 
 export default SubTitle;

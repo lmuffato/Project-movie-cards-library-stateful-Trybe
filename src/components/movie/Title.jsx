@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Title extends React.Component {
+class TitleInput extends React.Component {
   render() {
-    const { title, handleTitle } = this.props;
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
-      <label data-testid="title-input-label" htmlFor="title-input">
+      <label data-testid="title-input-label" htmlFor="add-movie-form">
         Título
         <input
-          type="text"
-          value={ title }
+          value={ initialStateValue }
           data-testid="title-input"
-          onChange={ handleTitle }
+          onChange={ stateHandler }
+          id="add-movie-form"
+          name="title"
         />
       </label>
     );
   }
 }
 
-Title.propTypes = {
-  title: PropTypes.string.isRequired,
-  handleTitle: PropTypes.func.isRequired,
+TitleInput.propTypes = {
+  initialStateValue: PropTypes.string.isRequired,
+  stateHandler: PropTypes.func.isRequired,
 };
 
-export default Title;
+export default TitleInput;
