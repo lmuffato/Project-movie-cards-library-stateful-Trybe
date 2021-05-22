@@ -33,10 +33,6 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  handleAddMovie = (event) => {
-    this.setState({ selectedGenre: event.target.value });
-  }
-
   handleAddMovie = (newMovie) => {
     const { movies } = this.state;
     const newState = { movies: [...movies, newMovie] };
