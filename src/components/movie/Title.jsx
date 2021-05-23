@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TitleInput extends React.Component {
+class Title extends React.Component {
   render() {
     const { initialStateValue, stateHandler } = this.props;
 
@@ -20,9 +20,9 @@ class TitleInput extends React.Component {
   }
 }
 
-TitleInput.propTypes = {
+Title.propTypes = {
   initialStateValue: PropTypes.string.isRequired,
   stateHandler: PropTypes.func.isRequired,
 };
 
-export default TitleInput;
+export default Title;

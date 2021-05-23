@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
   render() {
-    const { rating, handleRating } = this.props;
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
-      <label data-testid="rating-input-label" htmlFor="rating-input">
+      <label data-testid="rating-input-label" htmlFor="rating-input-label">
         Avaliação
         <input
           type="number"
-          value={ rating }
+          value={ initialStateValue }
           data-testid="rating-input"
-          onChange={ handleRating }
+          onChange={ stateHandler }
+          id="rating-input-label"
+          name="rating"
         />
       </label>
     );
@@ -19,8 +22,8 @@ class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.string.isRequired,
-  handleRating: PropTypes.func.isRequired,
+  initialStateValue: PropTypes.number.isRequired,
+  stateHandler: PropTypes.func.isRequired,
 };
 
 export default Rating;

@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 
 class Img extends React.Component {
   render() {
-    const { imagePath, handleimg } = this.props;
+    const { initialStateValue, stateHandler } = this.props;
+
     return (
-      <label data-testid="image-input-label" htmlFor="image-input">
+      <label data-testid="image-input-label" htmlFor="image-input-label">
         Imagem
         <input
-          type="text"
-          value={ imagePath }
+          value={ initialStateValue }
           data-testid="image-input"
-          onChange={ handleimg }
+          onChange={ stateHandler }
+          name="imagePath"
+          id="image-input-label"
         />
       </label>
     );
@@ -19,8 +21,8 @@ class Img extends React.Component {
 }
 
 Img.propTypes = {
-  imagePath: PropTypes.string.isRequired,
-  handleimg: PropTypes.func.isRequired,
+  initialStateValue: PropTypes.string.isRequired,
+  stateHandler: PropTypes.func.isRequired,
 };
 
 export default Img;
