@@ -32,9 +32,10 @@ class SearchBar extends Component {
           />
         </div>
         <select>
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
-          id="select"
+          value=
+          { selectedGenre }
+          onChange=
+          { onSelectedGenreChange }
         </select>
       </div>
     );
