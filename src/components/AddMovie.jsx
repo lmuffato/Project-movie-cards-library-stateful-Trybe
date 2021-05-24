@@ -45,10 +45,10 @@ class AddMovie extends React.Component {
   }
 
   handleSubmit = (event) => {
-    const { addMovie } = this.props;
+    const { onClick } = this.props;
     const newMovie = this.state;
     event.preventDefault();
-    addMovie(newMovie);
+    onClick(newMovie);
     this.setState({
       subtitle: '',
       title: '',
@@ -121,7 +121,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.handleSubmit }
         >
@@ -133,7 +133,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  addMovie: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
