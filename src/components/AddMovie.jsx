@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AvaliatorInput from './AvaliatorInput';
 import ButtonAddMovie from './ButtonAddMovie';
 import TitleInput from './TitleInput';
@@ -9,7 +9,7 @@ import ImageInput from './ImageInput';
 
 // Realizado este arquivo e demais importados com ajuda do nosso colega Guilherme Dornelles
 
-class AddMovie extends React.Component {
+class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
