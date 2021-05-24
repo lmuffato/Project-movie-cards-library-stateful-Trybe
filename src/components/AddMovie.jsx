@@ -45,10 +45,10 @@ class AddMovie extends React.Component {
   }
 
   handleSubmit = (event) => {
-    const { onClick } = this.props;
+    const { addMovie } = this.props;
     const newMovie = this.state;
     event.preventDefault();
-    onClick(newMovie);
+    addMovie(newMovie);
     this.setState({
       subtitle: '',
       title: '',
@@ -133,7 +133,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  addMovie: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

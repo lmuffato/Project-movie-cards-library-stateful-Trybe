@@ -14,18 +14,13 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    console.log(this.state);
   }
 
-  onClick = (newMovie) => {
+  addMovie = (newMovie) => {
     const { movies } = this.state;
-    movies.push(newMovie);
-    this.setState(
-      movies,
-    );
-    //   () => ({
-    //   movies,
-    // }));
+    this.setState({
+      movies: [...movies, newMovie],
+    });
   }
 
   onSearchTextChange = ({ target }) => {
@@ -34,9 +29,9 @@ class MovieLibrary extends Component {
     });
   }
 
-  onBookmarkedChange = () => {
+  onBookmarkedChange = ({ target }) => {
     this.setState({
-      bookmarkedOnly: true,
+      bookmarkedOnly: target.checked,
     });
   }
 
@@ -48,7 +43,6 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    console.log(movies);
     return (
       <div>
         {movies.map((movie) => (
@@ -66,7 +60,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         {/* <MovieList movies={this.props.movies} /> */}
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie addMovie={ this.addMovie } />
       </div>
     );
   }
@@ -85,3 +79,6 @@ MovieLibrary.propTypes = {
 };
 
 export default MovieLibrary;
+
+// Referências:
+// Como adicionar um array em outro no estado com o spred operator: https://stackoverflow.com/questions/43455911/using-es6-spread-to-concat-multiple-arrays
