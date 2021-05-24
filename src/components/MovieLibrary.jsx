@@ -56,7 +56,9 @@ class MovieLibrary extends Component {
       filteredMovies = movies.filter((movie) => movie.genre === selectedGenre);
     }
     if (searchText !== '') {
-      filteredMovies = movies.filter((movie) => movie.title.includes(searchText));
+      filteredMovies = movies
+        .filter((movie) => movie.title.includes(searchText)
+         || movie.subtitle.includes(searchText || movie.storyline.includes(searchText)));
     }
     if (filteredMovies === undefined) {
       filteredMovies = movies;
@@ -66,8 +68,9 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const filteredMovies = this.filterList(movies);
     return (
-      <main>
+      <div>
         <SearchBar
           onSearchTextChange={ this.onSearchTextChange }
           searchText={ searchText }
@@ -77,10 +80,10 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList
-          movies={ this.filterList(movies) }
+          movies={ filteredMovies }
         />
         <AddMovie onClick={ this.submitNewMovie } />
-      </main>
+      </div>
     );
   }
 }

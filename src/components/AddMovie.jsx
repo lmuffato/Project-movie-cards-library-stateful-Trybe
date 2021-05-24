@@ -4,8 +4,8 @@ import TitleSubImg from './inputs/TitleSubImg';
 import StLineRatingGender from './inputs/StLineRatingGender';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
