@@ -58,7 +58,7 @@ class MovieLibrary extends Component {
     if (searchText !== '') {
       filteredMovies = movies
         .filter((movie) => movie.title.includes(searchText)
-         || movie.subtitle.includes(searchText || movie.storyline.includes(searchText)));
+         || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
     }
     if (filteredMovies === undefined) {
       filteredMovies = movies;
