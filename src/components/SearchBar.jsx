@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   render() {
     const {
-      searchTextChange,
+      onSearchTextChange,
       searchText,
       bookmarkedOnly,
       onBookmarkedChange,
@@ -20,7 +20,7 @@ class SearchBar extends Component {
           Inclui o texto:
           <input
             id="text-input"
-            onChange={ searchTextChange }
+            onChange={ onSearchTextChange }
             type="text"
             value={ searchText }
             data-testid="text-input"
@@ -56,7 +56,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchTextChange: PropTypes.func,
+  onSearchTextChange: PropTypes.func,
   searchText: PropTypes.string,
   bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
