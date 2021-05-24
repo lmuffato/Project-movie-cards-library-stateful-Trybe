@@ -67,35 +67,43 @@ class AddMovie extends Component {
 
   SubmitNewCard = (e) => {
     e.preventDefault();
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const check = [];
-    for (let index = 0; index < Object.keys(this.state).length - 2; index += 1) {
-      if (Object.values(this.state)[index] === '') {
-        check.push(true);
-      } else {
-        check.push(false);
-      }
-    }
-    if (check.includes(true)) {
-      this.AlertError();
-    } else {
-      this.createNewMovie({
-        subtitle,
-        title,
-        imagePath,
-        storyline,
-        rating,
-        genre });
-      this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      });
-      this.AlertSucess();
-    }
+    const { createNewCardMovie } = this.props;
+    const { subtitle,
+      title,
+      imagePath,
+      storyline,
+      rating,
+      genre } = this.state;
+    return createNewCardMovie({ subtitle, title, imagePath, storyline, rating, genre });
+    // const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    // const check = [];
+    // for (let index = 0; index < Object.keys(this.state).length - 2; index += 1) {
+    //   if (Object.values(this.state)[index] === '') {
+    //     check.push(true);
+    //   } else {
+    //     check.push(false);
+    //   }
+    // }
+    // if (check.includes(true)) {
+    //   this.AlertError();
+    // } else {
+    //   this.createNewMovie({
+    //     subtitle,
+    //     title,
+    //     imagePath,
+    //     storyline,
+    //     rating,
+    //     genre });
+    //   this.setState({
+    //     subtitle: '',
+    //     title: '',
+    //     imagePath: '',
+    //     storyline: '',
+    //     rating: 0,
+    //     genre: 'action',
+    //   });
+    //   this.AlertSucess();
+    // }
   };
 
   render() {

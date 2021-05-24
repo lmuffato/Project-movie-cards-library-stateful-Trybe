@@ -115,6 +115,7 @@ body {
 .add-movie .alert {
   border-radius: 10rem;
   color: yellow;
+  margin: 5px;
   padding: 5px;
   text-align: center;
   text-shadow: 1px 1px black;
