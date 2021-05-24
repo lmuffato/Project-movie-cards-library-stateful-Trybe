@@ -15,6 +15,7 @@ export default class SearchBar extends Component {
         <label
           data-testid="text-input-label"
           htmlFor="incluiTexto"
+          value={ onSearchTextChange }
         >
           Inclui o texto:
           <input
@@ -22,7 +23,6 @@ export default class SearchBar extends Component {
             data-testid="text-input"
             type="text"
             value={ SearchText }
-            onChange={ onSearchTextChange }
           />
         </label>
         <label data-testid="text-input-label" htmlFor="check">
