@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
           htmlFor="incluiTexto"
           value={ onSearchTextChange }
         >
-          Inclui o texto:
+          Inclui o texto
           <input
             id="incluiTexto"
             data-testid="text-input"
