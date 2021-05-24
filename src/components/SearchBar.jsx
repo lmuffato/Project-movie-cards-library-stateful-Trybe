@@ -17,6 +17,7 @@ class SearchBar extends Component {
       <div>
         <div>
           <input
+            data-testid="search-bar-form"
             onChange={ onSearchTextChange }
             type="text"
             value={ searchText }
