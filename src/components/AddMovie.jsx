@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from '../data';
+import PropTypes from 'prop-types';
 import TitleSubImg from './inputs/TitleSubImg';
 import StLineRatingGender from './inputs/StLineRatingGender';
 
@@ -35,6 +35,7 @@ class AddMovie extends Component {
     rating,
     genre,
   }) => {
+    const { submitNewMovie } = this.props;
     const movie = {
       subtitle,
       title,
@@ -43,7 +44,7 @@ class AddMovie extends Component {
       rating,
       genre,
     };
-    data.push(movie);
+    submitNewMovie(movie);
   }
 
   AlertError = () => {
@@ -120,5 +121,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  submitNewMovie: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
