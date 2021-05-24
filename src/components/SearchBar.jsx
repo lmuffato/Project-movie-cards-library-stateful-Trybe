@@ -14,15 +14,19 @@ class SearchBar extends Component {
     } = this.props;
     /* const onSearchTextChange =  */
     return (
-      <div>
+      <form data-testid="search-bar-form">
+
         <div>
-          <input
-            data-testid="search-bar-form"
-            onChange={ onSearchTextChange }
-            type="text"
-            value={ searchText }
-            id="text"
-          />
+          <label htmlFor="text-input" data-testid="text-input-label">
+            Inclui o texto:
+            <input
+              data-testid="text-input"
+              onChange={ onSearchTextChange }
+              type="text"
+              value={ searchText }
+              id="text"
+            />
+          </label>
         </div>
         <div>
           <input
@@ -38,7 +42,7 @@ class SearchBar extends Component {
           onChange=
           { onSelectedGenreChange }
         </select>
-      </div>
+      </form>
     );
   }
 }
