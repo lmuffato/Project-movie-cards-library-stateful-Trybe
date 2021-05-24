@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
