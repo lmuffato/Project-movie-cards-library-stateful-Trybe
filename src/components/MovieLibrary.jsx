@@ -64,7 +64,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           searchText={ searchText }
         />
-        <AddMovie submitNewMovie={ this.submitNewMovie } />
+        <AddMovie onClick={ this.submitNewMovie } />
       </main>
     );
   }
