@@ -44,9 +44,11 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     const { onClick } = this.props;
-    onClick(this.state);
+    const newMovie = this.state;
+    event.preventDefault();
+    onClick(newMovie);
     this.setState({
       subtitle: '',
       title: '',

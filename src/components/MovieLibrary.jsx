@@ -8,7 +8,6 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-    console.log(movies);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -16,6 +15,35 @@ class MovieLibrary extends Component {
       movies,
     };
     console.log(this.state);
+  }
+
+  onClick = (newMovie) => {
+    const { movies } = this.state;
+    movies.push(newMovie);
+    this.setState(
+      movies,
+    );
+    //   () => ({
+    //   movies,
+    // }));
+  }
+
+  onSearchTextChange = ({ target }) => {
+    this.setState({
+      searchText: target.value,
+    });
+  }
+
+  onBookmarkedChange = () => {
+    this.setState({
+      bookmarkedOnly: true,
+    });
+  }
+
+  onSelectedGenreChange = ({ target }) => {
+    this.setState({
+      selectedGenre: target.value,
+    });
   }
 
   render() {
@@ -33,9 +61,12 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         {/* <MovieList movies={this.props.movies} /> */}
-        <AddMovie handleMovieButton={ this.handleMovieButton } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
@@ -46,7 +77,7 @@ MovieLibrary.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
-    rating: PropTypes.number,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
