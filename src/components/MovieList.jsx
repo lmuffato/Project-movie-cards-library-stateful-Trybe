@@ -22,8 +22,7 @@ class MovieList extends React.Component {
   }
 
   render() {
-    let { movies } = this.props;
-    movies = this.filterList(movies);
+    const { movies } = this.props;
     return (
       <div data-testid="movie-list" className="movie-list">
         {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
