@@ -27,6 +27,9 @@ export default class MovieLibrary extends Component {
     this.setState({ bookmarkedOnly: value });
   };
 
+  // método criado com auxilio da documentação do react
+  // https://pt-br.reactjs.org/docs/forms.html#handling-multiple-inputs
+
   onSelectedGenreChange = (event) => {
     const { value } = event.target;
     this.setState({ selectedGenre: value });
