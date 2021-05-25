@@ -1,27 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Title extends React.Component {
+class Storyline extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label htmlFor="title-input" data-testid="title-input-label">
-        <input
-          name="title"
-          type="text"
-          data-testid="title-input"
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        <textarea
+          name="storyline"
+          data-testid="storyline-input"
           value={ value }
           onChange={ handleChange }
         />
-        Título
+        Sinopse
       </label>
     );
   }
 }
 
-Title.propTypes = {
+Storyline.propTypes = {
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
-export default Title;
+export default Storyline;
