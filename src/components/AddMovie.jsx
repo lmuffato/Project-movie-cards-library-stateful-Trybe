@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from './AddMovieLabels/Title';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,16 +28,7 @@ class AddMovie extends React.Component {
     const { value } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          <input
-            name="title"
-            type="text"
-            data-testid="title-input"
-            value={ value }
-            onChange={ this.handleChange }
-          />
-          Título
-        </label>
+        <Title value={ value } handleChange={ this.handleChange }/>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           <input
             name="subtitle"
@@ -66,8 +58,29 @@ class AddMovie extends React.Component {
           />
           Sinopse
         </label>
-        <select name="rating">rating</select>
-        <select name="genre">genre</select>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          <input
+            name="rating"
+            data-testid="rating-input"
+            type="number"
+            value={ value }
+            onChange={ this.handleChange }
+          />
+          Avaliação
+        </label>
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          <select
+            name="genre"
+            data-testid="genre-input"
+            value={ value }
+            onChange={ this.handleChange }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+          Gênero
+        </label>
       </form>
     );
   }
