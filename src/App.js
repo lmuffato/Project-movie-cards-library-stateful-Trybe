@@ -13,4 +13,6 @@ function App() {
   );
 }
 
+// requisito 14 realizado com a ajuda do vídeo https://trybecourse.slack.com/files/U01AYN59Y2J/F01LNLQMWTS/zoom_0.mp4
+
 export default App;
