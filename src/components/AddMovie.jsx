@@ -47,8 +47,25 @@ class AddMovie extends React.Component {
           />
           Subtítulo
         </label>
-        <textarea name="imagePath" />
-        <textarea name="storyLine" />
+        <label htmlFor="image-input" data-testid="image-input-label">
+          <input
+            name="image"
+            type="text"
+            data-testid="image-input"
+            value={ value }
+            onChange={ this.handleChange }
+          />
+          Imagem
+        </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          <textarea
+            name="storyline"
+            data-testid="storyline-input"
+            value={ value }
+            onChange={ this.handleChange }
+          />
+          Sinopse
+        </label>
         <select name="rating">rating</select>
         <select name="genre">genre</select>
       </form>
