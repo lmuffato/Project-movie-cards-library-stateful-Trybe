@@ -4,15 +4,16 @@ import Proptypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { onSearchTextChange, searchText } = this.props;
+    const { onSearchTextChange, searchText, onBookmarkedChange } = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="input-text" data-testid="text-input-label">
-          Inlcui o texto:
+          Inclui o texto:
           <input
             type="text"
             data-testid="text-input"
-            id="input-text"
+            name="input-text"
             onChange={ onSearchTextChange }
             value={ searchText }
           />
@@ -22,9 +23,24 @@ class SearchBar extends React.Component {
           <input
             type="checkbox"
             checked="bookmarkedOnly"
+            data-testid="checkbox-input"
             id="input-checkbox"
-            onChange="onBookmarkedChange"
+            onChange={ onBookmarkedChange }
           />
+        </label>
+        <label data-testid="select-input-label" htmlFor="id-genre">
+          Filtrar por gênero
+          <select
+            id="id-genre"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
@@ -34,6 +50,7 @@ class SearchBar extends React.Component {
 export default SearchBar;
 
 SearchBar.propTypes = {
-  searchText: Proptypes.string.isRequired,
-  onSearchTextChange: Proptypes.string.isRequired,
-};
+  searchText: Proptypes.string,
+  onSearchTextChange: Proptypes.func,
+  onBookmarkedChange: Proptypes.func,
+}.isRequired;
