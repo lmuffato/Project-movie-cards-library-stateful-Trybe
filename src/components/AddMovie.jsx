@@ -10,9 +10,9 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
+      imagePath: '',
+      storyline: '',
+      rating: 0,
     //   genre: 'action',
     };
   }
@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -48,10 +48,10 @@ class AddMovie extends React.Component {
             onChange={ this.newState }
           />
         </label>
-        <label htmlFor="img" data-testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
-            name="img"
+            name="imagePath"
             type="text"
             value={ imagePath }
             data-testid="image-input"
@@ -67,9 +67,18 @@ class AddMovie extends React.Component {
             rows="10"
             data-testid="storyline-input"
             onChange={ this.newState }
-          >
-            { storyline }
-          </textarea>
+            value={ storyline }
+          />
+        </label>
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            value={ rating }
+            name="rating"
+            data-testid="rating-input"
+            onChange={ this.newState }
+          />
         </label>
       </form>
     );
@@ -81,6 +90,7 @@ AddMovie.propTypes = {
   subtitle: string,
   imagePath: element,
   storyline: string,
+  rating: string,
 }.isRequired;
 
 export default AddMovie;
