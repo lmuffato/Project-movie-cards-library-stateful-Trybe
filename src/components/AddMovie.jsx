@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, img } from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -48,6 +48,16 @@ class AddMovie extends React.Component {
             onChange={ this.newState }
           />
         </label>
+        <label htmlFor="img" data-testid="image-input-label">
+          Imagem
+          <input
+            name="img"
+            type="text"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.newState }
+          />
+        </label>
       </form>
     );
   }
@@ -56,6 +66,7 @@ class AddMovie extends React.Component {
 AddMovie.propTypes = {
   title: string,
   subtitle: string,
+  imagePath: img,
 }.isRequired;
 
 export default AddMovie;
