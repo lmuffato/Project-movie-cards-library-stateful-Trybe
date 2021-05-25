@@ -6,6 +6,7 @@ class AddMovie extends React.Component {
     super();
 
     this.newState = this.newState.bind(this);
+    this.addFilme = this.addFilme.bind(this);
 
     this.state = {
       subtitle: '',
@@ -13,7 +14,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-    //   genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -24,8 +25,21 @@ class AddMovie extends React.Component {
     });
   }
 
+  addFilme() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -80,6 +94,27 @@ class AddMovie extends React.Component {
             onChange={ this.newState }
           />
         </label>
+        <label htmlFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            name="genre"
+            id="genre"
+            value={ genre }
+            data-testid="genre-input"
+            onChange={ this.newState }
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.addFilme }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
@@ -91,6 +126,7 @@ AddMovie.propTypes = {
   imagePath: element,
   storyline: string,
   rating: string,
+  genre: string,
 }.isRequired;
 
 export default AddMovie;
