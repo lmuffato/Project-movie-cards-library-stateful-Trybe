@@ -21,7 +21,7 @@ class addMovie extends React.Component {
     }));
   }
 
-  getProp = (objOfProps, propid) => (
+  buildPropsForField = (objOfProps, propid) => (
     { ...objOfProps[propid], id: propid, onChange: this.updateState }
   )
 
@@ -60,7 +60,7 @@ class addMovie extends React.Component {
           Object.keys(propList).map((field) => (
             <Field
               key={ field }
-              { ...this.getProp(propList, field) }
+              { ...this.buildPropsForField(propList, field) }
             />
           ))
         }
