@@ -1,7 +1,6 @@
 // Inicio do projeto jlfagundes
 import React from 'react';
 import Proptypes from 'prop-types';
-
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -27,9 +26,11 @@ class MovieLibrary extends React.Component {
       [name]: value,
     });
   }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
