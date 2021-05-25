@@ -8,11 +8,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { moviesMly } = this.props;
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      movies: moviesMly };
+      selectedGenre: '',
+      movies };
   }
 
   onClick = (addMovie) => {
@@ -29,11 +30,14 @@ class MovieLibrary extends Component {
     this.setState({ bookmarkedOnly: event.target.checked });
   };
 
+  handleSelectedGenre = (event) => {
+    this.setState({ selectedGenre: event.target.value });
+  }
+
   render() {
-    const { movies, searchText, bookmarkedOnly } = this.state;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     const filterMovies = movies
       .filter(({ title }) => title.toLowerCase().includes(searchText.toLowerCase()));
-    console.log(filterMovies);
     const filterMoviesByBookmarked = filterMovies
       .filter(({ bookmarked }) => {
         if (!bookmarkedOnly) {
@@ -41,7 +45,6 @@ class MovieLibrary extends Component {
         }
         return bookmarked === true;
       });
-    console.log(filterMoviesByBookmarked);
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -50,6 +53,8 @@ class MovieLibrary extends Component {
           onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleSelectedGenre }
         />
         <MovieList movies={ filterMoviesByBookmarked } />
         <AddMovie onClick={ this.onClick } />
