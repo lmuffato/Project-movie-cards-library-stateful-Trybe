@@ -1,5 +1,8 @@
 import React from 'react';
-import { string, element } from 'prop-types';
+import PropTypes from 'prop-types';
+import Button from './Button';
+import Genre from './Genre';
+import Storyline from './Storyline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -72,18 +75,7 @@ class AddMovie extends React.Component {
             onChange={ this.newState }
           />
         </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            id="storyline"
-            cols="30"
-            rows="10"
-            data-testid="storyline-input"
-            onChange={ this.newState }
-            value={ storyline }
-          />
-        </label>
+        <Storyline newState={ this.newState } value={ storyline } />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
@@ -94,39 +86,15 @@ class AddMovie extends React.Component {
             onChange={ this.newState }
           />
         </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            id="genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.newState }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
-        <button
-          type="submit"
-          data-testid="send-button"
-          onClick={ this.addFilme }
-        >
-          Adicionar filme
-        </button>
+        <Genre newState={ this.newState } value={ genre } />
+        <Button addFilme={ this.addFilme } />
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  title: string,
-  subtitle: string,
-  imagePath: element,
-  storyline: string,
-  rating: string,
-  genre: string,
+  onClick: PropTypes.func,
 }.isRequired;
 
 export default AddMovie;
