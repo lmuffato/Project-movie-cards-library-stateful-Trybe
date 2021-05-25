@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <AddMovie onClick={ callback } />
+      <AddMovie /*  onClick={ handleChange } */ />
     </div>
   );
 }
