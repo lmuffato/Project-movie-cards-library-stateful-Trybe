@@ -9,7 +9,7 @@ export default class InputSubtitle extends Component {
         data-testid="subtitle-input-label"
         htmlFor="subtitle"
       >
-        Subtitulo
+        Subtítulo
         <input
           value={ subtitle }
           data-testid="subtitle-input"
