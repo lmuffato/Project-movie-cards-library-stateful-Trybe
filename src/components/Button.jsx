@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 export default class Button extends Component {
   render() {
-    const { handleMovieState } = this.props;
+    const { handleSubmit } = this.props;
     return (
       <button
         type="submit"
         data-testid="send-button"
-        onClick={ handleMovieState }
-        className="button"
+        onClick={ handleSubmit }
       >
         Adicionar filme
       </button>
@@ -18,5 +17,5 @@ export default class Button extends Component {
 }
 
 Button.propTypes = {
-  handleMovieState: PropTypes.func,
+  handleSubmit: PropTypes.func,
 }.isRequired;

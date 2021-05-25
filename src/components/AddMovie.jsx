@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Button from './Button';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -64,6 +66,20 @@ export default class AddMovie extends Component {
     );
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -98,7 +114,6 @@ export default class AddMovie extends Component {
             value={ genre }
             data-testid="genre-input"
             onChange={ this.handleChange }
-            className="select-input-addMovie"
           >
             <option value="action" data-testid="genre-option">
               Ação
@@ -111,7 +126,12 @@ export default class AddMovie extends Component {
             </option>
           </select>
         </label>
+        <Button handleSubmit={ this.handleSubmit } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;

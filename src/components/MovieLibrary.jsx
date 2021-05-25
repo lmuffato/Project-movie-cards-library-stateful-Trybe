@@ -6,18 +6,26 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  /* constructor(props) {
+  constructor(props) {
     super(props);
-  } */
+    const { moviesMly } = this.props;
+    this.state = { movies: moviesMly };
+  }
+
+  onClick = (addMovie) => {
+    this.setState((previusState) => ({
+      movies: [...previusState.movies, addMovie],
+    }));
+  }
 
   render() {
-    const { moviesMly } = this.props;
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ moviesMly } />
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
