@@ -20,8 +20,8 @@ export default class AddMovie extends React.Component {
 
   handleClick = () => {
     const { onClick } = this.props;
-    onClick(startState);
-    // this.setState(startState);
+    onClick(this.state);
+    this.setState(startState);
   };
 
   handleChange = ({ target }) => {
@@ -34,7 +34,7 @@ export default class AddMovie extends React.Component {
       <label data-testid="title-input-label" htmlFor="inputTitle">
         Título
         <input
-          defaultValue={ title }
+          value={ title }
           data-testid="title-input"
           type="text"
           name="title"
@@ -50,7 +50,7 @@ export default class AddMovie extends React.Component {
       <label data-testid="subtitle-input-label" htmlFor="inputSub">
         Subtítulo
         <input
-          defaultValue={ subtitle }
+          value={ subtitle }
           data-testid="subtitle-input"
           type="text"
           name="subtitle"
@@ -66,7 +66,7 @@ export default class AddMovie extends React.Component {
       <label data-testid="image-input-label" htmlFor="inputImage">
         Imagem
         <input
-          defaultValue={ imagePath }
+          value={ imagePath }
           data-testid="image-input"
           type="text"
           name="imagePath"
@@ -82,7 +82,7 @@ export default class AddMovie extends React.Component {
       <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
         <input
-          defaultValue={ storyline }
+          value={ storyline }
           data-testid="storyline-input"
           type="text"
           name="storyline"
@@ -97,7 +97,7 @@ export default class AddMovie extends React.Component {
       <label data-testid="rating-input-label" htmlFor="inputRating">
         Avaliação
         <input
-          defaultValue={ rating }
+          value={ rating }
           data-testid="rating-input"
           type="number"
           name="rating"
@@ -115,7 +115,7 @@ export default class AddMovie extends React.Component {
         <select
           data-testid="genre-input"
           name="genre"
-          defaultValue={ genre }
+          value={ genre }
           onChange={ this.handleChange }
         >
           <option
