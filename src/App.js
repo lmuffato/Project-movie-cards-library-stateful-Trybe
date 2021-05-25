@@ -10,7 +10,7 @@ export default class App extends React.Component {
       <div className="App">
         <Header />
         <SearchBar />
-        <AddMovie />
+        <AddMovie onClick={ (teste) => this.setState(teste) } />
       </div>
     );
   }

@@ -1,38 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const startState = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = startState;
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick = (() => {
+  handleClick = () => {
     const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    });
-  });
+    onClick(startState);
+    // this.setState(startState);
+  };
 
-  handleChange = ((target) => {
+  handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
-  });
+  };
 
   titleInputComponent(title) {
     return (
@@ -82,16 +77,15 @@ export default class AddMovie extends React.Component {
     );
   }
 
-  storyLineInputComponent(storyLine) {
+  storylineInputComponent(storyline) {
     return (
-      <label data-testid="storyline-input-label" htmlFor="inputStoryline">
+      <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
         <input
-          defaultValue={ storyLine }
+          defaultValue={ storyline }
           data-testid="storyline-input"
           type="text"
           name="storyline"
-          id="inputStoryline"
           onChange={ this.handleChange }
         />
       </label>
@@ -160,14 +154,14 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           {this.titleInputComponent(title)}
           {this.subtitleInputComponent(subtitle)}
           {this.imagePathInputComponent(imagePath)}
-          {this.storyLineInputComponent(storyLine)}
+          {this.storylineInputComponent(storyline)}
           {this.ratingInputComponent(rating)}
           {this.genreInputComponent(genre)}
         </form>
