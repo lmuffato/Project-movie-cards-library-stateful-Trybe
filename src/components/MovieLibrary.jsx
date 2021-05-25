@@ -9,7 +9,9 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { moviesMly } = this.props;
-    this.state = { movies: moviesMly };
+    this.state = {
+      searchText: '',
+      movies: moviesMly };
   }
 
   onClick = (addMovie) => {
@@ -18,13 +20,23 @@ class MovieLibrary extends Component {
     }));
   }
 
+  onSearchTextChange = (event) => {
+    console.log(event);
+    this.setState({ searchText: event.target.value });
+  }
+
   render() {
-    const { movies } = this.state;
+    const { movies, searchText } = this.state;
+    const filterMovies = movies
+      .filter(({ title }) => title.toLowerCase().includes(searchText.toLowerCase()));
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={ movies } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+        />
+        <MovieList movies={ filterMovies } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
