@@ -7,8 +7,12 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  // constructor(props) {
-  //   super(props);
+  // constructor() {
+  //   super();
+
+  //   this.state = {
+
+  //   }
   // }
 
   render() {

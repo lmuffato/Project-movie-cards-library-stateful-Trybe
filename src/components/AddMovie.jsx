@@ -1,7 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
+import Proptypes from 'prop-types';
+
 import AddInputNumber from './AddInputNumber';
 import AddSelectGenre from './AddSelectGenre';
+import AddStoryline from './AddStoryline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -12,16 +15,32 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleClick() {
+    // Solucao inspirada no codigo do Edmilson
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -59,20 +78,23 @@ class AddMovie extends React.Component {
             value={ imagePath }
           />
         </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-            value={ storyline }
-          />
-        </label>
+        <AddStoryline handleChange={ this.handleChange } storyline={ storyline } />
         <AddInputNumber handleChange={ this.handleChange } rating={ rating } />
         <AddSelectGenre handleChange={ this.handleChange } genre={ genre } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = {
+  onClick: Proptypes.func,
+}.isRequired;
