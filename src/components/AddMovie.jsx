@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+import RatingComponent from './RatingComponent';
 
 class AddMovie extends Component {
   constructor() {
@@ -9,13 +11,15 @@ class AddMovie extends Component {
     this.addTitle = this.addTitle.bind(this);
     this.addSubtitle = this.addSubtitle.bind(this);
     this.addImage = this.addImage.bind(this);
+    this.addStoryline = this.addStoryline.bind(this);
+    this.addRating = this.addRating.bind(this);
 
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
+      rating: '0',
       genre: 'action',
     };
   }
@@ -31,23 +35,14 @@ class AddMovie extends Component {
   addImage(event) {
     this.setState({ imagePath: event.target.value });
   }
-  /*   <label htmlFor="title-input" data-testid="title-input-label">
-    Título
-    <input
-      type="text"
-      value={ title }
-      data-testid="title-input"
-    />
-  </label> */
 
-  /*     <label htmlFor="image-input" data-testid="image-input-label">
-        Imagem
-        <input
-          type="text"
-          value={ imagePath }
-          data-testid="image-input"
-        />
-      </label> */
+  addStoryline(event) {
+    this.setState({ storyline: event.target.value });
+  }
+
+  addRating(event) {
+    this.setState({ rating: event.target.value });
+  }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -57,22 +52,9 @@ class AddMovie extends Component {
         <Title value={ title } onChange={ this.addTitle } />
         <Subtitle value={ subtitle } onChange={ this.addSubtitle } />
         <ImagePath value={ imagePath } onChange={ this.addImage } />
+        <Storyline value={ storyline } onChange={ this.addStoryline } />
+        <RatingComponent value={ rating } onChange={ this.addRating } />
 
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            value={ storyline }
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            value={ rating }
-            data-testid="rating-input"
-          />
-        </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
           <select value={ genre } data-testid="genre-input">
             <option value="action" data-testid="genre-option">Ação</option>
