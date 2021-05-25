@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.addTitle = this.addTitle.bind(this);
     this.addSubtitle = this.addSubtitle.bind(this);
+    this.addImage = this.addImage.bind(this);
 
     this.state = {
       subtitle: '',
@@ -24,6 +26,10 @@ class AddMovie extends Component {
 
   addSubtitle(event) {
     this.setState({ subtitle: event.target.value });
+  }
+
+  addImage(event) {
+    this.setState({ imagePath: event.target.value });
   }
   /*   <label htmlFor="title-input" data-testid="title-input-label">
     Título
@@ -50,6 +56,7 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <Title value={ title } onChange={ this.addTitle } />
         <Subtitle value={ subtitle } onChange={ this.addSubtitle } />
+        <ImagePath value={ imagePath } onChange={ this.addImage } />
 
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
