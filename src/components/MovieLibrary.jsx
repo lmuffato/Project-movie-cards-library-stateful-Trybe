@@ -37,7 +37,10 @@ class MovieLibrary extends Component {
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     const filterMovies = movies
-      .filter(({ title }) => title.toLowerCase().includes(searchText.toLowerCase()));
+      .filter(({ title, subtitle, storyline }) => (
+        title.toLowerCase().includes(searchText.toLowerCase())
+       || subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || storyline.toLowerCase().includes(searchText.toLowerCase())));
     const filterMoviesByBookmarked = filterMovies
       .filter(({ bookmarked }) => {
         if (!bookmarkedOnly) {
