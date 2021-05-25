@@ -8,6 +8,7 @@ export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
+    console.log(movies);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -18,7 +19,6 @@ export default class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    console.log(selectedGenre);
     return (
       <>
         <SearchBar
