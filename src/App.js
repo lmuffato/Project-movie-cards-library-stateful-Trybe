@@ -1,46 +1,17 @@
 import React from 'react';
 import Header from './components/Header';
-import './App.css';
 import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
+import './App.css';
 
-class App extends React.Component {
-  // constructor() {
-  //   super();
-  //   // this.state = {
-  //   //   searchText: 'string',
-  //   //   onSearchTextChange: 'callback',
-  //   //   bookmarkedOnly: false,
-  //   //   onBookmarkedChange: 'callback',
-  //   //   selectedGenre: 'string',
-  //   //   onSelectedGenreChange: 'callback',
-  //   // }
-  // }
-
-  // const movies = {
-  //     searchText: 'string',
-  //     onSearchTextChange: 'callback',
-  //     bookmarkedOnly: false,
-  //     onBookmarkedChange: 'callback',
-  //     selectedGenre: 'string',
-  //     onSelectedGenreChange: 'callback',
-  // }
+export default class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchBar
-          searchText="string"
-          onSearchTextChange="callback"
-          bookmarkedOnly="false"
-          onBookmarkedChange="callback"
-          selectedGenre="string"
-          onSelectedGenreChange="callback"
-        />
+        <SearchBar />
         <AddMovie />
       </div>
     );
   }
 }
-
-export default App;
