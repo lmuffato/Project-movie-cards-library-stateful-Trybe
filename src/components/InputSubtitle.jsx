@@ -12,6 +12,7 @@ export default class InputSubtitle extends Component {
         Subtítulo
         <input
           value={ subtitle }
+          name="subtitle"
           data-testid="subtitle-input"
           type="text"
           onChange={ handleChange }

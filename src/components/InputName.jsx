@@ -9,6 +9,7 @@ export default class InputName extends Component {
         Título
         <input
           id="title"
+          name="title"
           value={ title }
           data-testid="title-input"
           type="text"
