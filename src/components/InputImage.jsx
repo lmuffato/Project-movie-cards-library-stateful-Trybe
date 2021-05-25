@@ -6,12 +6,13 @@ export default class InputImage extends Component {
     const { imagePath, handleChange } = this.props;
     return (
       <label
-        htmlFor="image"
+        htmlFor="Imagem"
         data-testid="image-input-label"
         type="text"
       >
+        Imagem
         <input
-          id="image"
+          id="Imagem"
           name="imagePath"
           data-testid="image-input"
           value={ imagePath }

@@ -17,6 +17,7 @@ export default class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handlerClick = this.handlerClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,6 +26,11 @@ export default class AddMovie extends Component {
       [name]: value,
     });
     console.log(this.state);
+  }
+
+  handlerClick(event) {
+    const { onClick } = event.onClick;
+    console.log(onClick);
   }
 
   render() {
@@ -37,7 +43,7 @@ export default class AddMovie extends Component {
           <InputImage imagePath={ imagePath } handleChange={ this.handleChange } />
           <InputStoryline storyline={ storyline } handleChange={ this.handleChange } />
           <label data-testid="rating-input-label" htmlFor="rating">
-            Rating
+            Avaliação
             <input
               type="number"
               value={ rating }
@@ -54,8 +60,8 @@ export default class AddMovie extends Component {
               onChange={ this.handleChange }
             >
               <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="thriller" data-testid="genre-option">Suspense</option>
             </select>
           </label>
           <button
@@ -63,7 +69,7 @@ export default class AddMovie extends Component {
             type="submit"
             onClick={ this.handlerClick }
           >
-            Adiciona Filme
+            Adicionar filme
           </button>
         </form>
       </div>
