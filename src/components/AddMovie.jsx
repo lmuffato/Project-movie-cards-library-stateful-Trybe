@@ -18,7 +18,8 @@ export default class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(startState);
