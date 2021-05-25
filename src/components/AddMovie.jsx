@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Title from './Title';
+import Subtitle from './Subtitle';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.addTitle = this.addTitle.bind(this);
+    this.addSubtitle = this.addSubtitle.bind(this);
 
     this.state = {
       subtitle: '',
@@ -19,6 +21,10 @@ class AddMovie extends Component {
   addTitle(event) {
     this.setState({ title: event.target.value });
   }
+
+  addSubtitle(event) {
+    this.setState({ subtitle: event.target.value });
+  }
   /*   <label htmlFor="title-input" data-testid="title-input-label">
     Título
     <input
@@ -27,15 +33,6 @@ class AddMovie extends Component {
       data-testid="title-input"
     />
   </label> */
-
-  /*  <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-      Subtítulo
-      <input
-        type="text"
-        value={ subtitle }
-        data-testid="subtitle-input"
-      />
-    </label> */
 
   /*     <label htmlFor="image-input" data-testid="image-input-label">
         Imagem
@@ -51,12 +48,8 @@ class AddMovie extends Component {
 
     return (
       <form data-testid="add-movie-form">
-        {/* {this.addImputText(title, 'title-imput', 'Título')} */}
-        {/* {this.addImputText(subtitle, 'subtitle-imput', 'Subtítulo')} */}
-        {/* {this.addImputText(imagePath, 'image-imput', 'Imagem')} */}
-        {/* {this.funcAddTitle(title)} */}
-
         <Title value={ title } onChange={ this.addTitle } />
+        <Subtitle value={ subtitle } onChange={ this.addSubtitle } />
 
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
