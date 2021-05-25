@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import AddInputNumber from './AddInputNumber';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,6 +10,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +24,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="movie=title" data-testid="title-input-label">
@@ -64,6 +66,7 @@ class AddMovie extends React.Component {
             value={ storyline }
           />
         </label>
+        <AddInputNumber handleChange={ this.handleChange } rating={ rating } />
       </form>
     );
   }
