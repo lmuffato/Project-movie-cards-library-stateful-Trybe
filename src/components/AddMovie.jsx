@@ -36,6 +36,7 @@ class AddMovie extends React.Component {
             value={ value }
             onChange={ this.handleChange }
           />
+          Título
         </label>
         <textarea name="imagePath" />
         <textarea name="storyLine" />
