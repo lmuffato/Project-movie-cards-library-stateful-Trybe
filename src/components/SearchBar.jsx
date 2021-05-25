@@ -1,11 +1,12 @@
 // implement AddMovie component here
+// Desenvolvido com apoio do Eduardo Costa
 import React from 'react';
 import Proptypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { onSearchTextChange, searchText, onBookmarkedChange } = this.props;
-    const { selectedGenre, onSelectedGenreChange } = this.props;
+    const { onSearchTextChange, onSelectedGenreChange, onBookmarkedChange } = this.props;
+    const { selectedGenre, searchText, bookmarkedOnly } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="input-text" data-testid="text-input-label">
@@ -22,10 +23,11 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
           <input
             type="checkbox"
-            checked="bookmarkedOnly"
+            checked={ bookmarkedOnly }
             data-testid="checkbox-input"
-            id="input-checkbox"
+            name="bookmarkedOnly"
             onChange={ onBookmarkedChange }
+            value={ bookmarkedOnly }
           />
         </label>
         <label data-testid="select-input-label" htmlFor="id-genre">
@@ -53,4 +55,5 @@ SearchBar.propTypes = {
   searchText: Proptypes.string,
   onSearchTextChange: Proptypes.func,
   onBookmarkedChange: Proptypes.func,
+  onSelectedGenreChange: Proptypes.func,
 }.isRequired;
