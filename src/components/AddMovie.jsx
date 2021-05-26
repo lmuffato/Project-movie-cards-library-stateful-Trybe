@@ -10,13 +10,15 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     }
   }
 
   render() {
     return(
+      <form data-testid="add-movie-form">
 
+      </form>
     );
   }
 }
