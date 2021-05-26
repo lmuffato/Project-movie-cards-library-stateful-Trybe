@@ -21,7 +21,7 @@ class SearchBar extends Component {
             type="text"
             data-testid="text-input"
             value={ searchText }
-            onClick={ onSearchTextChange }
+            onChange={ onSearchTextChange }
           />
         </label>
         <label htmlFor="checkFavorites" data-testid="checkbox-input-label">

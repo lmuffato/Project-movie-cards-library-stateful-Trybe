@@ -1,31 +1,36 @@
 // implement AddMovie component here !!!estado!!!
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import movies from '../data';
-import MovieList from './MovieList';
+// import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies: props,
     };
   }
 
-  onSearchTextChange() {
-
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
-  onBookmarkedChange() {
-    bookmarkedOnly ? movies : movies.filter((movie) => movie.bookmarked);
+  onBookmarkedChange({ target }) {
+    const { name, checked } = target;
+    this.setState({ [name]: checked });
   }
 
-  onSelectedGenreChange() {
-
+  onSelectedGenreChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -34,19 +39,14 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
+
         />
-        <MovieList
-          movies={
-
-
-
-          }
-        />
+        <MovieList movies={ movies } />
       </div>
     );
   }
