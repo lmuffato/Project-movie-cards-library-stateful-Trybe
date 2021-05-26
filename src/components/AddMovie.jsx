@@ -1,4 +1,3 @@
-// implement AddMovie component here
 import React from 'react';
 import Proptypes from 'prop-types';
 
@@ -6,6 +5,7 @@ import AddInputNumber from './AddInputNumber';
 import AddSelectGenre from './AddSelectGenre';
 import AddStoryline from './AddStoryline';
 
+// Codigo feito com a colaboração de Eduardo Costa
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -23,6 +23,7 @@ class AddMovie extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // Codigo feito com a colaboração de Eduardo Costa
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({
@@ -53,6 +54,7 @@ class AddMovie extends React.Component {
             type="text"
             name="title"
             data-testid="title-input"
+            // Codigo feito com a colaboração de Eduardo Costa
             onChange={ this.handleChange }
             value={ title }
           />
@@ -61,6 +63,7 @@ class AddMovie extends React.Component {
           Subtítulo
           <input
             type="text"
+            // Codigo feito com a colaboração de Eduardo Costa
             name="subtitle"
             data-testid="subtitle-input"
             onChange={ this.handleChange }
