@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
   filtering = () => {
     const { searchText, bookmarkedOnly, movies, selectedGenre } = this.state;
     if (bookmarkedOnly) {
-      return movies.filter((movie) => movie.bookmarkedOnly === true);
+      return movies.filter((movie) => movie.bookmarked === true);
     }
 
     if (selectedGenre !== '') {
