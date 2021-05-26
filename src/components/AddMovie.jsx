@@ -23,7 +23,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const{ title, subtitle, imagePath, storyline } = this.state;
+    const{ title, subtitle, imagePath, storyline, rating } = this.state;
     return(
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">
@@ -61,7 +61,16 @@ class AddMovie extends Component {
             onChange={ this.handleStateChanges }
           />
         </label>
-        
+        <label data-testid="rating-input-label">
+          Avaliação
+          <input
+            data-testid="rating-input"
+            type="number"
+            value={ rating }
+            onChange={ this.handleStateChanges }
+          />
+        </label>
+
       </form>
     );
   }
