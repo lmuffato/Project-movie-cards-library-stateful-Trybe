@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 
-import MovieList from './MovieList';
+class MovieLibrary extends Component {
+  addMovie= () => {
+    console.log('adicionei um filme');
+  }
 
-class MovieLibrary extends React.Component {
   render() {
     const { movies } = this.props;
     return (
       <div>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
