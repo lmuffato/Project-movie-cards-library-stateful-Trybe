@@ -45,7 +45,7 @@ class InformationMovies extends Component {
   }
 }
 
-AddMovie2.propTypes = {
+InformationMovies.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.shape({
     genre: PropTypes.string.isRequired,
@@ -55,3 +55,4 @@ AddMovie2.propTypes = {
 };
 
 export default InformationMovies;
+
