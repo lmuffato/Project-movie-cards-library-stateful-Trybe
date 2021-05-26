@@ -21,7 +21,20 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  title = ({ title } = this.state) => (
+  HandleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  title = (title) => (
     <label htmlFor="title" data-testid="title-input-label">
       Título
       <input
@@ -34,7 +47,7 @@ class AddMovie extends Component {
     </label>
   );
 
-  subtitle = ({ subtitle } = this.state) => (
+  subtitle = (subtitle) => (
     <label htmlFor="subtitle" data-testid="subtitle-input-label">
       Subtítulo
       <input
@@ -47,12 +60,12 @@ class AddMovie extends Component {
     </label>
   );
 
-  thumbnailPath = ({ imagePath } = this.state) => (
-    <label htmlFor="img" data-testid="image-input-label">
+  thumbnailPath = (imagePath) => (
+    <label htmlFor="imagePath" data-testid="image-input-label">
       Imagem
       <input
-        name="img"
-        data-testid="image-input-label"
+        name="imagePath"
+        data-testid="image-input"
         type="text"
         value={ imagePath }
         onChange={ this.handleStateChanges }
@@ -60,7 +73,7 @@ class AddMovie extends Component {
     </label>
   )
 
-  sinopse = ({ storyline } = this.state) => (
+  sinopse = (storyline) => (
     <label htmlFor="storyline" data-testid="storyline-input-label">
       Sinopse
       <textarea
@@ -72,7 +85,7 @@ class AddMovie extends Component {
     </label>
   );
 
-  rating = ({ rating } = this.state) => (
+  rating = (rating) => (
     <label htmlFor="rating" data-testid="rating-input-label">
       Avaliação
       <input
@@ -85,7 +98,7 @@ class AddMovie extends Component {
     </label>
   )
 
-  genre = ({ genre } = this.state) => (
+  genre = (genre) => (
     <label htmlFor="genre" data-testid="genre-input-label">
       Gênero
       <select
@@ -102,7 +115,6 @@ class AddMovie extends Component {
   )
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -113,9 +125,9 @@ class AddMovie extends Component {
         { this.rating(rating) }
         { this.genre(genre) }
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={ () => onClick(this.state) }
+          onClick={ this.HandleClick }
         >
           Adicionar filme
         </button>

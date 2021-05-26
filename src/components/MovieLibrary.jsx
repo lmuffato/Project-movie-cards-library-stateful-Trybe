@@ -35,9 +35,9 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
-  onClick = (myState) => (
-    console.log(myState)
-  )
+  onClick = (myState) => {
+    this.setState((previousState) => ({ movies: [...previousState.movies, myState] }));
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
