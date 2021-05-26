@@ -17,15 +17,14 @@ class AddMovie extends Component {
 
   handleStateChanges({ target }) {
     const { name } = target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   render() {
-    const{ title, subtitle, imagePath, storyline, rating } = this.state;
+    const{ title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return(
       <form data-testid="add-movie-form">
+
         <label data-testid="title-input-label">
           Título
           <input
@@ -35,6 +34,7 @@ class AddMovie extends Component {
             onChange={ this.handleStateChanges }
           />
         </label>
+
         <label data-testid="subtitle-input-label">
           Subtítulo
           <input
@@ -44,6 +44,7 @@ class AddMovie extends Component {
             onChange={ this.handleStateChanges }
           />
         </label>
+
         <label data-testid="image-input-label">
           Imagem
           <input
@@ -53,6 +54,7 @@ class AddMovie extends Component {
             onChange={ this.handleStateChanges }
           />
         </label>
+
         <label data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -61,6 +63,7 @@ class AddMovie extends Component {
             onChange={ this.handleStateChanges }
           />
         </label>
+
         <label data-testid="rating-input-label">
           Avaliação
           <input
@@ -69,6 +72,19 @@ class AddMovie extends Component {
             value={ rating }
             onChange={ this.handleStateChanges }
           />
+        </label>
+
+        <label data-testid="genre-input-label">
+          Gênero
+          <select
+            data-testid="genre-input"
+            value={ genre }
+            onChange={ this.handleStateChanges }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
 
       </form>
