@@ -7,11 +7,10 @@ export default class InputStoryline extends Component {
     return (
       <label data-testid="storyline-input-label" htmlFor="sinopse">
         Sinopse:
-        <input
+        <textarea
           value={ storyline }
           name="storyline"
           data-testid="storyline-input"
-          type="textarea"
           onChange={ handleChange }
         />
       </label>

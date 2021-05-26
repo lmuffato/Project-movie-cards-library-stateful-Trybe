@@ -7,6 +7,9 @@ import AddMovie from './AddMovie';
 export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    this.onClick = this.onClick.bind(this);
+
     const { movies } = this.props;
     console.log(movies);
     this.state = {
@@ -15,6 +18,12 @@ export default class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+  }
+
+  onClick(changeMovie) {
+    const { movies } = this.props;
+    console.log('Change ', changeMovie);
+    this.setState({ movies: [...movies, changeMovie] });
   }
 
   render() {
@@ -27,7 +36,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ (changeMovie) => this.onClick(changeMovie) } />
       </>
     );
   }

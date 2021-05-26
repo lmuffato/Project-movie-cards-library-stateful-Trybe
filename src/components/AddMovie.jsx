@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InputImage from './InputImage';
 import InputName from './InputName';
 import InputStoryline from './InputStoryline';
 import InputSubtitle from './InputSubtitle';
 
 export default class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -36,8 +37,16 @@ export default class AddMovie extends Component {
 
   handlerClick(event) {
     event.preventDefault();
-    // const { onClick } = this.props;
-    console.log(onClick);
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -86,3 +95,8 @@ export default class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+//   onClick: propTypes.func.isRequired,
+};
