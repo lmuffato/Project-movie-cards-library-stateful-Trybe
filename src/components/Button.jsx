@@ -5,7 +5,7 @@ function Button(props) {
   const { addFilme } = props;
   return (
     <button
-      type="submit"
+      type="button"
       data-testid="send-button"
       onClick={ addFilme }
     >
