@@ -61,6 +61,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // Codigo feito com colaboração de Lucas Pedroso e Murilo Gonçalves
   addFilm(obj) {
     this.setState((oldState) => ({
       movies: [...oldState.movies, obj],
