@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
         name="title"
         data-testid="title-input"
         value={ title }
-        onChange={ this.setTitle }
+        onChange={ this.setMovie }
       />
     </label>
   );
@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
   );
 
   imagePath = (imagePath) => (
-    <label htmlFor="imagePath" data-testid="subtitle-input-label">
+    <label htmlFor="imagePath" data-testid="image-input-label">
       Imagem
       <input
         type="text"
@@ -93,9 +93,9 @@ class AddMovie extends React.Component {
         data-testid="genre-input"
         onChange={ this.setMovie }
       >
-        <option valor="action" data-testid="genre-option">Ação</option>
-        <option valor="comedy" data-testid="genre-option">Comédia</option>
-        <option valor="thriller" data-testid="genre-option">Suspense</option>
+        <option value="action" data-testid="genre-option">Ação</option>
+        <option value="comedy" data-testid="genre-option">Comédia</option>
+        <option value="thriller" data-testid="genre-option">Suspense</option>
 
       </select>
     </label>);
@@ -104,7 +104,7 @@ class AddMovie extends React.Component {
       <button
         type="button"
         data-testid="send-button"
-        onClick={ salvaFilme(onclick, this.state) }
+        onClick={ () => this.salvaFilme(onclick, this.state) }
       >
         Adicionar filme
       </button>
@@ -141,7 +141,7 @@ class AddMovie extends React.Component {
           { this.storyline(storyline) }
           { this.rating(rating) }
           { this.genre(genre) }
-          { this.button(onclick)}
+          { this.button(onClick, this.state)}
         </form>
       );
     }
@@ -149,6 +149,6 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.function,
-};
+}.isRequired;
 
 export default AddMovie;
