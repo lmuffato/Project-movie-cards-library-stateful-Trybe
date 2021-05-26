@@ -17,14 +17,14 @@ class SearchBar extends React.Component {
         <label data-testid="text-input-label" htmlFor="input-text">
           Inclui o texto
 
-          <input 
-          id="input-text"
-          type="text"
-          data-testid="text-input"
-          value={ searchText }
-          onChange={ onSearchTextChange }
+          <input
+            id="input-text"
+            type="text"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
           />
-        </ label>
+        </label>
 
         <label data-testid="checkbox-input-label" htmlFor="input-checkbox">
           Mostrar somente favoritos
@@ -56,5 +56,14 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
