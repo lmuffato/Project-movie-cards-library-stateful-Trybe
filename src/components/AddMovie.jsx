@@ -18,6 +18,7 @@ export default class AddMovie extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handlerClick = this.handlerClick.bind(this);
+    this.handleChangeGenre = this.handleChangeGenre.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,16 +26,23 @@ export default class AddMovie extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state);
+  }
+
+  handleChangeGenre(event) {
+    this.setState({
+      genre: event.target.value,
+    });
   }
 
   handlerClick(event) {
-    const { onClick } = event.onClick;
+    event.preventDefault();
+    // const { onClick } = this.props;
     console.log(onClick);
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    console.log(this.state);
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -47,6 +55,7 @@ export default class AddMovie extends Component {
             <input
               type="number"
               value={ rating }
+              name="rating"
               data-testid="rating-input"
               onChange={ this.handleChange }
             />
@@ -54,10 +63,11 @@ export default class AddMovie extends Component {
           <label data-testid="genre-input-label" htmlFor="genre">
             Gênero:
             <select
+              name="genre"
               value={ genre }
               data-testid="genre-input"
               id="genre"
-              onChange={ this.handleChange }
+              onChange={ this.handleChangeGenre }
             >
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>

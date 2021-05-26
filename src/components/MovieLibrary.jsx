@@ -35,4 +35,5 @@ export default class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   onClick: propTypes.func.isRequired,
 };
