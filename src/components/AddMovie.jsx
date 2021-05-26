@@ -34,6 +34,7 @@ class AddMovie extends React.Component {
     });
   }
 
+  // refatorar como função genérica(?)
   handleInputSubtitle(event) {
     this.setState({
       subtitle: event.target.value,

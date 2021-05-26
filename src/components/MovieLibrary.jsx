@@ -40,9 +40,9 @@ class MovieLibrary extends Component {
     }
 
     if (searchText !== '') {
-      return movies.filter((movie) => movie.title.includes(searchText))
-      || movies.subtitle.includes(searchText)
-      || movies.storyLine.includes(searchText);
+      return movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
     }
     return movies.filter((movie) => movie.title.includes(searchText));
   }
