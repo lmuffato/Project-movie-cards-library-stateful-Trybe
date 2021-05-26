@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class GenderInput extends Component {
   render() {
-    const { onClick, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <div>
         <label
@@ -15,7 +15,7 @@ class GenderInput extends Component {
             id="genre-input"
             data-testid="genre-input"
             name="genre"
-            value={ onClick }
+            value={ value }
             onChange={ handleChange }
           >
             <option data-testid="genre-option" value="action">Ação</option>
@@ -28,7 +28,7 @@ class GenderInput extends Component {
   }
 }
 GenderInput.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 export default GenderInput;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AvaliatorInput extends Component {
   render() {
-    const { onClick, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <div>
         <label
@@ -15,7 +15,8 @@ class AvaliatorInput extends Component {
             id="rating"
             data-testid="rating-input"
             type="number"
-            value={ onClick }
+            value={ value }
+            name="rating"
             onChange={ handleChange }
           />
         </label>
@@ -24,7 +25,7 @@ class AvaliatorInput extends Component {
   }
 }
 AvaliatorInput.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

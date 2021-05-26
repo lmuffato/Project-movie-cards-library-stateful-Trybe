@@ -43,32 +43,32 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <TitleInput
-          onClick={ title }
+          value={ title }
           name="title"
           handleChange={ this.handleChange }
         />
         <SubtitleInput
-          onClick={ subtitle }
+          value={ subtitle }
           name="subtitle"
           handleChange={ this.handleChange }
         />
         <ImageInput
-          onClick={ imagePath }
+          value={ imagePath }
           name="imagePath"
           handleChange={ this.handleChange }
         />
         <SynopsisInput
-          onClick={ storyline }
+          value={ storyline }
           name="storyline"
           handleChange={ this.handleChange }
         />
         <AvaliatorInput
-          onClick={ rating }
+          value={ rating }
           name="rating"
           handleChange={ this.handleChange }
         />
         <GenderInput
-          onClick={ genre }
+          value={ genre }
           name="genre"
           handleChange={ this.handleChange }
         />

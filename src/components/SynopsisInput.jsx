@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SynopsisInput extends Component {
   render() {
-    const { onClick, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <div>
         <label
@@ -15,7 +15,7 @@ class SynopsisInput extends Component {
             id="storyline-input"
             data-testid="storyline-input"
             name="storyline"
-            value={ onClick }
+            value={ value }
             onChange={ handleChange }
           />
         </label>
@@ -24,7 +24,7 @@ class SynopsisInput extends Component {
   }
 }
 SynopsisInput.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 export default SynopsisInput;

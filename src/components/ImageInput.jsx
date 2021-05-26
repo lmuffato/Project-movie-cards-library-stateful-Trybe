@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class ImageInput extends Component {
   render() {
-    const { onClick, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <div>
         <label
@@ -13,10 +13,10 @@ class ImageInput extends Component {
           Imagem
           <input
             id="imagem-form"
-            data-testid="subtitle-input"
+            data-testid="image-input"
             type="text"
             name="imagePath"
-            value={ onClick }
+            value={ value }
             onChange={ handleChange }
           />
         </label>
@@ -25,7 +25,7 @@ class ImageInput extends Component {
   }
 }
 ImageInput.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  value: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 export default ImageInput;
