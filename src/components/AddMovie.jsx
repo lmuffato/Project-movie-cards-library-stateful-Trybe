@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
   }
 
   title = (title) => (
-    <label data-testid="title-input-label">
+    <label data-testid="title-input-label" htmlFor="title-input">
       Título
       <input
         name="title"
@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
   );
 
   subtitle = (subtitle) => (
-    <label data-testid="subtitle-input-label">
+    <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
       Subtítulo
       <input
         name="subtitle"
@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
   );
 
   image = (imagePath) => (
-    <label data-testid="image-input-label">
+    <label data-testid="image-input-label" htmlFor="image-input">
       Imagem
       <input
         name="imagePath"
@@ -71,7 +71,7 @@ class AddMovie extends React.Component {
   )
 
   storyline = (storyline) => (
-    <label data-testid="storyline-input-label">
+    <label data-testid="storyline-input-label" htmlFor="storyline-input">
       Sinopse
       <textarea
         type="text"
@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
   )
 
   rating = (rating) => (
-    <label data-testid="rating-input-label">
+    <label data-testid="rating-input-label" htmlFor="rating-input">
       Avaliação
       <input
         name="rating"
@@ -97,7 +97,7 @@ class AddMovie extends React.Component {
   )
 
   genre = (genre) => (
-    <label data-testid="genre-input-label">
+    <label data-testid="genre-input-label" htmlFor="genre-input">
       Gênero
       <select
         data-testid="genre-input"
@@ -147,7 +147,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-    onClick: PropTypes.func,
+  onClick: PropTypes.func,
 }.isRequired;
 
 export default AddMovie;
