@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: '',
+      bookmarked: false,
     };
 
     this.handleChange = this.handleChange.bind(this);

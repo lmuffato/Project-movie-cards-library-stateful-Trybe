@@ -9,11 +9,10 @@ class SearchBar extends React.Component {
       onSearchTextChange,
       onSelectedGenreChange,
       onBookmarkedChange,
-      filterFilms,
     } = this.props;
     const { selectedGenre, searchText, bookmarkedOnly } = this.props;
     return (
-      <form data-testid="search-bar-form" onSubmit={ filterFilms }>
+      <form data-testid="search-bar-form">
         <label htmlFor="input-text" data-testid="text-input-label">
           Inclui o texto:
           <input
