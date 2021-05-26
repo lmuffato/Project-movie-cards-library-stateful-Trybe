@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 class AddMovie extends Component {
   constructor() {
     super();
+    this.handleStateChanges = this.handleStateChanges.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -22,7 +23,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const{ title, subtitle, imagePath } = this.state;
+    const{ title, subtitle, imagePath, storyline } = this.state;
     return(
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">
@@ -52,6 +53,15 @@ class AddMovie extends Component {
             onChange={ this.handleStateChanges }
           />
         </label>
+        <label data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            data-testid="storyline-input"
+            value={ storyline }
+            onChange={ this.handleStateChanges }
+          />
+        </label>
+        
       </form>
     );
   }
