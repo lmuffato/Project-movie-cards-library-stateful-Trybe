@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import InformationMovies from './InformationMovies';
+
 class AddMovie extends Component {
   constructor() {
     super();
@@ -41,7 +43,6 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { value: { storyline, rating, genre }, onChange } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -74,41 +75,11 @@ class AddMovie extends Component {
           />
         </label>
 
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            onChange={ onChange }
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            onChange={ onChange }
-            data-testid="rating-input"
-          />
-        </label>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            value={ genre }
-            onChange={ onChange }
-            data-testid="genre-input"
-          >
-            <optgroup>
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
-            </optgroup>
-          </select>
-        </label>
-      
+        <InformationMovies
+          value={ { storyline, rating, genre } }
+          onChange={ this.handleInputChange }
+        />
+
         <button
           data-testid="send-button"
           type="button"
@@ -123,12 +94,6 @@ class AddMovie extends Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.shape({
-    genre: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default AddMovie;
