@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      genre: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,17 +30,15 @@ class AddMovie extends React.Component {
   }
 
   handleClick() {
-    // Solucao inspirada no codigo do Edmilson
     const { onClick } = this.props;
     onClick(this.state);
-
     this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      genre: '',
     });
   }
 

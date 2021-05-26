@@ -5,10 +5,15 @@ import Proptypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { onSearchTextChange, onSelectedGenreChange, onBookmarkedChange } = this.props;
+    const {
+      onSearchTextChange,
+      onSelectedGenreChange,
+      onBookmarkedChange,
+      filterFilms,
+    } = this.props;
     const { selectedGenre, searchText, bookmarkedOnly } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" onSubmit={ filterFilms }>
         <label htmlFor="input-text" data-testid="text-input-label">
           Inclui o texto:
           <input
