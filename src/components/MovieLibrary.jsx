@@ -1,5 +1,7 @@
 // implement AddMovie component here !!!estado!!!
 import React, { Component } from 'react';
+import movies from '../data';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
@@ -9,21 +11,21 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: movies,
     };
   }
 
-onSearchTextChange() {
+  onSearchTextChange() {
 
-}
+  }
 
-onBookmarkedChange() {
+  onBookmarkedChange() {
 
-}
+  }
 
-onSelectedGenreChange() {
+  onSelectedGenreChange() {
 
-}
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -36,6 +38,13 @@ onSelectedGenreChange() {
           onSelectedGenreChange={ this.onSelectedGenreChange }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+        />
+        <MovieList
+          movies={
+            bookmarkedOnly ? movies : movies.filter((movie) => movie.bookmarked)
+            selectedGenre ? movies : movies.filter((movie) => movie.bookmarked)
+
+          }
         />
       </div>
     );
