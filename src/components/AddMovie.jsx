@@ -17,7 +17,7 @@ class AddMovie extends Component {
   }
 
   handleStateChanges({ target }) {
-    const { name } = target;
+    const { name, value } = target;
     this.setState({ [name]: value });
   }
 
@@ -61,10 +61,10 @@ class AddMovie extends Component {
   )
 
   sinopse = ({ storyline } = this.state) => (
-    <label htmlFor="sinopse" data-testid="storyline-input-label">
+    <label htmlFor="storyline" data-testid="storyline-input-label">
       Sinopse
       <textarea
-        name="sinopse"
+        name="storyline"
         data-testid="storyline-input"
         value={ storyline }
         onChange={ this.handleStateChanges }
@@ -115,7 +115,7 @@ class AddMovie extends Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ onClick(this.state) }
+          onClick={ () => onClick(this.state) }
         >
           Adicionar filme
         </button>
