@@ -8,11 +8,11 @@ class AvaliatorInput extends Component {
       <div>
         <label
           data-testid="rating-input-label"
-          htmlFor="rating"
+          htmlFor="rating-form"
         >
           Avaliação
           <input
-            id="rating"
+            id="rating-form"
             data-testid="rating-input"
             type="number"
             value={ value }
@@ -25,8 +25,8 @@ class AvaliatorInput extends Component {
   }
 }
 AvaliatorInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  handleChange: PropTypes.func,
+  value: PropTypes.string,
+}.isRequired;
 
 export default AvaliatorInput;

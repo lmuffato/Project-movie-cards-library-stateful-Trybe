@@ -24,7 +24,8 @@ class SynopsisInput extends Component {
   }
 }
 SynopsisInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default SynopsisInput;

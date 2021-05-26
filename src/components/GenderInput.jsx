@@ -28,7 +28,8 @@ class GenderInput extends Component {
   }
 }
 GenderInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default GenderInput;

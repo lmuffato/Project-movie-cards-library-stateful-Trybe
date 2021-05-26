@@ -25,7 +25,8 @@ class SubtitleInput extends Component {
   }
 }
 SubtitleInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default SubtitleInput;

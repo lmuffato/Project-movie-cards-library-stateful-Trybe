@@ -28,6 +28,7 @@ class AddMovie extends Component {
   }
 
   handleReset = () => {
+    console.log(this.state);
     this.setState({
       subtitle: '',
       title: '',

@@ -25,7 +25,8 @@ class ImageInput extends Component {
   }
 }
 ImageInput.propTypes = {
-  value: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  value: PropTypes.func,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default ImageInput;

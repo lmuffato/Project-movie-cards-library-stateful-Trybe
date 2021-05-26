@@ -25,7 +25,8 @@ class TitleInput extends Component {
   }
 }
 TitleInput.propTypes = {
-  value: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};
+  value: PropTypes.func,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default TitleInput;

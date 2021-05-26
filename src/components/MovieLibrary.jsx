@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
   addMovie= () => {
-    console.log('adicionei um filme');
+    console.log('Filme: ');
   }
 
   render() {

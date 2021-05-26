@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ButtonAddMovie extends React.Component {
+class ButtonAddMovie extends Component {
   render() {
     const { onClick } = this.props;
     return (
