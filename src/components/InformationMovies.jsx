@@ -55,4 +55,3 @@ InformationMovies.propTypes = {
 };
 
 export default InformationMovies;
-
