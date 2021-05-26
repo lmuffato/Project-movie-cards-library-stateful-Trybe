@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
+/* Este componente e tudo relacionado a ele, foi realizado junto com a colega Nathalia Zebral que dedicou de seu tempo para auxiliar na construção do conhecimento para realização deste. segue o pull request da colega... https://github.com/tryber/sd-010-a-project-movie-cards-library-stateful/pull/23 */
+
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
