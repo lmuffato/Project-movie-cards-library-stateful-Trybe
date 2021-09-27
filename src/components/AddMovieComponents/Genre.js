@@ -6,7 +6,8 @@ class Genre extends React.Component {
     const { genre, handleChange } = this.props;
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
-        Gênero <br />
+        Gênero
+        <br />
         <select
           name="genre"
           value={ genre }
