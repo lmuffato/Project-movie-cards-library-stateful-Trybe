@@ -6,7 +6,7 @@ class Rating extends React.Component {
     const { rating, handleChange } = this.props;
     return (
       <label htmlFor="rating" data-testid="rating-input-label">
-        Avaliação
+        Digite a avaliação IMDB:
         <input
           type="number"
           value={ rating }

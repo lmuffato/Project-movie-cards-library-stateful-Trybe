@@ -6,7 +6,6 @@ class Title extends React.Component {
     const { title, handleChange } = this.props;
     return (
       <label htmlFor="title" data-testid="title-input-label">
-        Título
         <input
           type="text"
           value={ title }
@@ -14,6 +13,7 @@ class Title extends React.Component {
           name="title"
           onChange={ handleChange }
           className="text-input-addMovie"
+          placeholder="Insira o título"
         />
       </label>
     );

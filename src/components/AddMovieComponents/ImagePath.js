@@ -6,7 +6,6 @@ class ImagePath extends React.Component {
     const { imagePath, handleChange } = this.props;
     return (
       <label htmlFor="imagePath" data-testid="image-input-label">
-        Imagem
         <input
           type="text"
           value={ imagePath }
@@ -14,6 +13,7 @@ class ImagePath extends React.Component {
           data-testid="image-input"
           onChange={ handleChange }
           className="text-input-addMovie"
+          placeholder="URL da imagem do seu filme"
         />
       </label>
     );

@@ -29,7 +29,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleMovieState = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
@@ -48,16 +48,18 @@ class AddMovie extends React.Component {
     // https://www.youtube.com/watch?v=5_PdMS9CLLI
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" className="form-addMovie">
-        <h4>Adicione um novo filme ao Movie Card!</h4>
-        <Title title={ title } handleChange={ this.handleChange } />
-        <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
-        <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
-        <Storyline storyline={ storyline } handleChange={ this.handleChange } />
-        <Rating rating={ rating } handleChange={ this.handleChange } />
-        <Genre genre={ genre } handleChange={ this.handleChange } />
-        <Button handleMovieState={ this.handleMovieState } />
-      </form>
+      <div className="addMovie-div">
+        <form data-testid="add-movie-form" className="form-addMovie">
+          <h4>Adicione um novo filme ao Movie Card!</h4>
+          <Title title={ title } handleChange={ this.handleChange } />
+          <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
+          <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
+          <Storyline storyline={ storyline } handleChange={ this.handleChange } />
+          <Rating rating={ rating } handleChange={ this.handleChange } />
+          <Genre genre={ genre } handleChange={ this.handleSubmit } />
+          <Button handleMovieState={ this.handleMovieState } />
+        </form>
+      </div>
     );
   }
 }

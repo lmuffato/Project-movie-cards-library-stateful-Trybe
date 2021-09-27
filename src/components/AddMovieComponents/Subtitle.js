@@ -6,7 +6,6 @@ class Subtitle extends React.Component {
     const { subtitle, handleChange } = this.props;
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
-        Subtítulo
         <input
           type="text"
           value={ subtitle }
@@ -14,6 +13,7 @@ class Subtitle extends React.Component {
           name="subtitle"
           onChange={ handleChange }
           className="text-input-addMovie"
+          placeholder="Insira o subtítulo"
         />
       </label>
     );
